@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Создано Microsoft Visio, экспорт SVG DiagrammaPretsedentovProektJAVA.svg Page-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="16.0354in" height="11.6929in"
+		viewBox="0 0 1154.55 841.89" xml:space="preserve" color-interpolation-filters="sRGB" class="st9">
+	<v:documentProperties v:langID="1049" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff}
+		.st2 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.48}
+		.st3 {fill:#000000;font-family:Times New Roman;font-size:1.16666em}
+		.st4 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st5 {font-size:1em}
+		.st6 {marker-end:url(#mrkr4-82);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.239976}
+		.st7 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.086948582161584}
+		.st8 {fill:#000000;font-family:Times New Roman;font-size:1.00001em}
+		.st9 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-82" class="st7" v:arrowType="4" v:arrowSize="2" v:setback="23.0021" refX="-23.002100210021" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-11.501050105011,-11.501050105011) "/>
+		</marker>
+	</defs>
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>Страница-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="Соединительная линия" v:index="0"/>
+		<g id="shape3-1" v:mID="3" v:groupContext="shape" transform="translate(499.89,-405.318)">
+			<title>Пользователь</title>
+			<desc>Заказчик</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления пользователя системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="11.4034" cy="854.291" width="64.62" height="24.8035"/>
+			<path d="M5.7 784.87 A5.7017 5.7017 0 0 1 17.11 784.87 A5.7017 5.7017 0 1 1 5.7 784.87 Z" class="st1"/>
+			<path d="M0 796.28 L22.81 796.28" class="st2"/>
+			<path d="M11.4 819.08 L22.81 841.89" class="st2"/>
+			<path d="M11.4 790.57 L11.4 819.08 L0 841.89" class="st2"/>
+			<path d="M5.7 784.87 A5.7017 5.7017 0 0 1 17.11 784.87 A5.7017 5.7017 0 1 1 5.7 784.87" class="st2"/>
+			<text x="-15.15" y="858.49" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Заказчик</text>		</g>
+		<g id="shape4-8" v:mID="4" v:groupContext="shape" transform="translate(580.122,-405.318)">
+			<title>Пользователь.4</title>
+			<desc>Писатель</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления пользователя системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="11.4034" cy="854.291" width="67.24" height="24.8035"/>
+			<path d="M5.7 784.87 A5.7017 5.7017 0 0 1 17.11 784.87 A5.7017 5.7017 0 1 1 5.7 784.87 Z" class="st1"/>
+			<path d="M0 796.28 L22.81 796.28" class="st2"/>
+			<path d="M11.4 819.08 L22.81 841.89" class="st2"/>
+			<path d="M11.4 790.57 L11.4 819.08 L0 841.89" class="st2"/>
+			<path d="M5.7 784.87 A5.7017 5.7017 0 0 1 17.11 784.87 A5.7017 5.7017 0 1 1 5.7 784.87" class="st2"/>
+			<text x="-16.46" y="858.49" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Писатель</text>		</g>
+		<g id="shape19-15" v:mID="19" v:groupContext="shape" transform="translate(269.291,-740.588)">
+			<title>Объект</title>
+			<desc>Просмотреть список писателей</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="21.51" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Просмотреть <tspan
+						x="7.95" dy="1.2em" class="st5">список писателей</tspan></text>		</g>
+		<g id="shape20-19" v:mID="20" v:groupContext="shape" transform="translate(158.598,-372.331)">
+			<title>Объект.20</title>
+			<desc>Подтвердить выполнение заказа</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="21.87" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Подтвердить <tspan
+						x="4.32" dy="1.2em" class="st5">выполнение заказа</tspan></text>		</g>
+		<g id="shape21-23" v:mID="21" v:groupContext="shape" transform="translate(158.598,-287.291)">
+			<title>Объект.21</title>
+			<desc>Оплатить заказ</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="15.17" y="806.83" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Оплатить заказ</text>		</g>
+		<g id="shape22-26" v:mID="22" v:groupContext="shape" transform="translate(158.598,-202.252)">
+			<title>Объект.22</title>
+			<desc>Удалить заявку</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="14.36" y="806.83" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Удалить заявку</text>		</g>
+		<g id="shape23-29" v:mID="23" v:groupContext="shape" transform="translate(158.598,-117.213)">
+			<title>Объект.23</title>
+			<desc>Редактировать заявку</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="16.98" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Редактировать <tspan
+						x="41.22" dy="1.2em" class="st5">заявку</tspan></text>		</g>
+		<g id="shape24-33" v:mID="24" v:groupContext="shape" transform="translate(271.984,-68.1732)">
+			<title>Объект.24</title>
+			<desc>Оставить заявку</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="11.84" y="806.83" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Оставить заявку</text>		</g>
+		<g id="shape25-36" v:mID="25" v:groupContext="shape" transform="translate(739.701,-476.431)">
+			<title>Объект.25</title>
+			<desc>Редактировать профиль</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="16.98" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Редактировать <tspan
+						x="34.81" dy="1.2em" class="st5">профиль</tspan></text>		</g>
+		<g id="shape27-40" v:mID="27" v:groupContext="shape" transform="translate(694.488,-117.213)">
+			<title>Объект.27</title>
+			<desc>Удалить работу</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="13.43" y="806.83" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Удалить работу</text>		</g>
+		<g id="shape28-43" v:mID="28" v:groupContext="shape" transform="translate(644.315,-32.1732)">
+			<title>Объект.28</title>
+			<desc>Отправить заказ</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="11.86" y="806.83" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Отправить заказ</text>		</g>
+		<g id="shape29-46" v:mID="29" v:groupContext="shape" transform="translate(739.701,-652.535)">
+			<title>Объект.29</title>
+			<desc>Прочитать сообщение</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="28.78" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Прочитать <tspan
+						x="27.76" dy="1.2em" class="st5">сообщение</tspan></text>		</g>
+		<g id="shape30-50" v:mID="30" v:groupContext="shape" transform="translate(379.417,-471.543)">
+			<title>Объект.30</title>
+			<desc>Оценить работу</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="12.89" y="806.83" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Оценить работу</text>		</g>
+		<g id="shape31-53" v:mID="31" v:groupContext="shape" transform="translate(739.701,-564.483)">
+			<title>Объект.31</title>
+			<desc>Написать сообщение</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="32.4" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Написать <tspan
+						x="27.76" dy="1.2em" class="st5">сообщение</tspan></text>		</g>
+		<g id="shape32-57" v:mID="32" v:groupContext="shape" transform="translate(386.929,-32.1732)">
+			<title>Объект.32</title>
+			<desc>Просмотреть список заявок</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="21.51" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Просмотреть <tspan
+						x="18.87" dy="1.2em" class="st5">список заявок</tspan></text>		</g>
+		<g id="shape33-61" v:mID="33" v:groupContext="shape" transform="translate(237.118,-471.543)">
+			<title>Объект.33</title>
+			<desc>Написать комментарий к работе</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="32.4" y="790.03" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Написать <tspan
+						x="15.6" dy="1.2em" class="st5">комментарий к </tspan><tspan x="40.69" dy="1.2em" class="st5">работе</tspan></text>		</g>
+		<g id="shape35-66" v:mID="35" v:groupContext="shape" transform="translate(515.622,-18)">
+			<title>Объект.35</title>
+			<desc>Принять заявку</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="13.95" y="806.83" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Принять заявку</text>		</g>
+		<g id="shape36-69" v:mID="36" v:groupContext="shape" transform="translate(269.291,-572.384)">
+			<title>Объект.36</title>
+			<desc>Просмотреть работы писателя</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="21.51" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Просмотреть <tspan
+						x="10.75" dy="1.2em" class="st5">работы писателя</tspan></text>		</g>
+		<g id="shape37-73" v:mID="37" v:groupContext="shape" transform="translate(871.087,-287.291)">
+			<title>Объект.37</title>
+			<desc>Выложить работу в черновик</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="7.34" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Выложить работу <tspan
+						x="27.64" dy="1.2em" class="st5">в черновик</tspan></text>		</g>
+		<g id="shape38-77" v:mID="38" v:groupContext="shape" v:layerMember="0" transform="translate(562.365,-294.293)">
+			<title>Линия связи</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L-49.11 867.51" class="st6"/>
+		</g>
+		<g id="shape52-83" v:mID="52" v:groupContext="shape" v:layerMember="0" transform="translate(624.195,-280.809)">
+			<title>Линия связи.52</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L63.99 1008.03" class="st6"/>
+		</g>
+		<g id="shape57-88" v:mID="57" v:groupContext="shape" v:layerMember="0" transform="translate(602.929,-450.931)">
+			<title>Линия связи.57</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L73.64 863.49" class="st6"/>
+		</g>
+		<g id="shape60-93" v:mID="60" v:groupContext="shape" transform="translate(871.087,-372.335)">
+			<title>Объект.60</title>
+			<desc>Удалить работу из черновика</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="5.17" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Удалить работу из <tspan
+						x="29.59" dy="1.2em" class="st5">черновика</tspan></text>		</g>
+		<g id="shape62-97" v:mID="62" v:groupContext="shape" transform="translate(871.087,-202.252)">
+			<title>Объект.62</title>
+			<desc>Редактировать работу в черновике</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="16.98" y="790.03" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Редактировать <tspan
+						x="35.24" dy="1.2em" class="st5">работу в </tspan><tspan x="29.59" dy="1.2em" class="st5">черновике</tspan></text>		</g>
+		<g id="shape67-102" v:mID="67" v:groupContext="shape" v:layerMember="0" transform="translate(541.843,-671.596)">
+			<title>Линия связи.67</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M7.09 841.89 L7.09 872.58" class="st6"/>
+		</g>
+		<g id="shape69-107" v:mID="69" v:groupContext="shape" transform="translate(597.402,-684.142)">
+			<title>Объект.69</title>
+			<desc>Авторизация в системе</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="22.97" y="799.03" class="st8" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Авторизация в <tspan
+						x="40.24" dy="1.2em" class="st5">системе</tspan></text>		</g>
+		<g id="shape70-111" v:mID="70" v:groupContext="shape" v:layerMember="0" transform="translate(560.333,-711.308)">
+			<title>Линия связи.70</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 835.99 L31.85 833.97" class="st6"/>
+		</g>
+		<g id="shape71-116" v:mID="71" v:groupContext="shape" v:layerMember="0" transform="translate(537.526,-717.21)">
+			<title>Линия связи.71</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L-142.51 857.09" class="st6"/>
+		</g>
+		<g id="shape72-121" v:mID="72" v:groupContext="shape" transform="translate(537.526,-671.596)">
+			<title>Пользователь.72</title>
+			<desc>Гость</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления пользователя системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="11.4034" cy="854.291" width="45.32" height="24.8035"/>
+			<path d="M5.7 784.87 A5.7017 5.7017 0 0 1 17.11 784.87 A5.7017 5.7017 0 1 1 5.7 784.87 Z" class="st1"/>
+			<path d="M0 796.28 L22.81 796.28" class="st2"/>
+			<path d="M11.4 819.08 L22.81 841.89" class="st2"/>
+			<path d="M11.4 790.57 L11.4 819.08 L0 841.89" class="st2"/>
+			<path d="M5.7 784.87 A5.7017 5.7017 0 0 1 17.11 784.87 A5.7017 5.7017 0 1 1 5.7 784.87" class="st2"/>
+			<text x="-5.5" y="858.49" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Гость</text>		</g>
+		<g id="shape73-128" v:mID="73" v:groupContext="shape" transform="translate(269.291,-655.795)">
+			<title>Объект.73</title>
+			<desc>Создание учетной записи</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="6.39" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Создание учетной <tspan
+						x="40.3" dy="1.2em" class="st5">записи</tspan></text>		</g>
+		<g id="shape74-132" v:mID="74" v:groupContext="shape" transform="translate(537.526,-572.384)">
+			<title>Пользователь.74</title>
+			<desc>Авторизированный пользователь</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления пользователя системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="11.4034" cy="862.691" width="127.57" height="41.6033"/>
+			<path d="M5.7 784.87 A5.7017 5.7017 0 0 1 17.11 784.87 A5.7017 5.7017 0 1 1 5.7 784.87 Z" class="st1"/>
+			<path d="M0 796.28 L22.81 796.28" class="st2"/>
+			<path d="M11.4 819.08 L22.81 841.89" class="st2"/>
+			<path d="M11.4 790.57 L11.4 819.08 L0 841.89" class="st2"/>
+			<path d="M5.7 784.87 A5.7017 5.7017 0 0 1 17.11 784.87 A5.7017 5.7017 0 1 1 5.7 784.87" class="st2"/>
+			<text x="-46.63" y="858.49" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Авторизированный<v:newlineChar/><tspan
+						x="-28.06" dy="1.2em" class="st5">пользователь</tspan></text>		</g>
+		<g id="shape76-140" v:mID="76" v:groupContext="shape" transform="translate(597.402,-564.483)">
+			<title>Объект.76</title>
+			<desc>Взаимодействие с пользователями</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="11.56" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Взаимодействие<v:newlineChar/><tspan
+						x="8" dy="1.2em" class="st5">с пользователями</tspan></text>		</g>
+		<g id="shape78-144" v:mID="78" v:groupContext="shape" v:layerMember="0" transform="translate(560.333,-622.269)">
+			<title>Линия связи.78</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 846.16 L33.09 850.99" class="st6"/>
+		</g>
+		<g id="shape79-149" v:mID="79" v:groupContext="shape" v:layerMember="0" transform="translate(537.526,-717.21)">
+			<title>Линия связи.79</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L-155.15 920.74" class="st6"/>
+		</g>
+		<g id="shape80-154" v:mID="80" v:groupContext="shape" v:layerMember="0" transform="translate(537.526,-717.21)">
+			<title>Линия связи.80</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L-147.55 797.4" class="st6"/>
+		</g>
+		<g id="shape81-159" v:mID="81" v:groupContext="shape" v:layerMember="0" transform="translate(537.526,-617.997)">
+			<title>Линия связи.81</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L-185.01 924.56" class="st6"/>
+		</g>
+		<g id="shape82-164" v:mID="82" v:groupContext="shape" v:layerMember="0" transform="translate(537.526,-617.997)">
+			<title>Линия связи.82</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L-63.1 911.2" class="st6"/>
+		</g>
+		<g id="shape83-169" v:mID="83" v:groupContext="shape" v:layerMember="0" transform="translate(701.713,-630.841)">
+			<title>Линия связи.83</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L50.02 810.94" class="st6"/>
+		</g>
+		<g id="shape84-174" v:mID="84" v:groupContext="shape" v:layerMember="0" transform="translate(718.441,-596.656)">
+			<title>Линия связи.84</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 834.8 L15.74 834.8" class="st6"/>
+		</g>
+		<g id="shape85-179" v:mID="85" v:groupContext="shape" v:layerMember="0" transform="translate(701.713,-576.645)">
+			<title>Линия связи.85</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L50.02 872.84" class="st6"/>
+		</g>
+		<g id="shape86-184" v:mID="86" v:groupContext="shape" v:layerMember="0" transform="translate(548.929,-572.384)">
+			<title>Линия связи.86</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L-35.76 940.76" class="st6"/>
+		</g>
+		<g id="shape87-189" v:mID="87" v:groupContext="shape" v:layerMember="0" transform="translate(548.929,-572.384)">
+			<title>Линия связи.87</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L40.51 940.85" class="st6"/>
+		</g>
+		<g id="shape88-194" v:mID="88" v:groupContext="shape" v:layerMember="0" transform="translate(797.528,-404.508)">
+			<title>Линия связи.88</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 834.8 L68.04 834.8" class="st6"/>
+		</g>
+		<g id="shape89-199" v:mID="89" v:groupContext="shape" transform="translate(676.488,-372.335)">
+			<title>Объект.89</title>
+			<desc>Взаимодействие с черновиком</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="6.71" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Взаимодействие с <tspan
+						x="24.76" dy="1.2em" class="st5">черновиком</tspan></text>		</g>
+		<g id="shape90-203" v:mID="90" v:groupContext="shape" transform="translate(549.006,-279.638)">
+			<title>Объект.90</title>
+			<desc>Взаимодействие с заказом</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="6.71" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Взаимодействие с <tspan
+						x="37.45" dy="1.2em" class="st5">заказом</tspan></text>		</g>
+		<g id="shape91-207" v:mID="91" v:groupContext="shape" transform="translate(676.488,-279.638)">
+			<title>Объект.91</title>
+			<desc>Взаимодействие с работами</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="6.71" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Взаимодействие с <tspan
+						x="32.51" dy="1.2em" class="st5">работами </tspan> </text>		</g>
+		<g id="shape92-211" v:mID="92" v:groupContext="shape" v:layerMember="0" transform="translate(602.929,-450.931)">
+			<title>Линия связи.92</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L96.85 937.27" class="st6"/>
+		</g>
+		<g id="shape93-216" v:mID="93" v:groupContext="shape" v:layerMember="0" transform="translate(589.387,-405.318)">
+			<title>Линия связи.93</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M2.14 841.89 L10.91 884" class="st6"/>
+		</g>
+		<g id="shape94-221" v:mID="94" v:groupContext="shape" v:layerMember="0" transform="translate(499.89,-450.931)">
+			<title>Линия связи.94</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L-63.05 926.5" class="st6"/>
+		</g>
+		<g id="shape95-226" v:mID="95" v:groupContext="shape" v:layerMember="0" transform="translate(787.2,-389.66)">
+			<title>Линия связи.95</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L89.16 880.85" class="st6"/>
+		</g>
+		<g id="shape96-231" v:mID="96" v:groupContext="shape" v:layerMember="0" transform="translate(773.077,-380.07)">
+			<title>Линия связи.96</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L118.3 945.29" class="st6"/>
+		</g>
+		<g id="shape98-236" v:mID="98" v:groupContext="shape" v:layerMember="0" transform="translate(738.921,-279.739)">
+			<title>Линия связи.98</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M2.43 841.89 L11.14 920.51" class="st6"/>
+		</g>
+		<g id="shape99-241" v:mID="99" v:groupContext="shape" v:layerMember="0" transform="translate(585.86,-282.764)">
+			<title>Линия связи.99</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L-111.72 1012.47" class="st6"/>
+		</g>
+		<g id="shape100-246" v:mID="100" v:groupContext="shape" v:layerMember="0" transform="translate(604.533,-279.772)">
+			<title>Линия связи.100</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L-22.7 1019.8" class="st6"/>
+		</g>
+		<g id="shape103-251" v:mID="103" v:groupContext="shape" transform="translate(346.677,-287.291)">
+			<title>Объект.103</title>
+			<desc>Взаимодействие с заказом</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="6.71" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Взаимодействие с <tspan
+						x="37.45" dy="1.2em" class="st5">заказом</tspan></text>		</g>
+		<g id="shape104-255" v:mID="104" v:groupContext="shape" transform="translate(400.677,-202.252)">
+			<title>Объект.104</title>
+			<desc>Поиск по заявкам</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="7.63" y="806.83" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Поиск по заявкам</text>		</g>
+		<g id="shape105-258" v:mID="105" v:groupContext="shape" v:layerMember="0" transform="translate(346.677,-319.465)">
+			<title>Линия связи.105</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 834.8 L-61.52 834.8" class="st6"/>
+		</g>
+		<g id="shape106-263" v:mID="106" v:groupContext="shape" v:layerMember="0" transform="translate(357.547,-304.102)">
+			<title>Линия связи.106</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L-83.75 879.76" class="st6"/>
+		</g>
+		<g id="shape107-268" v:mID="107" v:groupContext="shape" v:layerMember="0" transform="translate(371.92,-294.651)">
+			<title>Линия связи.107</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L-113.43 944.47" class="st6"/>
+		</g>
+		<g id="shape108-273" v:mID="108" v:groupContext="shape" v:layerMember="0" transform="translate(394.13,-288.217)">
+			<title>Линия связи.108</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L-46.78 979.12" class="st6"/>
+		</g>
+		<g id="shape109-278" v:mID="109" v:groupContext="shape" v:layerMember="0" transform="translate(357.547,-349)">
+			<title>Линия связи.109</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L-83.75 804.02" class="st6"/>
+		</g>
+		<g id="shape121-283" v:mID="121" v:groupContext="shape" transform="translate(807.874,-46.3465)">
+			<title>Объект.121</title>
+			<desc>Выложить работу в профиль</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="7.34" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Выложить работу <tspan
+						x="29.75" dy="1.2em" class="st5">в профиль</tspan></text>		</g>
+		<g id="shape122-287" v:mID="122" v:groupContext="shape" v:layerMember="0" transform="translate(757.776,-282.022)">
+			<title>Линия связи.122</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L87.14 996.62" class="st6"/>
+		</g>
+		<g id="shape123-292" v:mID="123" v:groupContext="shape" transform="translate(899.433,-106.299)">
+			<title>Объект.123</title>
+			<desc>Редактировать работу</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для добавления объекта системы в схему системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="60.5197" cy="802.63" width="121.04" height="78.5197"/>
+			<ellipse cx="60.5197" cy="802.63" rx="60.5197" ry="39.2598" class="st4"/>
+			<text x="16.98" y="798.43" class="st3" v:langID="1049"><v:paragraph v:horizAlign="1"/><v:tabList/>Редактировать <tspan
+						x="40.29" dy="1.2em" class="st5">работу</tspan></text>		</g>
+		<g id="shape124-296" v:mID="124" v:groupContext="shape" v:layerMember="0" transform="translate(775.78,-288.753)">
+			<title>Линия связи.124</title>
+			<v:userDefs>
+				<v:ud v:nameU="visDescription" v:val="VT4(Используйте для обозначения линии связи на схеме системы.)"/>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M0 841.89 L141.04 951.55" class="st6"/>
+		</g>
+	</g>
+</svg>
