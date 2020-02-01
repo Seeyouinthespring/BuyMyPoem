@@ -133,3 +133,21 @@ td{
 	margin-right: 15px;
 }
 
+.button_sign{
+	background: #000000;
+	color: #FFFFFF;
+	position: absolute;
+	right: 25px;
+	height: 30px; 
+	width:  170px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	outline: 4px solid #000000;
+	border: 2px solid #ffffff;
+}
+
+.div_sign{
+	background: #FF8FFF;
+	position: absolute;
+	right: 0;
+}
