@@ -124,10 +124,12 @@ td{
 .table_p{
 	width: 500%;
 	background: #FFFFFF;
+	border-spacing: 0px 0px;
 }
 
 .smal_button{
 	height: 40px;
-	width: 20%;
-	margin-right: 10px;
+	width: 25%;
+	margin-right: 15px;
 }
+
