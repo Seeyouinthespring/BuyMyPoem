@@ -1,0 +1,36 @@
+body{
+	background: #E5F2FD; 
+	color: #444444;	
+}
+
+.container { 		 
+    	background: #FFFFFF; 
+	width:  350px;
+	height: 450px;
+	border-radius: 10px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: calc(40% - 225px);
+ 	padding: 50px;
+}
+
+.intext{
+	margin: 10px; 
+	border-radius: 10px;
+	height: 40px;
+	width:  300px;
+	border: 3px ##444444;
+	font-family:Arial;
+	
+}
+
+button{
+	border-radius: 10px;
+	background: #444444;
+	height: 40px; 
+	width:  300px;
+	color: #ffffff;	
+	font-family:Arial;
+}
