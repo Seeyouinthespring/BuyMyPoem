@@ -153,7 +153,7 @@ td{
 	right: 0;
 }
 
-select{
+.select_menu{
 	margin-top: 7px;
 	margin-bottom: 10px;
 	margin-right: 30px;
@@ -263,4 +263,53 @@ img{
 
 table{
 	width: 90%;
+}
+
+.div_main_list{
+	position: absolute; 
+	top: 12%;
+	left: 230px;
+	width: 87%;
+}
+
+.select_choice{
+	margin-top: 7px;
+	margin-bottom: 10px;
+	margin-right: 20px;
+	height: 40px; 
+	width:  300px;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
+.intext_choice{
+	margin-top: 7px;
+	margin-bottom: 10px;
+	margin-right: 20px;
+	margin-left: 5px;
+	height: 40px; 
+	width:  350px;
+	border-radius: 10px;
+	font-size: 20px;
+	border: 1px solid gray;
+}
+
+.button_choice{
+	margin-top: 6px;
+	margin-bottom: 10px;
+	margin-right: 0px;
+	margin-left: 40px;
+	height: 40px; 
+	width:  200px;
+	border-radius: 10px;
+	font-size: 20px;
+	background: black;
+}
+
+.div_list{
+	position: absolute; 
+	top: 20%;
+	left: 230px;
+	background: red;
+	width: 330px;
 }
