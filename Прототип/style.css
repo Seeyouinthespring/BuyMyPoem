@@ -313,3 +313,18 @@ table{
 	background: red;
 	width: 330px;
 }
+
+.a_logo{
+    color: #ffffff;
+    text-decoration: none;
+ }
+
+.a_logo:visited {
+    color: #ffffff;
+    text-decoration: none; 
+} 
+ 
+.a_logo:hover{
+   	color: #ffffff;
+	text-decoration: none; 
+}
