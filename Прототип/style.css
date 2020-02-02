@@ -78,14 +78,14 @@ button{
 	width: 200px;
 	height: 100%;
 	position: absolute;
-	top: 11%;
+	top: 12%;
 	right: 0;
 	background: #FFFFFF; 
 }
 
 .div_main{
 	position: absolute; 
-	top: 11%;
+	top: 12%;
 	left: 210px;
 	width: 15%;
 }
@@ -211,7 +211,7 @@ img{
  
 .a_profile:hover {
    	font-size: 25px;
-   	color: #E5F2FD;
+   	color: #FFFFFF;
 }
 
 .div_profile_main{ 
@@ -241,4 +241,5 @@ img{
     padding: 20px; 
     font-size: 20px;
     background: #FFFFFF;
+    border-spacing: 0px 0px;
 }
