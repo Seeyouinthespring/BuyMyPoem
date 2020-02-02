@@ -75,7 +75,7 @@ button{
 
 .div_right{
 	margin: 0 auto;
-	width: 200px;
+	width: 250px;
 	height: 100%;
 	position: absolute;
 	top: 12%;
@@ -90,18 +90,18 @@ button{
 	width: 15%;
 }
 
-a{
+.a_main_menu{
     color: #000000;
     padding: 2px; 
     text-decoration: none;
  }
 
-a:visited {
+.a_main_menu:visited {
     color: #000000;
     text-decoration: none; 
 } 
  
-a:hover {
+.a_main_menu:hover {
    	font-size: 20px;
    	color: #000000;
 	text-decoration: underline overline; 
@@ -242,4 +242,25 @@ img{
     font-size: 20px;
     background: #FFFFFF;
     border-spacing: 0px 0px;
+}
+
+.a_author{
+	font-size: 25px;
+   	color: #000000;
+   	margin: 10px;
+   	text-decoration: none; 
+}
+
+.a_author:visited {
+    color: #000000;
+    text-decoration: none; 
+} 
+ 
+.a_author:hover {
+   	font-size: 27px;
+   	text-decoration: none; 
+}
+
+table{
+	width: 90%;
 }
