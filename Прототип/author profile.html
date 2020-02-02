@@ -1,7 +1,7 @@
 <html>
 	<head>
   		<link href="style.css" rel="stylesheet">
-		<title>Главная страница</title>
+		<title>Ваш профиль</title>
 	</head>
 	<body>
 		
@@ -9,47 +9,32 @@
 			<h1 class="title">BuyMyPoem</h1>
 		</div>
 		<div class="div_sign">
-			<form action="registration.html">
-				<button class="button_sign">Регистрация</button></form><br>
-			<form action="sing in.html">
-				<button class="button_sign">Вход</button></form>
+			<p><select name="list1" id="cd-dropdown" onchange="top.location=this.value">
+					<option value="">Меню</option>
+				  	<option value="sign in.html">Мой профиль</option>
+					<option>Заявки</option>
+					<option>Произведения</option>
+					<option>Авторы</option>
+ 			</select></p>
 		</div>
-		<div class="div_left">
-			   <h3><ul>
-			     <li><a href="URL">Список авторов</a></li><br>
-			     <li><a href="URL">Список произведений</a></li><br>
-			     <li><a href="URL">Список заявок</a></li><br>
-			     <li><a href="URL">Рейтинг произведений</a></li><br>
-			     <li><a href="URL">Рейтинг авторов</a></li>
-			   </ul></h3>
+		<div class="div_profile_left">
+			<div class="div_photo">
+			</div>
+			<div class="div_profile_menu"><br><br>
+				<a href="URL" class="a_profile">Редактировать профиль</a><br><br>
+				<a href="URL" class="a_profile">Черновики</a><br><br>
+				<a href="URL" class="a_profile">Мои заказы</a><br><br>
+				<a href="URL" class="a_profile">Мои заявки</a><br><br>
+				<a href="URL" class="a_profile">Добавить произведение</a><br><br>
+			</div>
 		</div>
-		<div class="div_right">
-			<table>
-			  <tr>
-			    <td class="td1"># Рейтинг авторов</td>
-			  </tr>
-			  <tr>
-			    <td>1 Автор1</td>
-			  </tr>
-			  <tr>
-			    <td class="td1">2 Автор2</td>
-			  </tr>
-			  <tr>
-			    <td>3 Автор3</td>
-			  </tr>
-			  <tr>
-			    <td class="td1">4 Автор4</td>
-			  </tr>
-			  <tr>
-			    <td>5 ...</td>
-			  </tr>
-			  <tr>
-			    <td class="td1">6 ...</td>
-			  </tr>
-			</table>
-		</div>
-		<div class="div_main">
-			<table class="table_p">
+		<div class="div_profile_main">
+			<div class="div_info">
+				Nickname<br><br>
+				Дата регистрации:<br><br>
+				Информация о себе:<br><br>
+			</div>
+			<table class="table_profile">
 			  <tr>
 			    <td class="td1" colspan="2"># Рейтинг произведений </td>
 			  </tr>
@@ -110,4 +95,4 @@
 			</table>
 		</div>
 	</body>
-</html>
+	</html>
