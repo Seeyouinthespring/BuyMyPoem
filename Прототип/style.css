@@ -328,3 +328,15 @@ table{
    	color: #ffffff;
 	text-decoration: none; 
 }
+
+.intext_choice_request{
+	margin-top: 7px;
+	margin-bottom: 10px;
+	margin-right: 20px;
+	margin-left: 5px;
+	height: 40px; 
+	width:  740px;
+	border-radius: 10px;
+	font-size: 20px;
+	border: 1px solid gray;
+}
