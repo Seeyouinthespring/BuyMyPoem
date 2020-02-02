@@ -350,3 +350,44 @@ table{
 	border-radius: 10px;
 	font-size: 20px;
 }
+
+.container_for{
+	background: #FFFFFF; 
+	width:  1500px;
+	height: 450px;
+	border-radius: 10px;
+	position: absolute;
+	left: 0;
+	right: 40%;
+	margin: auto;
+	top: calc(40% - 170px);
+ 	padding: 10px;
+}
+
+.table_request{
+	width: 100%;
+}
+
+.intext_request{
+	margin: 10px; 
+	margin-top: 0;
+	margin-bottom: 15px;
+	border-radius: 10px;
+	height: 40px;
+	width:  400px;
+	border: 3px ##444444;
+	font-family:Arial;
+}
+
+.button_add{
+	margin: 10px; 
+	margin-top: 0;
+	margin-bottom: 15px;
+	border-radius: 10px;
+	margin-left: 210px;
+	height: 40px;
+	width:  200px;
+	border: 3px #000000;
+	font-family:Arial;
+	background: #000000;
+}
