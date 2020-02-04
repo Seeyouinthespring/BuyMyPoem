@@ -11,7 +11,7 @@
 		<div class="div_sign">
 			<p><select name="list1" id="cd-dropdown" onchange="top.location=this.value" class="select_menu">
 					<option value="">Меню</option>
-				  	<option value="customer profile.html">Мой профиль</option>
+				  	<option value="author profile.html">Мой профиль</option>
 					<option value="list of requests.html">Заявки</option>
 					<option value="list of works.html">Произведения</option>
 					<option value="list of author.html">Авторы</option>
@@ -20,10 +20,6 @@
 		</div>
 		<div class="container_for">
 			<table class="table_request">
-				<tr>
-				    <td width="500" align="right"><h2>Тема:</h2></td>
-				    <td width="1000"><input class="intext_request" type="text" value=""></td>
-				</tr>
 				<tr>
 				    <td width="500" align="right"><h2>Жанр:</h2></td>
 				    <td width="1000"><select class="intext_request">
@@ -59,15 +55,26 @@
 				</tr>
 				<tr>
 				    <td width="500" align="right"><h2>Краткое описание:</h2></td>
+				    <td width="1000"><textarea name="description" class="intext_request"></textarea></td>
+				</tr>
+				<tr>
+				    <td width="500" align="right"><h2>Теги:</h2></td>
 				    <td width="1000"><input class="intext_request" type="text" value=""></td>
 				</tr>
 				<tr>
-				    <td width="500" align="right"><h2>deadline:</h2></td>
-				    <td width="1000"><input class="intext_request" type="text" value=" __-__-____"></td>
+					<td colspan="2" align="center">
+						<textarea name="text" class="add_text_arrea">Текст произведения ...</textarea>
+					</td>
 				</tr>
 				<tr>
-				    <td width="500" align="right"></td>
-				    <td width="1000"><form action="customer profile.html"><button class="button_add">Добавить</button></form></td>
+					<td colspan="2" align="center">
+						<table>
+							<tr> 
+							<td align="right"><form action="author profile.html"><button class="button_add2">Добавить в черновик</button></form></td>
+					    <td><form action="author profile.html"><button class="button_add2">Выложить работу в профиль</button></form></td>
+					</tr>
+				</table>   
+					</td>
 				</tr>
   			</table>
 		</div>

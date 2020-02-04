@@ -52,8 +52,8 @@ button{
 
 .div_top{
 	background: black; 
-	min-width:  100%;
-	min-height: 10%;
+	width:  100%;
+	height: 10.5%;
 	position: absolute;
 	top: 0;
     left: 0; right:0;
@@ -63,7 +63,7 @@ button{
 
 .div_left{
 	margin: 0 auto;
-	width: 200px;
+	width: 10%;
 	height: 100%;
 	position: absolute;
     left: 0;
@@ -358,9 +358,9 @@ table{
 	border-radius: 10px;
 	position: absolute;
 	left: 0;
-	right: 40%;
+	right: 10%;
 	margin: auto;
-	top: calc(40% - 170px);
+	top: calc(40% - 270px);
  	padding: 10px;
 }
 
@@ -374,7 +374,7 @@ table{
 	margin-bottom: 15px;
 	border-radius: 10px;
 	height: 40px;
-	width:  400px;
+	width:  450px;
 	border: 3px ##444444;
 	font-family:Arial;
 }
@@ -387,6 +387,103 @@ table{
 	margin-left: 210px;
 	height: 40px;
 	width:  200px;
+	border: 3px #000000;
+	font-family:Arial;
+	background: #000000;
+}
+
+.button_add2{
+	border-radius: 10px;
+	width:  200px;
+	border: 3px #000000;
+	font-family:Arial;
+	background: #000000;
+}
+
+.add_text_arrea{
+	border-radius: 10px;
+	margin-right: 8%;
+	height: 440px;
+	width:  550px;
+	border: 3px ##444444;
+	font-family:Arial;
+}
+
+.left_after{
+	width: 35%;
+	height: 100%;
+	position: absolute;
+    left: 0;
+    top: 10.5%;
+    bottom: 0;
+}
+
+.rigth_after{
+	width: 65%;
+	height: 100%;
+	position: absolute;
+    right: 0;
+    top: 10.5%;
+    bottom: 0;
+}
+
+.div_photo_edit{
+	margin: 0 auto;
+	width: 300px;
+	height: 350px;
+	position: absolute;
+    right: 0px; top: 40px;
+    background: #E5F2FD; 
+}
+
+.button_edit{
+	position: absolute;
+	right: 0px; 
+	margin-top: 400px;
+	border-radius: 10px;
+	height: 40px;
+	width:  300px;
+	border: 3px #000000;
+	font-family:Arial;
+	background: #000000;
+}
+
+.div_info_edit{
+	margin: 0 auto;
+	position: absolute;
+    left: 30px; top: 40px;
+}
+
+.redtext {
+	color: red;
+}
+
+.intext_edit{
+	margin: 10px; 
+	margin-top: 0;
+	margin-bottom: 15px;
+	border-radius: 10px;
+	height: 40px;
+	width:  350px;
+	border: 3px ##444444;
+	font-family:Arial;
+}
+
+.add_text_edit{
+	border-radius: 10px;
+	margin: 10px; 
+	height: 220px;
+	width:  600px;
+	border: 3px ##444444;
+	font-family:Arial;
+}
+
+.button_reg{
+	position: absolute;
+	right: 0px; top: 450px;
+	border-radius: 10px;
+	height: 40px;
+	width:  300px;
 	border: 3px #000000;
 	font-family:Arial;
 	background: #000000;
