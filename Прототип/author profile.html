@@ -12,9 +12,9 @@
 			<p><select name="list1" id="cd-dropdown" onchange="top.location=this.value" class="select_menu">
 					<option value="">Меню</option>
 				  	<option value="author profile.html">Мой профиль</option>
-					<option>Заявки</option>
-					<option>Произведения</option>
-					<option>Авторы</option>
+					<option value="list of requests.html">Заявки</option>
+					<option value="list of works.html">Произведения</option>
+					<option value="list of author.html">Авторы</option>
 					<option value="main.html">Выйти</option>
  			</select></p>
 		</div>
@@ -23,9 +23,8 @@
 			</div>
 			<div class="div_profile_menu"><br><br>
 				<a href="edit author profile.html" class="a_profile">Редактировать профиль</a><br><br>
-				<a href="URL" class="a_profile">Черновики</a><br><br>
-				<a href="URL" class="a_profile">Мои заказы</a><br><br>
-				<a href="URL" class="a_profile">Мои заявки</a><br><br>
+				<a href="draft.html" class="a_profile">Черновики</a><br><br>
+				<a href="my order author.html" class="a_profile">Мои заказы</a><br><br>
 				<a href="add composition.html" class="a_profile">Добавить произведение</a><br><br>
 			</div>
 		</div>
@@ -42,7 +41,9 @@
 			    	Описание:<br>
 			    </td>
 			    <td class="td1" align="right">
-			    	<button class="smal_button">Перейти к просмотру</button>
+			    	<form action="composition.html">
+						<button class="smal_button">Перейти к просмотру</button>
+					</form>
 			    </td>
 			  </tr>
 			  <tr>
