@@ -71,7 +71,6 @@ button{
 	top: 0;
     left: 0; right:0;
     margin: 0 auto;
-    overflow: hidden;
 }
 
 .div_left{
@@ -88,7 +87,7 @@ button{
 
 .div_right{
 	margin: 0 auto;
-	width: 250px;
+	width: 15%;
 	height: 100%;
 	position: absolute;
 	top: 12%;
@@ -99,8 +98,8 @@ button{
 .div_main{
 	position: absolute; 
 	top: 12%;
-	left: 210px;
-	width: 15%;
+	left: 220px;
+	width: 14%;
 }
 
 .a_main_menu{
@@ -161,11 +160,6 @@ td{
 	border: 2px solid #ffffff;
 }
 
-.div_sign{
-	position: absolute;
-	right: 0;
-}
-
 .select_menu{
 	margin-top: 7px;
 	margin-bottom: 10px;
@@ -174,6 +168,8 @@ td{
 	width:  200px;
 	border-radius: 10px;
 	font-size: 20px;
+	position: absolute;
+	right: 20px;
 }
 
 .div_profile_left{
@@ -231,14 +227,14 @@ img{
 	position: absolute;
     left: 400px; top: 10.5%;
     width: 80%;
-	height: 350px;
+	height: 100%;
 }
 
 .div_info{
 	background: #E5F2FD; 
 	margin: 0 auto;
 	width: 90%;
-	height: 200px;
+	height: 20%;
 	position: absolute;
     left: 45px; top: 40px;
     padding: 20px; 
@@ -702,4 +698,23 @@ table{
 	left: 20%;
 	padding-left: 20px;
 	padding-top: 20px;
+}
+
+.div_sign{
+	width:  40%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+    right:0;
+    margin: 0 auto;
+    overflow: hidden;   
+}
+
+
+.href_next{
+	border-radius: 10px;
+	background: #E5F2FD;
+	font-size: 20pt;
+	text-decoration: none;
+	color: black;
 }
