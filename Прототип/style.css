@@ -76,7 +76,7 @@ button{
 .div_left{
 	margin: 0 auto;
 	width: 200px;
-	height: 100%;
+	height: 120%;
 	position: absolute;
     left: 0;
     background: #FFFFFF; 
@@ -99,7 +99,7 @@ button{
 	position: absolute; 
 	top: 12%;
 	left: 220px;
-	width: 14%;
+	width: 67%;
 }
 
 .a_main_menu{
@@ -122,7 +122,7 @@ button{
 .title{
 	color: #FFFFFF;
 	font-family: Arial;	
-	font-size: 40px;
+	font-size: 30px;
 	margin-left: 100px;
 }
 
@@ -136,7 +136,7 @@ td{
 }
 
 .table_p{
-	width: 500%;
+	width: 100%;
 	background: #FFFFFF;
 	border-spacing: 0px 0px;
 }
@@ -152,9 +152,9 @@ td{
 	color: #FFFFFF;
 	position: absolute;
 	right: 25px;
-	height: 30px; 
+	height: 25px; 
 	width:  170px;
-	margin-top: 10px;
+	margin-top: 5px;
 	margin-bottom: 10px;
 	outline: 4px solid #000000;
 	border: 2px solid #ffffff;
@@ -226,14 +226,14 @@ img{
 .div_profile_main{ 
 	position: absolute;
     left: 400px; top: 10.5%;
-    width: 80%;
+    width: 70%;
 	height: 100%;
 }
 
 .div_info{
 	background: #E5F2FD; 
 	margin: 0 auto;
-	width: 90%;
+	width: 87%;
 	height: 20%;
 	position: absolute;
     left: 45px; top: 40px;
@@ -278,38 +278,30 @@ table{
 	position: absolute; 
 	top: 12%;
 	left: 230px;
-	width: 87%;
+	width: 80%;
 }
 
 .select_choice{
-	margin-top: 7px;
-	margin-bottom: 10px;
-	margin-right: 20px;
-	height: 40px; 
-	width:  300px;
+	margin: 5px;
+	height: 50%; 
+	width:  20%;
 	border-radius: 10px;
 	font-size: 20px;
 }
 
 .intext_choice{
-	margin-top: 7px;
-	margin-bottom: 10px;
-	margin-right: 20px;
-	margin-left: 5px;
-	height: 40px; 
-	width:  350px;
+	margin: 3px;
+	height: 20%; 
+	width:   20%;
 	border-radius: 10px;
 	font-size: 20px;
 	border: 1px solid gray;
 }
 
 .button_choice{
-	margin-top: 6px;
-	margin-bottom: 10px;
-	margin-right: 0px;
-	margin-left: 40px;
-	height: 40px; 
-	width:  200px;
+	margin: 1px;
+	height: 20%; 
+	width:  15%;
 	border-radius: 10px;
 	font-size: 20px;
 	background: black;
@@ -319,7 +311,7 @@ table{
 	position: absolute; 
 	top: 20%;
 	left: 230px;
-	width: 330px;
+	width: 80%;
 }
 
 .a_logo{
@@ -338,23 +330,18 @@ table{
 }
 
 .intext_choice_request{
-	margin-top: 7px;
-	margin-bottom: 10px;
-	margin-right: 20px;
-	margin-left: 5px;
-	height: 40px; 
-	width:  740px;
+	margin: 5px;
+	height: 20%; 
+	width:  30%;
 	border-radius: 10px;
 	font-size: 20px;
 	border: 1px solid gray;
 }
 
 .choice_author{
-	margin-top: 7px;
-	margin-bottom: 10px;
-	margin-right: 20px;
-	height: 40px; 
-	width:  675px;
+	margin: 5px;
+	height: 20%; 
+	width:  40%;
 	border-radius: 10px;
 	font-size: 20px;
 }
@@ -607,8 +594,8 @@ table{
 
 .add_composition{
 	border-radius: 10px;
-	height: 700px;
-	width:  600px;
+	height: 87%;
+	width:  75%;
 	position: absolute;
 	top: 30px;
 	border: 1px solid #444444;
@@ -672,7 +659,7 @@ table{
 	position: absolute; 
 	top: 12%;
 	left: 230px;
-	width: 330px;
+	width: 80%;
 }
 
 .div_bottom_comment3{
@@ -682,17 +669,17 @@ table{
 }
 
 .div_bottom_order2{
-	margin-top: 750px;
+	margin-top: 100%;
 	position: absolute;
 	left: 20%;
 }
 
 .text_arrea_comment3{
 	border-radius: 10px;
-	height: 700px;
-	width:  600px;
+	height: 90%;
+	width:  75%;
 	position: absolute;
-	top: 30px;
+	top: 5%;
 	border: 1px solid black;
 	font-family:Arial;
 	left: 20%;
@@ -717,4 +704,8 @@ table{
 	font-size: 20pt;
 	text-decoration: none;
 	color: black;
+}
+
+.div_next{position: absolute;
+	right: 50%;
 }
