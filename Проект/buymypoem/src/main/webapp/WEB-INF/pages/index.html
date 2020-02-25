@@ -1,11 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link href="resources/css/style.css" rel="stylesheet">
-    <meta charset="UTF-8">
-    <title>Рейтинг произведений</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <title>Рейтинг авторов</title>
 </head>
 <body>
-<h1>тут рейтинг произведений</h1>
+<div class="div_top">
+    <h1 class="title"><a href="main.html" class="a_logo">BuyMyPoem</a></h1>
+</div>
+
+<div class="div_left">
+    <h3><ul>
+        <li><a href="" class="a_main_menu">Список авторов</a></li><br>
+        <li><a href="" class="a_main_menu">Список произведений</a></li><br>
+        <li><a href="" class="a_main_menu">Список заявок</a></li><br>
+        <li><a href="" class="a_main_menu">Рейтинг произведений</a></li><br>
+        <li><a href="" class="a_main_menu">Рейтинг авторов</a></li>
+    </ul></h3>
+</div>
+
+<div class="div_list2">
+    <table class="table_p">
+            <tr th:each="text : ${list}">
+                <td class="td1"><br> <span th:text="${text.title}">Название</span><br><br>
+                    Тип произведения: <span th:text="${text.typeID}"> Тип </span><br>
+                    Жанр:  <span th:text="${text.genreID}"> Жанр </span><br>
+                    Описание:<br>
+                </td>
+                <td class="td1" align="right">
+                    <button class="smal_button">Перейти к просмотру</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

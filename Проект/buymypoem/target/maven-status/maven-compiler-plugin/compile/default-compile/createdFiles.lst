@@ -1,1 +1,7 @@
-com\springmvc\buymypoem\HelloWorld.class
+com\buymypoem\springmvc\config\MvcWebApplicationInitializer.class
+com\buymypoem\springmvc\controller\HelloController.class
+com\buymypoem\springmvc\dao\CompositionDAO$1.class
+com\buymypoem\springmvc\model\Composition.class
+com\buymypoem\springmvc\config\MvcWebConfig.class
+com\buymypoem\springmvc\dao\CompositionDAO.class
+com\buymypoem\springmvc\controller\CompositionController.class
