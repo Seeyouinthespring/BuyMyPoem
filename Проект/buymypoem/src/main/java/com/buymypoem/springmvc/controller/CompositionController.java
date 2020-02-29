@@ -15,10 +15,10 @@ public class CompositionController {
     @Autowired
     CompositionDAO compositionDAO;
 
-    @RequestMapping("/")
+    /*@RequestMapping("/")
     public String getList(Model m){
         List<Composition> list=compositionDAO.getAllCompositions();
         m.addAttribute("list",list);
         return "index";
-    }
+    }*/
 }

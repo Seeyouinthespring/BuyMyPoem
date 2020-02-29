@@ -31,4 +31,8 @@
 	<bean id="dao" class="com.buymypoem.springmvc.dao.CompositionDAO">
 		<property name="temp" ref="jdbcTemp"/>
 	</bean>
+
+	<bean id="userDAO" class="com.buymypoem.springmvc.dao.UserDAO">
+		<property name="temp" ref="jdbcTemp"/>
+	</bean>
 </beans>

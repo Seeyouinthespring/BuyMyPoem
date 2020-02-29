@@ -1,6 +1,9 @@
-C:\Users\Лера\Downloads\spring-mvc-boilerplate-master\buymypoem\src\main\java\com\buymypoem\springmvc\controller\CompositionController.java
-C:\Users\Лера\Downloads\spring-mvc-boilerplate-master\buymypoem\src\main\java\com\buymypoem\springmvc\dao\CompositionDAO.java
-C:\Users\Лера\Downloads\spring-mvc-boilerplate-master\buymypoem\src\main\java\com\buymypoem\springmvc\config\MvcWebApplicationInitializer.java
-C:\Users\Лера\Downloads\spring-mvc-boilerplate-master\buymypoem\src\main\java\com\buymypoem\springmvc\controller\HelloController.java
-C:\Users\Лера\Downloads\spring-mvc-boilerplate-master\buymypoem\src\main\java\com\buymypoem\springmvc\model\Composition.java
-C:\Users\Лера\Downloads\spring-mvc-boilerplate-master\buymypoem\src\main\java\com\buymypoem\springmvc\config\MvcWebConfig.java
+C:\Users\colya\Desktop\buymypoem\src\main\java\com\buymypoem\springmvc\model\User.java
+C:\Users\colya\Desktop\buymypoem\src\main\java\com\buymypoem\springmvc\config\MvcWebConfig.java
+C:\Users\colya\Desktop\buymypoem\src\main\java\com\buymypoem\springmvc\model\Composition.java
+C:\Users\colya\Desktop\buymypoem\src\main\java\com\buymypoem\springmvc\dao\CompositionDAO.java
+C:\Users\colya\Desktop\buymypoem\src\main\java\com\buymypoem\springmvc\controller\CompositionController.java
+C:\Users\colya\Desktop\buymypoem\src\main\java\com\buymypoem\springmvc\dao\UserDAO.java
+C:\Users\colya\Desktop\buymypoem\src\main\java\com\buymypoem\springmvc\controller\UserController.java
+C:\Users\colya\Desktop\buymypoem\src\main\java\com\buymypoem\springmvc\controller\HelloController.java
+C:\Users\colya\Desktop\buymypoem\src\main\java\com\buymypoem\springmvc\config\MvcWebApplicationInitializer.java
