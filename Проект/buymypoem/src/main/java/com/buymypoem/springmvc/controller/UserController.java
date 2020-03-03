@@ -20,6 +20,12 @@ public class UserController {
     @Autowired
     private UserDAO userDAO;
 
+    @RequestMapping(value="/sign in", method=RequestMethod.GET)
+    public String sign(Model model) {
+        model.addAttribute("usr",new User());
+        return "sign in";
+    }
+
     @RequestMapping(value = "/sign in", method = RequestMethod.POST)
     public String signIn(@ModelAttribute ("usr") User user, Model model){
         User userReal = userDAO.getUserByLogin(user.getLogin());
@@ -38,10 +44,27 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value="/", method=RequestMethod.GET)
-    public String greetingForm(Model model) {
-        model.addAttribute("usr",new User());
-        return "sign in";
+    @RequestMapping(value="/registration", method=RequestMethod.GET)
+    public String registration(Model model) {
+        model.addAttribute("newUsr",new User());
+        return "registration";
+    }
+
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    public String saveUser(@ModelAttribute("newUsr") User user, Model model ){
+        if (user.getConfirmPassword().equals(user.getPassword())){
+            userDAO.insertUser(user);
+            return "success";
+        }
+        else{
+            model.addAttribute("error", "Пароли не совпали");
+            return "registration";
+        }
+    }
+
+    @RequestMapping(value="/")
+    public String main() {
+        return "main";
     }
 }
 

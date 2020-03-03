@@ -1,5 +1,7 @@
 package com.buymypoem.springmvc.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class User {
@@ -7,9 +9,12 @@ public class User {
     private String Login;
     private String Password;
     private String Email;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date Birthdate;
     private String About;
     private Date Registredate;
+    private String confirmPassword;
 
     public int getUserID() {
         return UserID;
@@ -65,5 +70,13 @@ public class User {
 
     public void setRegistredate(Date registredate) {
         Registredate = registredate;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }
