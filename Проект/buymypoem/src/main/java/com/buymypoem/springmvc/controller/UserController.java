@@ -1,10 +1,9 @@
 package com.buymypoem.springmvc.controller;
 
-import com.buymypoem.springmvc.dao.CompositionDAO;
 import com.buymypoem.springmvc.dao.UserDAO;
-import com.buymypoem.springmvc.model.Composition;
 import com.buymypoem.springmvc.model.User;
-import com.sun.tracing.dtrace.ModuleAttributes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +11,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.List;
+
 
 @Controller
 public class UserController {
+
+    private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserDAO userDAO;
@@ -46,26 +47,28 @@ public class UserController {
 
     @RequestMapping(value="/registration", method=RequestMethod.GET)
     public String registration(Model model) {
-        model.addAttribute("newUsr",new User());
+        model.addAttribute("user", new User());
         return "registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String saveUser(@ModelAttribute("newUsr") User user, Model model ){
-        if (user.getConfirmPassword().equals(user.getPassword())){
-            User userReal = userDAO.getUserByLogin(user.getLogin());
-            if (!(userReal.getLogin().equals(user.getLogin()))){
-                userDAO.insertUser(user);
-                return "success";
-            }else{
-                model.addAttribute("error", "Пользователь с таким логином уже существует");
-                return "registration";
-            }
-        }
-        else{
+    public String createUser(@ModelAttribute("user") User user, Model model) {
+        LOG.debug(user.toString());
+
+        if (!user.getConfirmPassword().equals(user.getPassword())) {
             model.addAttribute("error", "Пароли не совпали");
             return "registration";
         }
+
+        User userReal = userDAO.getUserByLogin(user.getLogin());
+        if (userReal != null) {
+            model.addAttribute("error", "Пользователь с таким логином уже существует");
+            return "registration";
+        }
+
+        userDAO.insertUser(user);
+        return "success";
+
     }
 
     @RequestMapping(value="/")

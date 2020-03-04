@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/registration.css}" rel="stylesheet">
     <title>Регистрация</title>
 </head>
 <body>
-<div align="center">
-    <form action="#" th:action="@{/registration}" method="post">
-        <h1>Регистрация</h1>
-        <input class="intext" type="text" name="userLogin" th:field="${newUsr.login}" placeholder="Логин"/><br><br>
-        <input class="intext" type="text" name="userEmail" th:field="${newUsr.email}" placeholder="Email"/><br><br>
-        <input class="intext" type="date" name="userBirthdate" th:field="${newUsr.birthdate}" placeholder="День рождения"/><br><br>
-        <input class="intext" type="password" name="userPassword" th:field="${newUsr.password}" placeholder="Пароль"/><br><br>
-        <input class="intext" type="password" name="userPassword2" th:field="${newUsr.confirmPassword}" placeholder="Повторите пароль"/><br><br>
-        <button>Зарегистрироваться</button>
-    </form>
-    <form action="#" th:action="@{/}" method="get">
-        <button>Вернутся на главную</button>
-    </form>
-    <p th:text="${error}"></p>
-</div>
+
+<form class="sign-up__form" th:action="@{/registration}" method="post">
+    <div class="sign-up__title">Регистрация</div>
+
+    <input required class="sign-up__input" type="text" th:field="${user.login}" placeholder="Логин"/>
+    <input required class="sign-up__input" type="text" th:field="${user.email}" placeholder="Email"/>
+    <input required class="sign-up__input" type="date" th:field="${user.birthdate}" placeholder="День рождения"/>
+
+    <input required class="sign-up__input" type="password" th:field="${user.password}" placeholder="Пароль"/>
+    <input required class="sign-up__input" type="password" th:field="${user.confirmPassword}"
+           placeholder="Повторите пароль"/>
+
+    <p class="sign-up__error" th:text="${error}"></p>
+
+    <button class="sign-up__button" type="submit">Зарегистрироваться</button>
+</form>
+
+<a th:href="@{/}" class="sign-up__button">Вернутся на главную</a>
+
 </body>
 </html>
