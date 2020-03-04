@@ -53,8 +53,14 @@ public class UserController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("newUsr") User user, Model model ){
         if (user.getConfirmPassword().equals(user.getPassword())){
-            userDAO.insertUser(user);
-            return "success";
+            User userReal = userDAO.getUserByLogin(user.getLogin());
+            if (!(userReal.getLogin().equals(user.getLogin()))){
+                userDAO.insertUser(user);
+                return "success";
+            }else{
+                model.addAttribute("error", "Пользователь с таким логином уже существует");
+                return "registration";
+            }
         }
         else{
             model.addAttribute("error", "Пароли не совпали");

@@ -6,19 +6,18 @@
     <link th:href="@{/css/style.css}" rel="stylesheet">
     <title>Вход в систему</title>
 </head>
-<body class="sign">
-<div>
-
-    <p th:text="${error}"></p>
-
+<body>
+<div align="center">
     <form action="#" th:action="@{/sign in}" method="post">
         <h1 align="center" font color="#444444">Вход<br><br></h1>
-            <input type="text" id="login" name="userLogin" th:field="${usr.login}"/>
-            <input type="text" id="password" name="userPassword" th:field="${usr.password}"/><br><br>
+            <input class="intext" type="text" name="userLogin" placeholder="Логин" th:field="${usr.login}"/><br>
+            <input class="intext" type="password" name="userPassword" placeholder="Пароль" th:field="${usr.password}"/><br><br>
             <button>Войти</button>
     </form>
-
-
+    <form action="#" th:action="@{/}" method="get">
+        <button>Вернутся на главную</button>
+    </form>
+    <p th:text="${error}"></p>
 </div>
 </body>
 </html>

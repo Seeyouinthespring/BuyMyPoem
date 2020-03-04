@@ -1,0 +1,26 @@
+.sign{
+	margin: 0;
+	background: #E5F2FD;
+	width: 100%;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+}
+
+.container-sign{
+  	border-radius: 10px;
+  	background: white;
+  	height: 60%;
+  	width: 25%;
+  	display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+.line {
+	border-radius: 10px;
+	height: 10%;
+  	width: 90%;
+}

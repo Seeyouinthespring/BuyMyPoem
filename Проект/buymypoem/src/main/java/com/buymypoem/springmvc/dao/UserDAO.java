@@ -22,8 +22,6 @@ public class UserDAO {
 
     public User getUserByLogin(String login){
         String sql ="Select * from user where login=?";
-         //Object[] params = {login};
-        //int[] types = {Types.VARCHAR};
         try {
             return temp.queryForObject(sql, new  Object[]{login}, new BeanPropertyRowMapper<User>(User.class));
         }catch (Exception e){
