@@ -23,17 +23,25 @@
 <div class="div_list2">
     <table class="table_p">
             <tr th:each="text : ${list}">
-                <td class="td1"><br> <span th:text="${text.title}">Название</span><br><br>
-                    Тип произведения: <span th:text="${text.typeID}"> Тип </span><br>
-                    Жанр:  <span th:text="${text.genreID}"> Жанр </span><br>
-                    Описание:<br>
+                <td><br> <span th:text="${text.title}">Название</span><br>
+                    <span th:text="${text.user.login}">Автор</span><br><br>
+                    Тип произведения: <span th:text="${text.type.title}"> Тип </span><br>
+                    Жанр:  <span th:text="${text.genre.title}"> Жанр </span><br>
+                    Описание:  <span th:text="${text.description}"> Описание </span><br>
+                    Лайки <span th:text="${text.likes}"> Описание </span>
+                    Дис <span th:text="${text.dislikes}"> Описание </span>
                 </td>
-                <td class="td1" align="right">
+                <td align="right">
                     <button class="smal_button">Перейти к просмотру</button>
                 </td>
             </tr>
-        </tbody>
     </table>
+    <div>
+        <div class="div_next">
+            <a class="href_next" th:href="@{/${page}}">Назад</a>
+            <a href="index.html" class="href_next" th:href="@{/${page}}">Вперёд</a>
+        </div>
+    </div>
 </div>
 </body>
 </html>

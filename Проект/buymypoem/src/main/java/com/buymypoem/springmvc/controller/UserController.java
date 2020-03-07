@@ -67,9 +67,9 @@ public class UserController {
         return "registration";
     }
 
-    @RequestMapping(value = "/")
+    /*@RequestMapping(value = "/")
     public String main() {
         return "main";
-    }
+    }*/
 }
 

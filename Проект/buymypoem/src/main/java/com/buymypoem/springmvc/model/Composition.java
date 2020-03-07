@@ -6,21 +6,14 @@ public class Composition {
     private int Likes;
     private int Dislikes;
     private String Text;
-    private int AuthorID;
-    private int GenreID;
-    private int TypeID;
+    private User user;
+    private Genre genre;
+    private Type type;
     private String Status;
+    private String description;
 
     public int getCompositionID() {
         return CompositionID;
-    }
-
-    public int getAuthorID() {
-        return AuthorID;
-    }
-
-    public void setAuthorID(int authorID) {
-        AuthorID = authorID;
     }
 
     public String getTitle() {
@@ -55,22 +48,6 @@ public class Composition {
         Dislikes = dislikes;
     }
 
-    public int getGenreID() {
-        return GenreID;
-    }
-
-    public void setGenreID(int genreID) {
-        GenreID = genreID;
-    }
-
-    public int getTypeID() {
-        return TypeID;
-    }
-
-    public void setTypeID(int typeID) {
-        TypeID = typeID;
-    }
-
     public String getStatus() {
         return Status;
     }
@@ -81,5 +58,37 @@ public class Composition {
 
     public void setCompositionID(int compositionID) {
         CompositionID = compositionID;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

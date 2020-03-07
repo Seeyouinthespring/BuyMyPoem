@@ -127,13 +127,8 @@ button{
 	margin-left: 100px;
 }
 
-.td1{
-	background: #E5F2FD;
-}
-
-td{
-	font-size: 20px;
-	background: #FFFFFF;
+tr:nth-child(odd){
+	background-color: #E5F2FD;
 }
 
 .table_p{
