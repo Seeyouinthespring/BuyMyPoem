@@ -36,12 +36,23 @@
                 </td>
             </tr>
     </table>
+    <!--<div>
+        <div class="div_next">
+            <a class="href_next" th:href="@{/start/${page}}">Назад</a>
+            <a class="href_next" th:href="@{/start/${page}}">Вперёд</a>
+        </div>
+    </div>-->
+<!--    <div>
+        <p th:text="${page}"></p>
+        <p th:text="${page}+1"></p>
+    </div>-->
     <div>
         <div class="div_next">
-            <a class="href_next" th:href="@{/${page}}">Назад</a>
-            <a href="index.html" class="href_next" th:href="@{/${page}}">Вперёд</a>
+            <a class="href_next" th:href="@{/start/{p}(p=${page}-1)}">Назад</a>
+            <a class="href_next" th:href="@{/start/{p}(p=${page}+1)}">Вперед</a>
         </div>
     </div>
+    <p th:text="${msg}"></p>
 </div>
 </body>
 </html>

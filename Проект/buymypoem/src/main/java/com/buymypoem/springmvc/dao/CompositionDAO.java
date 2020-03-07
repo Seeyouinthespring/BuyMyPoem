@@ -30,7 +30,8 @@ public class CompositionDAO {
 
         List<Composition> compositionList= temp.query(sql2, new RowMapper<Composition>() {
             public Composition mapRow(ResultSet resultSet, int i) throws SQLException {
-                User u = new User(); Type t = new Type();
+                User u = new User();
+                Type t = new Type();
                 Genre g = new Genre();
                 Composition comp= new Composition();
                 comp.setCompositionID(resultSet.getInt("compositionID"));
