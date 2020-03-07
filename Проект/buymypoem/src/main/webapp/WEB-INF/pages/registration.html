@@ -11,10 +11,12 @@
     <form action="#" th:action="@{/registration}" method="post">
         <h1>Регистрация</h1>
         <input required class="intext" type="text" name="userLogin" th:field="${newUsr.login}" placeholder="Логин"/><br><br>
-        <input class="intext" type="text" name="userEmail" th:field="${newUsr.email}" placeholder="Email"/><br><br>
-        <input class="intext" type="date" name="userBirthdate" th:field="${newUsr.birthdate}" placeholder="День рождения"/><br><br>
-        <input class="intext" type="password" name="userPassword" th:field="${newUsr.password}" placeholder="Пароль"/><br><br>
-        <input class="intext" type="password" name="userPassword2" th:field="${newUsr.confirmPassword}" placeholder="Повторите пароль"/><br><br>
+        <input class="intext" type="text" name="userEmail" th:field="${newUsr.email}" placeholder="Email" required/><br><br>
+        <input class="intext" type="date" name="userBirthdate" th:field="${newUsr.birthdate}" placeholder="День рождения" required/><br><br>
+        <input class="intext" type="password" name="userPassword" th:field="${newUsr.password}" placeholder="Пароль" required/><br><br>
+        <input class="intext" type="password" name="userPassword2" th:field="${newUsr.confirmPassword}" placeholder="Повторите пароль" required/><br><br>
+        <div><input type="radio" name="role" value="Author" checked="checked"/>Автор</div>
+        <div><input type="radio" name="role" value="Customer" checked="checked"/>Заказчик</div>
         <button>Зарегистрироваться</button>
     </form>
     <form action="#" th:action="@{/}" method="get">

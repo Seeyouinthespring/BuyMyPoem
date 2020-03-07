@@ -32,9 +32,21 @@ public class UserDAO {
     public int insertUser(User user) {
         String dateRegisterdate=new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
         String dateBirthdate=new SimpleDateFormat("yyyy-MM-dd").format(user.getBirthdate());
-        String sql = "insert into user (login, password, email,birthdate, registerdate) values (?,?,?,?,?);";
-        Object[] params = {user.getLogin(), user.getPassword(), user.getEmail(), dateRegisterdate, dateBirthdate};
-        int[] types = {Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.DATE, Types.DATE};
-        return temp.update(sql,params,types);
+        String sql = "insert into user (login, password, email,birthdate, registerdate, role) values (?,?,?,?,?,?);";
+        Object[] params = {user.getLogin(), user.getPassword().hashCode(), user.getEmail(), dateRegisterdate, dateBirthdate, user.getRole()};
+        int[] types = {Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.DATE, Types.DATE, Types.VARCHAR};
+        temp.update(sql,params,types);
+
+        user = getUserByLogin(user.getLogin());
+
+        if (user.getRole().equals("Author")){
+            insertAuthor(user.getUserID());
+        }
+        return user.getUserID();
+    }
+
+    public int insertAuthor(int id) {
+        String sqlAuthor="insert into author (userId) VALUES  (?);";
+        return temp.update(sqlAuthor, new  Object[]{id}, new int[]{Types.INTEGER});
     }
 }

@@ -15,6 +15,7 @@ public class User {
     private String About;
     private Date Registredate;
     private String confirmPassword;
+    private String role;
 
     public int getUserID() {
         return UserID;
@@ -78,5 +79,13 @@ public class User {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

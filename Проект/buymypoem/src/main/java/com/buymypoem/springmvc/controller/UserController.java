@@ -1,18 +1,13 @@
 package com.buymypoem.springmvc.controller;
 
-import com.buymypoem.springmvc.dao.CompositionDAO;
 import com.buymypoem.springmvc.dao.UserDAO;
-import com.buymypoem.springmvc.model.Composition;
 import com.buymypoem.springmvc.model.User;
-import com.sun.tracing.dtrace.ModuleAttributes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.List;
 
 @Controller
 public class UserController {
@@ -30,8 +25,17 @@ public class UserController {
     public String signIn(@ModelAttribute("usr") User user, Model model) {
         User userReal = userDAO.getUserByLogin(user.getLogin());
 
-        if( (userReal.getPassword().equals(user.getPassword()))&&(!(userReal == null))) {
-            return "success";
+        if(   (!(userReal == null))&&( Integer.parseInt(userReal.getPassword())==user.getPassword().hashCode())) {
+            switch (userReal.getRole().charAt(0)){
+                case ('A'):
+                    return "successAuthor";
+                case ('C'):
+                    return "successCustomer";
+                case ('S'):
+                    return "successService";
+                default:
+                    return "error";
+            }
         } else {
             model.addAttribute("error", "Вы ввели неверные данные");
             return "/sign in";
@@ -51,7 +55,10 @@ public class UserController {
             User userReal = userDAO.getUserByLogin(user.getLogin());
             if (userReal == null) {
                 userDAO.insertUser(user);
-                return "success";
+                if (user.getRole().equals("Author"))
+                return "successAuthor";
+                else return "successCustomer";
+
             }
             model.addAttribute("error", "Пользователь с таким логином уже существует");
             return "registration";
