@@ -6,25 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d2a0d0b-fc41-46c0-b15a-b7cbe550b4a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/sign in.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/sign in.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/newcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/newcss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/pages/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/pages/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/pages/sign in.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/pages/sign in.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/resources/css/newcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/resources/css/newcss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/resources/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/buymypoem/springmvc/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/buymypoem/springmvc/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/buymypoem/springmvc/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/buymypoem/springmvc/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Прототип/sign in.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Прототип/sign in.html" afterDir="false" />
-    </list>
+    <list default="true" id="3d2a0d0b-fc41-46c0-b15a-b7cbe550b4a2" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,9 +35,6 @@
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
-  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -71,7 +50,6 @@
     </option>
   </component>
   <component name="ProjectId" id="1YJ4Cs4fMmEfZE7PKkOvcqpDBzB" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -80,7 +58,6 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -288,7 +265,7 @@
       <workItem from="1582989148984" duration="7813000" />
       <workItem from="1583167790589" duration="17133000" />
       <workItem from="1583211340691" duration="12080000" />
-      <workItem from="1583238752889" duration="8374000" />
+      <workItem from="1583315966585" duration="37000" />
     </task>
     <servers />
   </component>
@@ -313,25 +290,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583182528756" />
-    <state width="1092" height="264" key="GridCell.Tab.0.bottom" timestamp="1583316154726">
+    <state width="1092" height="17" key="GridCell.Tab.0.bottom" timestamp="1583238456502">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="264" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583316154726" />
+    <state width="1092" height="17" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583238456502" />
     <state width="1293" height="298" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583185977936" />
-    <state width="1092" height="264" key="GridCell.Tab.0.center" timestamp="1583316154726">
+    <state width="1092" height="17" key="GridCell.Tab.0.center" timestamp="1583238456502">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="264" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583316154726" />
+    <state width="1092" height="17" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583238456502" />
     <state width="1293" height="298" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583185977936" />
-    <state width="1092" height="264" key="GridCell.Tab.0.left" timestamp="1583316154726">
+    <state width="1092" height="17" key="GridCell.Tab.0.left" timestamp="1583238456502">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="264" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583316154726" />
+    <state width="1092" height="17" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583238456502" />
     <state width="1293" height="298" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583185977936" />
-    <state width="1092" height="264" key="GridCell.Tab.0.right" timestamp="1583316154726">
+    <state width="1092" height="17" key="GridCell.Tab.0.right" timestamp="1583238456502">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="264" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583316154726" />
+    <state width="1092" height="17" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583238456502" />
     <state width="1293" height="298" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583185977936" />
     <state width="1092" height="163" key="GridCell.Tab.1.bottom" timestamp="1583237155837">
       <screen x="0" y="0" width="1366" height="728" />
@@ -393,14 +370,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582989247754" />
-    <state x="467" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1583316057699">
+    <state x="467" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1583315967146">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="467" y="241" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1583316057699" />
+    <state x="467" y="241" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1583315967146" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583167819396" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1582991352316">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582991352316" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/UserController.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

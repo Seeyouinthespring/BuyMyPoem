@@ -3,24 +3,22 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/newcss.css}" rel="stylesheet">
     <title>Регистрация</title>
 </head>
-<body>
-<div align="center">
+<body class="sign">
+<div>
+    <p th:text="${error}"></p>
+
     <form action="#" th:action="@{/registration}" method="post">
-        <h1>Регистрация</h1>
-        <input class="intext" type="text" name="userLogin" th:field="${newUsr.login}" placeholder="Логин"/><br><br>
-        <input class="intext" type="text" name="userEmail" th:field="${newUsr.email}" placeholder="Email"/><br><br>
-        <input class="intext" type="date" name="userBirthdate" th:field="${newUsr.birthdate}" placeholder="День рождения"/><br><br>
-        <input class="intext" type="password" name="userPassword" th:field="${newUsr.password}" placeholder="Пароль"/><br><br>
-        <input class="intext" type="password" name="userPassword2" th:field="${newUsr.confirmPassword}" placeholder="Повторите пароль"/><br><br>
+        <h1>Регистрация<br><br></h1>
+        Введите логин: <input type="text" id="login" name="userLogin" th:field="${newUsr.login}"/><br><br>
+        Введите адрес электронной почты: <input type="text" id="email" name="userEmail" th:field="${newUsr.email}"/><br><br>
+        Введите дату рождения: <input type="date" id="birthdate" name="userBirthdate" th:field="${newUsr.birthdate}"/><br><br>
+        Введите пароль: <input type="password" id="password" name="userPassword" th:field="${newUsr.password}"/><br><br>
+        Повторите пароль: <input type="password" id="password2" name="userPassword2" th:field="${newUsr.confirmPassword}"/><br><br>
         <button>Зарегистрироваться</button>
     </form>
-    <form action="#" th:action="@{/}" method="get">
-        <button>Вернутся на главную</button>
-    </form>
-    <p th:text="${error}"></p>
 </div>
 </body>
 </html>
