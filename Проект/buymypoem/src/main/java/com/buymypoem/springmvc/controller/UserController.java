@@ -20,49 +20,47 @@ public class UserController {
     @Autowired
     private UserDAO userDAO;
 
-    @RequestMapping(value="/sign in", method=RequestMethod.GET)
+    @RequestMapping(value = "/sign in", method = RequestMethod.GET)
     public String sign(Model model) {
-        model.addAttribute("usr",new User());
+        model.addAttribute("usr", new User());
         return "sign in";
     }
 
     @RequestMapping(value = "/sign in", method = RequestMethod.POST)
-    public String signIn(@ModelAttribute ("usr") User user, Model model){
+    public String signIn(@ModelAttribute("usr") User user, Model model) {
         User userReal = userDAO.getUserByLogin(user.getLogin());
-        if (userReal!=null){
-        if (userReal.getPassword().equals(user.getPassword()))
-        {
+
+        if( (userReal.getPassword().equals(user.getPassword()))&&(!(userReal == null))) {
             return "success";
-        }
-        else{
-            model.addAttribute("error", "Вы ввели не правильный пароль");
+        } else {
+            model.addAttribute("error", "Вы ввели неверные данные");
             return "/sign in";
         }
-        }else{
-            model.addAttribute("error", "Вы ввели не правильный логин");
-            return "/sign in";
-        }
+
     }
 
-    @RequestMapping(value="/registration", method=RequestMethod.GET)
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
-        model.addAttribute("newUsr",new User());
+        model.addAttribute("newUsr", new User());
         return "registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String saveUser(@ModelAttribute("newUsr") User user, Model model ){
-        if (user.getConfirmPassword().equals(user.getPassword())){
-            userDAO.insertUser(user);
-            return "success";
-        }
-        else{
-            model.addAttribute("error", "Пароли не совпали");
+    public String saveUser(@ModelAttribute("newUsr") User user, Model model) {
+        if (user.getConfirmPassword().equals(user.getPassword())) {
+            User userReal = userDAO.getUserByLogin(user.getLogin());
+            if (userReal == null) {
+                userDAO.insertUser(user);
+                return "success";
+            }
+            model.addAttribute("error", "Пользователь с таким логином уже существует");
             return "registration";
         }
+        model.addAttribute("error", "Пароли не совпадают");
+        return "registration";
     }
 
-    @RequestMapping(value="/")
+    @RequestMapping(value = "/")
     public String main() {
         return "main";
     }
