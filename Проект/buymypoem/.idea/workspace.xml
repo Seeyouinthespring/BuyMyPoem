@@ -6,7 +6,17 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d2a0d0b-fc41-46c0-b15a-b7cbe550b4a2" name="Default Changelist" comment="" />
+    <list default="true" id="3d2a0d0b-fc41-46c0-b15a-b7cbe550b4a2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/CompositionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/CompositionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/dao/CompositionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/dao/CompositionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/sign in.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/sign in.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/springmvc-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/springmvc-servlet.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,14 +39,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="HTML File" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -76,13 +86,14 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.30927834" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Лера\Downloads\spring-mvc-boilerplate-master\buymypoem\src\main\webapp\WEB-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 8.0.27">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 8.0.3">
     <configuration name="Tomcat 8.0.27" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.27" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="BROWSER_ID" value="53e2f627-b1a7-4dfa-bfa7-5b83cc034776" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -247,7 +258,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -274,6 +285,7 @@
       <workItem from="1583316054993" duration="10358000" />
       <workItem from="1583585825823" duration="24000" />
       <workItem from="1583586055470" duration="27035000" />
+      <workItem from="1583744948771" duration="11263000" />
     </task>
     <servers />
   </component>
@@ -312,45 +324,45 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583587082063" />
-    <state width="1560" height="339" key="GridCell.Tab.0.bottom" timestamp="1583619936318">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1092" height="16" key="GridCell.Tab.0.bottom" timestamp="1583756991303">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="350" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583584690073" />
+    <state width="1092" height="16" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583756991303" />
     <state width="1560" height="339" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936318" />
-    <state width="1560" height="339" key="GridCell.Tab.0.center" timestamp="1583619936318">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1092" height="16" key="GridCell.Tab.0.center" timestamp="1583756991303">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="350" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583584690073" />
+    <state width="1092" height="16" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583756991303" />
     <state width="1560" height="339" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936318" />
-    <state width="1560" height="339" key="GridCell.Tab.0.left" timestamp="1583619936318">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1092" height="16" key="GridCell.Tab.0.left" timestamp="1583756991303">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="350" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583584690073" />
+    <state width="1092" height="16" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583756991303" />
     <state width="1560" height="339" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936318" />
-    <state width="1560" height="339" key="GridCell.Tab.0.right" timestamp="1583619936318">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1092" height="16" key="GridCell.Tab.0.right" timestamp="1583756991303">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="350" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583584690073" />
+    <state width="1092" height="16" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583756991303" />
     <state width="1560" height="339" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936318" />
-    <state width="1560" height="339" key="GridCell.Tab.1.bottom" timestamp="1583619936262">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1092" height="135" key="GridCell.Tab.1.bottom" timestamp="1583756726453">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="182" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583391175084" />
+    <state width="1092" height="135" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583756726453" />
     <state width="1560" height="339" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936262" />
-    <state width="1560" height="339" key="GridCell.Tab.1.center" timestamp="1583619936261">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1092" height="135" key="GridCell.Tab.1.center" timestamp="1583756726453">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="182" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1583391175084" />
+    <state width="1092" height="135" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1583756726453" />
     <state width="1560" height="339" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936261" />
-    <state width="1560" height="339" key="GridCell.Tab.1.left" timestamp="1583619936261">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1092" height="135" key="GridCell.Tab.1.left" timestamp="1583756726453">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="182" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1583391175084" />
+    <state width="1092" height="135" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1583756726453" />
     <state width="1560" height="339" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936261" />
-    <state width="1560" height="339" key="GridCell.Tab.1.right" timestamp="1583619936261">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1092" height="135" key="GridCell.Tab.1.right" timestamp="1583756726453">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="182" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1583391175084" />
+    <state width="1092" height="135" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1583756726453" />
     <state width="1560" height="339" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936261" />
     <state width="1560" height="339" key="GridCell.Tab.2.bottom" timestamp="1583619936262">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -388,14 +400,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1560" height="372" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583591662609" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1582989247754">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="313" y="12" key="SettingsEditor" timestamp="1583747466157">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="313" y="12" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1583747466157" />
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582989247754" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1583586073441">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="467" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1583744954582">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="467" y="241" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1583585826886" />
+    <state x="467" y="241" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1583744954582" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583586073441" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1582991352316">
       <screen x="0" y="0" width="1920" height="1040" />

@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/registration.css}" rel="stylesheet">
     <title>Вход в систему</title>
 </head>
 <body>
-<div align="center">
-    <form action="#" th:action="@{/sign in}" method="post">
-        <h1 align="center" font color="#444444">Вход<br><br></h1>
-            <input class="intext" type="text" name="userLogin" placeholder="Логин" th:field="${usr.login}"/><br>
-            <input class="intext" type="password" name="userPassword" placeholder="Пароль" th:field="${usr.password}"/><br><br>
-            <button>Войти</button>
+    <form class="sign-up__form" action="#" th:action="@{/sign in}" method="post">
+        <div class="sign-up__title">Вход</div>
+            <input class="sign-up__input" type="text" name="userLogin" placeholder="Логин" th:field="${usr.login}"/>
+            <input class="sign-up__input" type="password" name="userPassword" placeholder="Пароль" th:field="${usr.password}"/>
+            <button class="sign-up__button">Войти</button>
     </form>
-    <form action="#" th:action="@{/}" method="get">
-        <button>Вернутся на главную</button>
-    </form>
-    <p th:text="${error}"></p>
-</div>
+
+    <p class="sign-up__error" th:text="${error}"></p>
+
+    <a th:href="@{/}" class="sign-up__button">Вернутся на главную</a>
 </body>
 </html>

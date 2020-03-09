@@ -15,18 +15,26 @@ import java.util.List;
 public class CompositionDAO {
 
     JdbcTemplate temp;
-// select title, description, likes, dislikes, login from author join composition on composition.authorID = author.authorID
-// join user on user.userID=author.userID;
-// SELECT genre.title, type.title FROM composition join type on composition.typeID=type.typeID
-//JOIN genre on genre.genreID=composition.genreID;
+
     public void setTemp(JdbcTemplate temp) {
         this.temp = temp;
     }
 
+    public int count(){
+        String sql ="select count(*) from composition;";
+        try {
+            int i = temp.queryForObject( sql, Integer.class);
+            if (i%2==0) return i/2;
+            return  i/2+1;
+        }catch (Exception e){
+            return -1;
+        }
+    }
+
     public List<Composition> getAllCompositions(int page){
-        int first = 3*(page-1);
+        int first = 2*(page-1);
         String sql2 = "select compositionID, title, description, likes, dislikes, login, typeID, genreID from author " +
-                "join composition on composition.authorID = author.authorID join user on user.userID=author.userID limit "+first+",3";
+                "join composition on composition.authorID = author.authorID join user on user.userID=author.userID limit "+first+",2";
 
         List<Composition> compositionList= temp.query(sql2, new RowMapper<Composition>() {
             public Composition mapRow(ResultSet resultSet, int i) throws SQLException {

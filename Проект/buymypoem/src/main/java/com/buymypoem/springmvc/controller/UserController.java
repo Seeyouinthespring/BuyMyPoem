@@ -45,31 +45,34 @@ public class UserController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
-        model.addAttribute("newUsr", new User());
+        model.addAttribute("user", new User());
         return "registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String saveUser(@ModelAttribute("newUsr") User user, Model model) {
-        if (user.getConfirmPassword().equals(user.getPassword())) {
-            User userReal = userDAO.getUserByLogin(user.getLogin());
-            if (userReal == null) {
-                userDAO.insertUser(user);
-                if (user.getRole().equals("Author"))
-                return "successAuthor";
-                else return "successCustomer";
+    public String saveUser(@ModelAttribute("user") User user, Model model) {
 
-            }
+        if (!user.getConfirmPassword().equals(user.getPassword())) {
+            model.addAttribute("error", "Пароли не совпали");
+            return "registration";
+        }
+
+        User userReal = userDAO.getUserByLogin(user.getLogin());
+        if (userReal != null) {
             model.addAttribute("error", "Пользователь с таким логином уже существует");
             return "registration";
         }
-        model.addAttribute("error", "Пароли не совпадают");
-        return "registration";
+
+        userDAO.insertUser(user);
+        if (user.getRole().equals("Author")) return "successAuthor";
+        return "successCustomer";
+
+
     }
 
-    /*@RequestMapping(value = "/")
+    @RequestMapping(value = "/")
     public String main() {
         return "main";
-    }*/
+    }
 }
 
