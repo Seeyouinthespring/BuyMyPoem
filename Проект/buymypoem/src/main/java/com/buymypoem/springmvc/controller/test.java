@@ -18,7 +18,7 @@ public class test {
     UserSession us;
 
     @RequestMapping(value = "/test")
-    public String sign(Model model) {
+    public String test(Model model) {
         model.addAttribute("usr",  us.getUserSession().getLogin());
         return "test";
     }

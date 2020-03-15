@@ -7,21 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d2a0d0b-fc41-46c0-b15a-b7cbe550b4a2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_inject_extensions_guice_servlet_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_inject_guice_3_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_inject_javax_inject_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/springmvc_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/springmvc_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springmvc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/springmvc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/CompositionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/CompositionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/ProfileControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/ProfileControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/dao/CompositionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/dao/CompositionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/successAuthor.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/successAuthor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/successCustomer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/successCustomer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/springmvc-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/springmvc-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/controller/CompositionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/controller/CompositionController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/dao/CompositionDAO$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/dao/CompositionDAO$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/dao/CompositionDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/dao/CompositionDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/buymypoem/springmvc/controller/CompositionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/buymypoem/springmvc/controller/CompositionController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/buymypoem/springmvc/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/buymypoem/springmvc/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/buymypoem/springmvc/dao/CompositionDAO$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/buymypoem/springmvc/dao/CompositionDAO$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/buymypoem/springmvc/dao/CompositionDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/buymypoem/springmvc/dao/CompositionDAO.class" afterDir="false" />
@@ -340,7 +340,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -369,7 +369,7 @@
       <workItem from="1583586055470" duration="27035000" />
       <workItem from="1583744948771" duration="13067000" />
       <workItem from="1583931879809" duration="2910000" />
-      <workItem from="1584188300776" duration="10633000" />
+      <workItem from="1584188300776" duration="19045000" />
     </task>
     <servers />
   </component>
@@ -423,45 +423,45 @@
     </state>
     <state x="526" y="183" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1583931982819" />
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583587082063" />
-    <state width="1092" height="21" key="GridCell.Tab.0.bottom" timestamp="1584257967374">
+    <state width="1092" height="214" key="GridCell.Tab.0.bottom" timestamp="1584266758349">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="21" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584257967374" />
+    <state width="1092" height="214" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584266758349" />
     <state width="1560" height="339" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936318" />
-    <state width="1092" height="21" key="GridCell.Tab.0.center" timestamp="1584257967374">
+    <state width="1092" height="214" key="GridCell.Tab.0.center" timestamp="1584266758349">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="21" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1584257967374" />
+    <state width="1092" height="214" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1584266758349" />
     <state width="1560" height="339" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936318" />
-    <state width="1092" height="21" key="GridCell.Tab.0.left" timestamp="1584257967374">
+    <state width="1092" height="214" key="GridCell.Tab.0.left" timestamp="1584266758349">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="21" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1584257967374" />
+    <state width="1092" height="214" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1584266758349" />
     <state width="1560" height="339" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936318" />
-    <state width="1092" height="21" key="GridCell.Tab.0.right" timestamp="1584257967374">
+    <state width="1092" height="214" key="GridCell.Tab.0.right" timestamp="1584266758349">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="21" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1584257967374" />
+    <state width="1092" height="214" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1584266758349" />
     <state width="1560" height="339" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936318" />
-    <state width="1092" height="238" key="GridCell.Tab.1.bottom" timestamp="1584254444774">
+    <state width="1092" height="214" key="GridCell.Tab.1.bottom" timestamp="1584266757860">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="238" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584254444774" />
+    <state width="1092" height="214" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584266757860" />
     <state width="1560" height="339" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936262" />
-    <state width="1092" height="238" key="GridCell.Tab.1.center" timestamp="1584254444774">
+    <state width="1092" height="214" key="GridCell.Tab.1.center" timestamp="1584266757860">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="238" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1584254444774" />
+    <state width="1092" height="214" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1584266757860" />
     <state width="1560" height="339" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936261" />
-    <state width="1092" height="238" key="GridCell.Tab.1.left" timestamp="1584254444774">
+    <state width="1092" height="214" key="GridCell.Tab.1.left" timestamp="1584266757860">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="238" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1584254444774" />
+    <state width="1092" height="214" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1584266757860" />
     <state width="1560" height="339" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936261" />
-    <state width="1092" height="238" key="GridCell.Tab.1.right" timestamp="1584254444774">
+    <state width="1092" height="214" key="GridCell.Tab.1.right" timestamp="1584266757860">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="238" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584254444774" />
+    <state width="1092" height="214" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584266757860" />
     <state width="1560" height="339" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583619936261" />
     <state width="1560" height="339" key="GridCell.Tab.2.bottom" timestamp="1583619936262">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -525,5 +525,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582991352316" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/CompositionController.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/CompositionController.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

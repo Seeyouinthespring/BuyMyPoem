@@ -2,6 +2,7 @@ package com.buymypoem.springmvc.controller;
 
 import com.buymypoem.springmvc.dao.CompositionDAO;
 import com.buymypoem.springmvc.model.Composition;
+import com.buymypoem.springmvc.logic.compositionBL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,12 +18,15 @@ public class CompositionController {
     @Autowired
     CompositionDAO compositionDAO;
 
+    @Autowired
+    compositionBL compositionBL;
+
     @RequestMapping(value = "/start", method= RequestMethod.GET)
     public String getStartList(Model m){
         List<Composition> list=compositionDAO.getAllCompositions(1);
         m.addAttribute("list",list);
         m.addAttribute("page",1);
-        int endPage=compositionDAO.count();
+        int endPage=compositionBL.countTheNumberOfAll();
         m.addAttribute("end", endPage);
         return "index";
     }
@@ -31,33 +35,30 @@ public class CompositionController {
     public String getList(@PathVariable int page, Model m){
         List<Composition> list=compositionDAO.getAllCompositions(page);
         m.addAttribute("list",list);
-        int endPage=compositionDAO.count();
+        int endPage=compositionBL.countTheNumberOfAll();
         m.addAttribute("end", endPage);
         m.addAttribute("page",page);
         return "index";
-
-       /* if (page<1)
-        {
-            List<Composition> list=compositionDAO.getAllCompositions(page+1);
-            m.addAttribute("list",list);
-            m.addAttribute("msg","start");
-            m.addAttribute("page",page+1);
-            return "index";
-
-        }else{
-                List<Composition> list=compositionDAO.getAllCompositions(page);
-                if (list.size()==0)
-                {
-                    list=compositionDAO.getAllCompositions(page-1);
-                    m.addAttribute("list",list);
-                    m.addAttribute("msg","end");
-                    m.addAttribute("page",page-1);
-                    return "index";
-                }else {
-                    m.addAttribute("list",list);
-                    m.addAttribute("page",page);
-                    return "index";
-                }
-        }*/
     }
+
+    @RequestMapping(value = "/composition", method= RequestMethod.GET)
+    public String getCompositionStart(Model m){
+        List<Composition> list=compositionDAO.getAllCompositionsForUser(1);
+        m.addAttribute("list",list);
+        m.addAttribute("page",1);
+        int endPage=compositionBL.countTheNumberOfPublishedComposition();
+        m.addAttribute("end", endPage);
+        return "composition";
+    }
+
+    @RequestMapping(value = "/composition/{page}", method= RequestMethod.GET)
+    public String getComposition(@PathVariable int page, Model m){
+        List<Composition> list=compositionDAO.getAllCompositionsForUser(page);
+        m.addAttribute("list",list);
+        int endPage=compositionBL.countTheNumberOfPublishedComposition();
+        m.addAttribute("end", endPage);
+        m.addAttribute("page",page);
+        return "composition";
+    }
+
 }

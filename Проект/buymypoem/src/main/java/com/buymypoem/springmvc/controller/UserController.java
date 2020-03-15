@@ -35,9 +35,9 @@ public class UserController {
 
         if(   (!(userReal == null))&&( Integer.parseInt(userReal.getPassword())==user.getPassword().hashCode())) {
             Map<String, String> pages = new HashMap<String, String>();
-            pages.put("Author", "successAuthor");
-            pages.put("Customer", "successCustomer");
-            pages.put("Service", "successService");
+            pages.put("Author", "redirect:successAuthor");
+            pages.put("Customer", "redirect:successCustomer");
+            pages.put("Service", "redirect:successService");
             userSession.setUserSession(userReal);
             String page = pages.get(userReal.getRole());
             if(page == null) return "error";

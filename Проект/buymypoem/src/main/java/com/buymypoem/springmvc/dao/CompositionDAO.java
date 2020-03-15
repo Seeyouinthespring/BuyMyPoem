@@ -21,23 +21,23 @@ public class CompositionDAO {
         this.temp = temp;
     }
 
-    public int count() {
+    public int selectAllComposition(){
         String sql = "select count(*) from composition;";
-        try {
-            int i = temp.queryForObject(sql, Integer.class);
-            if (i % 2 == 0) return i / 2;
-            return i / 2 + 1;
-        } catch (Exception e) {
-            return -1;
-        }
+        return temp.queryForObject(sql, Integer.class);
     }
+
+    public int selectPublishedComposition(){
+        String sql = "select count(*) from composition WHERE status='Опубликовано';";
+        return temp.queryForObject(sql, Integer.class);
+    }
+
 
     public List<Composition> getAllCompositions(int page) {
         int first = PAGE_SIZE * (page - 1);
-        String sql2 = "select compositionID, title, description, likes, dislikes, login, typeID, genreID " +
+        String sql2 = "select compositionID, title, description, likes, dislikes, login, typeID, genreID,status " +
                 "from author " +
                 "join composition on composition.authorID = author.authorID " +
-                "join user on user.userID=author.userID limit " + first + ",2";
+                "join user on user.userID=author.userID limit " + first + "," + PAGE_SIZE;
 
         List<Composition> compositionList = temp.query(sql2, new RowMapper<Composition>() {
             public Composition mapRow(ResultSet resultSet, int i) throws SQLException {
@@ -47,6 +47,48 @@ public class CompositionDAO {
                 Composition comp = new Composition();
                 comp.setCompositionID(resultSet.getInt("compositionID"));
                 comp.setTitle(resultSet.getString("title"));
+                comp.setStatus(resultSet.getString("status"));
+                comp.setLikes(resultSet.getInt("likes"));
+                comp.setDislikes(resultSet.getInt("dislikes"));
+                u.setLogin(resultSet.getString("login"));
+                comp.setUser(u);
+                t.setTypeID(resultSet.getInt("typeID"));
+                comp.setType(t);
+                g.setGenreID(resultSet.getInt("genreID"));
+                comp.setGenre(g);
+                comp.setDescription(resultSet.getString("description"));
+                return comp;
+            }
+        });
+        for (Composition comp : compositionList) {
+            String sqlType = "SELECT * FROM type where typeID=?";
+            Type type = temp.queryForObject(sqlType, new Object[]{comp.getType().getTypeID()}, new BeanPropertyRowMapper<Type>(Type.class));
+            comp.setType(type);
+
+            String sqlGenre = "SELECT * FROM Genre where genreID=?";
+            Genre genre = temp.queryForObject(sqlGenre, new Object[]{comp.getGenre().getGenreID()}, new BeanPropertyRowMapper<Genre>(Genre.class));
+            comp.setGenre(genre);
+        }
+        return compositionList;
+    }
+
+
+    public List<Composition> getAllCompositionsForUser(int page) {
+        int first = PAGE_SIZE * (page - 1);
+        String sql2 = "select compositionID, title, description, likes, dislikes, login, typeID, genreID,status " +
+                "from author " +
+                "join composition on composition.authorID = author.authorID " +
+                "join user on user.userID=author.userID WHERE composition.status='Опубликовано' limit " + first + "," + PAGE_SIZE;
+
+        List<Composition> compositionList = temp.query(sql2, new RowMapper<Composition>() {
+            public Composition mapRow(ResultSet resultSet, int i) throws SQLException {
+                User u = new User();
+                Type t = new Type();
+                Genre g = new Genre();
+                Composition comp = new Composition();
+                comp.setCompositionID(resultSet.getInt("compositionID"));
+                comp.setTitle(resultSet.getString("title"));
+                comp.setStatus(resultSet.getString("status"));
                 comp.setLikes(resultSet.getInt("likes"));
                 comp.setDislikes(resultSet.getInt("dislikes"));
                 u.setLogin(resultSet.getString("login"));

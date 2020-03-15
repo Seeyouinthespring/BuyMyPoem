@@ -35,6 +35,9 @@
 		<property name="temp" ref="jdbcTemp"/>
 	</bean>
 
+	<bean id="compositionBL" class="com.buymypoem.springmvc.logic.compositionBL">
+	</bean>
+
 	<bean id="user" class="com.buymypoem.springmvc.model.User">
 	</bean>
 

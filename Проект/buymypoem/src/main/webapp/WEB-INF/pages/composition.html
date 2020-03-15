@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <title>Список произведений</title>
+</head>
+<body>
+<div class="div_top">
+    <h1 class="title"><a href="main.html" class="a_logo">BuyMyPoem</a></h1>
+</div>
+
+<div class="div_left">
+    <h3><ul>
+        <li><a href="" class="a_main_menu">Список авторов</a></li><br>
+        <li><a href="" class="a_main_menu">Список произведений</a></li><br>
+        <li><a href="" class="a_main_menu">Список заявок</a></li><br>
+        <li><a href="" class="a_main_menu">Рейтинг произведений</a></li><br>
+        <li><a href="" class="a_main_menu">Рейтинг авторов</a></li>
+    </ul></h3>
+</div>
+
+<div class="div_list2">
+    <table class="table_p">
+        <tr th:each="text : ${list}">
+            <td><br> <span th:text="${text.title}">Название</span><br>
+                <span th:text="${text.user.login}">Автор</span><br>
+                Тип произведения: <span th:text="${text.type.title}"> Тип </span><br>
+                Жанр:  <span th:text="${text.genre.title}"> Жанр </span><br>
+                Описание:  <span th:text="${text.description}"> Описание </span><br>
+                Лайки <span th:text="${text.likes}"> Описание </span>
+                Дис <span th:text="${text.dislikes}"> Описание </span>
+            </td>
+            <td align="right">
+                <button class="smal_button">Перейти к просмотру</button>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <div class="div_next">
+            <a th:if="${page}>1" class="href_next" th:href="@{/composition/{p} (p=${page}-1)}">Назад</a>
+            <a th:if="${page}<${end}" class="href_next" th:href="@{/composition/{p}(p=${page}+1)}">Вперед</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

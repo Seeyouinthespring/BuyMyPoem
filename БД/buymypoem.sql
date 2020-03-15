@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.4
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Мар 07 2020 г., 22:51
--- Версия сервера: 8.0.19
--- Версия PHP: 7.4.2
+-- Время создания: Мар 15 2020 г., 10:08
+-- Версия сервера: 8.0.18
+-- Версия PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `author` (
-  `authorID` int NOT NULL,
-  `finisedcompositions` int NOT NULL DEFAULT '0',
+  `authorID` int(11) NOT NULL,
+  `finisedcompositions` int(11) NOT NULL DEFAULT '0',
   `rating` float NOT NULL DEFAULT '0',
-  `userID` int NOT NULL
+  `userID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -43,7 +43,8 @@ INSERT INTO `author` (`authorID`, `finisedcompositions`, `rating`, `userID`) VAL
 (1, 0, 0, 1),
 (2, 0, 0, 3),
 (3, 0, 0, 2),
-(6, 0, 0, 20);
+(6, 0, 0, 20),
+(7, 0, 0, 23);
 
 -- --------------------------------------------------------
 
@@ -52,9 +53,9 @@ INSERT INTO `author` (`authorID`, `finisedcompositions`, `rating`, `userID`) VAL
 --
 
 CREATE TABLE `authorrequest` (
-  `authorrequest` int NOT NULL,
-  `authorID` int NOT NULL,
-  `requestID` int NOT NULL
+  `authorrequest` int(11) NOT NULL,
+  `authorID` int(11) NOT NULL,
+  `requestID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -64,10 +65,10 @@ CREATE TABLE `authorrequest` (
 --
 
 CREATE TABLE `comment` (
-  `commentID` int NOT NULL,
+  `commentID` int(11) NOT NULL,
   `text` text NOT NULL,
   `sendingdate` date NOT NULL,
-  `userID` int NOT NULL
+  `userID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -77,9 +78,9 @@ CREATE TABLE `comment` (
 --
 
 CREATE TABLE `commentcomposition` (
-  `commentcompositionID` int NOT NULL,
-  `commentID` int NOT NULL,
-  `compositionID` int NOT NULL
+  `commentcompositionID` int(11) NOT NULL,
+  `commentID` int(11) NOT NULL,
+  `compositionID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -89,9 +90,9 @@ CREATE TABLE `commentcomposition` (
 --
 
 CREATE TABLE `commentordering` (
-  `commentorderingID` int NOT NULL,
-  `commentID` int NOT NULL,
-  `orderingID` int NOT NULL
+  `commentorderingID` int(11) NOT NULL,
+  `commentID` int(11) NOT NULL,
+  `orderingID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -101,9 +102,9 @@ CREATE TABLE `commentordering` (
 --
 
 CREATE TABLE `commentrequest` (
-  `commentrequestID` int NOT NULL,
-  `commentID` int NOT NULL,
-  `requestID` int NOT NULL
+  `commentrequestID` int(11) NOT NULL,
+  `commentID` int(11) NOT NULL,
+  `requestID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -113,15 +114,15 @@ CREATE TABLE `commentrequest` (
 --
 
 CREATE TABLE `composition` (
-  `compositionID` int NOT NULL,
+  `compositionID` int(11) NOT NULL,
   `title` varchar(70) NOT NULL,
   `description` text,
-  `likes` int NOT NULL,
-  `dislikes` int NOT NULL,
+  `likes` int(11) NOT NULL,
+  `dislikes` int(11) NOT NULL,
   `text` text NOT NULL,
-  `authorID` int NOT NULL,
-  `genreID` int NOT NULL,
-  `typeID` int NOT NULL,
+  `authorID` int(11) NOT NULL,
+  `genreID` int(11) NOT NULL,
+  `typeID` int(11) NOT NULL,
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -130,11 +131,13 @@ CREATE TABLE `composition` (
 --
 
 INSERT INTO `composition` (`compositionID`, `title`, `description`, `likes`, `dislikes`, `text`, `authorID`, `genreID`, `typeID`, `status`) VALUES
-(1, 'Бельгия', 'Стих про величие Бельгии', 0, 0, 'Побеждена, но не рабыня,\r\nСтоишь ты гордо без доспех,\r\nОсквернена твоя святыня,\r\nЗато душа чиста, как снег.\r\nКровавый пир в дыму пожара\r\nУстроил грозный сатана,\r\nИ под мечом его удара\r\nРазбита храбрая страна.\r\nНо дух свободный, дух могучий\r\nВеликих сил не угасил,\r\nОн, как орел, парит за тучей\r\nНад цепью доблестных могил.\r\nИ жребий правды совершится:\r\nПадет твой враг к твоим ногам\r\nИ будет с горестью молиться\r\nТвоим разбитым алтарям.', 2, 1, 2, 'В черновике'),
-(2, 'В гостях', 'Про мышку', 2, 0, 'Мышь меня на чашку чая\r\nПригласила в новый дом.\r\nДолго в дом не мог войти я,\r\nВсе же влез в него с трудом.\r\nА теперь вы мне скажите:\r\nПочему и отчего\r\nНет ни дома и ни чая,\r\nНет буквально ничего!', 3, 1, 1, 'Опубликована'),
-(8, 'Faith and me', 'piece of shit', 0, 0, 'Do u see what i mean?\r\nall my mindthings are free!\r\nthoughts have never been clean,\r\ni forgot to foresee\r\n\r\nhow ive lost all my friends,\r\nnevermind who they ve been,\r\nbut my pride it still stands\r\nbetween 8 and 15.', 1, 1, 1, 'В черновике'),
-(13, ' Муха', 'да да я', 0, 0, 'Села муха на варенье!', 3, 2, 1, 'В черновике'),
-(16, ' Береза', 'пушкин бох есенин сдох', 0, 0, 'Белая береза под моим окном...', 1, 1, 1, 'В черновике');
+(1, 'Бельгия', 'Стих про величие Бельгии', 0, 0, 'Побеждена, но не рабыня,\r\nСтоишь ты гордо без доспех,\r\nОсквернена твоя святыня,\r\nЗато душа чиста, как снег.\r\nКровавый пир в дыму пожара\r\nУстроил грозный сатана,\r\nИ под мечом его удара\r\nРазбита храбрая страна.\r\nНо дух свободный, дух могучий\r\nВеликих сил не угасил,\r\nОн, как орел, парит за тучей\r\nНад цепью доблестных могил.\r\nИ жребий правды совершится:\r\nПадет твой враг к твоим ногам\r\nИ будет с горестью молиться\r\nТвоим разбитым алтарям.', 7, 1, 2, 'В черновике'),
+(2, 'В гостях', 'Про мышку', 2, 0, 'Мышь меня на чашку чая\r\nПригласила в новый дом.\r\nДолго в дом не мог войти я,\r\nВсе же влез в него с трудом.\r\nА теперь вы мне скажите:\r\nПочему и отчего\r\nНет ни дома и ни чая,\r\nНет буквально ничего!', 7, 1, 1, 'Опубликовано'),
+(8, 'Faith and me', 'piece of shit', 0, 3, 'Do u see what i mean?\r\nall my mindthings are free!\r\nthoughts have never been clean,\r\ni forgot to foresee\r\n\r\nhow ive lost all my friends,\r\nnevermind who they ve been,\r\nbut my pride it still stands\r\nbetween 8 and 15.', 1, 1, 1, 'На предпросмотре'),
+(13, ' Муха', 'да да я', 0, 0, 'Села муха на варенье!', 3, 2, 1, 'Оплачено'),
+(16, ' Береза', 'пушкин бох есенин сдох', 0, 0, 'Белая береза под моим окном...', 7, 1, 1, 'В черновике'),
+(17, 'На изгибы мёртвых', 'Просто стих', 4354, 34545, 'На изгибы мёртвых улиц ляжет томный нежный взгляд.\r\nСтан серьёзный, шаг неспешный, 40 месяцев подряд.\r\nДень за днём и год за годом, в перемены веры нет.\r\nКрыши, ветки и заборы, под стабильный серый свет.\r\n\r\nЗнает всех людей района, кто противней, кто быстрей.\r\nСидя, с крыши пар пускает из потрёпанных ноздрей.\r\nГрациозные движенья: шаг, трусца, бегом, прыжок.\r\nИ уже в ларьке с едою. К повару. За ним должок.\r\n\r\nПодкрепившись тем, что дали. Неспеша по всем делам:\r\nПоздороваться с подругой, птиц подергать тут и там,\r\nПрочесать дорожки парка на потеху малышей,\r\nС высоты поникшей ивы потаращить на лещей.\r\n\r\nПод ногами километры за спиною только хвост.\r\nНастроенье переменно, то на крышу, то под мост.\r\nЯзыка шершавость бесит. Шерсть бы не стереть до дыр.\r\nВот у мамы был приятней. Ключевое слово был...\r\n\r\nНо не время капать слезы. Собираются коты\r\nВновь побиться до психоза за принцессу нищеты.\r\nЖаль сегодня без мужчинок, жизнь пустеет с каждым днём.\r\nГордо, не подав и виду уплывет играть с огнём.\r\n\r\nУрны жечь - не брать бумажки. Здесь не знают слова враг.\r\nНет желаний силы мерить, что касается и благ.\r\nСистематика не ставит рамок для понятия бомж.\r\nНет деления на бедных и господ или вельмож.\r\n\r\nОтражаясь в жёлтых глазках, догорит обычный день.\r\nС цветом стен почти сольётся в миг ушастенькая тень.\r\nХоть во мраке страх не встанет, взгляд кошачий режет тьму.\r\nНо усталость не позволит удивляться ничему.\r\n\r\nЖизнь проста но неизменна, завтра снова как-то так:\r\nКрыши, люди, перекрёстки, мост, огни, закат, чердак.\r\nСон придёт сквозь лай далёкий, одинокий, без угроз.\r\nВедь судьба одна и та же — не для строк стихов и проз.', 7, 1, 1, 'Опубликовано'),
+(18, 'Дюжина пар назойливых глаз', 'Держу в курсе', 232, 1232, 'Дюжина пар назойливых глаз, простые движенья, пустые стаканы.\r\nОни все позабудут про кто, что сказал, расставляя друг другу под ноги капканы.\r\nЧто же я тут забыл? Бит взорвётся сильней и оставит вопрос без ответа.\r\nЗапах пьяных волос, голос детской мечты в середине двадцатого лета.\r\n\r\nВроде даже привык, как снижает свой темп беспорядочный пляс силуэтов,\r\nКак вселяет цикличность в статический фон россыпь красно-безумных портретов.\r\nВзгляд мой точку одну изучает давно сантиметром ни выше, ни ниже.\r\nЯ смотрю по прямой, но все то, что вокруг, наизусть знаю, хоть и не вижу.\r\n\r\nПусты мысли, идеи, слова, споры, звуки в молчании разум сильнее.\r\nСреди кучи чужих, бестолковых людей одиночество лупит больнее.\r\nПередоз или сон? Адекватен, влюблён? Я не тот за кого меня держат!\r\nЯ для них и не бог, но и точно не раб, наблюдая за всем где-то между.\r\n\r\nОн же мог не блевать где-то там в уголке, а узнать что то важное вместо.\r\nА она могла мирно в кровати сопеть, а не грудью трясти возле шеста.\r\nХотя что я ворчу? Мне не все ли равно? Убирать за ним точно не буду.\r\nА на годную грудь почему б не взглянуть, рот разинув, роняя посуду.\r\n\r\n\"Эй, братан! Ты чего приуныл? Хватит тухнуть! Возьми ка бутылочку пива!\"\r\nНу и нахер ты дал мне вот это дерьмо? Не дождавшись ответа ушёл некрасиво?\r\nХоть на пару минут надо выйти во двор, отпустить колдовство психодела.\r\nСвежий ветер ночной, Россыпь звёзд в небесах, вобщем все не для пьяного тела\r\n\r\nЧто ж, наверное, мне никогда не понять, почему им все это так сильно по нраву.\r\nВеселиться, курить, друг на друге скакать, запивая отравой отраву.\r\nИм же легче проблемы и мысли свои утопить и забыть в алкоголе.\r\nСоздать собственный мир, где не надо вникать, существуя как будто в приколе.\r\n\r\nНу а я что? Я тоже хотел. Но так просто свой мозг отключить не по силам.\r\nЭто сложно порой — слушать шум в голове и пульсацию крови по жилам\r\nЯ здесь самый чужой, мне не нужно здесь быть, будто взрослому в школьном буфете.\r\nСкоро выдвинусь в собственный мир а пока... А пока на меня дует ветер.\r\n\r\nСнова в мыслях повеет пейзажем до боли знакомым но очень далёким.\r\nЯ вовсе не знал, кем я был все то время, пока я не был одиноким.\r\nВ мечтах растворяясь, забыв про реальность я падал и падал и падал.\r\nИ понял, что где-то свернул не туда, лишь добравшись, куда мне не надо.', 7, 1, 2, 'Опубликовано');
 
 -- --------------------------------------------------------
 
@@ -143,9 +146,9 @@ INSERT INTO `composition` (`compositionID`, `title`, `description`, `likes`, `di
 --
 
 CREATE TABLE `customer` (
-  `customerID` int NOT NULL,
-  `paidcompositionnumber` int NOT NULL,
-  `userID` int NOT NULL
+  `customerID` int(11) NOT NULL,
+  `paidcompositionnumber` int(11) NOT NULL,
+  `userID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -155,7 +158,7 @@ CREATE TABLE `customer` (
 --
 
 CREATE TABLE `genre` (
-  `genreID` int NOT NULL,
+  `genreID` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -175,16 +178,16 @@ INSERT INTO `genre` (`genreID`, `title`, `description`) VALUES
 --
 
 CREATE TABLE `ordering` (
-  `orderingID` int NOT NULL,
+  `orderingID` int(11) NOT NULL,
   `startdate` date NOT NULL,
   `deadline` date NOT NULL,
   `cost` float NOT NULL,
   `description` text NOT NULL,
-  `compositionID` int DEFAULT NULL,
-  `customerID` int NOT NULL,
-  `authorID` int NOT NULL,
-  `typeID` int NOT NULL,
-  `genreID` int NOT NULL
+  `compositionID` int(11) DEFAULT NULL,
+  `customerID` int(11) NOT NULL,
+  `authorID` int(11) NOT NULL,
+  `typeID` int(11) NOT NULL,
+  `genreID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -194,10 +197,10 @@ CREATE TABLE `ordering` (
 --
 
 CREATE TABLE `paymentresourse` (
-  `paymentresourceID` int NOT NULL,
+  `paymentresourceID` int(11) NOT NULL,
   `cardnumber` varchar(20) NOT NULL,
   `phonenumber` varchar(12) NOT NULL,
-  `userID` int NOT NULL
+  `userID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -207,13 +210,13 @@ CREATE TABLE `paymentresourse` (
 --
 
 CREATE TABLE `request` (
-  `requestID` int NOT NULL,
+  `requestID` int(11) NOT NULL,
   `description` text NOT NULL,
   `publicationdate` date NOT NULL,
   `deadline` date NOT NULL,
   `cost` float NOT NULL,
-  `genreID` int NOT NULL,
-  `typeID` int NOT NULL
+  `genreID` int(11) NOT NULL,
+  `typeID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -223,7 +226,7 @@ CREATE TABLE `request` (
 --
 
 CREATE TABLE `role` (
-  `roleID` int NOT NULL,
+  `roleID` int(11) NOT NULL,
   `rolename` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -234,7 +237,7 @@ CREATE TABLE `role` (
 --
 
 CREATE TABLE `tag` (
-  `tagID` int NOT NULL,
+  `tagID` int(11) NOT NULL,
   `text` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -245,9 +248,9 @@ CREATE TABLE `tag` (
 --
 
 CREATE TABLE `tagcomposition` (
-  `tagcompositionID` int NOT NULL,
-  `compositionID` int NOT NULL,
-  `tagID` int NOT NULL
+  `tagcompositionID` int(11) NOT NULL,
+  `compositionID` int(11) NOT NULL,
+  `tagID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -257,7 +260,7 @@ CREATE TABLE `tagcomposition` (
 --
 
 CREATE TABLE `type` (
-  `typeID` int NOT NULL,
+  `typeID` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -277,7 +280,7 @@ INSERT INTO `type` (`typeID`, `title`, `description`) VALUES
 --
 
 CREATE TABLE `user` (
-  `userID` int NOT NULL,
+  `userID` int(11) NOT NULL,
   `login` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -294,9 +297,12 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userID`, `login`, `password`, `email`, `birthdate`, `about`, `registerdate`, `role`) VALUES
 (1, 'pushkin322', '123', 'pushkin@ya.ru', '1990-02-01', 'Простой мужик', '2020-02-22', 'Author'),
 (2, 'alex_top', '12345', 'alex@ya.ru', '1992-03-09', 'Родился в г. Вологда', '2020-02-22', 'Author'),
-(3, 'vikared', '11111', 'vika@ya.ru', '1988-06-21', 'Замужем. Двое детей', '2020-02-22', 'Author'),
+(3, 'vik', '11111', 'vika@ya.ru', '1988-06-21', 'Замужем. Двое детей', '2020-02-22', 'Author'),
 (20, 'Lerrra', '-1041601825', 'lera@', '2020-03-07', NULL, '1999-11-25', 'Author'),
-(21, '123', '48690', 'colya.juravlyov2011@ya.ru', '2020-03-07', NULL, '2007-11-07', 'Customer');
+(21, '123', '48690', 'colya.juravlyov2011@ya.ru', '2020-03-07', NULL, '2007-11-07', 'Customer'),
+(22, 'arranay', '48657', 'val@gmail.com', '2020-03-14', NULL, '2020-03-14', 'Customer'),
+(23, 'arranayA', '48657', 'val@gmail.com', '2020-03-15', NULL, '2020-03-15', 'Author'),
+(24, 'admin', '48657', 'admin', '2020-03-15', NULL, '2020-03-15', 'Service');
 
 -- --------------------------------------------------------
 
@@ -305,9 +311,9 @@ INSERT INTO `user` (`userID`, `login`, `password`, `email`, `birthdate`, `about`
 --
 
 CREATE TABLE `userrole` (
-  `userroleID` int NOT NULL,
-  `userID` int NOT NULL,
-  `roleID` int NOT NULL
+  `userroleID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `roleID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -454,109 +460,109 @@ ALTER TABLE `userrole`
 -- AUTO_INCREMENT для таблицы `author`
 --
 ALTER TABLE `author`
-  MODIFY `authorID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `authorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `authorrequest`
 --
 ALTER TABLE `authorrequest`
-  MODIFY `authorrequest` int NOT NULL AUTO_INCREMENT;
+  MODIFY `authorrequest` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `commentID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `commentID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `commentcomposition`
 --
 ALTER TABLE `commentcomposition`
-  MODIFY `commentcompositionID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `commentcompositionID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `commentordering`
 --
 ALTER TABLE `commentordering`
-  MODIFY `commentorderingID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `commentorderingID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `commentrequest`
 --
 ALTER TABLE `commentrequest`
-  MODIFY `commentrequestID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `commentrequestID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `composition`
 --
 ALTER TABLE `composition`
-  MODIFY `compositionID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `compositionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT для таблицы `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customerID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `genre`
 --
 ALTER TABLE `genre`
-  MODIFY `genreID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `genreID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `ordering`
 --
 ALTER TABLE `ordering`
-  MODIFY `orderingID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `orderingID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `paymentresourse`
 --
 ALTER TABLE `paymentresourse`
-  MODIFY `paymentresourceID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `paymentresourceID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `request`
 --
 ALTER TABLE `request`
-  MODIFY `requestID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `requestID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `role`
 --
 ALTER TABLE `role`
-  MODIFY `roleID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `roleID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `tagID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `tagID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `tagcomposition`
 --
 ALTER TABLE `tagcomposition`
-  MODIFY `tagcompositionID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `tagcompositionID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `type`
 --
 ALTER TABLE `type`
-  MODIFY `typeID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `typeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT для таблицы `userrole`
 --
 ALTER TABLE `userrole`
-  MODIFY `userroleID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `userroleID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
