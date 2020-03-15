@@ -2,12 +2,16 @@ package com.buymypoem.springmvc.controller;
 
 import com.buymypoem.springmvc.dao.UserDAO;
 import com.buymypoem.springmvc.model.User;
+import com.buymypoem.springmvc.model.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -21,21 +25,25 @@ public class UserController {
         return "sign in";
     }
 
+
+    @Autowired
+    UserSession userSession;
+
     @RequestMapping(value = "/sign in", method = RequestMethod.POST)
     public String signIn(@ModelAttribute("usr") User user, Model model) {
         User userReal = userDAO.getUserByLogin(user.getLogin());
 
         if(   (!(userReal == null))&&( Integer.parseInt(userReal.getPassword())==user.getPassword().hashCode())) {
-            switch (userReal.getRole().charAt(0)){
-                case ('A'):
-                    return "successAuthor";
-                case ('C'):
-                    return "successCustomer";
-                case ('S'):
-                    return "successService";
-                default:
-                    return "error";
-            }
+            Map<String, String> pages = new HashMap<String, String>();
+            pages.put("Author", "successAuthor");
+            pages.put("Customer", "successCustomer");
+            pages.put("Service", "successService");
+            userSession.setUserSession(userReal);
+            String page = pages.get(userReal.getRole());
+            if(page == null) return "error";
+
+            return page;
+
         } else {
             model.addAttribute("error", "Вы ввели неверные данные");
             return "/sign in";
