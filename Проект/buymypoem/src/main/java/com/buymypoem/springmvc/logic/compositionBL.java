@@ -8,14 +8,14 @@ public class compositionBL {
     @Autowired
     CompositionDAO compositionDAO;
 
-    public int countTheNumberOfAll() {
-            int i = compositionDAO.selectAllComposition();
+    public int countPagesForComposition() {
+            int i = compositionDAO.countCompositions();
             if (i % 2 == 0) return i / 2;
             return i / 2 + 1;
     }
 
-    public int countTheNumberOfPublishedComposition() {
-        int i = compositionDAO.selectPublishedComposition();
+    public int countPagesForPublishedComposition() {
+        int i = compositionDAO.countPublishedCompositions();
         if (i % 2 == 0) return i / 2;
         return i / 2 + 1;
     }

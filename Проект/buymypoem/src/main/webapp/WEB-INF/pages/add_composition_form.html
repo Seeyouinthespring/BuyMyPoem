@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<div class="div_top">
+    <h1 class="title">BuyMyPoem</h1>
+</div>
+<div class="div_sign">
+    <p><select name="list1" id="cd-dropdown" onchange="top.location=this.value" class="select_menu">
+        <option value="">Меню</option>
+        <option value="">Мой профиль</option>
+        <option value="">Заявки</option>
+        <option value="">Произведения</option>
+        <option value="">Авторы</option>
+        <option value="">Выйти</option>
+    </select></p>
+</div>
+
+
+
+<div class="container_for">
+    <form class="sign-up__form" action="#" th:action="@{/add_composition}" method="post">
+    <input type="text" name="UserID" hidden="hidden" th:field="${comp.user.userID}"/>
+    <table class="table_request">
+        <tr>
+            <td width="500" align="right">Название:</td>
+            <td width="1000">
+                <input type="text" name="Title" placeholder="Название" th:field="${comp.title}" />
+            </td>
+        </tr>
+        <tr>
+            <td width="500" align="right">Жанр:</td>
+            <td width="1000"> <input type="text" name="Gener" placeholder="ID Жанра" th:field="${comp.genre.genreID}">
+                <!--<select class="intext_request">
+                <option>Жанр произведения</option>
+                <option>Комедия</option>
+                <option>Трагедия</option>
+                <option>Фэнтези</option>
+                <option>Драма</option>
+                <option>Ужасы</option>
+                <option>Скетч</option>
+                <option>Пародия</option>
+                <option>Романтика</option>
+                <option>Психология</option>
+                <option>Философия</option>
+                </select>-->
+            </td>
+        </tr>
+        <tr>
+            <td width="500" align="right">Тип:</td>
+            <td width="1000">
+                <input type="text" name="Type" placeholder="ID Типа" th:field="${comp.type.typeID}" />
+            </td>
+        </tr>
+        <tr>
+            <td width="500" align="right">Краткое описание:</td>
+            <td width="1000">
+                <textarea name="description" class="intext_request" th:field="${comp.description}"></textarea>
+            </td>
+        </tr>
+
+
+        <!--<tr>
+            <td width="500" align="right">Теги:</td>
+            <td width="1000"><input class="intext_request" type="text" value=""></td>
+        </tr>-->
+        <tr>
+            <td colspan="2" align="center">
+                <textarea name="text" class="add_text_arrea" th:field="${comp.text}">Текст произведения ...</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <table>
+                    <tr>
+                        <td align="right">
+                            <button class="sign-up__button">Добавить</button>
+                        </td>
+                        <!--<td><form action="author profile.html"><button class="button_add2">Выложить работу в профиль</button></form></td>-->
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </form>
+</div>
+</body>
+</html>
