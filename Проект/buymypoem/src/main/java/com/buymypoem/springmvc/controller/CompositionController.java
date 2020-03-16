@@ -1,8 +1,12 @@
 package com.buymypoem.springmvc.controller;
 
 import com.buymypoem.springmvc.dao.CompositionDAO;
+import com.buymypoem.springmvc.dao.GenreDAO;
+import com.buymypoem.springmvc.dao.TypeDAO;
 import com.buymypoem.springmvc.model.Composition;
 import com.buymypoem.springmvc.logic.compositionBL;
+import com.buymypoem.springmvc.model.Genre;
+import com.buymypoem.springmvc.model.Type;
 import com.buymypoem.springmvc.model.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +30,12 @@ public class CompositionController {
 
     @Autowired
     compositionBL compositionBL;
+
+    @Autowired
+    TypeDAO typeDAO;
+
+    @Autowired
+    GenreDAO genreDAO;
 
     @RequestMapping(value = "/start", method= RequestMethod.GET)
     public String getStartList(Model m){
@@ -69,6 +79,10 @@ public class CompositionController {
 
     @RequestMapping(value ="/add_composition_form", method=RequestMethod.GET)
     public String getForm(Model m){
+        List<Genre> genreList = genreDAO.getAllGenres();
+        List<Type> typeList = typeDAO.getAllTypes();
+        m.addAttribute("genres",genreList);
+        m.addAttribute("types",typeList);
         m.addAttribute("comp", new Composition());
         m.addAttribute("user", us.getUserSession());
         return "add_composition_form";
