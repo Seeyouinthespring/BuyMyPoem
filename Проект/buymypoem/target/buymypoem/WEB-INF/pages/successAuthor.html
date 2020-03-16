@@ -9,7 +9,6 @@
 <h3>Страница автора</h3>
 <span th:text="${user.login}">login</span> -
 <span th:text="${user.role}">role</span><br>
-<<<<<<< HEAD
 <a th:href="@{/add_composition_form}"> Добавить произведение</a>
 <a th:href="@{/draft}"> Черновики </a>
 
@@ -35,8 +34,5 @@
         <a th:if="${page}<${end}" class="href_next" th:href="@{/compositionOfAuthor/{p}(p=${page}+1)}">Вперед</a>
     </div>
 </div>
-=======
-<a href="/add_composition_form"> Добавить произведение</a>
->>>>>>> 47bec45679d4fb9cbc6b410eb5060ccb0ef7dcfe
 </body>
 </html>
