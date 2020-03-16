@@ -27,11 +27,11 @@ public class CompositionDAO {
 
     public int countCompositions(String choice, int id) {
         Map<String, String> sqlStrings = new HashMap<String, String>();
-            sqlStrings.put("countComposition", "select count(*) from composition;");
-            sqlStrings.put("countPublishComp", "select count(*) from composition WHERE status='Опубликовано';");
-            sqlStrings.put("countCompOfAuthor", "select count(*) from composition WHERE status='Опубликовано' and authorID=" + new UserDAO().getAuthorId(id));
-            sqlStrings.put("countDrafts", "select count(*) from composition WHERE status='В черновике' and authorID=" + new UserDAO().getAuthorId(id));
-            int idU =new UserDAO().getAuthorId(id);
+        sqlStrings.put("countComposition", "select count(*) from composition;");
+        sqlStrings.put("countPublishComp", "select count(*) from composition WHERE status='Опубликовано';");
+        sqlStrings.put("countCompOfAuthor", "select count(*) from composition WHERE status='Опубликовано' and authorID=" + new UserDAO().getAuthorId(id));
+        sqlStrings.put("countDrafts", "select count(*) from composition WHERE status='В черновике' and authorID=" + new UserDAO().getAuthorId(id));
+        int idU =new UserDAO().getAuthorId(id);
         String sql = sqlStrings.get(choice);
         return temp.queryForObject(sql, Integer.class);
     }
@@ -40,26 +40,26 @@ public class CompositionDAO {
         Map<String, String> sqlStrings = new HashMap<String, String>();
 
         sqlStrings.put("All", "select compositionID, title, description, likes, dislikes, login, typeID, genreID,status " +
-                                "from author join composition on composition.authorID = author.authorID " +
-                                "join user on user.userID=author.userID limit ?," + PAGE_SIZE);
+                "from author join composition on composition.authorID = author.authorID " +
+                "join user on user.userID=author.userID limit ?," + PAGE_SIZE);
 
         sqlStrings.put("Published", "select compositionID, title, description, likes, dislikes, login, typeID, genreID,status " +
-                                    "from author join composition on composition.authorID = author.authorID " +
-                                    "join user on user.userID=author.userID WHERE composition.status='Опубликовано' limit ? ," + PAGE_SIZE);
+                "from author join composition on composition.authorID = author.authorID " +
+                "join user on user.userID=author.userID WHERE composition.status='Опубликовано' limit ? ," + PAGE_SIZE);
 
         sqlStrings.put("PublishedOfAuthor", "select compositionID, title, description, likes, dislikes, login, typeID, genreID,status " +
-                                            "from author " +
-                                            "join composition on composition.authorID = author.authorID " +
-                                            "join user on user.userID=author.userID " +
-                                            "WHERE composition.status='Опубликовано' and user.userID="  + id +
-                                            " limit ? ," + PAGE_SIZE);
+                "from author " +
+                "join composition on composition.authorID = author.authorID " +
+                "join user on user.userID=author.userID " +
+                "WHERE composition.status='Опубликовано' and user.userID="  + id +
+                " limit ? ," + PAGE_SIZE);
 
         sqlStrings.put("Drafts", "select compositionID, title, description, likes, dislikes, login, typeID, genreID,status " +
-                                "from author " +
-                                "join composition on composition.authorID = author.authorID " +
-                                "join user on user.userID=author.userID " +
-                                "WHERE composition.status='В черновике' and user.userID=" + id +
-                                " limit ? ," + PAGE_SIZE);
+                "from author " +
+                "join composition on composition.authorID = author.authorID " +
+                "join user on user.userID=author.userID " +
+                "WHERE composition.status='В черновике' and user.userID=" + id +
+                " limit ? ," + PAGE_SIZE);
 
         String sqlString = sqlStrings.get(sqlComposition);
 
