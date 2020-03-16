@@ -2,11 +2,37 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
     <title>Title</title>
 </head>
 <body>
 <h3>Страница автора</h3>
 <span th:text="${user.login}">login</span> -
-<span th:text="${user.role}">role</span>
+<span th:text="${user.role}">role</span><br>
+<a th:href="@{/add_composition_form}"> Добавить произведение</a>
+<a th:href="@{/draft}"> Черновики </a>
+
+<table class="table_p">
+    <tr th:each="text : ${list}">
+        <td><br> <span th:text="${text.title}">Название</span><br>
+            <span th:text="${text.user.login}">Автор</span><br>
+            <span th:text="${text.status}">Автор</span><br><br>
+            Тип произведения: <span th:text="${text.type.title}"> Тип </span><br>
+            Жанр:  <span th:text="${text.genre.title}"> Жанр </span><br>
+            Описание:  <span th:text="${text.description}"> Описание </span><br>
+            Лайки <span th:text="${text.likes}"> Описание </span>
+            Дис <span th:text="${text.dislikes}"> Описание </span>
+        </td>
+        <td align="right">
+            <button class="smal_button">Перейти к просмотру</button>
+        </td>
+    </tr>
+</table>
+<div>
+    <div class="div_next">
+        <a th:if="${page}>1" class="href_next" th:href="@{/compositionOfAuthor/{p} (p=${page}-1)}">Назад</a>
+        <a th:if="${page}<${end}" class="href_next" th:href="@{/compositionOfAuthor/{p}(p=${page}+1)}">Вперед</a>
+    </div>
+</div>
 </body>
 </html>

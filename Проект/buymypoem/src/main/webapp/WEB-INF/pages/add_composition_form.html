@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<div class="div_top">
+    <h1 class="title">BuyMyPoem</h1>
+</div>
+<div class="div_sign">
+    <p><select name="list1" id="cd-dropdown" onchange="top.location=this.value" class="select_menu">
+        <option value="">Меню</option>
+        <option value="">Мой профиль</option>
+        <option value="">Заявки</option>
+        <option value="">Произведения</option>
+        <option value="">Авторы</option>
+        <option value="">Выйти</option>
+    </select></p>
+</div>
+
+
+
+<div class="container_for">
+    <form class="sign-up__form" action="#" th:action="@{/add_composition}" method="post">
+        <div>
+            <label></label>
+            <input type="text" name="UserID" hidden="hidden" th:field="${comp.user.userID}"/>
+        </div>
+        <div>
+            <label>Название</label>
+            <input type="text" name="Title" placeholder="Название" th:field="${comp.title}" />
+        </div>
+        <div>
+            <label>Жанр</label>
+            <select th:field="*{comp.genre.genreID}">
+                <option th:each="genre : ${genres}"
+                        th:value="${genre.genreID}"
+                        th:text="${genre.title}">Wireframe</option>
+            </select>
+        </div>
+        <div>
+            <label>Тип</label>
+            <select th:field="*{comp.type.typeID}">
+                <option th:each="type : ${types}"
+                        th:value="${type.typeID}"
+                        th:text="${type.title}">Wireframe</option>
+            </select>
+        </div>
+        <div>
+            <label>Описание</label>
+            <textarea name="Description" class="intext_request" th:field="${comp.description}"></textarea>
+        </div>
+        <div>
+            <label>Текст произведения</label>
+            <textarea name="Text" class="intext_request" th:field="${comp.text}"></textarea>
+        </div>
+        <div>
+            <button class="sign-up__button">Добавить</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

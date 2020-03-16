@@ -1,6 +1,7 @@
 package com.buymypoem.springmvc.dao;
 
 import com.buymypoem.springmvc.model.User;
+import com.google.inject.internal.asm.$Type;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -26,6 +27,15 @@ public class UserDAO {
             return temp.queryForObject(sql, new  Object[]{login}, new BeanPropertyRowMapper<User>(User.class));
         }catch (Exception e){
             return null;
+        }
+    }
+
+    public int getAuthorId(int id){
+        try {
+            String sql = "SELECT authorID FROM author WHERE userID=" + id;
+            return temp.queryForObject(sql, Integer.class);
+        }catch (Exception e){
+            return 0;
         }
     }
 
