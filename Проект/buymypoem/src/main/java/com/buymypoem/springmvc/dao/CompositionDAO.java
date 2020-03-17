@@ -28,10 +28,12 @@ public class CompositionDAO {
     public int countCompositions(String choice, int id) {
         Map<String, String> sqlStrings = new HashMap<String, String>();
         sqlStrings.put("countComposition", "select count(*) from composition;");
-        sqlStrings.put("countPublishComp", "select count(*) from composition WHERE status='Опубликовано';");
-        sqlStrings.put("countCompOfAuthor", "select count(*) from composition WHERE status='Опубликовано' and authorID=" + new UserDAO().getAuthorId(id));
-        sqlStrings.put("countDrafts", "select count(*) from composition WHERE status='В черновике' and authorID=" + new UserDAO().getAuthorId(id));
-        int idU =new UserDAO().getAuthorId(id);
+        sqlStrings.put("countPublishComp", "select count(*) from composition " +
+                "WHERE status='Опубликовано';");
+        sqlStrings.put("countCompOfAuthor", "select count(*) from composition " +
+                "WHERE status='Опубликовано' and authorID=" + getAuthorId(id));
+        sqlStrings.put("countDrafts", "select count(*) from composition " +
+                "WHERE status='В черновике' and authorID=" + getAuthorId(id));
         String sql = sqlStrings.get(choice);
         return temp.queryForObject(sql, Integer.class);
     }
@@ -51,7 +53,7 @@ public class CompositionDAO {
                 "from author " +
                 "join composition on composition.authorID = author.authorID " +
                 "join user on user.userID=author.userID " +
-                "WHERE composition.status='Опубликовано' and user.userID="  + id +
+                "WHERE composition.status='Опубликовано' and user.userID=" + id +
                 " limit ? ," + PAGE_SIZE);
 
         sqlStrings.put("Drafts", "select compositionID, title, description, likes, dislikes, login, typeID, genreID,status " +
@@ -116,4 +118,22 @@ public class CompositionDAO {
         return temp.update(sqlAddComposition, params, types);
     }
 
+    private int getAuthorId(int id) {
+        try {
+            String sql = "SELECT authorID FROM author WHERE userID=" + id;
+
+
+            List<Author> aList = temp.query(sql, new RowMapper<Author>() {
+                public Author mapRow(ResultSet resultSet, int i) throws SQLException {
+                    Author a = new Author();
+                    a.setAuthorID(resultSet.getInt("authorID"));
+                    return a;
+                }
+            });
+
+            return aList.get(0).getAuthorID();
+        } catch (Exception e) {
+            return 0;
+        }
+    }
 }

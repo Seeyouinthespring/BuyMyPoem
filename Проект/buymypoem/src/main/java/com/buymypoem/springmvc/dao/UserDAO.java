@@ -1,10 +1,12 @@
 package com.buymypoem.springmvc.dao;
 
+import com.buymypoem.springmvc.model.Author;
 import com.buymypoem.springmvc.model.User;
 import com.google.inject.internal.asm.$Type;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.SingleColumnRowMapper;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -30,14 +32,7 @@ public class UserDAO {
         }
     }
 
-    public int getAuthorId(int id){
-        try {
-            String sql = "SELECT authorID FROM author WHERE userID=" + id;
-            return temp.queryForObject(sql, Integer.class);
-        }catch (Exception e){
-            return 0;
-        }
-    }
+
 
     public int insertUser(User user) {
         String dateRegisterdate=new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
