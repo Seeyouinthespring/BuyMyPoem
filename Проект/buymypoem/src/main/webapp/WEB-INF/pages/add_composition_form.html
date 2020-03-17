@@ -1,65 +1,48 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <link th:href="@{/css/style.css}" rel="stylesheet">
-    <title>Title</title>
+    <link th:href="@{/css/add_composition.css}" rel="stylesheet">
+    <title>Добавить произведение</title>
 </head>
-<body>
-<div class="div_top">
-    <h1 class="title">BuyMyPoem</h1>
+<body class="main">
+
+<div class="top">
+    <div class="label">
+        BuyMyPoem
+    </div>
 </div>
-<div class="div_sign">
-    <p><select name="list1" id="cd-dropdown" onchange="top.location=this.value" class="select_menu">
-        <option value="">Меню</option>
-        <option value="">Мой профиль</option>
-        <option value="">Заявки</option>
-        <option value="">Произведения</option>
-        <option value="">Авторы</option>
-        <option value="">Выйти</option>
-    </select></p>
-</div>
+<form action="#" th:action="@{/add_composition}" method="post">
+    <div>
+        <input type="text" name="UserID" hidden="hidden" th:field="${comp.user.userID}"/>
+    </div>
+<div class="basis">
+    <div class="container">
+        <div class="main_div">Название:<input class="input_text" type="text" name="Title" th:field="${comp.title}" /></div>
 
+        <div class="main_div">Жанр: <select class="input_text" th:field="*{comp.genre.genreID}">
+            <option th:each="genre : ${genres}"
+                    th:value="${genre.genreID}"
+                    th:text="${genre.title+' - '+genre.description}">Жанр</option>
+        </select></div>
 
+        <div class="main_div">Тип:<select class="input_text" th:field="*{comp.type.typeID}">
+            <option th:each="type : ${types}"
+                    th:value="${type.typeID}"
+                    th:text="${type.title+' - '+type.description}">Тип</option>
+        </select></div>
 
-<div class="container_for">
-    <form class="sign-up__form" action="#" th:action="@{/add_composition}" method="post">
-        <div>
-            <label></label>
-            <input type="text" name="UserID" hidden="hidden" th:field="${comp.user.userID}"/>
+        <div class="main_div">
+            <textarea class="textarea_description" name="Description" th:field="${comp.description}" placeholder="Описание"></textarea>
         </div>
-        <div>
-            <label>Название</label>
-            <input type="text" name="Title" placeholder="Название" th:field="${comp.title}" />
+
+        <div class="main_div">
+            <textarea class="textarea_comp" name="Text"  th:field="${comp.text}" placeholder="Текст произведения"></textarea>
         </div>
-        <div>
-            <label>Жанр</label>
-            <select th:field="*{comp.genre.genreID}">
-                <option th:each="genre : ${genres}"
-                        th:value="${genre.genreID}"
-                        th:text="${genre.title}">Wireframe</option>
-            </select>
-        </div>
-        <div>
-            <label>Тип</label>
-            <select th:field="*{comp.type.typeID}">
-                <option th:each="type : ${types}"
-                        th:value="${type.typeID}"
-                        th:text="${type.title}">Wireframe</option>
-            </select>
-        </div>
-        <div>
-            <label>Описание</label>
-            <textarea name="Description" class="intext_request" th:field="${comp.description}"></textarea>
-        </div>
-        <div>
-            <label>Текст произведения</label>
-            <textarea name="Text" class="intext_request" th:field="${comp.text}"></textarea>
-        </div>
-        <div>
+
+        <div class="div_for_button">
             <button class="sign-up__button">Добавить</button>
         </div>
-    </form>
+    </div>
 </div>
+</form>
 </body>
 </html>

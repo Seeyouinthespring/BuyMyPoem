@@ -38,8 +38,8 @@
                     <div class="text">Описание:  <span th:text="${text.description}"> Описание </span></div>
                 </div>
                 <div class="like">
-                    <span th:text="${text.likes}"/>
-                    <span th:text="${text.dislikes}"/>
+                    <div class="text_like"><span th:text="${text.likes}"/></div>
+                    <div class="text_like"><span th:text="${text.dislikes}"/></div>
                 </div>
             </td></tr>
         </table>
