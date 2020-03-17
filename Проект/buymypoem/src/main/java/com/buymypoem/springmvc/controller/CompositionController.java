@@ -37,7 +37,7 @@ public class CompositionController {
     @Autowired
     GenreDAO genreDAO;
 
-    @RequestMapping(value = "/start", method= RequestMethod.GET)
+    @RequestMapping(value = "/index", method= RequestMethod.GET)
     public String getStartList(Model m){
         List<Composition> list=compositionDAO.getCompositions(1,"All", 0);
         m.addAttribute("list",list);
@@ -47,7 +47,7 @@ public class CompositionController {
         return "index";
     }
 
-    @RequestMapping(value = "/start/{page}", method= RequestMethod.GET)
+    @RequestMapping(value = "/index/{page}", method= RequestMethod.GET)
     public String getList(@PathVariable int page, Model m){
         List<Composition> list=compositionDAO.getCompositions(page,"All", 0);
         m.addAttribute("list",list);

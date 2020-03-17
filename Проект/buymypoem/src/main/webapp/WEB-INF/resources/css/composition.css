@@ -1,0 +1,129 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.top {
+    flex: 1;
+    background: black;
+    display: flex;
+    flex-direction: row;
+}
+
+.basis {
+    flex: 20;
+    display: flex;
+    flex-direction: row;
+}
+
+.basis_left{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border-right: 3px solid black;
+}
+
+.basis_right{
+    width: 100%;
+}
+
+tr:nth-child(odd){
+    background: #E5F2FD;
+}
+
+table{
+    width: 100%;
+    border-spacing:0;
+}
+
+td{
+    display: flex;
+    flex-direction: column;
+    font-size: 23px;
+}
+
+.info{
+    margin: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.description{
+    margin: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.like{
+    margin: 0 50px 10px 10px;
+    flex: 1;
+    display: flex;
+    margin-left: auto;
+}
+
+.a_menu{
+    padding: 10px;
+    font-size: 23px;
+    color: black;
+    text-decoration: none;
+}
+
+.a_menu:hover{
+    background: #E5F2FD;
+    padding: 10px;
+    margin: 0;
+}
+
+.label{
+    color: white;
+    font-size: 50px;
+    display: flex;
+    margin: 0 0 0 20px;
+    align-items: center;
+    font-family: Arial;
+}
+
+.buttons{
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button{
+    color: white;
+    width: 200px;
+    height: 30px;
+    font-size: 23px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid white;
+    text-align: center;
+    margin: 0 10px 10px 0;
+}
+
+.buttonsContaner{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonBackForward{
+    color: black;
+    width: 200px;
+    height: 30px;
+    font-size: 23px;
+    text-decoration: none;
+    border-radius: 10px;
+    background: #E5F2FD;
+    border: 2px solid #E5F2FD;
+    text-align: center;
+    margin: 10px;
+}
+
+.text{
+    display: flex;
+    flex-direction: row;
+}

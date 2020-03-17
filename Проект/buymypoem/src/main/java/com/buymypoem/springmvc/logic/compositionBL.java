@@ -15,10 +15,11 @@ public class compositionBL {
 
     @Resource
     UserSession us;
+    public static final int PAGE_SIZE = 5;
 
     public int countPages(String choice){
         int i = compositionDAO.countCompositions(choice, us.getUserSession().getUserID());
-        if (i % 2 == 0) return i / 2;
-        return i / 2 + 1;
+        if (i % PAGE_SIZE == 0) return i / PAGE_SIZE;
+        return i / PAGE_SIZE + 1;
     }
 }
