@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -38,8 +39,9 @@ public class ProfileControler {
         return "successAuthor";
     }
 
-    @RequestMapping(value = "/compositionOfAuthor/{page}", method= RequestMethod.GET)
+    @RequestMapping(value = "/successAuthor/{page}", method= RequestMethod.GET)
     public String getcompositionOfAuthor(@PathVariable int page, Model m){
+        m.addAttribute("user", us.getUserSession());
         List<Composition> list=compositionDAO.getCompositions(page, "PublishedOfAuthor", us.getUserSession().getUserID());
         m.addAttribute("list",list);
         int endPage=compositionBL.countPages("countCompOfAuthor");

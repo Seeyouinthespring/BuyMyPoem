@@ -15,7 +15,7 @@ public class compositionBL {
 
     @Resource
     UserSession us;
-    public static final int PAGE_SIZE = 5;
+    public static final int PAGE_SIZE = 3;
 
     public int countPages(String choice){
         int i = compositionDAO.countCompositions(choice, us.getUserSession().getUserID());

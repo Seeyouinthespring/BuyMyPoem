@@ -75,7 +75,7 @@ public class CompositionController {
         int endPage=compositionBL.countPages("countDrafts");
         m.addAttribute("end", endPage);
         m.addAttribute("page",page);
-        return "index";
+        return "draft";
     }
 
     @RequestMapping(value = "/index", method= RequestMethod.GET)
@@ -113,6 +113,6 @@ public class CompositionController {
     public String addCompositiopn(@ModelAttribute("comp") Composition comp){
         comp.getUser().setUserID(us.getUserSession().getUserID());
         compositionDAO.addComposition(comp);
-        return "redirect:/index";
+        return "redirect:/successAuthor";
     }
 }

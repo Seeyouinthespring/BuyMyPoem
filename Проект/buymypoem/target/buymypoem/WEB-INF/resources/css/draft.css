@@ -1,0 +1,99 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.top {
+    height: 80px;
+    background: black;
+    display: flex;
+    flex-direction: row;
+}
+
+.basis {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 200px 0 200px;
+}
+
+tr:nth-child(odd){
+    background: #E5F2FD;
+}
+
+table{
+    width: 100%;
+    border-spacing:0;
+}
+
+td{
+    display: flex;
+    flex-direction: column;
+    font-size: 23px;
+}
+
+.info{
+    margin: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.description{
+    margin: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.like{
+    margin: 0 50px 10px 0;
+    flex: 1;
+    display: flex;
+    margin-left: auto;
+}
+
+.label{
+    color: white;
+    font-size: 40px;
+    display: flex;
+    margin: 0 20px 0 70px;
+    align-items: center;
+    font-family: Arial;
+}
+
+
+
+.text{
+    display: flex;
+    flex-direction: row;
+}
+
+span{
+    font-size: 23px;
+}
+
+
+.buttonsContaner{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonBackForward{
+    color: black;
+    width: 200px;
+    height: 30px;
+    font-size: 23px;
+    text-decoration: none;
+    border-radius: 10px;
+    background: #E5F2FD;
+    border: 2px solid #E5F2FD;
+    text-align: center;
+    margin: 10px;
+}
+
+.text_like{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}

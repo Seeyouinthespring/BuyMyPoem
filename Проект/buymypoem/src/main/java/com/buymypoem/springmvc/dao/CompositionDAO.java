@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class CompositionDAO {
 
-    public static final int PAGE_SIZE = 5;
+    public static final int PAGE_SIZE = 3;
     JdbcTemplate temp;
 
     private static final String sqlAddComposition = "insert into composition (title, description, likes, dislikes, text, authorID, genreID, typeID, status) " +
