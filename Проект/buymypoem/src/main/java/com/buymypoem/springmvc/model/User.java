@@ -16,6 +16,7 @@ public class User {
     private Date Registredate;
     private String confirmPassword;
     private String role;
+    private String photo;
 
     public int getUserID() {
         return UserID;
@@ -101,5 +102,13 @@ public class User {
                 ", Registredate=" + Registredate +
                 ", confirmPassword='" + confirmPassword + '\'' +
                 '}';
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }

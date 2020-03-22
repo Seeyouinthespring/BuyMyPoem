@@ -54,5 +54,7 @@ public class MvcWebConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler( "/css/**")
                 .addResourceLocations("/WEB-INF/resources/css/");
+        registry.addResourceHandler( "/img/**")
+                .addResourceLocations("/WEB-INF/resources/img/");
     }
 }

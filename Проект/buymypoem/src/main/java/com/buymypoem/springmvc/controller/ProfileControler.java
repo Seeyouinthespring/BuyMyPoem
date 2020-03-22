@@ -1,6 +1,7 @@
 package com.buymypoem.springmvc.controller;
 
 import com.buymypoem.springmvc.dao.CompositionDAO;
+import com.buymypoem.springmvc.dao.UserDAO;
 import com.buymypoem.springmvc.logic.compositionBL;
 import com.buymypoem.springmvc.model.Composition;
 import com.buymypoem.springmvc.model.User;
@@ -11,8 +12,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -26,8 +33,12 @@ public class ProfileControler {
     CompositionDAO compositionDAO;
 
     @Autowired
-    com.buymypoem.springmvc.logic.compositionBL compositionBL;
+    UserDAO userDAO;
 
+    @Autowired
+    com.buymypoem.springmvc.logic.compositionBL compositionBL;
+    //private String pathToSave = "D:/BuyMyPoem/BuyMyPoem/Проект/buymypoem/src/main/webapp/WEB-INF/resources/img/";
+    private String pathToSave = "D:/repository/";
     @RequestMapping(value = "/successAuthor")
     public String successAuthor(Model m) {
         m.addAttribute("user", us.getUserSession());
@@ -62,4 +73,29 @@ public class ProfileControler {
         return "successService";
     }
 
+    @RequestMapping(value = "/edit_profile", method= RequestMethod.GET)
+    public String editProfile(Model m){
+        return "edit_profile";
+    }
+
+
+    @RequestMapping(value = "/edit_profile", method= RequestMethod.POST)
+    public String saveEditProfile(@RequestParam("photo") MultipartFile photo, Model m){
+        try {
+            if (!(photo.getContentType().equals("image/jpeg"))){
+                m.addAttribute("error","Добавьте файл с расширением jpeg");
+                return "/edit_profile";
+            }
+            File userPhoto = new File(pathToSave + us.getUserSession().getLogin()+".jpg");
+            userPhoto.createNewFile();
+            FileOutputStream fos = new FileOutputStream(userPhoto);
+            fos.write(photo.getBytes());
+            fos.close();
+            us.getUserSession().setPhoto(pathToSave + userPhoto.getName());
+            userDAO.updateUser(us.getUserSession());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "redirect:successAuthor";
+    }
 }

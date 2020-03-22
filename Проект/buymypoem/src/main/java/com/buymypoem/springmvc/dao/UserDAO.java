@@ -1,15 +1,10 @@
 package com.buymypoem.springmvc.dao;
 
-import com.buymypoem.springmvc.model.Author;
 import com.buymypoem.springmvc.model.User;
-import com.google.inject.internal.asm.$Type;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.SingleColumnRowMapper;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
@@ -25,9 +20,27 @@ public class UserDAO {
 
     public User getUserByLogin(String login){
         String sql ="Select * from user where login=?";
+
         try {
-            return temp.queryForObject(sql, new  Object[]{login}, new BeanPropertyRowMapper<User>(User.class));
+            List<User> uList = temp.query(sql, new Object[]{login}, new RowMapper<User>() {
+                public User mapRow(ResultSet resultSet, int i) throws SQLException {
+                    User u = new User();
+                    u.setUserID(resultSet.getInt("userID"));
+                    u.setLogin(resultSet.getString("login"));
+                    u.setBirthdate(resultSet.getDate("birthdate"));
+                    u.setEmail(resultSet.getString("email"));
+                    u.setPassword(resultSet.getString("password"));
+                    u.setPhoto(resultSet.getString("photo"));
+                    u.setAbout(resultSet.getString("about"));
+                    u.setRegistredate(resultSet.getDate("registerdate"));
+                    u.setRole(resultSet.getString("role"));
+                    return u;
+                }
+            });
+
+            return uList.get(0);
         }catch (Exception e){
+            e.printStackTrace();
             return null;
         }
     }
@@ -54,4 +67,12 @@ public class UserDAO {
         String sqlAuthor="insert into author (userId) VALUES  (?);";
         return temp.update(sqlAuthor, new  Object[]{id}, new int[]{Types.INTEGER});
     }
+
+    public int updateUser(User user) {
+        String sql="UPDATE user SET photo = ? WHERE userID = ?;";
+        Object[] params = {user.getPhoto(), user.getUserID()};
+        int[] types = {Types.VARCHAR, Types.INTEGER};
+        return temp.update(sql,params,types);
+    }
+
 }

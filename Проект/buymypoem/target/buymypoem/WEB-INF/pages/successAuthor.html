@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:file="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link th:href="@{/css/author_profile.css}" rel="stylesheet">
@@ -14,10 +14,12 @@
 <div class="basis">
     <div class="basis_left">
         <div class="foto">
+            <img th:src="@{/img/arranayA.jpg}" height="100px"  alt="фото профиля"/>
+            <img height="100px" th:src="${user.photo}"  alt="фото профиля"/>
         </div>
 
         <div class="menu">
-            <a href="" class="a_menu">Редактировать профиль</a>
+            <a th:href="@{/edit_profile}" class="a_menu">Редактировать профиль</a>
             <a th:href="@{/draft}" class="a_menu">Черновики</a>
             <a href="" class="a_menu">Мои заказы</a>
             <a th:href="@{/add_composition_form}" class="a_menu">Добавить произведение</a>
@@ -28,6 +30,9 @@
     <div class="basis_right">
         <div class="user_information">
             <div class="text"><span th:text="${user.login}">login</span></div>
+            <div class="text"><span th:text="${user.birthdate}">Дата рождения</span></div>
+            <div class="text"><span th:text="${user.email}">email</span></div>
+            <div class="text"><span th:text="${user.about}">О себе</span></div>
         </div>
         <div class="div_for_table">
             <table>

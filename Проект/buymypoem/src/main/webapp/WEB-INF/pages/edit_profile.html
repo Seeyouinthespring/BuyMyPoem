@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action="#" th:action="@{/edit_profile}" enctype="multipart/form-data">
+    <input type="file" name="photo" multiple="multiple"/>
+    <input type="submit" value="Добавить фото" />
+    <p class="sign-up__error" th:text="${error}"></p>
+</form>
+</body>
+</html>
