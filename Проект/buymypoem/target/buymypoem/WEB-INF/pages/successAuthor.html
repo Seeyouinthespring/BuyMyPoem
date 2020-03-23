@@ -14,8 +14,7 @@
 <div class="basis">
     <div class="basis_left">
         <div class="foto">
-            <img th:src="@{/img/arranayA.jpg}" height="100px"  alt="фото профиля"/>
-            <img height="100px" th:src="${user.photo}"  alt="фото профиля"/>
+            <img height="100px"  th:src="@{'data:image/png;base64,' + ${photo} }" />
         </div>
 
         <div class="menu">

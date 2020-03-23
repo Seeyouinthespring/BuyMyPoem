@@ -2,9 +2,7 @@ package com.buymypoem.springmvc.controller;
 
 import com.buymypoem.springmvc.dao.CompositionDAO;
 import com.buymypoem.springmvc.dao.UserDAO;
-import com.buymypoem.springmvc.logic.compositionBL;
 import com.buymypoem.springmvc.model.Composition;
-import com.buymypoem.springmvc.model.User;
 import com.buymypoem.springmvc.model.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,13 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.annotation.Resource;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Date;
+import java.io.*;
+import java.util.Base64;
 import java.util.List;
 
 @Controller
@@ -39,6 +33,23 @@ public class ProfileControler {
     com.buymypoem.springmvc.logic.compositionBL compositionBL;
     //private String pathToSave = "D:/BuyMyPoem/BuyMyPoem/Проект/buymypoem/src/main/webapp/WEB-INF/resources/img/";
     private String pathToSave = "D:/repository/";
+
+    private String getImg(){
+        File file = new File(us.getUserSession().getPhoto());
+        byte[] photo = new byte[(int)file.length()];
+        FileInputStream f = null;
+        try {
+            f = new FileInputStream(file);
+            f.read(photo);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String userPhoto = Base64.getEncoder().encodeToString(photo);
+        return userPhoto;
+    }
+
     @RequestMapping(value = "/successAuthor")
     public String successAuthor(Model m) {
         m.addAttribute("user", us.getUserSession());
@@ -47,6 +58,7 @@ public class ProfileControler {
         m.addAttribute("page",1);
         int endPage=compositionBL.countPages("countCompOfAuthor");
         m.addAttribute("end", endPage);
+        m.addAttribute("photo", getImg());
         return "successAuthor";
     }
 
