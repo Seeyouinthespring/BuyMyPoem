@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link th:href="@{/css/draft.css}" rel="stylesheet">
+    <title>Заявки</title>
+</head>
+<body>
+<table>
+    <tr th:each="user : ${ulist}"><td>
+        <div class="info">
+            <span th:text="${user.login}">Логин пользователя</span>
+        </div>
+    </td></tr>
+</table>
+</body>
+</html>

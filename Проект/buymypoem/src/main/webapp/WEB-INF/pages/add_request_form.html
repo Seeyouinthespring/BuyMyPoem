@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <link th:href="@{/css/add_composition.css}" rel="stylesheet">
+    <title>Добавить заявку</title>
+</head>
+<body class="main">
+
+<div class="top">
+    <div class="label">
+        BuyMyPoem
+    </div>
+</div>
+
+<form action="#" th:action="@{/add_request}" method="post">
+    <div>
+        <input type="text" name="UserID" hidden="hidden" th:field="${req.user.userID}"/>
+    </div>
+
+    <div class="basis">
+        <div class="container">
+            <div class="main_div">
+                <div class="div_dynamyc_label">Стоимость:</div>
+                <div class="div_dynamyc">
+                    <input class="input_text" type="text" name="Title" required="required" th:field="${req.cost}" />
+                </div>
+            </div>
+            <div class="main_div">
+                <div class="div_dynamyc_label">Выполнить до:</div>
+                <div class="div_dynamyc">
+                    <input class="input_text" type="date" name="Title" required="required" th:field="${req.deadline}" />
+                </div>
+            </div>
+            <div class="main_div">
+                <div class="div_dynamyc_label">Жанр:</div>
+                <div class="div_dynamyc">
+                    <select class="input_text" th:field="*{req.genre.genreID}">
+                        <option th:each="genre : ${genres}" th:value="${genre.genreID}" th:text="${genre.title+' - '+genre.description}">Жанр
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="main_div">
+                <div class="div_dynamyc_label">Тип:</div>
+                <div class="div_dynamyc">
+                    <select class="input_text" th:field="*{req.type.typeID}">
+                        <option th:each="type : ${types}" th:value="${type.typeID}"th:text="${type.title+' - '+type.description}">Тип
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="main_div">
+                <textarea class="textarea_description" required="required" name="Description" th:field="${req.description}" placeholder="Описание"></textarea>
+            </div>
+            <div class="div_for_button">
+                <button class="sign-up__button">Добавить</button>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

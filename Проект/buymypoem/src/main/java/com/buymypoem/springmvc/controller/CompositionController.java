@@ -69,7 +69,6 @@ public class CompositionController {
 
     @RequestMapping(value = "/draft/{page}", method= RequestMethod.GET)
     public String getDrafts(@PathVariable int page, Model m){
-        us.getUserSession().getUserID();
         List<Composition> list=compositionDAO.getCompositions(page,"Drafts", us.getUserSession().getUserID());
         m.addAttribute("list",list);
         int endPage=compositionBL.countPages("countDrafts");
@@ -110,7 +109,7 @@ public class CompositionController {
     }
 
     @RequestMapping(value = "/add_composition", method= RequestMethod.POST)
-    public String addCompositiopn(@ModelAttribute("comp") Composition comp){
+    public String addComposition(@ModelAttribute("comp") Composition comp){
         comp.getUser().setUserID(us.getUserSession().getUserID());
         compositionDAO.addComposition(comp);
         return "redirect:/successAuthor";

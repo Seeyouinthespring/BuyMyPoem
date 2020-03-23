@@ -1,6 +1,6 @@
 package com.buymypoem.springmvc.model;
 
-public class Author extends User {
+public class Author {
     private int authorID;
     private int finishedcompositions;
     private int rating;
@@ -30,12 +30,10 @@ public class Author extends User {
         this.rating = rating;
     }
 
-    @Override
     public int getUserID() {
         return userID;
     }
 
-    @Override
     public void setUserID(int userID) {
         this.userID = userID;
     }

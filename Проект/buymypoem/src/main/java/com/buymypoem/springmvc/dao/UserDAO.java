@@ -50,8 +50,8 @@ public class UserDAO {
     public int insertUser(User user) {
         String dateRegisterdate=new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
         String dateBirthdate=new SimpleDateFormat("yyyy-MM-dd").format(user.getBirthdate());
-        String sql = "insert into user (login, password, email,birthdate, registerdate, role) values (?,?,?,?,?,?);";
-        Object[] params = {user.getLogin(), user.getPassword().hashCode(), user.getEmail(), dateRegisterdate, dateBirthdate, user.getRole()};
+        String sql = "insert into user (login, password, email, birthdate, registerdate, role) values (?,?,?,?,?,?);";
+        Object[] params = {user.getLogin(), user.getPassword().hashCode(), user.getEmail(), dateBirthdate, dateRegisterdate, user.getRole()};
         int[] types = {Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.DATE, Types.DATE, Types.VARCHAR};
         temp.update(sql,params,types);
 
@@ -60,12 +60,20 @@ public class UserDAO {
         if (user.getRole().equals("Author")){
             insertAuthor(user.getUserID());
         }
+        else if (user.getRole().equals("Customer")){
+            insertCustomer(user.getUserID());
+        }
         return user.getUserID();
     }
 
     public int insertAuthor(int id) {
         String sqlAuthor="insert into author (userId) VALUES  (?);";
         return temp.update(sqlAuthor, new  Object[]{id}, new int[]{Types.INTEGER});
+    }
+
+    public int insertCustomer(int id) {
+        String sqlCustomer="insert into customer (userId) VALUES  (?);";
+        return temp.update(sqlCustomer, new  Object[]{id}, new int[]{Types.INTEGER});
     }
 
     public int updateUser(User user) {

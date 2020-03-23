@@ -74,9 +74,7 @@ public class UserController {
 
         userDAO.insertUser(user);
         if (user.getRole().equals("Author")) return "successAuthor";
-        return "successCustomer";
-
-
+        else return "successCustomer";
     }
 
     @RequestMapping(value = "/")
