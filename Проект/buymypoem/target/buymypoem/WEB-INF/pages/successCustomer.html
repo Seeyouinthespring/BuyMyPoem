@@ -1,19 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:file="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link th:href="@{/css/author.css}" rel="stylesheet">
+    <title>Ваш профиль</title>
 </head>
-<body>
-<h3>Страница заказчика</h3>
-<span th:text="${user.login}">login</span> -
-<span th:text="${user.role}">role</span>
+<body class="main">
+<div class="top">
+    <div class="label">
+        BuyMyPoem
+    </div>
+    <div class="buttons">
+        <select class="button">
+            <option value="">Меню</option>
+            <option value="">Мой профиль</option>
+            <option th:href="@{/requests}">Заявки</option>
+            <option value="">Произведения</option>
+            <option value="">Авторы</option>
+            <option value="">Выйти</option>
+        </select>
+    </div>
+</div>
+<div class="basis">
+    <div class="basis_left">
+        <div class="photo">
+            <img height="300px"  width="300px" th:src="@{'data:image/png;base64,' + ${photo} }" />
+        </div>
 
-<div class="menu">
-    <a th:href="@{/requests}" class="a_menu">Все заявки</a>
-    <a th:href="@{/personalrequests}" class="a_menu">Мои заявки</a>
-    <a th:href="@{/add_request_form}" class="a_menu">Добавить заявку</a>
-    <a th:href="@{/index}" class="a_menu">Все произведения</a>
+        <div class="menu">
+            <a th:href="@{/requests}" class="a_menu">Все заявки</a>
+            <a th:href="@{/edit_profile}" class="a_menu">Редактировать профиль</a>
+            <a th:href="@{/personalrequests}" class="a_menu">Мои заявки</a>
+            <a href="" class="a_menu">Мои заказы</a>
+            <a th:href="@{/add_request_form}" class="a_menu">Добавить заявку</a>
+        </div>
+    </div>
+
+
+    <div class="basis_right">
+        <div class="user_information">
+            <div class="text"><span th:text="${user.login}">login</span></div>
+            <div class="text"><span th:text="${user.birthdate}">Дата рождения</span></div>
+            <div class="text"><span th:text="${user.email}">email</span></div>
+            <div class="text"><span th:text="${user.about}">О себе</span></div>
+        </div>
+
+        </div>
+    </div>
 </div>
 </body>
 </html>

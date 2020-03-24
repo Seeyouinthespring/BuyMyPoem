@@ -73,8 +73,10 @@ public class UserController {
         }
 
         userDAO.insertUser(user);
-        if (user.getRole().equals("Author")) return "successAuthor";
-        else return "successCustomer";
+        user.setPhoto("D:/repository/default.jpg");
+        userSession.setUserSession(user);
+        if (user.getRole().equals("Author")) return "redirect:successAuthor";
+        else return "redirect:successCustomer";
     }
 
     @RequestMapping(value = "/")

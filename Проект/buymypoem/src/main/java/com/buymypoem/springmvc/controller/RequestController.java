@@ -41,6 +41,9 @@ public class RequestController {
     @RequestMapping(value = "/requests", method = RequestMethod.GET)
     public String getAllRequestsStart(Model m){
         List<Request> list= requestDAO.getRequests(1,false,1);
+        String p = list.get(0).getUser().getPhoto();
+
+        p=p;
         for (Request request: list){
             request.getUser().setPhoto(profileBL.getImg(request.getUser().getPhoto()));
         }
