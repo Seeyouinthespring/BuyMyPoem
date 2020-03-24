@@ -20,9 +20,9 @@ public class RequestDAO {
         this.temp = temp;
     }
 
-    private static final String sqlAllRequests="SELECT request.requestID, request.description, user.login, request.publicationdate, request.deadline, request.cost, genre.title as gtitle, type.title as ttitle from request left JOIN genre on request.genreID=genre.genreID left JOIN type on request.typeID=type.typeID left join customer on request.customerID=customer.customerID left JOIN user on customer.userID=user.userID where ?>0 limit ?," + PAGE_SIZE;
+    private static final String sqlAllRequests="SELECT request.requestID, request.description, user.login, user.photo, request.publicationdate, request.deadline, request.cost, genre.title as gtitle, type.title as ttitle from request left JOIN genre on request.genreID=genre.genreID left JOIN type on request.typeID=type.typeID left join customer on request.customerID=customer.customerID left JOIN user on customer.userID=user.userID where ?>0 limit ?," + PAGE_SIZE;
 
-    private static final String sqlAllPersonalRequests="SELECT request.requestID, request.description, user.login, request.publicationdate, request.deadline, request.cost," +
+    private static final String sqlAllPersonalRequests="SELECT request.requestID, request.description, user.login, user.photo, request.publicationdate, request.deadline, request.cost," +
             " genre.title as gtitle, type.title as ttitle from request " +
             "left JOIN genre on request.genreID=genre.genreID " +
             "left JOIN type on request.typeID=type.typeID " +
@@ -75,6 +75,7 @@ public class RequestDAO {
                 r.setRequestID(resultSet.getInt("requestID"));
                 r.setDescription(resultSet.getString("description"));
                 u.setLogin(resultSet.getString("login"));
+                u.setPhoto(resultSet.getString("photo"));
                 r.setUser(u);
                 r.setPublicvationdate(resultSet.getDate("publicationdate"));
                 r.setDeadline(resultSet.getDate("deadline"));

@@ -3,6 +3,7 @@ package com.buymypoem.springmvc.controller;
 import com.buymypoem.springmvc.dao.GenreDAO;
 import com.buymypoem.springmvc.dao.RequestDAO;
 import com.buymypoem.springmvc.dao.TypeDAO;
+import com.buymypoem.springmvc.logic.ProfileBL;
 import com.buymypoem.springmvc.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,9 +35,15 @@ public class RequestController {
     @Autowired
     GenreDAO genreDAO;
 
+    @Autowired
+    ProfileBL profileBL;
+
     @RequestMapping(value = "/requests", method = RequestMethod.GET)
     public String getAllRequestsStart(Model m){
         List<Request> list= requestDAO.getRequests(1,false,1);
+        for (Request request: list){
+            request.getUser().setPhoto(profileBL.getImg(request.getUser().getPhoto()));
+        }
         m.addAttribute("list",list);
         m.addAttribute("page",1);
         int endPage= requestBL.countPages(false);
@@ -47,6 +54,9 @@ public class RequestController {
     @RequestMapping(value = "/requests/{page}", method = RequestMethod.GET)
     public String getAllRequests(@PathVariable int page, Model m){
         List<Request> list= requestDAO.getRequests(page,false,1);
+        for (Request request: list){
+            request.getUser().setPhoto(profileBL.getImg(request.getUser().getPhoto()));
+        }
         m.addAttribute("list",list);
         int endPage= requestBL.countPages(false);
         m.addAttribute("end", endPage);

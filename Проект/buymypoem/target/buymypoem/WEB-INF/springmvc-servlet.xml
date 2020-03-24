@@ -53,6 +53,9 @@
 	<bean id="requestBL" class="com.buymypoem.springmvc.logic.RequestBL">
 	</bean>
 
+	<bean id="profileBL" class="com.buymypoem.springmvc.logic.ProfileBL">
+	</bean>
+
 	<bean id="user" class="com.buymypoem.springmvc.model.User">
 	</bean>
 

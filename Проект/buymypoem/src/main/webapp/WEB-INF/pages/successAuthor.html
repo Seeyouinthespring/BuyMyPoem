@@ -10,11 +10,21 @@
     <div class="label">
         BuyMyPoem
     </div>
+    <div class="buttons">
+        <select class="button">
+            <option value="">Меню</option>
+            <option value="">Мой профиль</option>
+            <option th:href="@{/requests}">Заявки</option>
+            <option value="">Произведения</option>
+            <option value="">Авторы</option>
+            <option value="">Выйти</option>
+        </select>
+    </div>
 </div>
 <div class="basis">
     <div class="basis_left">
-        <div class="foto">
-            <img height="100px"  th:src="@{'data:image/png;base64,' + ${photo} }" />
+        <div class="photo">
+            <img height="300px"  width="300px" th:src="@{'data:image/png;base64,' + ${photo} }" />
         </div>
 
         <div class="menu">

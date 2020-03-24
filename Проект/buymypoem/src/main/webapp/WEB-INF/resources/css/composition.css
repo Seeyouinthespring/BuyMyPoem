@@ -10,8 +10,7 @@ html{
 }
 
 .top {
-    position: fixed;
-    width: 100vw;
+    width: 100%;
     flex: 1;
     background: black;
     display: flex;
@@ -51,10 +50,17 @@ td{
 }
 
 .info{
+     margin: 10px;
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+ }
+
+.infoReques{
     margin: 10px;
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .description{

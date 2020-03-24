@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link th:href="@{/css/draft.css}" rel="stylesheet">
+    <link th:href="@{/css/composition.css}" rel="stylesheet">
     <title>Заявки</title>
 </head>
 <body class="main">
@@ -12,10 +12,20 @@
     </div>
 </div>
 <div class="basis">
+    <div class="basis_left">
+        <a href="" class="a_menu">Список авторов</a>
+        <a href="" class="a_menu">Список произведений</a>
+        <a href="" class="a_menu">Список заявок</a>
+        <a href="" class="a_menu">Рейтинг произведений</a>
+        <a href="" class="a_menu">Рейтинг авторов</a>
+    </div>
+
+    <div class="basis_right">
     <table>
         <tr th:each="text : ${list}">
             <td><form action="#" th:action="@{/add_response/{id} (id=${text.requestID})}" method="post">
-                <div class="info">
+                <div class="infoReques">
+                    <img height="30px"  width="30px" th:src="@{'data:image/png;base64,' + ${text.user.photo} }" />
                     <span th:text="${text.user.login}">Автор</span>
                 </div>
 
@@ -37,6 +47,8 @@
         <a th:if="${page}>1" class="buttonBackForward" th:href="@{/requests/{p} (p=${page}-1)}">Назад</a>
         <a th:if="${page}<${end}" class="buttonBackForward" th:href="@{/requests/{p}(p=${page}+1)}">Вперед</a>
     </div>
+    </div>
+
 </div>
 </div>
 </body>

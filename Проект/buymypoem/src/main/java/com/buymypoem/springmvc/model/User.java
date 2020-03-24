@@ -9,7 +9,6 @@ public class User {
     private String Login;
     private String Password;
     private String Email;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date Birthdate;
     private String About;
@@ -88,20 +87,6 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "UserID=" + UserID +
-                ", Login='" + Login + '\'' +
-                ", Password='" + Password + '\'' +
-                ", Email='" + Email + '\'' +
-                ", Birthdate=" + Birthdate +
-                ", About='" + About + '\'' +
-                ", Registredate=" + Registredate +
-                ", confirmPassword='" + confirmPassword + '\'' +
-                '}';
     }
 
     public String getPhoto() {
