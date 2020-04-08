@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Мар 24 2020 г., 20:00
+-- Время создания: Апр 08 2020 г., 18:21
 -- Версия сервера: 8.0.18
 -- Версия PHP: 7.1.33
 
@@ -32,23 +32,24 @@ CREATE TABLE `author` (
   `authorID` int(11) NOT NULL,
   `finisedcompositions` int(11) NOT NULL DEFAULT '0',
   `rating` float NOT NULL DEFAULT '0',
-  `userID` int(11) NOT NULL
+  `userID` int(11) NOT NULL,
+  `cardNumber` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `author`
 --
 
-INSERT INTO `author` (`authorID`, `finisedcompositions`, `rating`, `userID`) VALUES
-(1, 0, 0, 1),
-(2, 0, 0, 3),
-(3, 0, 0, 2),
-(6, 0, 0, 20),
-(7, 0, 0, 23),
-(8, 0, 0, 25),
-(12, 0, 0, 33),
-(13, 0, 0, 34),
-(14, 0, 0, 35);
+INSERT INTO `author` (`authorID`, `finisedcompositions`, `rating`, `userID`, `cardNumber`) VALUES
+(1, 0, 0, 1, ''),
+(2, 0, 0, 3, ''),
+(3, 0, 0, 2, ''),
+(6, 0, 0, 20, ''),
+(7, 0, 0, 23, '1111111111111111'),
+(8, 0, 0, 25, ''),
+(12, 0, 0, 33, ''),
+(13, 0, 0, 34, ''),
+(14, 0, 0, 35, '');
 
 -- --------------------------------------------------------
 
