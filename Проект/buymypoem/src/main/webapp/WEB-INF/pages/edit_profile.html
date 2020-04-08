@@ -6,9 +6,22 @@
 </head>
 <body>
 <form method="POST" action="#" th:action="@{/edit_profile}" enctype="multipart/form-data">
+    login:
+    <input class="input_text" type="text" name="login" required="required" th:field="${user.userSession.login}" />
+
+    email:
+    <input class="input_text" type="text" name="email" required="required" th:field="${user.userSession.email}" />
+
+    about:
+    <input class="input_text" type="text" name="about" required="required" th:field="${user.userSession.about}" />
+
+    cardNumber:
+    <input class="input_text" type="text" name="about" required="required" th:field="${user.cardNumber}" />
+
     <input type="file" name="photo" multiple="multiple"/>
-    <input type="submit" value="Добавить фото" />
+    <input type="submit" value="Принять изменения" />
     <p class="sign-up__error" th:text="${error}"></p>
+
 </form>
 </body>
 </html>

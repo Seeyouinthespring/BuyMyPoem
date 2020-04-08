@@ -1,6 +1,8 @@
 package com.buymypoem.springmvc.controller;
 
 import com.buymypoem.springmvc.dao.UserDAO;
+import com.buymypoem.springmvc.model.Author;
+import com.buymypoem.springmvc.model.Customer;
 import com.buymypoem.springmvc.model.User;
 import com.buymypoem.springmvc.model.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,7 +39,22 @@ public class UserController {
             pages.put("Author", "redirect:successAuthor");
             pages.put("Customer", "redirect:successCustomer");
             pages.put("Service", "redirect:successService");
+
             userSession.setUserSession(userReal);
+            if (userReal.getRole().equals("Author")){
+                Author author = userDAO.getAuthorById(userSession.getUserSession().getUserID());
+                userSession.setAuthorID(author.getAuthorID());
+                userSession.setRating(author.getRating());
+                userSession.setCardNumber(author.getCardNumber());
+                userSession.setFinisedcompositions(author.getFinishedcompositions());
+            }
+
+            if (userReal.getRole().equals("Customer")){
+                Customer customer = userDAO.getCustomerById(userSession.getUserSession().getUserID());
+                userSession.setCustomerID(customer.getCustomerID());
+                userSession.setPaidcompositionnumber(customer.getPaidcompositionnumber());
+            }
+
             String page = pages.get(userReal.getRole());
             if(page == null) return "error";
 

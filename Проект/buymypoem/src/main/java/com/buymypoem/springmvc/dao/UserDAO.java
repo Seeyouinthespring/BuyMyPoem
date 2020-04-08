@@ -1,5 +1,7 @@
 package com.buymypoem.springmvc.dao;
 
+import com.buymypoem.springmvc.model.Author;
+import com.buymypoem.springmvc.model.Customer;
 import com.buymypoem.springmvc.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -35,6 +37,48 @@ public class UserDAO {
                     u.setRegistredate(resultSet.getDate("registerdate"));
                     u.setRole(resultSet.getString("role"));
                     return u;
+                }
+            });
+
+            return uList.get(0);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Author getAuthorById(int id){
+        String sql ="Select * from author where userId=?";
+
+        try {
+            List<Author> uList = temp.query(sql, new Object[]{id}, new RowMapper<Author>() {
+                public Author mapRow(ResultSet resultSet, int i) throws SQLException {
+                    Author a = new Author();
+                    a.setAuthorID(resultSet.getInt("authorID"));
+                    a.setFinishedcompositions(resultSet.getInt("finisedcompositions"));
+                    a.setRating(resultSet.getFloat("rating"));
+                    a.setCardNumber(resultSet.getString("cardNumber"));
+                    return a;
+                }
+            });
+
+            return uList.get(0);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Customer getCustomerById(int id){
+        String sql ="Select * from customer where userId=?";
+
+        try {
+            List<Customer> uList = temp.query(sql, new Object[]{id}, new RowMapper<Customer>() {
+                public Customer mapRow(ResultSet resultSet, int i) throws SQLException {
+                    Customer c =  new Customer();
+                    c.setCustomerID(resultSet.getInt("customerID"));
+                    c.setPaidcompositionnumber(resultSet.getInt("paidcompositionnumber"));
+                    return c;
                 }
             });
 

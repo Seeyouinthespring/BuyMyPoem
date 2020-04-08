@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="jdbc:mysql://localhost:3306/buymypoem?useSSL=false&amp;useUnicode=true&amp;serverTimezone=Europe/Moscow" uuid="22c14329-1349-4e0d-9f71-13db100cdd79">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/buymypoem?useSSL=false&amp;useUnicode=true&amp;serverTimezone=Europe/Moscow</jdbc-url>
+    </data-source>
+  </component>
+</project>

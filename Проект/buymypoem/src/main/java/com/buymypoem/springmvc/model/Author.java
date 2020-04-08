@@ -3,8 +3,9 @@ package com.buymypoem.springmvc.model;
 public class Author {
     private int authorID;
     private int finishedcompositions;
-    private int rating;
+    private float rating;
     private int userID;
+    private String cardNumber;
 
     public int getAuthorID() {
         return authorID;
@@ -22,11 +23,11 @@ public class Author {
         this.finishedcompositions = finishedcompositions;
     }
 
-    public int getRating() {
+    public float getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(float rating) {
         this.rating = rating;
     }
 
@@ -36,5 +37,13 @@ public class Author {
 
     public void setUserID(int userID) {
         this.userID = userID;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
     }
 }
