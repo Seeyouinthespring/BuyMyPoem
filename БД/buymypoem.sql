@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Апр 08 2020 г., 18:21
--- Версия сервера: 8.0.18
--- Версия PHP: 7.1.33
+-- Время создания: Апр 20 2020 г., 09:30
+-- Версия сервера: 8.0.19
+-- Версия PHP: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -29,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `author` (
-  `authorID` int(11) NOT NULL,
-  `finisedcompositions` int(11) NOT NULL DEFAULT '0',
+  `authorID` int NOT NULL,
+  `finisedcompositions` int NOT NULL DEFAULT '0',
   `rating` float NOT NULL DEFAULT '0',
-  `userID` int(11) NOT NULL,
-  `cardNumber` varchar(16) NOT NULL
+  `userID` int NOT NULL,
+  `cardNumber` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -44,12 +43,9 @@ INSERT INTO `author` (`authorID`, `finisedcompositions`, `rating`, `userID`, `ca
 (1, 0, 0, 1, ''),
 (2, 0, 0, 3, ''),
 (3, 0, 0, 2, ''),
-(6, 0, 0, 20, ''),
 (7, 0, 0, 23, '1111111111111111'),
 (8, 0, 0, 25, ''),
-(12, 0, 0, 33, ''),
-(13, 0, 0, 34, ''),
-(14, 0, 0, 35, '');
+(15, 0, 0, 37, NULL);
 
 -- --------------------------------------------------------
 
@@ -58,9 +54,9 @@ INSERT INTO `author` (`authorID`, `finisedcompositions`, `rating`, `userID`, `ca
 --
 
 CREATE TABLE `authorrequest` (
-  `authorrequest` int(11) NOT NULL,
-  `authorID` int(11) NOT NULL,
-  `requestID` int(11) NOT NULL
+  `authorrequest` int NOT NULL,
+  `authorID` int NOT NULL,
+  `requestID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -80,10 +76,10 @@ INSERT INTO `authorrequest` (`authorrequest`, `authorID`, `requestID`) VALUES
 --
 
 CREATE TABLE `comment` (
-  `commentID` int(11) NOT NULL,
+  `commentID` int NOT NULL,
   `text` text NOT NULL,
   `sendingdate` date NOT NULL,
-  `userID` int(11) NOT NULL
+  `userID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -93,9 +89,9 @@ CREATE TABLE `comment` (
 --
 
 CREATE TABLE `commentcomposition` (
-  `commentcompositionID` int(11) NOT NULL,
-  `commentID` int(11) NOT NULL,
-  `compositionID` int(11) NOT NULL
+  `commentcompositionID` int NOT NULL,
+  `commentID` int NOT NULL,
+  `compositionID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -105,9 +101,9 @@ CREATE TABLE `commentcomposition` (
 --
 
 CREATE TABLE `commentordering` (
-  `commentorderingID` int(11) NOT NULL,
-  `commentID` int(11) NOT NULL,
-  `orderingID` int(11) NOT NULL
+  `commentorderingID` int NOT NULL,
+  `commentID` int NOT NULL,
+  `orderingID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -117,9 +113,9 @@ CREATE TABLE `commentordering` (
 --
 
 CREATE TABLE `commentrequest` (
-  `commentrequestID` int(11) NOT NULL,
-  `commentID` int(11) NOT NULL,
-  `requestID` int(11) NOT NULL
+  `commentrequestID` int NOT NULL,
+  `commentID` int NOT NULL,
+  `requestID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -129,15 +125,15 @@ CREATE TABLE `commentrequest` (
 --
 
 CREATE TABLE `composition` (
-  `compositionID` int(11) NOT NULL,
+  `compositionID` int NOT NULL,
   `title` varchar(70) NOT NULL,
   `description` text,
-  `likes` int(11) NOT NULL,
-  `dislikes` int(11) NOT NULL,
+  `likes` int NOT NULL,
+  `dislikes` int NOT NULL,
   `text` text NOT NULL,
-  `authorID` int(11) NOT NULL,
-  `genreID` int(11) NOT NULL,
-  `typeID` int(11) NOT NULL,
+  `authorID` int NOT NULL,
+  `genreID` int NOT NULL,
+  `typeID` int NOT NULL,
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -166,9 +162,9 @@ INSERT INTO `composition` (`compositionID`, `title`, `description`, `likes`, `di
 --
 
 CREATE TABLE `customer` (
-  `customerID` int(11) NOT NULL,
-  `paidcompositionnumber` int(11) NOT NULL DEFAULT '0',
-  `userID` int(11) NOT NULL
+  `customerID` int NOT NULL,
+  `paidcompositionnumber` int NOT NULL DEFAULT '0',
+  `userID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -178,7 +174,8 @@ CREATE TABLE `customer` (
 INSERT INTO `customer` (`customerID`, `paidcompositionnumber`, `userID`) VALUES
 (1, 0, 21),
 (2, 0, 22),
-(3, 0, 27);
+(3, 0, 27),
+(7, 0, 38);
 
 -- --------------------------------------------------------
 
@@ -187,7 +184,7 @@ INSERT INTO `customer` (`customerID`, `paidcompositionnumber`, `userID`) VALUES
 --
 
 CREATE TABLE `genre` (
-  `genreID` int(11) NOT NULL,
+  `genreID` int NOT NULL,
   `title` varchar(50) NOT NULL,
   `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -207,16 +204,16 @@ INSERT INTO `genre` (`genreID`, `title`, `description`) VALUES
 --
 
 CREATE TABLE `ordering` (
-  `orderingID` int(11) NOT NULL,
+  `orderingID` int NOT NULL,
   `startdate` date NOT NULL,
   `deadline` date NOT NULL,
   `cost` float NOT NULL,
   `description` text NOT NULL,
-  `compositionID` int(11) DEFAULT NULL,
-  `customerID` int(11) NOT NULL,
-  `authorID` int(11) NOT NULL,
-  `typeID` int(11) NOT NULL,
-  `genreID` int(11) NOT NULL
+  `compositionID` int DEFAULT NULL,
+  `customerID` int NOT NULL,
+  `authorID` int NOT NULL,
+  `typeID` int NOT NULL,
+  `genreID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -226,10 +223,10 @@ CREATE TABLE `ordering` (
 --
 
 CREATE TABLE `paymentresourse` (
-  `paymentresourceID` int(11) NOT NULL,
+  `paymentresourceID` int NOT NULL,
   `cardnumber` varchar(20) NOT NULL,
   `phonenumber` varchar(12) NOT NULL,
-  `userID` int(11) NOT NULL
+  `userID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -239,14 +236,14 @@ CREATE TABLE `paymentresourse` (
 --
 
 CREATE TABLE `request` (
-  `requestID` int(11) NOT NULL,
+  `requestID` int NOT NULL,
   `description` text NOT NULL,
-  `customerID` int(11) NOT NULL,
+  `customerID` int NOT NULL,
   `publicationdate` date NOT NULL,
   `deadline` date NOT NULL,
   `cost` float NOT NULL,
-  `genreID` int(11) NOT NULL,
-  `typeID` int(11) NOT NULL
+  `genreID` int NOT NULL,
+  `typeID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -268,7 +265,7 @@ INSERT INTO `request` (`requestID`, `description`, `customerID`, `publicationdat
 --
 
 CREATE TABLE `role` (
-  `roleID` int(11) NOT NULL,
+  `roleID` int NOT NULL,
   `rolename` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -279,7 +276,7 @@ CREATE TABLE `role` (
 --
 
 CREATE TABLE `tag` (
-  `tagID` int(11) NOT NULL,
+  `tagID` int NOT NULL,
   `text` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -290,9 +287,9 @@ CREATE TABLE `tag` (
 --
 
 CREATE TABLE `tagcomposition` (
-  `tagcompositionID` int(11) NOT NULL,
-  `compositionID` int(11) NOT NULL,
-  `tagID` int(11) NOT NULL
+  `tagcompositionID` int NOT NULL,
+  `compositionID` int NOT NULL,
+  `tagID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -302,7 +299,7 @@ CREATE TABLE `tagcomposition` (
 --
 
 CREATE TABLE `type` (
-  `typeID` int(11) NOT NULL,
+  `typeID` int NOT NULL,
   `title` varchar(50) NOT NULL,
   `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -322,9 +319,9 @@ INSERT INTO `type` (`typeID`, `title`, `description`) VALUES
 --
 
 CREATE TABLE `user` (
-  `userID` int(11) NOT NULL,
+  `userID` int NOT NULL,
   `login` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `email` varchar(50) NOT NULL,
   `birthdate` date NOT NULL,
   `about` text,
@@ -338,19 +335,17 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `login`, `password`, `email`, `birthdate`, `about`, `registerdate`, `role`, `photo`) VALUES
-(1, 'pushkin322', '123', 'pushkin@ya.ru', '1990-02-01', 'Простой мужик', '2020-02-22', 'Author', 'D:/repository/default.jpg'),
-(2, 'alex_top', '12345', 'alex@ya.ru', '1992-03-09', 'Родился в г. Вологда', '2020-02-22', 'Author', 'D:/repository/default.jpg'),
-(3, 'vik', '11111', 'vika@ya.ru', '1988-06-21', 'Замужем. Двое детей', '2020-02-22', 'Author', 'D:/repository/default.jpg'),
-(20, 'Lerrra', '-1041601825', 'lera@', '2020-03-07', NULL, '1999-11-25', 'Author', 'D:/repository/default.jpg'),
-(21, '123', '48690', 'colya.juravlyov2011@ya.ru', '2020-03-07', NULL, '2007-11-07', 'Customer', 'D:/repository/default.jpg'),
-(22, 'arranay', '48657', 'val@gmail.com', '2020-03-14', NULL, '2020-03-14', 'Customer', 'D:/repository/arranay.jpg'),
-(23, 'arranayA', '48657', 'val@gmail.com', '2020-03-15', 'Скромный писатель', '2020-03-15', 'Author', 'D:/repository/arranayA.jpg'),
-(24, 'admin', '48657', 'admin', '2020-03-15', NULL, '2020-03-15', 'Service', 'D:/repository/default.jpg'),
-(25, 'seeyouinthespring', '49', 'colya.juravlyov2011@ya.ru', '2020-03-23', NULL, '1999-03-29', 'Author', 'D:/repository/seeyouinthespring.jpg'),
-(27, 'see', '49', 'seesee', '2020-03-23', NULL, '2020-03-02', 'Customer', 'D:/repository/default.jpg'),
-(33, 'jhjh', '49', 'lkl', '2020-03-24', NULL, '2020-03-24', 'Author', 'D:/repository/default.jpg'),
-(34, 'new', '49', 'new', '2020-03-24', NULL, '2020-03-24', 'Author', 'D:/repository/default.jpg'),
-(35, 'neeeeew', '49', 'new', '2020-03-24', NULL, '2020-03-24', 'Author', 'D:/repository/default.jpg');
+(1, 'pushkin322', '$2a$10$A4Z6Xh0ZsWQgvSYANmRr0.NAmNcei5IHtdxrKMGx8pm0gRtVLuAkO', 'pushkin@ya.ru', '1990-02-01', 'Простой мужик', '2020-02-22', 'Author', 'D:/repository/default.jpg'),
+(2, 'alex_top', '$2a$10$A4Z6Xh0ZsWQgvSYANmRr0.NAmNcei5IHtdxrKMGx8pm0gRtVLuAkO', 'alex@ya.ru', '1992-03-09', 'Родился в г. Вологда', '2020-02-22', 'Author', 'D:/repository/default.jpg'),
+(3, 'vik', '$2a$10$A4Z6Xh0ZsWQgvSYANmRr0.NAmNcei5IHtdxrKMGx8pm0gRtVLuAkO', 'vika@ya.ru', '1988-06-21', 'Замужем. Двое детей', '2020-02-22', 'Author', 'D:/repository/default.jpg'),
+(21, '123', '$2a$10$A4Z6Xh0ZsWQgvSYANmRr0.NAmNcei5IHtdxrKMGx8pm0gRtVLuAkO', 'colya.juravlyov2011@ya.ru', '2020-03-07', NULL, '2007-11-07', 'Customer', 'D:/repository/default.jpg'),
+(22, 'arranay', '$2a$10$A4Z6Xh0ZsWQgvSYANmRr0.NAmNcei5IHtdxrKMGx8pm0gRtVLuAkO', 'val@gmail.com', '2020-03-14', NULL, '2020-03-14', 'Customer', 'D:/repository/arranay.jpg'),
+(23, 'arranayA', '$2a$10$A4Z6Xh0ZsWQgvSYANmRr0.NAmNcei5IHtdxrKMGx8pm0gRtVLuAkO', 'val@gmail.com', '2020-03-15', 'Скромный писатель', '2020-03-15', 'Author', 'D:/repository/arranayA.jpg'),
+(24, 'admin', '$2a$10$A4Z6Xh0ZsWQgvSYANmRr0.NAmNcei5IHtdxrKMGx8pm0gRtVLuAkO', 'admin', '2020-03-15', NULL, '2020-03-15', 'Service', 'D:/repository/default.jpg'),
+(25, 'seeyouinthespring', '$2a$10$A4Z6Xh0ZsWQgvSYANmRr0.NAmNcei5IHtdxrKMGx8pm0gRtVLuAkO', 'colya.juravlyov2011@ya.ru', '2020-03-23', NULL, '1999-03-29', 'Author', 'D:/repository/seeyouinthespring.jpg'),
+(27, 'see', '$2a$10$A4Z6Xh0ZsWQgvSYANmRr0.NAmNcei5IHtdxrKMGx8pm0gRtVLuAkO', 'seesee', '2020-03-23', NULL, '2020-03-02', 'Customer', 'D:/repository/default.jpg'),
+(37, 'new', '$2a$10$C/DpC9VJclaJx/BhFHLOfepRpLhUXb9GaYNrUa2Y/AK8Dk/Zuy8kq', 'new', '2020-04-20', NULL, '2020-04-20', 'Author', 'D:/repository/default.jpg'),
+(38, '111', '$2a$10$A4Z6Xh0ZsWQgvSYANmRr0.NAmNcei5IHtdxrKMGx8pm0gRtVLuAkO', '1', '2020-04-20', NULL, '2020-04-20', 'Customer', 'D:/repository/default.jpg');
 
 -- --------------------------------------------------------
 
@@ -359,9 +354,9 @@ INSERT INTO `user` (`userID`, `login`, `password`, `email`, `birthdate`, `about`
 --
 
 CREATE TABLE `userrole` (
-  `userroleID` int(11) NOT NULL,
-  `userID` int(11) NOT NULL,
-  `roleID` int(11) NOT NULL
+  `userroleID` int NOT NULL,
+  `userID` int NOT NULL,
+  `roleID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -508,109 +503,109 @@ ALTER TABLE `userrole`
 -- AUTO_INCREMENT для таблицы `author`
 --
 ALTER TABLE `author`
-  MODIFY `authorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `authorID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT для таблицы `authorrequest`
 --
 ALTER TABLE `authorrequest`
-  MODIFY `authorrequest` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `authorrequest` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `commentID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `commentID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `commentcomposition`
 --
 ALTER TABLE `commentcomposition`
-  MODIFY `commentcompositionID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `commentcompositionID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `commentordering`
 --
 ALTER TABLE `commentordering`
-  MODIFY `commentorderingID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `commentorderingID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `commentrequest`
 --
 ALTER TABLE `commentrequest`
-  MODIFY `commentrequestID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `commentrequestID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `composition`
 --
 ALTER TABLE `composition`
-  MODIFY `compositionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `compositionID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT для таблицы `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `customerID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `genre`
 --
 ALTER TABLE `genre`
-  MODIFY `genreID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `genreID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `ordering`
 --
 ALTER TABLE `ordering`
-  MODIFY `orderingID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderingID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `paymentresourse`
 --
 ALTER TABLE `paymentresourse`
-  MODIFY `paymentresourceID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `paymentresourceID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `request`
 --
 ALTER TABLE `request`
-  MODIFY `requestID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `requestID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `role`
 --
 ALTER TABLE `role`
-  MODIFY `roleID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `roleID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `tag`
 --
 ALTER TABLE `tag`
-  MODIFY `tagID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `tagID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `tagcomposition`
 --
 ALTER TABLE `tagcomposition`
-  MODIFY `tagcompositionID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `tagcompositionID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `type`
 --
 ALTER TABLE `type`
-  MODIFY `typeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `typeID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `userID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT для таблицы `userrole`
 --
 ALTER TABLE `userrole`
-  MODIFY `userroleID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userroleID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

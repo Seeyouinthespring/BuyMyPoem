@@ -5,6 +5,7 @@ import com.buymypoem.springmvc.model.Customer;
 import com.buymypoem.springmvc.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Calendar;
 import java.sql.ResultSet;
@@ -94,8 +95,10 @@ public class UserDAO {
     public int insertUser(User user) {
         String dateRegisterdate=new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
         String dateBirthdate=new SimpleDateFormat("yyyy-MM-dd").format(user.getBirthdate());
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String password = bCryptPasswordEncoder.encode(user.getPassword());
         String sql = "insert into user (login, password, email, birthdate, registerdate, role) values (?,?,?,?,?,?);";
-        Object[] params = {user.getLogin(), user.getPassword().hashCode(), user.getEmail(), dateBirthdate, dateRegisterdate, user.getRole()};
+        Object[] params = {user.getLogin(), password, user.getEmail(), dateBirthdate, dateRegisterdate, user.getRole()};
         int[] types = {Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.DATE, Types.DATE, Types.VARCHAR};
         temp.update(sql,params,types);
 

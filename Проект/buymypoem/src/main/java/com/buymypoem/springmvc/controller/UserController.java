@@ -6,13 +6,19 @@ import com.buymypoem.springmvc.model.Customer;
 import com.buymypoem.springmvc.model.User;
 import com.buymypoem.springmvc.model.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 @Controller
 public class UserController {
@@ -33,8 +39,9 @@ public class UserController {
     @RequestMapping(value = "/sign in", method = RequestMethod.POST)
     public String signIn(@ModelAttribute("usr") User user, Model model) {
         User userReal = userDAO.getUserByLogin(user.getLogin());
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
-        if(   (!(userReal == null))&&( Integer.parseInt(userReal.getPassword())==user.getPassword().hashCode())) {
+        if((!(userReal == null))&&(bCryptPasswordEncoder.matches(user.getPassword(), userReal.getPassword()))) {
             Map<String, String> pages = new HashMap<String, String>();
             pages.put("Author", "redirect:successAuthor");
             pages.put("Customer", "redirect:successCustomer");
