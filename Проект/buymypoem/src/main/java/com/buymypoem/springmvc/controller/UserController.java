@@ -5,6 +5,7 @@ import com.buymypoem.springmvc.model.Author;
 import com.buymypoem.springmvc.model.Customer;
 import com.buymypoem.springmvc.model.User;
 import com.buymypoem.springmvc.model.UserSession;
+import com.buymypoem.springmvc.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -12,13 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
+
 
 @Controller
 public class UserController {
@@ -32,6 +29,9 @@ public class UserController {
         return "sign in";
     }
 
+
+    @Autowired
+    private SecurityService securityService;
 
     @Autowired
     UserSession userSession;
@@ -48,6 +48,7 @@ public class UserController {
             pages.put("Service", "redirect:successService");
 
             userSession.setUserSession(userReal);
+            securityService.autoLogin(user.getLogin(), user.getPassword());
             if (userReal.getRole().equals("Author")){
                 Author author = userDAO.getAuthorById(userSession.getUserSession().getUserID());
                 userSession.setAuthorID(author.getAuthorID());
@@ -97,6 +98,7 @@ public class UserController {
         userDAO.insertUser(user);
         user.setPhoto("D:/repository/default.jpg");
         userSession.setUserSession(user);
+        securityService.autoLogin(user.getLogin(), user.getPassword());
         if (user.getRole().equals("Author")) return "redirect:successAuthor";
         else return "redirect:successCustomer";
     }
