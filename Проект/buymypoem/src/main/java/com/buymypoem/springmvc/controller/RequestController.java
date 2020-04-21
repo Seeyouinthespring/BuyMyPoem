@@ -1,11 +1,13 @@
 package com.buymypoem.springmvc.controller;
 
+import com.buymypoem.springmvc.dao.CommentDAO;
 import com.buymypoem.springmvc.dao.GenreDAO;
 import com.buymypoem.springmvc.dao.RequestDAO;
 import com.buymypoem.springmvc.dao.TypeDAO;
 import com.buymypoem.springmvc.logic.ProfileBL;
 import com.buymypoem.springmvc.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -37,6 +39,9 @@ public class RequestController {
 
     @Autowired
     ProfileBL profileBL;
+
+    @Autowired
+    CommentDAO commentDAO;
 
     @RequestMapping(value = "/requests", method = RequestMethod.GET)
     public String getAllRequestsStart(Model m){
@@ -105,6 +110,7 @@ public class RequestController {
         return "redirect:/successCustomer";
     }
 
+    @Secured("ROLE_USER_AUTHOR")
     @RequestMapping(value = "/add_response/{id}", method = RequestMethod.POST)
     public String addResponse(@PathVariable int id){
         AuthorRequest ar = new AuthorRequest();
@@ -119,5 +125,25 @@ public class RequestController {
         List<User> ulist = requestDAO.getAllResponses(id);
         model.addAttribute("ulist",ulist);
         return "all_responses";
+    }
+
+    @RequestMapping(value="/request/{id}", method = RequestMethod.POST)
+    public String showRequest(@PathVariable int id, Model m){
+        Request request = requestDAO.getRequestById(id);
+        List<Comment> commentList = commentDAO.GetCommentsForRequest(id);
+        m.addAttribute("req",request);
+        m.addAttribute("comments",commentList);
+        m.addAttribute("mycomment",new Comment());
+        return "request_details";
+    }
+
+    @RequestMapping(value="/add_comment_request/{id}",method=RequestMethod.POST)
+    public String addCommentRequest(@PathVariable int id, @ModelAttribute("mycomment") Comment comment){
+        User u = new User();
+        u.setUserID(us.getUserSession().getUserID());
+        comment.setUser(u);
+        long newComment = commentDAO.addComment(comment);
+        commentDAO.addCommentRequestLink(newComment,id);
+        return "forward:/request/"+id;
     }
 }

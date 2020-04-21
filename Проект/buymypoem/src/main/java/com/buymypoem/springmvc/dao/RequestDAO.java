@@ -1,6 +1,7 @@
 package com.buymypoem.springmvc.dao;
 
 import com.buymypoem.springmvc.model.*;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -22,6 +23,7 @@ public class RequestDAO {
 
     private static final String sqlAllRequests="SELECT request.requestID, request.description, user.login, user.photo, request.publicationdate, request.deadline, request.cost, genre.title as gtitle, type.title as ttitle from request left JOIN genre on request.genreID=genre.genreID left JOIN type on request.typeID=type.typeID left join customer on request.customerID=customer.customerID left JOIN user on customer.userID=user.userID where ?>0 limit ?," + PAGE_SIZE;
 
+    private static final String sqlRequestById="Select request.requestID, request.description, user.login, user.photo, request.publicationdate, request.deadline, request.cost, genre.title as gtitle, type.title as ttitle from request left JOIN genre on request.genreID=genre.genreID left JOIN type on request.typeID=type.typeID left join customer on request.customerID=customer.customerID left JOIN user on customer.userID=user.userID where request.requestID=?";
     private static final String sqlAllPersonalRequests="SELECT request.requestID, request.description, user.login, user.photo, request.publicationdate, request.deadline, request.cost," +
             " genre.title as gtitle, type.title as ttitle from request " +
             "left JOIN genre on request.genreID=genre.genreID " +
@@ -77,7 +79,34 @@ public class RequestDAO {
                 u.setLogin(resultSet.getString("login"));
                 u.setPhoto(resultSet.getString("photo"));
                 r.setUser(u);
-                r.setPublicvationdate(resultSet.getDate("publicationdate"));
+                r.setPublicationdate(resultSet.getDate("publicationdate"));
+                r.setDeadline(resultSet.getDate("deadline"));
+                r.setCost(resultSet.getFloat("cost"));
+                t.setTitle(resultSet.getString("ttitle"));
+                r.setType(t);
+                g.setTitle(resultSet.getString("gtitle"));
+                r.setGenre(g);
+                return r;
+            }
+        });
+    }
+
+    public Request getRequestById(int id){
+        Object[] params = {id};
+        int[] types = {Types.INTEGER};
+
+        return temp.queryForObject(sqlRequestById, params, types, new RowMapper<Request>() {
+            public Request mapRow(ResultSet resultSet, int i) throws SQLException{
+                User u = new User();
+                Type t = new Type();
+                Genre g = new Genre();
+                Request r = new Request();
+                r.setRequestID(resultSet.getInt("requestID"));
+                r.setDescription(resultSet.getString("description"));
+                u.setLogin(resultSet.getString("login"));
+                u.setPhoto(resultSet.getString("photo"));
+                r.setUser(u);
+                r.setPublicationdate(resultSet.getDate("publicationdate"));
                 r.setDeadline(resultSet.getDate("deadline"));
                 r.setCost(resultSet.getFloat("cost"));
                 t.setTitle(resultSet.getString("ttitle"));

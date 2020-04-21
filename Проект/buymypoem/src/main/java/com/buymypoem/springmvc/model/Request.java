@@ -8,7 +8,7 @@ public class Request {
     private int requestID;
     private User user;
     private String description;
-    private Date publicvationdate;
+    private Date publicationdate;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date deadline;
@@ -41,12 +41,12 @@ public class Request {
         this.description = description;
     }
 
-    public Date getPublicvationdate() {
-        return publicvationdate;
+    public Date getPublicationdate() {
+        return publicationdate;
     }
 
-    public void setPublicvationdate(Date publicvationdate) {
-        this.publicvationdate = publicvationdate;
+    public void setPublicationdate(Date publicationdate) {
+        this.publicationdate = publicationdate;
     }
 
     public Date getDeadline() {

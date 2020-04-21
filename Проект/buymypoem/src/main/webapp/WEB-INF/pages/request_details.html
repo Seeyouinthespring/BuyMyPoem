@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link th:href="@{/css/composition.css}" rel="stylesheet">
+    <title>Заявка</title>
+    <style>
+        .request{
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+        }
+        .photo_login{
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+            font-size: 250%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        .other_content{
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+        }
+        .text2{
+            width: 100%;
+            height: 50px;
+            font-size: 180%;
+        }
+        .text3{
+            width: 40%;
+            height: initial;
+            font-size: 24px;
+        }
+        .dates{
+            width: 40%;
+            height: initial;
+            font-size: 14px;
+        }
+        .btn-response{
+            color: black;
+            width: 200px;
+            height: 40px;
+            font-size: 24px;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 2px solid black;
+            text-align: center;
+            background-color: forestgreen;
+            margin: 10px 0 10px 0;
+        }
+        .div_button{
+            display: flex;
+            justify-content: center;
+        }
+        .comment{
+            display: flex;
+            flex-flow: row;
+            justify-content: left;
+        }
+        .for_img{
+            height: 60px;
+            width: 60px;
+        }
+        .not_photo{
+             display: flex;
+             flex-flow: column;
+        }
+        .login_date{
+            font-size: 18px;
+            display: flex;
+            flex-flow: row;
+            justify-content: left;
+        }
+        .comment_date{
+            margin-left: 20px;
+        }
+        .comment_text{
+            margin-left: 20px;
+            font-size: 30px;
+            font-family: cursive;
+        }
+        .table_comments{
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        .input_comment{
+            width: 100%;
+            border-radius: 10px;
+            margin-left: auto;
+            height: inherit;
+        }
+        .div_for_com_btn{
+            display: flex;
+            flex-flow: row;
+            justify-content: left;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-top: 30px;
+        }
+        .last_btn{
+            color: black;
+            width: 100%;
+            font-size: 24px;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 2px solid black;
+            text-align: center;
+            background-color: dodgerblue;
+        }
+        .div_mycomment{
+            width: 75%;
+            height: 100px;
+        }
+        .div_button2{
+            display: flex;
+            justify-content: center;
+            width: 20%;
+            height: 50px;
+            margin-left: 10%;}
+    </style>
+</head>
+<body class="main">
+<div class="top">
+    <div class="label">
+        BuyMyPoem
+    </div>
+</div>
+<div class="basis">
+    <div class="basis_right">
+        <div class="request">
+            <form action="#" th:action="@{/add_response/{id} (id=${req.requestID})}" method="post">
+                <div class="photo_login">
+                    <img height="100px"  width="100px" th:src="@{'data:image/png;base64,' + ${req.user.photo} }" />
+                    <span th:text="${req.user.login}">Автор</span>
+                </div>
+                <div class="other_content">
+                    <div class="dates">
+                        <div class="text2">Дата публикации: <span th:text="${req.publicationdate}"></span></div>
+                        <div class="text2">Выполнить до: <span th:text="${req.deadline}"></span></div>
+                        <div class="text2">Тип произведения: <span th:text="${req.type.title}"></span></div>
+                        <div class="text2">Жанр:  <span th:text="${req.genre.title}"></span></div>
+                    </div>
+
+                    <div class="text3">Описание:  <span th:text="${req.description}"></span></div>
+                </div>
+                <div class="div_button">
+                    <button class="btn-response">Откликнуться</button>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="table_comments">
+            <table>
+                <tr th:each="comment : ${comments}">
+                    <td>
+                        <div class="comment">
+                            <div class="for_img">
+                                <img height="60px"  width="60px" th:src="@{'data:image/png;base64,' + ${comment.user.photo} }" />
+                            </div>
+                            <div class="not_photo">
+                                <div class="login_date">
+                                    <span th:text="${comment.user.login}"></span>
+                                    <span class="comment_date" th:text="${comment.sendingDate}"></span>
+                                </div>
+                                <div class="comment_text">
+                                    <span th:text="${comment.text}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <form action="#" th:action="@{/add_comment_request/{id} (id=${req.requestID})}" method="post">
+                <div class="div_for_com_btn">
+                    <div class="div_mycomment">
+                        <input class="input_comment" type="text" name="Title" required="required" placeholder="Оставьте комментарий" th:field="${mycomment.text}" />
+                    </div>
+                    <div class="div_button2">
+                         <button class="last_btn">Отправить</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

@@ -146,3 +146,8 @@ td{
     flex-direction: row;
     margin-left: 10px;
 }
+.request_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
