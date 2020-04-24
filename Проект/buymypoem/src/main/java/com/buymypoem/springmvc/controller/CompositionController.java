@@ -3,6 +3,7 @@ package com.buymypoem.springmvc.controller;
 import com.buymypoem.springmvc.dao.CompositionDAO;
 import com.buymypoem.springmvc.dao.GenreDAO;
 import com.buymypoem.springmvc.dao.TypeDAO;
+import com.buymypoem.springmvc.logic.ProfileBL;
 import com.buymypoem.springmvc.model.Composition;
 import com.buymypoem.springmvc.logic.compositionBL;
 import com.buymypoem.springmvc.model.Genre;
@@ -36,6 +37,9 @@ public class CompositionController {
 
     @Autowired
     GenreDAO genreDAO;
+
+    @Autowired
+    ProfileBL profileBL;
 
     @RequestMapping(value = "/composition", method= RequestMethod.GET)
     public String getStartList(Model m){
@@ -80,6 +84,9 @@ public class CompositionController {
     @RequestMapping(value = "/index", method= RequestMethod.GET)
     public String getCompositionStart(Model m){
         List<Composition> list=compositionDAO.getCompositions(1,"Published", 0);
+        for (Composition c: list) {
+            c.getUser().setPhoto(profileBL.getImg(c.getUser().getPhoto()));
+        }
         m.addAttribute("list",list);
         m.addAttribute("page",1);
         int endPage=compositionBL.countPages("countPublishComp");

@@ -49,12 +49,28 @@ td{
     font-size: 23px;
 }
 
+.photo{
+    height: 50px;
+    width: 50px;
+}
+
+.photo_author{
+    margin: 10px;
+    display: flex;
+}
+
 .info{
      margin: 10px;
      flex: 1;
      display: flex;
-     flex-direction: column;
+     flex-direction: row;
  }
+
+.info_author{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
 
 .infoReques{
     margin: 10px;

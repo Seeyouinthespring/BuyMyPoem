@@ -28,8 +28,13 @@
         <table>
             <tr th:each="text : ${list}"><td>
                 <div class="info">
-                    <span th:text="${text.title}">Название</span>
-                    <span th:text="${text.user.login}">Автор</span>
+                    <div class="photo_author">
+                        <img class="photo" th:src="@{'data:image/png;base64,' + ${text.user.photo} }" />
+                    </div>
+                    <div class="info_author">
+                        <span th:text="${text.title}">Название</span>
+                        <span th:text="${text.user.login}">Автор</span>
+                    </div>
                 </div>
 
                 <div class="description">

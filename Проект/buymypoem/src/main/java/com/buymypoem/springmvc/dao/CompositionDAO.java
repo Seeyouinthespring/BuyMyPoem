@@ -41,15 +41,15 @@ public class CompositionDAO {
     public List<Composition> getCompositions(int page, String sqlComposition, int id) {
         Map<String, String> sqlStrings = new HashMap<String, String>();
 
-        sqlStrings.put("All", "select compositionID, title, description, likes, dislikes, login, typeID, genreID,status " +
+        sqlStrings.put("All", "select compositionID, title, description, likes, dislikes, login, photo, typeID, genreID,status " +
                 "from author join composition on composition.authorID = author.authorID " +
                 "join user on user.userID=author.userID limit ?," + PAGE_SIZE);
 
-        sqlStrings.put("Published", "select compositionID, title, description, likes, dislikes, login, typeID, genreID,status " +
+        sqlStrings.put("Published", "select compositionID, title, description, likes, dislikes, login, photo, typeID, genreID,status " +
                 "from author join composition on composition.authorID = author.authorID " +
                 "join user on user.userID=author.userID WHERE composition.status='Опубликовано' limit ? ," + PAGE_SIZE);
 
-        sqlStrings.put("PublishedOfAuthor", "select compositionID, title, description, likes, dislikes, login, typeID, genreID,status " +
+        sqlStrings.put("PublishedOfAuthor", "select compositionID, title, description, likes, dislikes, login, photo, typeID, genreID,status " +
                 "from author " +
                 "join composition on composition.authorID = author.authorID " +
                 "join user on user.userID=author.userID " +
@@ -81,6 +81,7 @@ public class CompositionDAO {
                 comp.setLikes(resultSet.getInt("likes"));
                 comp.setDislikes(resultSet.getInt("dislikes"));
                 u.setLogin(resultSet.getString("login"));
+                u.setPhoto(resultSet.getString("photo"));
                 comp.setUser(u);
                 t.setTypeID(resultSet.getInt("typeID"));
                 comp.setType(t);
