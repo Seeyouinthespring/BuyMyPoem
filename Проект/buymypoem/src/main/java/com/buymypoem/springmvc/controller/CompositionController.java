@@ -138,9 +138,13 @@ public class CompositionController {
         return "redirect:/successAuthor";
     }
 
+    @Autowired
+    ProfileBL profileBL;
+
     @RequestMapping(value = "/composition_info/{id}", method= RequestMethod.GET)
     public String addComposition(@PathVariable int id, Model m){
         Composition composition = compositionDAO.getCompositionByI(id);
+        composition.getUser().setPhoto(profileBL.getImg(composition.getUser().getPhoto()));
         m.addAttribute("text",composition);
         return "/composition_info";
     }

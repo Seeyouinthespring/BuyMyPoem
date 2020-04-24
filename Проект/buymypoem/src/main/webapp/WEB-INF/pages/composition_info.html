@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link th:href="@{/css/output_composition.css}" rel="stylesheet">
+    <title>Произведение</title>
 </head>
-<body>
-<div class="text_like"><span th:text="${text.text}"/></div>
+<body class="main">
+
+<div class="top">
+    <div class="label">
+        BuyMyPoem
+    </div>
+</div>
+
+<div class="basic">
+
+    <div class="right">
+<textarea readonly class="text" th:field="${text.text}">Текст произведения</textarea>
+        <div class="likes_and_dislikes">
+            <div>
+                ▲<span th:text="${text.likes}"/>&nbsp;
+                ▼<span th:text="${text.dislikes}"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="left">
+        <div class="left-top">
+            <div class="info">
+                <div class="i_info">
+                <div class="photo_author">
+                    <img class="photo" th:src="@{'data:image/png;base64,' + ${text.user.photo} }" />
+                </div>
+                <div class="info_author">
+                    <span th:text="${text.title}">Название</span>
+                    <span th:text="${text.user.login}">Автор</span>
+                </div>
+                </div>
+                <div class="description">
+                    <div class="div_text">Тип произведения: <span th:text="${text.type.title}">Тип</span></div>
+                    <div class="div_text">Жанр:  <span th:text="${text.genre.title}"> Жанр </span></div>
+                    <div class="div_text">Описание:  <span th:text="${text.description}"> Описание </span></div>
+                </div>
+            </div>
+        </div>
+        <div class="left-bottom">
+            КОМЕНТЫ
+        </div>
+    </div>
+</div>
 </body>
-</html>
