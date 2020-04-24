@@ -130,7 +130,11 @@ public class RequestController {
     @RequestMapping(value="/request/{id}", method = RequestMethod.POST)
     public String showRequest(@PathVariable int id, Model m){
         Request request = requestDAO.getRequestById(id);
-        List<Comment> commentList = commentDAO.GetCommentsForRequest(id);
+        request.getUser().setPhoto(profileBL.getImg(request.getUser().getPhoto()));
+        List<Comment> commentList = commentDAO.GetCommentsForRequest(id,"request");
+        for (Comment comment: commentList){
+            comment.getUser().setPhoto(profileBL.getImg(comment.getUser().getPhoto()));
+        }
         m.addAttribute("req",request);
         m.addAttribute("comments",commentList);
         m.addAttribute("mycomment",new Comment());
@@ -143,7 +147,7 @@ public class RequestController {
         u.setUserID(us.getUserSession().getUserID());
         comment.setUser(u);
         long newComment = commentDAO.addComment(comment);
-        commentDAO.addCommentRequestLink(newComment,id);
+        commentDAO.addCommentLink(newComment,id,"request");
         return "forward:/request/"+id;
     }
 }

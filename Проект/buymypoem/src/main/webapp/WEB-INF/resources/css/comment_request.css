@@ -1,0 +1,135 @@
+.request{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+.photo_login{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    font-size: 250%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+.other_content{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+.text2{
+    width: 100%;
+    height: 50px;
+    font-size: 180%;
+}
+.text3{
+    width: 40%;
+    height: initial;
+    font-size: 24px;
+}
+.dates{
+    width: 40%;
+    height: initial;
+    font-size: 14px;
+}
+.btn-response{
+    color: black;
+    width: 200px;
+    height: 40px;
+    font-size: 24px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid black;
+    text-align: center;
+    background-color: forestgreen;
+    margin: 10px 0 10px 0;
+}
+.div_button{
+    display: flex;
+    justify-content: center;
+}
+.comment{
+    display: flex;
+    flex-flow: row;
+    justify-content: left;
+}
+.for_img{
+    height: 60px;
+    width: 60px;
+}
+.not_photo{
+    display: flex;
+    flex-flow: column;
+}
+.login_date{
+    font-size: 18px;
+    display: flex;
+    flex-flow: row;
+    justify-content: left;
+}
+.comment_date{
+    margin-left: 20px;
+}
+.comment_text{
+    margin-left: 20px;
+    font-size: 30px;
+    font-family: cursive;
+}
+.table_comments{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.input_comment{
+    width: 100%;
+    border-radius: 10px;
+    margin-left: auto;
+    height: inherit;
+}
+.div_for_com_btn{
+    display: flex;
+    flex-flow: row;
+    justify-content: left;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+}
+.last_btn{
+    color: black;
+    width: 100%;
+    font-size: 24px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid black;
+    text-align: center;
+    background-color: dodgerblue;
+}
+.div_mycomment{
+    width: 75%;
+    height: 100px;
+}
+.div_button2{
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    height: 50px;
+    margin-left: 10%;
+}
+.top {
+    min-width: 700px;
+    background: black;
+    display: flex;
+    flex-direction: row;
+}
+.label{
+    color: white;
+    font-size: 50px;
+    display: flex;
+    margin: 0 0 0 20px;
+    align-items: center;
+    font-family: Arial;
+}
+.main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}

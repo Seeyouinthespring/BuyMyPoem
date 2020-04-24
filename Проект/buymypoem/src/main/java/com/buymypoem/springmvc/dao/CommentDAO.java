@@ -11,7 +11,9 @@ import org.springframework.jdbc.support.KeyHolder;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CommentDAO {
 
@@ -20,19 +22,36 @@ public class CommentDAO {
         this.temp = temp;
     }
 
+    private final String sqlGetCommentsForComposition= "SELECT comment.commentID, comment.text, comment.sendingdate, user.login, user.photo, composition.compositionID " +
+            "FROM comment left join commentcomposition on comment.commentID=commentcomposition.commentID " +
+            "left join user on comment.userID=user.userID " +
+            "left join composition on commentcomposition.compositionID=composition.compositionID " +
+            "where composition.compositionID=?";
     private final String sqlGetCommentsForRequest= "SELECT comment.commentID, comment.text, comment.sendingdate, user.login, user.photo, request.requestID " +
             "FROM comment left join commentrequest on comment.commentID=commentrequest.commentID " +
             "left join user on comment.userID=user.userID " +
             "left join request on commentrequest.requestID=request.requestID " +
             "where request.requestID=?";
+    private final String sqlGetCommentsForOrder= "SELECT comment.commentID, comment.text, comment.sendingdate, user.login, user.photo, order.orderID " +
+            "FROM comment left join commentorder on comment.commentID=commentorder.commentID " +
+            "left join user on comment.userID=user.userID " +
+            "left join order on commentorder.orderID=order.orderID " +
+            "where order.orderID=?";
     private final String sqlAddComment="Insert into Comment (text,sendingdate,userID) values (?,?,?)";
     private final String sqlAddCommentRequestLink="Insert into CommentRequest (commentID,requestID) values (?,?)";
+    private final String sqlAddCommentCompositionLink="Insert into CommentComposition (commentID,compositionID) values (?,?)";
+    private final String sqlAddCommentOrderLink="Insert into CommentOreder (commentID,orderID) values (?,?)";
 
+    private final Map<String, String> sqlStringsForCommentLink = new HashMap<String, String>();
 
-    public List<Comment> GetCommentsForRequest(int id){
+    public List<Comment> GetCommentsForRequest(int id, String checkString){
+        Map<String, String> sqlStrings = new HashMap<String, String>();
+        sqlStrings.put("composition",sqlGetCommentsForComposition);
+        sqlStrings.put("request",sqlGetCommentsForRequest);
+        sqlStrings.put("order",sqlGetCommentsForOrder);
         Object[] params = {id};
         int[] types = {Types.INTEGER};
-        return temp.query(sqlGetCommentsForRequest, params, types, new RowMapper<Comment>() {
+        return temp.query(sqlStrings.get(checkString), params, types, new RowMapper<Comment>() {
             public Comment mapRow(ResultSet resultSet, int i) throws SQLException {
                 User u = new User();
                 Comment comment = new Comment();
@@ -58,26 +77,16 @@ public class CommentDAO {
             ps.setObject(3, comment.getUser().getUserID());
             return ps;
         }, keyHolder);
-
-        //temp.update(connection -> {
-            //PreparedStatement ps = connection.prepareStatement(sqlAddComment);
-            //ps.setString(1, comment.getText());
-            //ps.setString(2, dateOfSending);
-            //ps.setObject(3, comment.getUser().getUserID());
-          //  return ps;
-        //}, keyHolder);
-
-        //KeyHolder keyHolder = new GeneratedKeyHolder();
-        //String dateOfSending=new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
-        //Object[] params = {comment.getText(),dateOfSending,comment.getUser().getUserID()};
-        //int[] types ={Types.VARCHAR, Types.DATE, Types.INTEGER};
-        //temp.update(sqlAddComment,params,types,keyHolder);
         return keyHolder.getKey().longValue();
     }
 
-    public int addCommentRequestLink(long comID,int reqID){
-        Object[] params = {comID,reqID};
+    public int addCommentLink(long commentID,int targetID, String checkString){
+        Map<String, String> sqlStringsForCommentLink = new HashMap<String, String>();
+        sqlStringsForCommentLink.put("composition",sqlAddCommentCompositionLink);
+        sqlStringsForCommentLink.put("request", sqlAddCommentRequestLink);
+        sqlStringsForCommentLink.put("order",sqlAddCommentOrderLink);
+        Object[] params = {commentID,targetID};
         int[] types ={4,4};
-        return temp.update(sqlAddCommentRequestLink,params,types);
+        return temp.update(sqlStringsForCommentLink.get(checkString),params,types);
     }
 }

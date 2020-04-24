@@ -28,8 +28,10 @@
     height: 40px;
     color: #ffffff;
     padding: 1px 7px 2px;
-
     font-family: Arial, serif;
+    text-decoration: none;
+    text-align: center;
+    font-size: 19px;
 }
 
 

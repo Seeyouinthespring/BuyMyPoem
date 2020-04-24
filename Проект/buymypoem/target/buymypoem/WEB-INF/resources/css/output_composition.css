@@ -107,7 +107,8 @@
 .left-top{
     background: #E5F2FD;
     width: 70%;
-    height: 40%;
+    height: fit-content;
+    <!--height: 40%;-->
     border-radius: 10px;
     margin: 40px 100px;
 }
@@ -115,8 +116,43 @@
 .left-bottom{
     background: #E5F2FD;
     width: 70%;
-    height: 40%;
+    height: fit-content;
+<!--height: 40%;-->
     border-radius: 10px;
     margin: 0 100px;
+}
+.comment{
+    display: flex;
+    flex-flow: row;
+    justify-content: left;
+    width: 90%;
+    margin: 5px 0 0 20px;
+}
+.for_img{
+    height: 60px;
+    width: 60px;
+}
+.not_photo{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+}
+.login_date{
+    font-size: 18px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.input_comment{
+    width: 100%;
+    border-radius: 10px;
+    margin-left: auto;
+    height: inherit;
+}
+.comment_text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 

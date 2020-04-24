@@ -56,7 +56,7 @@ public class CompositionDAO {
                 "WHERE composition.status='Опубликовано' and user.userID=" + id +
                 " limit ? ," + PAGE_SIZE);
 
-        sqlStrings.put("Drafts", "select compositionID, title, description, likes, dislikes, login, typeID, genreID,status " +
+        sqlStrings.put("Drafts", "select compositionID, title, description, likes, dislikes, login, photo, typeID, genreID,status " +
                 "from author " +
                 "join composition on composition.authorID = author.authorID " +
                 "join user on user.userID=author.userID " +

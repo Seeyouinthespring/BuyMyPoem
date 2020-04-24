@@ -1,14 +1,12 @@
 package com.buymypoem.springmvc.controller;
 
+import com.buymypoem.springmvc.dao.CommentDAO;
 import com.buymypoem.springmvc.dao.CompositionDAO;
 import com.buymypoem.springmvc.dao.GenreDAO;
 import com.buymypoem.springmvc.dao.TypeDAO;
 import com.buymypoem.springmvc.logic.ProfileBL;
-import com.buymypoem.springmvc.model.Composition;
+import com.buymypoem.springmvc.model.*;
 import com.buymypoem.springmvc.logic.compositionBL;
-import com.buymypoem.springmvc.model.Genre;
-import com.buymypoem.springmvc.model.Type;
-import com.buymypoem.springmvc.model.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -141,11 +139,33 @@ public class CompositionController {
     @Autowired
     ProfileBL profileBL;
 
+    @Autowired
+    CommentDAO commentDAO;
+
     @RequestMapping(value = "/composition_info/{id}", method= RequestMethod.GET)
-    public String addComposition(@PathVariable int id, Model m){
+    public String getCompositionInfo(@PathVariable int id, Model m){
         Composition composition = compositionDAO.getCompositionByI(id);
         composition.getUser().setPhoto(profileBL.getImg(composition.getUser().getPhoto()));
+        List<Comment> commentList = commentDAO.GetCommentsForRequest(id,"composition");
+        for (Comment comment: commentList){
+            comment.getUser().setPhoto(profileBL.getImg(comment.getUser().getPhoto()));
+        }
+        User me = us.getUserSession();
+        me.setPhoto(profileBL.getImg(me.getPhoto()));
+        m.addAttribute("me", me);
+        m.addAttribute("comments", commentList);
+        m.addAttribute("mycomment",new Comment());
         m.addAttribute("text",composition);
         return "/composition_info";
+    }
+
+    @RequestMapping(value="/add_comment_composition/{id}",method=RequestMethod.POST)
+    public String addCommentComposition(@PathVariable int id, @ModelAttribute("mycomment") Comment comment){
+        User u = new User();
+        u.setUserID(us.getUserSession().getUserID());
+        comment.setUser(u);
+        long newComment = commentDAO.addComment(comment);
+        commentDAO.addCommentLink(newComment,id,"composition");
+        return "redirect:/composition_info/"+id;
     }
 }
