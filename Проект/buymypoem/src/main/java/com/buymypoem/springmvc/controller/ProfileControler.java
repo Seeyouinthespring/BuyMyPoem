@@ -4,14 +4,18 @@ import com.buymypoem.springmvc.dao.CompositionDAO;
 import com.buymypoem.springmvc.dao.UserDAO;
 import com.buymypoem.springmvc.logic.ProfileBL;
 import com.buymypoem.springmvc.model.Composition;
+import com.buymypoem.springmvc.model.Genre;
+import com.buymypoem.springmvc.model.Type;
 import com.buymypoem.springmvc.model.UserSession;
+import com.buymypoem.springmvc.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.io.*;
@@ -82,7 +86,6 @@ public class ProfileControler {
         return "edit_profile";
     }
 
-
     @RequestMapping(value = "/edit_profile", method= RequestMethod.POST)
     public String saveEditProfile(@RequestParam("photo") MultipartFile photo, Model m){
         try {
@@ -100,6 +103,6 @@ public class ProfileControler {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "redirect:successAuthor";
+        return "redirect:/successAuthor";
     }
 }
