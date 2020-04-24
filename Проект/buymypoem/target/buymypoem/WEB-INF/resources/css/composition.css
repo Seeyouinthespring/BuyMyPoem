@@ -49,22 +49,32 @@ td{
     font-size: 23px;
 }
 
+.info{
+    margin: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
 .photo{
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
+    flex: 1;
 }
 
 .photo_author{
     margin: 10px;
     display: flex;
+    flex: 1;
 }
 
-.info{
-     margin: 10px;
-     flex: 1;
-     display: flex;
-     flex-direction: row;
- }
+.info_button{
+    margin: 10px;
+    display: flex;
+    justify-content: flex-end;
+    flex: 13;
+}
+
 
 .info_author{
     margin: 10px;
@@ -166,4 +176,13 @@ td{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.button_for{
+    background: black;
+    color: white;
+    border-radius: 10px;
+    margin: 5px;
+    text-decoration: none;
+    padding: 10px;
 }

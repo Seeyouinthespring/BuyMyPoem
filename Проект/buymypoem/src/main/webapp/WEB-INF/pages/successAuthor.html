@@ -10,16 +10,6 @@
     <div class="label">
         BuyMyPoem
     </div>
-    <div class="buttons">
-        <select class="button">
-            <option value="">Меню</option>
-            <option value="">Мой профиль</option>
-            <option th:href="@{/requests}">Заявки</option>
-            <option value="">Произведения</option>
-            <option value="">Авторы</option>
-            <option value="">Выйти</option>
-        </select>
-    </div>
 </div>
 <div class="basis">
     <div class="basis_left">
@@ -32,6 +22,7 @@
             <a th:href="@{/draft}" class="a_menu">Мои черновики</a>
             <a href="" class="a_menu">Мои заказы</a>
             <a th:href="@{/add_composition_form}" class="a_menu">Добавить произведение</a>
+            <a th:href="@{/all_composition}" class="a_menu">Все произведения</a>
             <a th:href="@{/requests}" class="a_menu">Все заявки</a>
         </div>
     </div>

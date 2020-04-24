@@ -137,4 +137,41 @@ public class CompositionDAO {
             return 0;
         }
     }
+
+    public Composition getCompositionByI(int id){
+        String sql ="select *, genre.title as gtitle, type.title as ttitle from author join composition on composition.authorID = author.authorID join user on user.userID=author.userID " +
+                "JOIN genre on genre.genreID=composition.genreID " +
+                "JOIN type on type.typeID=composition.typeID " +
+                "WHERE compositionID=?";
+
+        try {
+            List<Composition> compositionList = temp.query(sql, new Object[]{id}, new RowMapper<Composition>() {
+                public Composition mapRow(ResultSet resultSet, int i) throws SQLException {
+                    User u = new User();
+                    Type t = new Type();
+                    Genre g = new Genre();
+                    Composition comp = new Composition();
+                    comp.setCompositionID(resultSet.getInt("compositionID"));
+                    comp.setTitle(resultSet.getString("title"));
+                    comp.setText(resultSet.getString("text"));
+                    comp.setStatus(resultSet.getString("status"));
+                    comp.setLikes(resultSet.getInt("likes"));
+                    comp.setDislikes(resultSet.getInt("dislikes"));
+                    u.setLogin(resultSet.getString("login"));
+                    u.setPhoto(resultSet.getString("photo"));
+                    comp.setUser(u);
+                    t.setTitle(resultSet.getString("ttitle"));
+                    comp.setType(t);
+                    g.setTitle(resultSet.getString("gtitle"));
+                    comp.setGenre(g);
+                    comp.setDescription(resultSet.getString("description"));
+                    return comp;
+                }
+            });
+            return compositionList.get(0);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

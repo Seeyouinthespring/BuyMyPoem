@@ -10,13 +10,10 @@
     <div class="label">
         BuyMyPoem
     </div>
-    <div class="buttons">
-        <a th:href="@{/registration}" class="button">Регистрация</a>
-        <a th:href="@{/sign in}" class="button">Вход</a>
-    </div>
 </div>
 <div class="basis">
     <div class="basis_left">
+        <a href="" class="a_menu">Мой профиль</a>
         <a href="" class="a_menu">Список авторов</a>
         <a th:href="@{/index}" class="a_menu">Список произведений</a>
         <a th:href="@{/requests}" class="a_menu">Список заявок</a>
@@ -35,8 +32,9 @@
                         <span th:text="${text.title}">Название</span>
                         <span th:text="${text.user.login}">Автор</span>
                     </div>
+
                     <div class="info_button">
-                        <a th:href="@{/composition_info}" class=""></a>
+                        <a th:href="@{/composition_info/{id} (id=${text.compositionID})}" class="button_for">Посмотреть</a>
                     </div>
                 </div>
 
@@ -52,8 +50,8 @@
             </td></tr>
         </table>
         <div class="buttonsContaner">
-            <a th:if="${page}>1" class="buttonBackForward" th:href="@{/index/{p} (p=${page}-1)}">Назад</a>
-            <a th:if="${page}<${end}" class="buttonBackForward" th:href="@{/index/{p}(p=${page}+1)}">Вперед</a>
+            <a th:if="${page}>1" class="buttonBackForward" th:href="@{/all_composition/{p} (p=${page}-1)}">Назад</a>
+            <a th:if="${page}<${end}" class="buttonBackForward" th:href="@{/all_composition/{p}(p=${page}+1)}">Вперед</a>
         </div>
     </div>
 

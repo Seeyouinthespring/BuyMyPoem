@@ -38,8 +38,7 @@ public class CompositionController {
     @Autowired
     GenreDAO genreDAO;
 
-    @Autowired
-    ProfileBL profileBL;
+
 
     @RequestMapping(value = "/composition", method= RequestMethod.GET)
     public String getStartList(Model m){
@@ -83,10 +82,7 @@ public class CompositionController {
 
     @RequestMapping(value = "/index", method= RequestMethod.GET)
     public String getCompositionStart(Model m){
-        List<Composition> list=compositionDAO.getCompositions(1,"Published", 0);
-        for (Composition c: list) {
-            c.getUser().setPhoto(profileBL.getImg(c.getUser().getPhoto()));
-        }
+        List<Composition> list=compositionBL.allComposition(1);
         m.addAttribute("list",list);
         m.addAttribute("page",1);
         int endPage=compositionBL.countPages("countPublishComp");
@@ -94,9 +90,29 @@ public class CompositionController {
         return "index";
     }
 
+    @RequestMapping(value = "/all_composition", method= RequestMethod.GET)
+    public String getComposition_start(Model m){
+        List<Composition> list=compositionBL.allComposition(1);
+        m.addAttribute("list",list);
+        m.addAttribute("page",1);
+        int endPage=compositionBL.countPages("countPublishComp");
+        m.addAttribute("end", endPage);
+        return "all_composition";
+    }
+
+    @RequestMapping(value = "/all_composition/{page}", method= RequestMethod.GET)
+    public String getComposition_next(@PathVariable int page, Model m){
+        List<Composition> list=compositionBL.allComposition(page);
+        m.addAttribute("list",list);
+        int endPage=compositionBL.countPages("countPublishComp");
+        m.addAttribute("end", endPage);
+        m.addAttribute("page",page);
+        return "all_composition";
+    }
+
     @RequestMapping(value = "/index/{page}", method= RequestMethod.GET)
     public String getComposition(@PathVariable int page, Model m){
-        List<Composition> list=compositionDAO.getCompositions(page, "Published", 0);
+        List<Composition> list=compositionBL.allComposition(page);
         m.addAttribute("list",list);
         int endPage=compositionBL.countPages("countPublishComp");
         m.addAttribute("end", endPage);
@@ -120,5 +136,12 @@ public class CompositionController {
         comp.getUser().setUserID(us.getUserSession().getUserID());
         compositionDAO.addComposition(comp);
         return "redirect:/successAuthor";
+    }
+
+    @RequestMapping(value = "/composition_info/{id}", method= RequestMethod.GET)
+    public String addComposition(@PathVariable int id, Model m){
+        Composition composition = compositionDAO.getCompositionByI(id);
+        m.addAttribute("text",composition);
+        return "/composition_info";
     }
 }
