@@ -34,10 +34,8 @@
                 </div>
             </form>
         </div>
-
-
         <div class="table_comments">
-            <table>
+            <table class="for_width">
                 <tr th:each="comment : ${comments}">
                     <td>
                         <div class="comment">
@@ -57,18 +55,24 @@
                     </td>
                 </tr>
             </table>
-        </div>
-        <div>
-            <form action="#" th:action="@{/add_comment_request/{id} (id=${req.requestID})}" method="post">
-                <div class="div_for_com_btn">
-                    <div class="div_mycomment">
-                        <input class="input_comment" type="text" name="Title" required="required" placeholder="Оставьте комментарий" th:field="${mycomment.text}" />
+            <div>
+                <form action="#" th:action="@{/add_comment_request/{id} (id=${req.requestID})}" method="post">
+                    <div class="comment">
+<!--                        <div class="for_img">
+                            <img height="60px"  width="60px" th:src="@{'data:image/png;base64,' + ${me.photo} }" />
+                        </div>-->
+                        <div class="not_photo">
+                            <div class="login_date">
+                                <span th:text="${me.login}"></span>
+                            </div>
+                            <div class="comment_text">
+                                <input class="input_comment" type="text" name="Title" required="required" placeholder="Оставьте комментарий" th:field="${mycomment.text}" />
+                                <button class="last_btn">&#x2714;</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="div_button2">
-                         <button class="last_btn">Отправить</button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>

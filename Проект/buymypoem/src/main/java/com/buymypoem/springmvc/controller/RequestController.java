@@ -135,6 +135,9 @@ public class RequestController {
         for (Comment comment: commentList){
             comment.getUser().setPhoto(profileBL.getImg(comment.getUser().getPhoto()));
         }
+        User me = us.getUserSession();
+        me.setPhoto(profileBL.getImg(me.getPhoto()));
+        m.addAttribute("me", me);
         m.addAttribute("req",request);
         m.addAttribute("comments",commentList);
         m.addAttribute("mycomment",new Comment());

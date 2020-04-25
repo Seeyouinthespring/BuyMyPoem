@@ -13,7 +13,7 @@
 }
 .other_content{
     display: flex;
-    flex-flow: row;
+    flex-flow: row wrap;
     justify-content: center;
 }
 .text2{
@@ -25,11 +25,13 @@
     width: 40%;
     height: initial;
     font-size: 24px;
+    min-width: 500px;
 }
 .dates{
     width: 40%;
     height: initial;
     font-size: 14px;
+    min-width: 500px;
 }
 .btn-response{
     color: black;
@@ -40,7 +42,7 @@
     border-radius: 10px;
     border: 2px solid black;
     text-align: center;
-    background-color: forestgreen;
+    background-color: white;
     margin: 10px 0 10px 0;
 }
 .div_button{
@@ -51,6 +53,7 @@
     display: flex;
     flex-flow: row;
     justify-content: left;
+    width: 100%;
 }
 .for_img{
     height: 60px;
@@ -59,27 +62,30 @@
 .not_photo{
     display: flex;
     flex-flow: column;
+    width: 100%;
 }
 .login_date{
     font-size: 18px;
     display: flex;
     flex-flow: row;
-    justify-content: left;
+    justify-content: space-between;
 }
 .comment_date{
     margin-left: 20px;
 }
 .comment_text{
-    margin-left: 20px;
     font-size: 30px;
     font-family: cursive;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
 }
 .table_comments{
     margin-left: 10%;
     margin-right: 10%;
 }
 .input_comment{
-    width: 100%;
+    width: 95%;
     border-radius: 10px;
     margin-left: auto;
     height: inherit;
@@ -94,13 +100,14 @@
 }
 .last_btn{
     color: black;
-    width: 100%;
+    width: 5%;
     font-size: 24px;
     text-decoration: none;
     border-radius: 10px;
     border: 2px solid black;
     text-align: center;
-    background-color: dodgerblue;
+    background-color: white;
+    min-width: 50px;
 }
 .div_mycomment{
     width: 75%;
@@ -133,3 +140,7 @@
     flex-direction: column;
     margin: auto;
 }
+.for_width{
+    width: 100%;
+}
+

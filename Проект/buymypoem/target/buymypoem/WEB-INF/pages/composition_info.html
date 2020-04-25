@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="left-bottom">
-
+            <textarea>
             <div class="table_comments">
                 <table>
                     <tr th:each="comment : ${comments}">
@@ -69,6 +69,7 @@
                     </tr>
                 </table>
             </div>
+            </textarea>
             <div>
                 <form action="#" th:action="@{/add_comment_composition/{id} (id=${text.compositionID})}" method="post">
                     <div class="comment">
