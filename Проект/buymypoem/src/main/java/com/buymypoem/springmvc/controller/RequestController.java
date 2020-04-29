@@ -117,13 +117,15 @@ public class RequestController {
         ar.setRequestID(id);
         ar.setAuthorID(us.getUserSession().getUserID());
         requestDAO.addResponse(ar);
-        return "redirect:/successAuthor";
+        return "forward:/request/"+id;
     }
 
     @RequestMapping(value = "/all_responses/{id}", method = RequestMethod.GET)
     public String getAllResponses(@PathVariable int id, Model model){
+        Request request = requestDAO.getRequestById(id);
         List<User> ulist = requestDAO.getAllResponses(id);
         model.addAttribute("ulist",ulist);
+        model.addAttribute("req",request);
         return "all_responses";
     }
 
@@ -137,6 +139,8 @@ public class RequestController {
         }
         User me = us.getUserSession();
         me.setPhoto(profileBL.getImg(me.getPhoto()));
+        boolean check = requestDAO.checkResponse(us.getAuthorID(),id);
+        m.addAttribute("check", check);
         m.addAttribute("me", me);
         m.addAttribute("req",request);
         m.addAttribute("comments",commentList);

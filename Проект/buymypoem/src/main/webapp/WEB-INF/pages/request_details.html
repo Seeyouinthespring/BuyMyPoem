@@ -30,7 +30,8 @@
                     <div class="text3">Описание:  <span th:text="${req.description}"></span></div>
                 </div>
                 <div class="div_button">
-                    <button class="btn-response">Откликнуться</button>
+                    <button th:if="${!check}" class="btn-response">Откликнуться</button>
+                    <span th:if="${check}"> Вы уже откликнулись на эту заявку</span>
                 </div>
             </form>
         </div>

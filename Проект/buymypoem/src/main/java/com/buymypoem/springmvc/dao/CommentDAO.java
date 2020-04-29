@@ -1,5 +1,6 @@
 package com.buymypoem.springmvc.dao;
 
+import com.google.inject.internal.cglib.proxy.$Dispatcher;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.buymypoem.springmvc.model.*;
@@ -41,6 +42,8 @@ public class CommentDAO {
     private final String sqlAddCommentRequestLink="Insert into CommentRequest (commentID,requestID) values (?,?)";
     private final String sqlAddCommentCompositionLink="Insert into CommentComposition (commentID,compositionID) values (?,?)";
     private final String sqlAddCommentOrderLink="Insert into CommentOreder (commentID,orderID) values (?,?)";
+    private final String sqlDeleteAllRequestLinks="DELETE from CommentRequest where requestID=?";
+    private final String sqlDeleteComment = "delete from Comment where commentID=?";
 
     private final Map<String, String> sqlStringsForCommentLink = new HashMap<String, String>();
 
@@ -88,5 +91,17 @@ public class CommentDAO {
         Object[] params = {commentID,targetID};
         int[] types ={4,4};
         return temp.update(sqlStringsForCommentLink.get(checkString),params,types);
+    }
+
+    public int dropComment(int com_id){
+        Object[] params = {com_id};
+        int[] types = {4};
+        return temp.update(sqlDeleteComment,com_id,4);
+    }
+
+    public int dropAllCommentRequestLinks(int req_id){
+        Object[] params = {req_id};
+        int[] types = {4};
+        return temp.update(sqlDeleteAllRequestLinks,params,types);
     }
 }

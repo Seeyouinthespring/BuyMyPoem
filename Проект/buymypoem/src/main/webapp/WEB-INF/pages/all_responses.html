@@ -6,12 +6,32 @@
     <title>Заявки</title>
 </head>
 <body>
+<div class="description">
+    <div class="text">Дата публикации: <span th:text="${req.publicationdate}">Статус</span></div>
+    <div class="text">Выполнить до: <span th:text="${req.deadline}">Статус</span></div>
+    <div class="text">Тип произведения: <span th:text="${req.type.title}">Тип</span></div>
+    <div class="text">Жанр:  <span th:text="${req.genre.title}"> Жанр </span></div>
+    <div class="text">Описание:  <span th:text="${req.description}"> Описание </span></div>
+</div>
 <table>
-    <tr th:each="user : ${ulist}"><td>
-        <div class="info">
-            <span th:text="${user.login}">Логин пользователя</span>
-        </div>
-    </td></tr>
+    <tr th:each="user : ${ulist}">
+        <td>
+            <form action="#" th:action="@{/create_order/{uid} (uid=${user.userID})}" method="post">
+                <div class="info">
+                    <span th:text="${user.login}">Логин пользователя</span>
+                    <span th:text="${user.birthdate}"></span>
+                    <span th:text="${user.about}"></span>
+                </div>
+                <div>
+<!--                    <span th:text="${req.requestID}"></span>-->
+                    <input type="text" name="requestID" hidden="hidden" th:field="${req.requestID}"/>
+                </div>
+                <div class="info_button">
+                    <button class="button_for">Выбрать в качестве исполнителя</button>
+                </div>
+            </form>
+        </td>
+    </tr>
 </table>
 </body>
 </html>

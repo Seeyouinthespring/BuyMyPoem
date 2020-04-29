@@ -23,7 +23,7 @@ public class RequestDAO {
 
     private static final String sqlAllRequests="SELECT request.requestID, request.description, user.login, user.photo, request.publicationdate, request.deadline, request.cost, genre.title as gtitle, type.title as ttitle from request left JOIN genre on request.genreID=genre.genreID left JOIN type on request.typeID=type.typeID left join customer on request.customerID=customer.customerID left JOIN user on customer.userID=user.userID where ?>0 limit ?," + PAGE_SIZE;
 
-    private static final String sqlRequestById="Select request.requestID, request.description, user.login, user.photo, request.publicationdate, request.deadline, request.cost, genre.title as gtitle, type.title as ttitle from request left JOIN genre on request.genreID=genre.genreID left JOIN type on request.typeID=type.typeID left join customer on request.customerID=customer.customerID left JOIN user on customer.userID=user.userID where request.requestID=?";
+    private static final String sqlRequestById="Select request.requestID, request.description, user.userID, user.login, user.photo, request.publicationdate, request.deadline, request.cost, genre.genreID, genre.title as gtitle, type.typeID, type.title as ttitle from request left JOIN genre on request.genreID=genre.genreID left JOIN type on request.typeID=type.typeID left join customer on request.customerID=customer.customerID left JOIN user on customer.userID=user.userID where request.requestID=?";
     private static final String sqlAllPersonalRequests="SELECT request.requestID, request.description, user.login, user.photo, request.publicationdate, request.deadline, request.cost," +
             " genre.title as gtitle, type.title as ttitle from request " +
             "left JOIN genre on request.genreID=genre.genreID " +
@@ -36,9 +36,12 @@ public class RequestDAO {
     private static final String sqlAddRequest="insert into request (description, customerID, publicationdate, deadline, cost, genreID, typeID) values " +
             "(?,?,?,?,?,?,?)";
     private static final String sqlAddResponse="insert into authorrequest (authorID, requestID) values (?,?) ";
-    private static final String sqlGetAllResponsesForRequest="SELECT login FROM authorrequest " +
+    private static final String sqlGetAllResponsesForRequest="SELECT user.userID,login,birthdate,about FROM authorrequest " +
             "left join author on author.authorID=authorrequest.authorID " +
             "left join user on author.userID=user.userID where requestID=?";
+    private static final String sqlForCheckResponse="SELECT * FROM authorrequest WHERE authorID=? && requestID=?";
+    private static final String sqlDeleteRequest="delete from request where requestID = ?";
+    private static final String sqlDeleteAllResponses="delete from authorrequest where requestID = ?";
 
     public int countRequests(boolean isPersonal, int id){
         String sqlCountString;
@@ -47,8 +50,9 @@ public class RequestDAO {
             sqlCountString=sqlCountPersonalRequests;
             params[0]=getCustomerId(id);
         }
-        else {sqlCountString=sqlCountAllRequests;
-        params[0]=100;
+        else {
+            sqlCountString=sqlCountAllRequests;
+            params[0]=100;
         }
         int[] types = {Types.INTEGER};
         return temp.queryForObject(sqlCountString, params, types, Integer.class);
@@ -95,30 +99,31 @@ public class RequestDAO {
         Object[] params = {id};
         int[] types = {Types.INTEGER};
 
-        return temp.queryForObject(sqlRequestById, params, types, new RowMapper<Request>() {
-            public Request mapRow(ResultSet resultSet, int i) throws SQLException{
-                User u = new User();
-                Type t = new Type();
-                Genre g = new Genre();
-                Request r = new Request();
-                r.setRequestID(resultSet.getInt("requestID"));
-                r.setDescription(resultSet.getString("description"));
-                u.setLogin(resultSet.getString("login"));
-                u.setPhoto(resultSet.getString("photo"));
-                r.setUser(u);
-                r.setPublicationdate(resultSet.getDate("publicationdate"));
-                r.setDeadline(resultSet.getDate("deadline"));
-                r.setCost(resultSet.getFloat("cost"));
-                t.setTitle(resultSet.getString("ttitle"));
-                r.setType(t);
-                g.setTitle(resultSet.getString("gtitle"));
-                r.setGenre(g);
-                return r;
-            }
+        return temp.queryForObject(sqlRequestById, params, types, (resultSet, i) -> {
+            User u = new User();
+            Type t = new Type();
+            Genre g = new Genre();
+            Request r = new Request();
+            r.setRequestID(resultSet.getInt("requestID"));
+            r.setDescription(resultSet.getString("description"));
+            u.setUserID(resultSet.getInt("userID"));
+            u.setLogin(resultSet.getString("login"));
+            u.setPhoto(resultSet.getString("photo"));
+            r.setUser(u);
+            r.setPublicationdate(resultSet.getDate("publicationdate"));
+            r.setDeadline(resultSet.getDate("deadline"));
+            r.setCost(resultSet.getFloat("cost"));
+            t.setTypeID(resultSet.getInt("typeID"));
+            t.setTitle(resultSet.getString("ttitle"));
+            r.setType(t);
+            g.setGenreID(resultSet.getInt("genreID"));
+            g.setTitle(resultSet.getString("gtitle"));
+            r.setGenre(g);
+            return r;
         });
     }
 
-    private int getCustomerId(int id) {
+    public int getCustomerId(int id) {
         try {
             String sql = "SELECT customerID FROM customer WHERE userID=" + id;
             List<Customer> cList = temp.query(sql, new RowMapper<Customer>() {
@@ -149,7 +154,7 @@ public class RequestDAO {
         return temp.update(sqlAddResponse,params,types);
     }
 
-    private int getAuthorId(int id) {
+    public int getAuthorId(int id) {
         try {
             String sql = "SELECT authorID FROM author WHERE userID=" + id;
             List<Author> aList = temp.query(sql, new RowMapper<Author>() {
@@ -171,9 +176,41 @@ public class RequestDAO {
         return temp.query(sqlGetAllResponsesForRequest, params, types, new RowMapper<User>() {
             public User mapRow(ResultSet resultSet, int i) throws SQLException{
                 User u = new User();
+                u.setUserID(resultSet.getInt("userID"));
                 u.setLogin(resultSet.getString("login"));
+                u.setBirthdate(resultSet.getDate("birthdate"));
+                u.setAbout(resultSet.getString("about"));
                 return u;
             }
         });
+    }
+
+    public boolean checkResponse(int authID,int reqID){
+        Object[] params = {authID, reqID,};
+        int[] types = {4,4};
+        try {
+            AuthorRequest authorRequest;
+            authorRequest = temp.queryForObject(sqlForCheckResponse, params, types, (resultSet, i) -> {
+                AuthorRequest ar = new AuthorRequest();
+                ar.setAuthorID(resultSet.getInt("authorID"));
+                ar.setRequestID(resultSet.getInt("requestID"));
+                return ar;
+            });
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    public int dropRequest(int id){
+        Object[] params = {id};
+        int[] types = {4};
+        return temp.update(sqlDeleteRequest,params,types);
+    }
+
+    public int dropAllResponses(int id){
+        Object[] params = {id};
+        int[] types = {4};
+        return temp.update(sqlDeleteAllResponses,params,types);
     }
 }
