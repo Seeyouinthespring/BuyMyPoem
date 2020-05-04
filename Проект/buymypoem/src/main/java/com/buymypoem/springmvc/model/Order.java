@@ -13,6 +13,8 @@ public class Order {
     private Genre genre;
     private int customerID;
     private int authorID;
+    private User customer;
+    private User author;
 
     public int getOrderID() {
         return orderID;
@@ -92,5 +94,21 @@ public class Order {
 
     public void setAuthorID(int authorID) {
         this.authorID = authorID;
+    }
+
+    public User getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(User customer) {
+        this.customer = customer;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }
