@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.io.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class ProfileControler {
@@ -101,5 +103,16 @@ public class ProfileControler {
             e.printStackTrace();
         }
         return "redirect:successAuthor";
+    }
+
+
+    @RequestMapping(value = "/my_profile", method= RequestMethod.GET)
+    public String my_profile(Model m){
+        Map<String, String> pages = new HashMap<String, String>();
+        pages.put("Author", "redirect:successAuthor");
+        pages.put("Customer", "redirect:successCustomer");
+        pages.put("Service", "redirect:successService");
+        String page = pages.get(us.getUserSession().getRole());
+        return page;
     }
 }

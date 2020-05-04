@@ -11,14 +11,13 @@ html{
 
 .top {
     width: 100%;
-    flex: 1;
+    height: 80px;
     background: black;
     display: flex;
     flex-direction: row;
 }
 
 .basis {
-    flex: 20;
     display: flex;
     flex-direction: row;
 }
@@ -118,11 +117,11 @@ td{
 
 .label{
     color: white;
-    font-size: 50px;
+    font-size: 40px;
     display: flex;
-    margin: 0 0 0 20px;
     align-items: center;
     font-family: Arial;
+    margin: 0 0 0 50px;
 }
 
 .buttons{
