@@ -186,3 +186,32 @@ td{
     text-decoration: none;
     padding: 10px;
 }
+
+.div_search{
+    display: flex;
+    flex-direction: row;
+}
+
+.element{
+    flex: 1;
+}
+
+.input_text{
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.input_button{
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: #E5F2FD;
+    color: black;
+}
+
+.msg{
+    color: red;
+}

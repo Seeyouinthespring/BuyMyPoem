@@ -4,10 +4,10 @@ import com.buymypoem.springmvc.model.*;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import javax.annotation.Resource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -174,4 +174,121 @@ public class CompositionDAO {
             return null;
         }
     }
+
+
+    public int getCountFindCompositions(int typeId, int genreId, int authorId, String title) {
+        String sqlString="select count(*) from composition WHERE status='Опубликовано' ";
+
+        ArrayList<Object> params_list = new ArrayList<Object>();
+        ArrayList<Integer> types_list = new ArrayList<Integer>();
+
+        if(typeId!=1){
+            sqlString+=" and composition.typeID=? ";
+            params_list.add(typeId);
+            types_list.add(Types.INTEGER);
+        }
+
+        if(genreId!=1){
+            sqlString+=" and composition.genreID=? ";
+            params_list.add(genreId);
+            types_list.add(Types.INTEGER);
+        }
+
+        if(authorId!=0){
+            sqlString+=" and composition.authorID=? ";
+            params_list.add(authorId);
+            types_list.add(Types.INTEGER);
+        }
+
+        if(!(title.equals(""))){
+            sqlString+=" and composition.title=? ";
+            params_list.add(title);
+            types_list.add(Types.VARCHAR);
+        }
+
+        Object[] params=params_list.toArray();
+        int[] types=new int[types_list.size()];
+        for(int i = 0; i < types_list.size(); i++) types[i] = types_list.get(i);
+
+        return temp.queryForObject(sqlString, params, types, Integer.class);
+    }
+
+    public List<Composition> foundCompositions(int page, int typeId, int genreId, int authorId, String title) {
+
+        String sqlString = "select compositionID, title, description, likes, dislikes, login, photo, typeID, genreID,status " +
+                "from author join composition on composition.authorID = author.authorID " +
+                "join user on user.userID=author.userID WHERE composition.status='Опубликовано' ";
+
+        ArrayList<Object> params_list = new ArrayList<Object>();
+        ArrayList<Integer> types_list = new ArrayList<Integer>();
+
+        if(typeId!=1){
+            sqlString+=" and composition.typeID=? ";
+            params_list.add(typeId);
+            types_list.add(Types.INTEGER);
+        }
+
+        if(genreId!=1){
+            sqlString+=" and composition.genreID=? ";
+            params_list.add(genreId);
+            types_list.add(Types.INTEGER);
+        }
+
+        if(authorId!=0){
+            sqlString+=" and composition.authorID=? ";
+            params_list.add(authorId);
+            types_list.add(Types.INTEGER);
+        }
+
+        if(!(title.equals(""))){
+            sqlString+=" and composition.title=? ";
+            params_list.add(title);
+            types_list.add(Types.VARCHAR);
+        }
+
+        sqlString +=" limit ? ," + PAGE_SIZE;
+        params_list.add(PAGE_SIZE * (page - 1));
+        types_list.add(Types.INTEGER);
+
+        Object[] params=params_list.toArray();
+        int[] types=new int[types_list.size()];
+        for(int i = 0; i < types_list.size(); i++) types[i] = types_list.get(i);
+
+        List<Composition> compositionList = temp.query(sqlString, params, types, new RowMapper<Composition>() {
+            public Composition mapRow(ResultSet resultSet, int i) throws SQLException {
+                User u = new User();
+                Type t = new Type();
+                Genre g = new Genre();
+                Composition comp = new Composition();
+                comp.setCompositionID(resultSet.getInt("compositionID"));
+                comp.setTitle(resultSet.getString("title"));
+                comp.setStatus(resultSet.getString("status"));
+                comp.setLikes(resultSet.getInt("likes"));
+                comp.setDislikes(resultSet.getInt("dislikes"));
+                u.setLogin(resultSet.getString("login"));
+                u.setPhoto(resultSet.getString("photo"));
+                comp.setUser(u);
+                t.setTypeID(resultSet.getInt("typeID"));
+                comp.setType(t);
+                g.setGenreID(resultSet.getInt("genreID"));
+                comp.setGenre(g);
+                comp.setDescription(resultSet.getString("description"));
+                return comp;
+            }
+        });
+        for (Composition comp : compositionList) {
+            String sqlType = "SELECT * FROM type where typeID=?";
+            Type type = temp.queryForObject(sqlType, new Object[]{comp.getType().getTypeID()}, new BeanPropertyRowMapper<Type>(Type.class));
+            comp.setType(type);
+
+            String sqlGenre = "SELECT * FROM Genre where genreID=?";
+            Genre genre = temp.queryForObject(sqlGenre, new Object[]{comp.getGenre().getGenreID()}, new BeanPropertyRowMapper<Genre>(Genre.class));
+            comp.setGenre(genre);
+        }
+
+        return compositionList;
+    }
+
+
+
 }

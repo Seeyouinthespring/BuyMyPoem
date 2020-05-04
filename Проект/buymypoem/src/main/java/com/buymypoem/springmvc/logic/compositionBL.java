@@ -25,6 +25,12 @@ public class compositionBL {
         return i / PAGE_SIZE + 1;
     }
 
+    public int countFindPages(int typeId, int genreId, int authorId, String title){
+        int i = compositionDAO.getCountFindCompositions(typeId, genreId, authorId, title);
+        if (i % PAGE_SIZE == 0) return i / PAGE_SIZE;
+        return i / PAGE_SIZE + 1;
+    }
+
     @Autowired
     ProfileBL profileBL;
 
