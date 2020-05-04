@@ -82,21 +82,63 @@ public class CompositionController {
 
     @RequestMapping(value = "/all_composition", method= RequestMethod.GET)
     public String getComposition_start(Model m){
-        List<Composition> list=compositionBL.allComposition(1);
+        m.addAttribute("genres", genreDAO.getAllGenres());
+        m.addAttribute("types", typeDAO.getAllTypes());
+
+        m.addAttribute("fgenre", new Genre());
+        m.addAttribute("ftype", new Type());
+
+        List<Composition> list;
+        int endPage;
+        if ((find_a_composition_by_type!=1)||(find_a_composition_by_genre!=1)||
+                (find_a_composition_by_author!=0)||(!(find_a_composition_by_title.equals("")))){
+            list=compositionDAO.foundCompositions(1, find_a_composition_by_type, find_a_composition_by_genre,
+                    find_a_composition_by_author, find_a_composition_by_title);
+            for (Composition c: list) {
+                c.getUser().setPhoto(profileBL.getImg(c.getUser().getPhoto()));
+            }
+            endPage=compositionBL.countFindPages(find_a_composition_by_type, find_a_composition_by_genre,
+                    find_a_composition_by_author, find_a_composition_by_title);
+        }else{
+            list= compositionBL.allComposition(1);
+            endPage=compositionBL.countPages("countPublishComp");
+        }
+
+        if (list.size()==0) m.addAttribute("msg", "В системе нет того что вы ищете (((");
         m.addAttribute("list",list);
         m.addAttribute("page",1);
-        int endPage=compositionBL.countPages("countPublishComp");
         m.addAttribute("end", endPage);
         return "all_composition";
     }
 
     @RequestMapping(value = "/all_composition/{page}", method= RequestMethod.GET)
     public String getComposition_next(@PathVariable int page, Model m){
-        List<Composition> list=compositionBL.allComposition(page);
+        m.addAttribute("genres", genreDAO.getAllGenres());
+        m.addAttribute("types", typeDAO.getAllTypes());
+
+        m.addAttribute("fgenre", new Genre());
+        m.addAttribute("ftype", new Type());
+
+        List<Composition> list;
+        int endPage;
+        if ((find_a_composition_by_type!=1)||(find_a_composition_by_genre!=1)||
+                (find_a_composition_by_author!=0)||(!(find_a_composition_by_title.equals("")))){
+            list=compositionDAO.foundCompositions(page, find_a_composition_by_type, find_a_composition_by_genre,
+                    find_a_composition_by_author, find_a_composition_by_title);
+            for (Composition c: list) {
+                c.getUser().setPhoto(profileBL.getImg(c.getUser().getPhoto()));
+            }
+            endPage=compositionBL.countFindPages(find_a_composition_by_type, find_a_composition_by_genre,
+                    find_a_composition_by_author, find_a_composition_by_title);
+        }else{
+            list= compositionBL.allComposition(page);
+            endPage=compositionBL.countPages("countPublishComp");
+        }
+
+        if (list.size()==0) m.addAttribute("msg", "В системе нет того что вы ищете (((");
         m.addAttribute("list",list);
-        int endPage=compositionBL.countPages("countPublishComp");
         m.addAttribute("end", endPage);
-        m.addAttribute("page",page);
+        m.addAttribute("page", page);
         return "all_composition";
     }
 
@@ -230,7 +272,10 @@ public class CompositionController {
             find_a_composition_by_author=userDAO.getAuthorById(u.getUserID()).getAuthorID();
         }
 
-        return "redirect:/index";
+        if (us.getUserSession().getUserID()==0){
+            return "redirect:/index";
+        }
+        return  "redirect:/all_composition";
     }
 
 }
