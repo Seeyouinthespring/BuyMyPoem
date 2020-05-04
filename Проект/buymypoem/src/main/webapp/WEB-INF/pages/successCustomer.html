@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:file="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link th:href="@{/css/author.css}" rel="stylesheet">
+    <link th:href="@{/css/user.css}" rel="stylesheet">
     <title>Ваш профиль</title>
 </head>
 <body class="main">
@@ -11,14 +11,7 @@
         BuyMyPoem
     </div>
     <div class="buttons">
-        <select class="button">
-            <option value="">Меню</option>
-            <option value="">Мой профиль</option>
-            <option th:href="@{/requests}">Заявки</option>
-            <option value="">Произведения</option>
-            <option value="">Авторы</option>
-            <option value="">Выйти</option>
-        </select>
+        <a th:href="@{/exit}" class="button">Выход</a>
     </div>
 </div>
 <div class="basis">

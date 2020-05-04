@@ -115,4 +115,11 @@ public class ProfileControler {
         String page = pages.get(us.getUserSession().getRole());
         return page;
     }
+
+    @RequestMapping(value = "/exit", method= RequestMethod.GET)
+    public String exit(Model m){
+        us.setUserSession(null);
+        return "redirect:/index";
+    }
+
 }

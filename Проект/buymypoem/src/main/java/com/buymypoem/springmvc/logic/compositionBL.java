@@ -20,7 +20,11 @@ public class compositionBL {
     public static final int PAGE_SIZE = 3;
 
     public int countPages(String choice){
-        int i = compositionDAO.countCompositions(choice, us.getUserSession().getUserID());
+        int i;
+        if (us.getUserSession()==null){
+            i = compositionDAO.countCompositions(choice, 0);
+        }else i = compositionDAO.countCompositions(choice, us.getUserSession().getUserID());
+
         if (i % PAGE_SIZE == 0) return i / PAGE_SIZE;
         return i / PAGE_SIZE + 1;
     }

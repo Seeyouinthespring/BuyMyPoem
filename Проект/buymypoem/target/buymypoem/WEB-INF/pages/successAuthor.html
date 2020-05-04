@@ -2,13 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:file="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link th:href="@{/css/author.css}" rel="stylesheet">
+    <link th:href="@{/css/user.css}" rel="stylesheet">
     <title>Ваш профиль</title>
 </head>
 <body class="main">
 <div class="top">
     <div class="label">
         BuyMyPoem
+    </div>
+    <div class="buttons">
+        <a th:href="@{/exit}" class="button">Выход</a>
     </div>
 </div>
 <div class="basis">

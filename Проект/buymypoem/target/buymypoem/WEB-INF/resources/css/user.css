@@ -117,18 +117,19 @@ td{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: white;
 }
 
 .button{
-    color: black;
+    color: white;
     width: 200px;
-    height: 40px;
+    height: 30px;
     font-size: 23px;
     border-radius: 10px;
     border: 2px solid white;
     text-align: center;
     margin: 0 50px 10px 0;
-
+    text-decoration: none;
 }
 
 .user_information{
