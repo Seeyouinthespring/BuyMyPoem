@@ -69,7 +69,20 @@ public class OrderController {
     }
 
     @RequestMapping(value = "/order_details/{id}", method = RequestMethod.POST)
-    public String showOrder(@PathVariable int id, @ModelAttribute("order") Order order){
-        return "redirect:/personalrequests";
+    public String showOrder(@PathVariable int id, Model m){
+        Order order = orderDAO.getOrderById(id);
+        order.getCustomer().setPhoto(profileBL.getImg(order.getCustomer().getPhoto()));
+        order.getAuthor().setPhoto(profileBL.getImg(order.getAuthor().getPhoto()));
+        List<Comment> commentList = commentDAO.GetCommentsForRequest(id,"order");
+        for (Comment comment: commentList){
+            comment.getUser().setPhoto(profileBL.getImg(comment.getUser().getPhoto()));
+        }
+        User me = us.getUserSession();
+        me.setPhoto(profileBL.getImg(me.getPhoto()));
+        m.addAttribute("me",me);
+        m.addAttribute("order",order);
+        m.addAttribute("comments",commentList);
+        m.addAttribute("mycomment",new Comment());
+        return "order_details";
     }
 }

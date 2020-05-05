@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link th:href="@{/css/output_composition.css}" rel="stylesheet">
+    <title>Заказ</title>
+</head>
+<body class="main">
+<div class="top">
+    <div class="label">
+        BuyMyPoem
+    </div>
+</div>
+
+<div class="basic">
+    <div class="left">
+        <div class="left-top">
+            <div class="div_info_order">
+                <div class="auth_cust">
+                    <div>Заказчик:</div>
+                    <div>
+                        <img height="30px"  width="30px" th:src="@{'data:image/png;base64,' + ${order.customer.photo} }" />
+                    </div>
+                    <div>
+                        <span th:text="${order.customer.login}"></span>
+                    </div>
+                </div>
+                <div class="auth_cust">
+                    <div>Исполнитель:</div>
+                    <div>
+                        <img height="30px"  width="30px" th:src="@{'data:image/png;base64,' + ${order.author.photo} }" />
+                    </div>
+                    <div>
+                        <span th:text="${order.author.login}"></span>
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="text">Дата публикации: <span th:text="${order.startdate}"></span></div>
+                    <div class="text">Выполнить до: <span th:text="${order.deadline}"></span></div>
+                    <div class="text">Стоимость: <span th:text="${order.cost}"></span></div>
+                    <div class="text">Тип произведения: <span th:text="${order.type.title}"></span></div>
+                    <div class="text">Жанр:  <span th:text="${order.genre.title}"></span></div>
+                    <div class="text">Описание:  <span th:text="${order.description}"></span></div>
+                    <div class="text">
+                        <span th:if="${order.composition.text==null}">&#10060;</span>
+                        <span th:if="${order.composition.text!=null}">&#x2714;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="left-bottom">
+    <div class="table_comments">
+        <table class="for_width">
+            <tr th:each="comment : ${comments}">
+                <td>
+                    <div class="comment">
+                        <div class="for_img">
+                            <img height="60px"  width="60px" th:src="@{'data:image/png;base64,' + ${comment.user.photo} }" />
+                        </div>
+                        <div class="not_photo">
+                            <div class="login_date">
+                                <span th:text="${comment.user.login}"></span>
+                                <span th:text="${comment.sendingDate}"></span>
+                            </div>
+                            <div class="comment_text">
+                                <span th:text="${comment.text}"></span>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <form action="#" th:action="@{/add_comment_order/{id} (id=${order.orderID})}" method="post">
+                <div class="comment">
+                    <div class="not_photo">
+                        <div class="login_date">
+                            <span th:text="${me.login}"></span>
+                        </div>
+                        <div class="comment_text">
+                            <input class="input_comment" type="text" name="Title" required="required" placeholder="Оставьте комментарий" th:field="${mycomment.text}" />
+                            <button class="last_btn">&#x2714;</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+        </div>
+    </div>
+<div class="right">
+        <textarea readonly class="text" placeholder="Текст заказа" th:field="${order.composition.text}">Текст произведения</textarea>
+    <div class="div_bottom_order">
+        <button class="button_comment2">Отправить работу на одобрение</button>
+    </div>
+</div>
+</div>
+</body>
+</html>

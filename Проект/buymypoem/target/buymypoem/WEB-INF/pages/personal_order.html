@@ -2,48 +2,52 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!--<link th:href="@{/css/draft.css}" rel="stylesheet">-->
+    <link th:href="@{/css/composition.css}" rel="stylesheet">
     <title>Мои Заказы</title>
 </head>
-<body>
-<div>
-    <div>
+<body class="main">
+<div class="top">
+    <div class="label">
         BuyMyPoem
     </div>
 </div>
-<div>
+<div class="basis2">
     <table>
         <tr th:each="order : ${list}">
             <td>
                 <form action="#" th:action="@{/order_details/{id} (id=${order.orderID})}" method="post">
-                    <div>
-                        Заказчик:
+                    <div class="auth_cust">
+                        <div>Заказчик:</div>
                         <div>
                             <img height="30px"  width="30px" th:src="@{'data:image/png;base64,' + ${order.customer.photo} }" />
                         </div>
-                        <span th:text="${order.customer.login}"></span>
+                        <div>
+                            <span th:text="${order.customer.login}"></span>
+                        </div>
                     </div>
-                    <div>
-                        Исполнитель:
+                    <div class="auth_cust">
+                        <div>Исполнитель:</div>
                         <div>
                             <img height="30px"  width="30px" th:src="@{'data:image/png;base64,' + ${order.author.photo} }" />
                         </div>
-                        <span th:text="${order.author.login}"></span>
-                    </div>
-                    <div>
-                        <div>Дата публикации: <span th:text="${order.startdate}"></span></div>
-                        <div>Выполнить до: <span th:text="${order.deadline}"></span></div>
-                        <div>Стоимость: <span th:text="${order.cost}"></span></div>
-                        <div>Тип произведения: <span th:text="${order.type.title}"></span></div>
-                        <div>Жанр:  <span th:text="${order.genre.title}"></span></div>
-                        <div>Описание:  <span th:text="${order.description}"></span></div>
                         <div>
+                            <span th:text="${order.author.login}"></span>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <div class="text">Дата публикации: <span th:text="${order.startdate}"></span></div>
+                        <div class="text">Выполнить до: <span th:text="${order.deadline}"></span></div>
+                        <div class="text">Стоимость: <span th:text="${order.cost}"></span></div>
+                        <div class="text">Тип произведения: <span th:text="${order.type.title}"></span></div>
+                        <div class="text">Жанр:  <span th:text="${order.genre.title}"></span></div>
+                        <div class="text">Описание:  <span th:text="${order.description}"></span></div>
+                        <div class="text">
                             <span th:if="${order.composition.text==null}">&#10060;</span>
                             <span th:if="${order.composition.text!=null}">&#x2714;</span>
                         </div>
-                    </div>
-                    <div>
-                        <button>Посмотреть заказ</button>
+                        <div class="info_button">
+                            <button class="button_for">Посмотреть заказ</button>
+                        </div>
                     </div>
                 </form>
             </td>

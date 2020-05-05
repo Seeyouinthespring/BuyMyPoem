@@ -22,6 +22,12 @@ html{
     flex-direction: row;
 }
 
+.basis2 {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 200px 0 200px;
+}
+
 .basis_left{
     display: flex;
     flex-direction: column;
@@ -213,4 +219,9 @@ td{
 
 .msg{
     color: red;
+}
+.auth_cust{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }

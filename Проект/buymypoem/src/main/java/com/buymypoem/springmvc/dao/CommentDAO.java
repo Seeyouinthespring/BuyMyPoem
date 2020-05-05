@@ -33,11 +33,11 @@ public class CommentDAO {
             "left join user on comment.userID=user.userID " +
             "left join request on commentrequest.requestID=request.requestID " +
             "where request.requestID=?";
-    private final String sqlGetCommentsForOrder= "SELECT comment.commentID, comment.text, comment.sendingdate, user.login, user.photo, order.orderID " +
-            "FROM comment left join commentorder on comment.commentID=commentorder.commentID " +
+    private final String sqlGetCommentsForOrder= "SELECT comment.commentID, comment.text, comment.sendingdate, user.login, user.photo, ordering.orderingID " +
+            "FROM comment left join commentordering on comment.commentID=commentordering.commentID " +
             "left join user on comment.userID=user.userID " +
-            "left join order on commentorder.orderID=order.orderID " +
-            "where order.orderID=?";
+            "left join ordering on commentordering.orderingID=ordering.orderingID " +
+            "where ordering.orderingID=?";
     private final String sqlAddComment="Insert into Comment (text,sendingdate,userID) values (?,?,?)";
     private final String sqlAddCommentRequestLink="Insert into CommentRequest (commentID,requestID) values (?,?)";
     private final String sqlAddCommentCompositionLink="Insert into CommentComposition (commentID,compositionID) values (?,?)";

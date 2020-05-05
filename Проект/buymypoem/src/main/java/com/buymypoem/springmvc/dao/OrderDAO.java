@@ -49,6 +49,20 @@ public class OrderDAO {
             "left join type on ordering.typeID=type.typeID \n" +
             "LEFT JOIN genre on ordering.genreID=genre.genreID where ordering.authorID=?";
 
+    private static final String sqlGetOrderById= "SELECT ordering.orderingID, ordering.startdate, ordering.deadline, ordering.cost, ordering.description, \n" +
+            "composition.text, \n" +
+            "user_customer.login as cust, user_customer.photo as cust_photo,\n" +
+            "user_author.login as auth, user_author.photo as auth_photo,\n" +
+            "type.title as ttitle, \n" +
+            "genre.title as gtitle FROM ordering\n" +
+            "left join composition on ordering.compositionID=composition.compositionID\n" +
+            "left join customer on ordering.customerID=customer.customerID \n" +
+            "inner join user as user_customer on customer.userID=user_customer.userID \n" +
+            "left JOIN author on ordering.authorID=author.authorID \n" +
+            "inner JOIN user as user_author on author.userID = user_author.userID \n" +
+            "left join type on ordering.typeID=type.typeID \n" +
+            "LEFT JOIN genre on ordering.genreID=genre.genreID where ordering.orderingID=?";
+
 
     @Autowired
     RequestDAO requestDAO;
@@ -107,6 +121,37 @@ public class OrderDAO {
                 o.setGenre(g);
                 return o;
             }
+        });
+    }
+
+    public Order getOrderById(int id){
+        Object[] params = {id};
+        int[] types = {Types.INTEGER};
+        return temp.queryForObject(sqlGetOrderById, params, types, (resultSet, i) -> {
+                Type t = new Type();
+                Genre g = new Genre();
+                Composition c = new Composition();
+                Order o = new Order();
+                User customer = new User();
+                User author = new User();
+                o.setOrderID(resultSet.getInt("orderingID"));
+                o.setStartdate(resultSet.getDate("startdate"));
+                o.setDeadline(resultSet.getDate("deadline"));
+                o.setCost(resultSet.getFloat("cost"));
+                o.setDescription(resultSet.getString("description"));
+                c.setText(resultSet.getString("text"));
+                o.setComposition(c);
+                customer.setLogin(resultSet.getString("cust"));
+                customer.setPhoto(resultSet.getString("cust_photo"));
+                o.setCustomer(customer);
+                author.setLogin(resultSet.getString("auth"));
+                author.setPhoto(resultSet.getString("auth_photo"));
+                o.setAuthor(author);
+                t.setTitle(resultSet.getString("ttitle"));
+                o.setType(t);
+                g.setTitle(resultSet.getString("gtitle"));
+                o.setGenre(g);
+                return o;
         });
     }
 }

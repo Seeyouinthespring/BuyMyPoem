@@ -1,0 +1,175 @@
+.html{
+    height: 100vh;
+}
+
+.main{
+    min-width: 600px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+}
+
+.top {
+    width: 100%;
+    height: 80px;
+    background: black;
+    display: flex;
+    flex-direction: row;
+}
+
+.basis {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.basis_left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 0 30px;
+}
+
+.photo{
+    width:300px;
+    height:300px;
+    background: #E5F2FD;
+    margin: 30px 0 30px 0;
+}
+
+.menu{
+    width:300px;
+    background: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.a_menu{
+    padding: 10px;
+    font-size: 23px;
+    color: white;
+    text-decoration: none;
+}
+
+.a_menu:hover{
+    background: #E5F2FD;
+    color: black;
+    padding: 10px;
+    margin: 0;
+}
+
+.basis_right{
+    width: 50%;
+    margin: 0 0 0 30px;
+}
+
+tr:nth-child(odd){
+    background: #E5F2FD;
+}
+
+table{
+    width: 100%;
+    border-spacing:0;
+}
+
+td{
+    display: flex;
+    flex-direction: column;
+    font-size: 23px;
+}
+
+.info{
+    margin: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.description{
+    margin: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.like{
+    margin: 0 50px 10px 0;
+    flex: 1;
+    display: flex;
+    margin-left: auto;
+}
+
+.label{
+    color: white;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    font-family: Arial;
+    margin: 0 0 0 50px;
+}
+
+.buttons{
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button{
+    color: black;
+    width: 200px;
+    height: 40px;
+    font-size: 23px;
+    border-radius: 10px;
+    border: 2px solid white;
+    text-align: center;
+    margin: 0 50px 10px 0;
+
+}
+
+.user_information{
+    background: #E5F2FD;
+    height: 300px;
+    margin: 30px 0 30px 0;
+}
+
+.text{
+    display: flex;
+    flex-direction: row;
+}
+
+span{
+    font-size: 23px;
+    margin: 10px;
+}
+
+.div_for_table{
+
+}
+
+.buttonsContaner{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonBackForward{
+    color: black;
+    width: 200px;
+    height: 30px;
+    font-size: 23px;
+    text-decoration: none;
+    border-radius: 10px;
+    background: #E5F2FD;
+    border: 2px solid #E5F2FD;
+    text-align: center;
+    margin: 10px;
+}
+
+
+
+
+
