@@ -12,7 +12,7 @@
         <intercept-url pattern="/successAuthor" access="hasRole('ROLE_USER_AUTHOR')"/>
         <intercept-url pattern="/successCustomer" access="hasRole('ROLE_USER_CUSTOMER')"/>
         <intercept-url pattern="/all_composition" access="hasAnyRole('ROLE_USER_AUTHOR', 'ROLE_USER_CUSTOMER', 'ROLE_USER_SERVICE')"/>
-        <intercept-url pattern="/request" access="hasAnyRole('ROLE_USER_AUTHOR', 'ROLE_USER_CUSTOMER', 'ROLE_USER_SERVICE')"/>
+        <intercept-url pattern="/requests" access="hasAnyRole('ROLE_USER_AUTHOR', 'ROLE_USER_CUSTOMER', 'ROLE_USER_SERVICE')"/>
 
 
         <form-login login-page="/index" default-target-url="/sign in" authentication-failure-url="/error"

@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link th:href="@{/css/error.css}" rel="stylesheet">
+    <title>Ошибка приложения</title>
 </head>
-<body>
- error
+<body class="main">
+    <div class="container">
+    <div>
+        <img class="photo" th:src="@{/img/sadcat.jpg}" />
+    </div>
+
+    <div>
+        На странице произошла ошибка, перейдите на
+        <a th:href="@{/main}" class="link">  главную страницу сайта </a>
+    </div>
+    </div>
 </body>
 </html>

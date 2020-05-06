@@ -103,9 +103,17 @@ public class UserController {
         else return "redirect:successCustomer";
     }
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/main")
     public String main() {
-        return "main";
+        if (userSession.getUserSession()==null){
+            return "redirect:/index";
+        }else return "redirect:/all_composition";
     }
+
+    @RequestMapping(value = "/error")
+    public String error() {
+        return "error";
+    }
+
 }
 

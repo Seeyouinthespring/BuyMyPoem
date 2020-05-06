@@ -7,20 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a9f9398e-32bd-4065-8480-6c208bdf3c80" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/CompositionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/CompositionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/RequestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/dao/RequestDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/dao/RequestDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/logic/RequestBL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/logic/RequestBL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/appconfig-security.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/appconfig-security.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/all_composition.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/all_composition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/request.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/request.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/composition.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/composition.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/buymypoem/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/dao/RequestDAO$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/dao/RequestDAO$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/resources/css/composition.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/resources/css/composition.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/error.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/img/arranayA.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/appconfig-security.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/appconfig-security.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/pages/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/pages/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +115,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\BuyMyPoem\BuyMyPoem\Проект\buymypoem\src\main\webapp\WEB-INF\pages" />
       <recent name="C:\Users\Лера\Downloads\spring-mvc-boilerplate-master\buymypoem\src\main\webapp\WEB-INF" />
     </key>
   </component>
@@ -427,10 +423,14 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="25" key="#Inspections" timestamp="1584193279518">
+    <state x="275" y="25" key="#Inspections" timestamp="1588782626603">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="25" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1584193279518" />
+    <state x="275" y="25" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1588782626603" />
+    <state x="275" y="4" width="816" height="724" key="#Intentions" timestamp="1588776818152">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="4" width="816" height="724" key="#Intentions/0.0.1366.728@0.0.1366.728" timestamp="1588776818152" />
     <state x="393" y="50" key="#Project_Structure" timestamp="1587723122393">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -463,10 +463,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="484" y="255" width="437" height="222" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1587382833815" />
-    <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587378741666">
+    <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588776973537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587378741666" />
+    <state x="413" y="113" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1588776973537" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1583327507277">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -476,25 +476,25 @@
     </state>
     <state x="526" y="183" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587379766842" />
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583587082063" />
-    <state width="1092" height="256" key="GridCell.Tab.0.bottom" timestamp="1588776346807">
+    <state width="1092" height="127" key="GridCell.Tab.0.bottom" timestamp="1588785622297">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="256" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588776346807" />
+    <state width="1092" height="127" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588785622297" />
     <state width="1560" height="247" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588651570521" />
-    <state width="1092" height="256" key="GridCell.Tab.0.center" timestamp="1588776346807">
+    <state width="1092" height="127" key="GridCell.Tab.0.center" timestamp="1588785622297">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="256" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1588776346807" />
+    <state width="1092" height="127" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1588785622297" />
     <state width="1560" height="247" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588651570521" />
-    <state width="1092" height="256" key="GridCell.Tab.0.left" timestamp="1588776346807">
+    <state width="1092" height="127" key="GridCell.Tab.0.left" timestamp="1588785622297">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="256" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1588776346807" />
+    <state width="1092" height="127" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1588785622297" />
     <state width="1560" height="247" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588651570521" />
-    <state width="1092" height="256" key="GridCell.Tab.0.right" timestamp="1588776346807">
+    <state width="1092" height="127" key="GridCell.Tab.0.right" timestamp="1588785622297">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="256" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1588776346807" />
+    <state width="1092" height="127" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1588785622297" />
     <state width="1560" height="247" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588651570521" />
     <state width="1092" height="122" key="GridCell.Tab.1.bottom" timestamp="1588774829609">
       <screen x="0" y="0" width="1366" height="728" />
