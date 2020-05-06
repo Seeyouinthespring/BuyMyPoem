@@ -114,6 +114,5 @@ public class UserController {
     public String error() {
         return "error";
     }
-
 }
 
