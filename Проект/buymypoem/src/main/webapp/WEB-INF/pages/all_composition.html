@@ -31,8 +31,6 @@
                         </option>
                     </select>
                 </div>
-
-                <div class="div_search">
                     <div class="element">
                         <select class="input_text" th:field="*{fgenre.genreID}">
                             <option class="input_text" th:each="genre : ${genres}" th:value="${genre.genreID}" th:text="${genre.title}">Жанр
@@ -50,7 +48,8 @@
                         <button class="input_button">Найти</button>
                     </div>
                 </div>
-            </div>
+        </form>
+
 
         <table>
             <tr th:each="text : ${list}"><td>

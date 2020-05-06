@@ -20,6 +20,7 @@ html{
 .basis {
     display: flex;
     flex-direction: row;
+    height: 100vh;
 }
 
 .basis2 {
@@ -195,6 +196,7 @@ td{
 .div_search{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .element{
@@ -203,12 +205,28 @@ td{
 
 .input_text{
     height: 30px;
-    width: 200px;
+    width: 190px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.input_text_request{
+    height: 30px;
+    width: 270px;
     border-radius: 10px;
     margin: 10px;
 }
 
 .input_button{
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: #E5F2FD;
+    color: black;
+}
+
+.input_button_request{
     height: 30px;
     width: 200px;
     border-radius: 10px;

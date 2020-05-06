@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -212,5 +213,96 @@ public class RequestDAO {
         Object[] params = {id};
         int[] types = {4};
         return temp.update(sqlDeleteAllResponses,params,types);
+    }
+
+    public List<Request> getFindRequests(int page, int typeId, int genreId, int customerId){
+        String sql = "SELECT request.requestID, request.description, user.login, user.photo, request.publicationdate, " +
+                "request.deadline, request.cost, genre.title as gtitle, type.title as ttitle from request left JOIN genre on " +
+                "request.genreID=genre.genreID left JOIN type on request.typeID=type.typeID left join customer on request.customerID=customer.customerID " +
+                "left JOIN user on customer.userID=user.userID where true ";
+
+        ArrayList<Object> params_list = new ArrayList<Object>();
+        ArrayList<Integer> types_list = new ArrayList<Integer>();
+
+        if(typeId!=1){
+            sql+=" and request.typeID=? ";
+            params_list.add(typeId);
+            types_list.add(Types.INTEGER);
+        }
+
+        if(genreId!=1){
+            sql+=" and request.genreID=? ";
+            params_list.add(genreId);
+            types_list.add(Types.INTEGER);
+        }
+
+        if(customerId!=0){
+            sql+=" and request.customerID=? ";
+            params_list.add(customerId);
+            types_list.add(Types.INTEGER);
+        }
+
+        sql +=" limit ? ," + PAGE_SIZE;
+        params_list.add(PAGE_SIZE * (page - 1));
+        types_list.add(Types.INTEGER);
+
+        Object[] params=params_list.toArray();
+        int[] types=new int[types_list.size()];
+        for(int i = 0; i < types_list.size(); i++) types[i] = types_list.get(i);
+
+        return temp.query(sql, params, types, new RowMapper<Request>() {
+            public Request mapRow(ResultSet resultSet, int i) throws SQLException{
+                User u = new User();
+                Type t = new Type();
+                Genre g = new Genre();
+                Request r = new Request();
+                r.setRequestID(resultSet.getInt("requestID"));
+                r.setDescription(resultSet.getString("description"));
+                u.setLogin(resultSet.getString("login"));
+                u.setPhoto(resultSet.getString("photo"));
+                r.setUser(u);
+                r.setPublicationdate(resultSet.getDate("publicationdate"));
+                r.setDeadline(resultSet.getDate("deadline"));
+                r.setCost(resultSet.getFloat("cost"));
+                t.setTitle(resultSet.getString("ttitle"));
+                r.setType(t);
+                g.setTitle(resultSet.getString("gtitle"));
+                r.setGenre(g);
+                return r;
+            }
+        });
+    }
+
+
+    public int countRequestsFind(int typeId, int genreId, int customerId){
+        String sql = "SELECT count(*) from request where true ";
+
+        ArrayList<Object> params_list = new ArrayList<Object>();
+        ArrayList<Integer> types_list = new ArrayList<Integer>();
+
+        if(typeId!=1){
+            sql+=" and request.typeID=? ";
+            params_list.add(typeId);
+            types_list.add(Types.INTEGER);
+        }
+
+        if(genreId!=1){
+            sql+=" and request.genreID=? ";
+            params_list.add(genreId);
+            types_list.add(Types.INTEGER);
+        }
+
+        if(customerId!=0){
+            sql+=" and request.customerID=? ";
+            params_list.add(customerId);
+            types_list.add(Types.INTEGER);
+        }
+
+
+        Object[] params=params_list.toArray();
+        int[] types=new int[types_list.size()];
+        for(int i = 0; i < types_list.size(); i++) types[i] = types_list.get(i);
+
+        return temp.queryForObject(sql, params, types, Integer.class);
     }
 }

@@ -20,4 +20,10 @@ public class RequestBL {
         if (i % PAGE_SIZE == 0) return i / PAGE_SIZE;
         return i / PAGE_SIZE + 1;
     }
+
+    public int countPagesFind(int typeId, int genreId, int customerId){
+        int i = requestDAO.countRequestsFind(typeId, genreId, customerId);
+        if (i % PAGE_SIZE == 0) return i / PAGE_SIZE;
+        return i / PAGE_SIZE + 1;
+    }
 }

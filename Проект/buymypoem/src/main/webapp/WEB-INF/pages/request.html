@@ -13,14 +13,38 @@
 </div>
 <div class="basis">
     <div class="basis_left">
+        <a th:href="@{/my_profile}" class="a_menu">Мой профиль</a>
         <a href="" class="a_menu">Список авторов</a>
-        <a href="" class="a_menu">Список произведений</a>
-        <a href="" class="a_menu">Список заявок</a>
+        <a th:href="@{/all_composition}" class="a_menu">Список произведений</a>
+        <a th:href="@{/requests}" class="a_menu">Список заявок</a>
         <a href="" class="a_menu">Рейтинг произведений</a>
         <a href="" class="a_menu">Рейтинг авторов</a>
     </div>
 
     <div class="basis_right">
+        <form action="#" th:action="@{/find_request}" method="post">
+            <div class="div_search">
+                <div class="element">
+                    <select class="input_text_request" th:field="*{ftype.typeID}">
+                        <option th:each="type : ${types}" th:value="${type.typeID}"th:text="${type.title}">Тип
+                        </option>
+                    </select>
+                </div>
+                    <div class="element">
+                        <select class="input_text_request" th:field="*{fgenre.genreID}">
+                            <option th:each="genre : ${genres}" th:value="${genre.genreID}" th:text="${genre.title}">Жанр
+                            </option>
+                        </select>
+                    </div>
+                    <div class="element">
+                        <input class="input_text_request" type="text" placeholder="введите имя заказчика"  th:name="slogin"/>
+                    </div>
+                    <div class="element">
+                        <button class="input_button_request">Найти</button>
+                    </div>
+                </div>
+        </form>
+
     <table>
         <tr th:each="text : ${list}">
             <td><form action="#" th:action="@{/request/{id} (id=${text.requestID})}" method="post">
@@ -43,6 +67,7 @@
         </tr>
     </table>
     <div class="buttonsContaner">
+        <span class="msg" th:text="${msg}">Сообщение</span>
         <a th:if="${page}>1" class="buttonBackForward" th:href="@{/requests/{p} (p=${page}-1)}">Назад</a>
         <a th:if="${page}<${end}" class="buttonBackForward" th:href="@{/requests/{p}(p=${page}+1)}">Вперед</a>
     </div>

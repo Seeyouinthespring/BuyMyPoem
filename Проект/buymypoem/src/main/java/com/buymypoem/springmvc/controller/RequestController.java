@@ -1,9 +1,6 @@
 package com.buymypoem.springmvc.controller;
 
-import com.buymypoem.springmvc.dao.CommentDAO;
-import com.buymypoem.springmvc.dao.GenreDAO;
-import com.buymypoem.springmvc.dao.RequestDAO;
-import com.buymypoem.springmvc.dao.TypeDAO;
+import com.buymypoem.springmvc.dao.*;
 import com.buymypoem.springmvc.logic.ProfileBL;
 import com.buymypoem.springmvc.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,30 +40,58 @@ public class RequestController {
     @Autowired
     CommentDAO commentDAO;
 
+    private int find_a_composition_by_type=1;
+    private int find_a_composition_by_genre=1;
+    private int find_a_composition_by_customer=0;
+
     @RequestMapping(value = "/requests", method = RequestMethod.GET)
     public String getAllRequestsStart(Model m){
-        List<Request> list= requestDAO.getRequests(1,false,1);
-        String p = list.get(0).getUser().getPhoto();
+        m.addAttribute("genres", genreDAO.getAllGenres());
+        m.addAttribute("types", typeDAO.getAllTypes());
 
-        p=p;
+        m.addAttribute("fgenre", new Genre());
+        m.addAttribute("ftype", new Type());
+
+        List<Request> list;int endPage;
+        if ((find_a_composition_by_type!=1)||(find_a_composition_by_genre!=1)||(find_a_composition_by_customer!=0)){
+            list=requestDAO.getFindRequests(1, find_a_composition_by_type, find_a_composition_by_genre, find_a_composition_by_customer);
+            endPage=requestBL.countPagesFind(find_a_composition_by_type, find_a_composition_by_genre, find_a_composition_by_customer);
+        }else{
+            list= requestDAO.getRequests(1,false,1);
+            endPage= requestBL.countPages(false);
+        }
+
+        if (list.size()==0) m.addAttribute("msg", "В системе нет того что вы ищете (((");
         for (Request request: list){
             request.getUser().setPhoto(profileBL.getImg(request.getUser().getPhoto()));
         }
         m.addAttribute("list",list);
         m.addAttribute("page",1);
-        int endPage= requestBL.countPages(false);
         m.addAttribute("end", endPage);
         return "request";
     }
 
     @RequestMapping(value = "/requests/{page}", method = RequestMethod.GET)
     public String getAllRequests(@PathVariable int page, Model m){
-        List<Request> list= requestDAO.getRequests(page,false,1);
+        m.addAttribute("genres", genreDAO.getAllGenres());
+        m.addAttribute("types", typeDAO.getAllTypes());
+
+        m.addAttribute("fgenre", new Genre());
+        m.addAttribute("ftype", new Type());
+
+        List<Request> list;int endPage;
+        if ((find_a_composition_by_type!=1)||(find_a_composition_by_genre!=1)||(find_a_composition_by_customer!=0)){
+            list=requestDAO.getFindRequests(page, find_a_composition_by_type, find_a_composition_by_genre, find_a_composition_by_customer);
+            endPage=requestBL.countPagesFind(find_a_composition_by_type, find_a_composition_by_genre, find_a_composition_by_customer);
+        }else{
+            list= requestDAO.getRequests(page,false,1);
+            endPage= requestBL.countPages(false);
+        }
+
         for (Request request: list){
             request.getUser().setPhoto(profileBL.getImg(request.getUser().getPhoto()));
         }
         m.addAttribute("list",list);
-        int endPage= requestBL.countPages(false);
         m.addAttribute("end", endPage);
         m.addAttribute("page",page);
         return "request";
@@ -157,4 +182,23 @@ public class RequestController {
         commentDAO.addCommentLink(newComment,id,"request");
         return "forward:/request/"+id;
     }
+
+    @Autowired
+    UserDAO userDAO;
+
+    @RequestMapping(value="/find_request",method=RequestMethod.POST)
+    public String findComposition(@ModelAttribute("ftype") Type type,
+                                  @ModelAttribute("fgenre") Genre genre,
+                                  @ModelAttribute("slogin") String slogin){
+
+        find_a_composition_by_type=type.getTypeID();
+        find_a_composition_by_genre=genre.getGenreID();
+        if (!(slogin.equals(""))){
+            User u=userDAO.getUserByLogin(slogin);
+            find_a_composition_by_customer=userDAO.getCustomerById(u.getUserID()).getCustomerID();
+        }
+
+        return  "redirect:/requests";
+    }
+
 }

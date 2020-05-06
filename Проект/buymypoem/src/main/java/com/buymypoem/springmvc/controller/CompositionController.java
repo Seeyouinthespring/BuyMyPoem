@@ -38,8 +38,6 @@ public class CompositionController {
     private String find_a_composition_by_title="";
     private int find_a_composition_by_author=0;
 
-
-
     @RequestMapping(value = "/composition", method= RequestMethod.GET)
     public String getStartList(Model m){
         List<Composition> list=compositionDAO.getCompositions(1,"All", 0);
@@ -135,7 +133,6 @@ public class CompositionController {
             endPage=compositionBL.countPages("countPublishComp");
         }
 
-        if (list.size()==0) m.addAttribute("msg", "В системе нет того что вы ищете (((");
         m.addAttribute("list",list);
         m.addAttribute("end", endPage);
         m.addAttribute("page", page);
