@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class OrderController {
@@ -29,13 +29,10 @@ public class OrderController {
     OrderDAO orderDAO;
 
     @Autowired
-    TypeDAO typeDAO;
-
-    @Autowired
-    GenreDAO genreDAO;
-
-    @Autowired
     CommentDAO commentDAO;
+
+    @Autowired
+    CompositionDAO compositionDAO;
 
     @Autowired
     ProfileBL profileBL;
@@ -45,7 +42,11 @@ public class OrderController {
     public String createOrder(@PathVariable int uid, @ModelAttribute("req") Request request){
         orderDAO.createOrder(requestDAO.getRequestById(request.getRequestID()),uid);
         requestDAO.dropAllResponses(request.getRequestID());
+        List<CommentRequest> commentRequests = commentDAO.GetCommentsToDeleteRequest(request.getRequestID());
         commentDAO.dropAllCommentRequestLinks(request.getRequestID());
+        for (CommentRequest cr:commentRequests) {
+            commentDAO.dropComment(cr.getCommentID());
+        }
         requestDAO.dropRequest(request.getRequestID());
         return "redirect:/personalrequests";
     }
@@ -78,11 +79,112 @@ public class OrderController {
             comment.getUser().setPhoto(profileBL.getImg(comment.getUser().getPhoto()));
         }
         User me = us.getUserSession();
-        me.setPhoto(profileBL.getImg(me.getPhoto()));
+        List<Composition> mydrafts;
+        if (us.getUserSession().getRole().equals("Author")){
+            mydrafts = compositionDAO.getCompositions(0,"AllMyDrafts",us.getUserSession().getUserID());
+        }else{
+            mydrafts = null;
+        }
+        m.addAttribute("drafts", mydrafts);
         m.addAttribute("me",me);
         m.addAttribute("order",order);
         m.addAttribute("comments",commentList);
         m.addAttribute("mycomment",new Comment());
+        m.addAttribute("comp",new Composition());
         return "order_details";
+    }
+
+    @RequestMapping(value="/add_comment_order/{id}",method=RequestMethod.POST)
+    public String addCommentOrder(@PathVariable int id, @ModelAttribute("mycomment") Comment comment){
+        User u = new User();
+        u.setUserID(us.getUserSession().getUserID());
+        comment.setUser(u);
+        long newComment = commentDAO.addComment(comment);
+        commentDAO.addCommentLink(newComment,id,"order");
+        return "forward:/order_details/"+id;
+    }
+
+    @RequestMapping(value = "/add_composition_to_order/{id}", method= RequestMethod.POST)
+    public String addCompositionToOrder(@PathVariable int id, @ModelAttribute("comp") Composition comp){
+        compositionDAO.changeStatus(comp.getCompositionID(),"previewed");
+        orderDAO.changeStatus(id,"ready");
+        orderDAO.Composition_ToFrom_Order(comp.getCompositionID(),id,true);
+        return "forward:/order_details/"+id;
+    }
+
+
+    @RequestMapping(value = "/accept_order_form/{id}", method= RequestMethod.GET)
+    public String acceptOrder(@PathVariable int id, Model m){
+        Order order = orderDAO.getOrderById(id);
+        order.getCustomer().setPhoto(profileBL.getImg(order.getCustomer().getPhoto()));
+        order.getAuthor().setPhoto(profileBL.getImg(order.getAuthor().getPhoto()));
+        m.addAttribute("order",order);
+        m.addAttribute("cvv",new String());
+        m.addAttribute("card",new String());
+        return "accept_order_page";
+    }
+
+    @RequestMapping(value = "/accept_order/{id}", method= RequestMethod.POST)
+    public String payForOrder(@PathVariable int id, Model m){
+        Order order = orderDAO.getOrderById(id);
+        compositionDAO.changeAuthor(us.getCustomerID(),order.getComposition().getCompositionID());
+        compositionDAO.changeStatus(order.getComposition().getCompositionID(),"bought");
+        List<CommentOrdering> commentOrderings = commentDAO.GetCommentsToDeleteOrder(id);
+        commentDAO.dropAllCommentOrderingLinks(id);
+        for (CommentOrdering co:commentOrderings) {
+            commentDAO.dropComment(co.getCommentID());
+        }
+        orderDAO.dropOrder(id);
+        return "redirect:/successCustomer";
+    }
+
+    @RequestMapping(value = "/send_order_form/{id}", method= RequestMethod.GET)
+    public String sendOrderForModificationsForm(@PathVariable int id, Model m){
+        Order order = orderDAO.getOrderById(id);
+        m.addAttribute("mycomment",new Comment());
+        m.addAttribute("order",order);
+        return "send_order_with_comment";
+    }
+
+    @RequestMapping(value = "/send_order/{id}", method= RequestMethod.POST)
+    public String sendOrderForModifications(@PathVariable int id, @ModelAttribute("mycomment") Comment comment){
+        Order order = orderDAO.getOrderById(id);
+        User u = new User();
+        u.setUserID(us.getUserSession().getUserID());
+        comment.setUser(u);
+        long newComment = commentDAO.addComment(comment);
+        commentDAO.addCommentLink(newComment,id,"order");
+        compositionDAO.changeStatus(order.getComposition().getCompositionID(),"draft");
+        orderDAO.changeStatus(id,"processing");
+        orderDAO.Composition_ToFrom_Order(order.getComposition().getCompositionID(),id,false);
+        return "forward:/order_details/"+id;
+    }
+
+    @RequestMapping(value = "/cancel_order_ask/{id}", method= RequestMethod.POST)
+    public String requestToCancelOrder(@PathVariable int id){
+        if (us.getUserSession().getRole().equals("Author")){
+            orderDAO.changeStatus(id,"canceledA");
+        }
+        else {
+            orderDAO.changeStatus(id,"canceledC");
+        }
+        return "forward:/order_details/"+id;
+    }
+
+    @RequestMapping(value = "/canceling/{id}", method= RequestMethod.POST)
+    public String acceptCanceling(@PathVariable int id){
+        List<CommentOrdering> commentOrderings = commentDAO.GetCommentsToDeleteOrder(id);
+        commentDAO.dropAllCommentOrderingLinks(id);
+        for (CommentOrdering co:commentOrderings) {
+            commentDAO.dropComment(co.getCommentID());
+        }
+        orderDAO.dropOrder(id);
+        return "index";
+    }
+
+    @RequestMapping(value = "/refuse_canceling/{id}", method= RequestMethod.POST)
+    public String refuseCanceling(@PathVariable int id){
+        orderDAO.changeStatus(id,"processing");
+        return "forward:/order_details/"+id;
     }
 }

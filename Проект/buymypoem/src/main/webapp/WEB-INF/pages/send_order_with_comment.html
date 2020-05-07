@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link th:href="@{/css/comment_request.css}" rel="stylesheet">
+    <title>Заявка</title>
+</head>
+<body class="main">
+<div class="top">
+    <div class="label">
+        BuyMyPoem
+    </div>
+</div>
+<div class="basis">
+    <div class="basis_right">
+        <div class="table_comments">
+            <form action="#" th:action="@{/send_order/{id} (id=${order.orderID})}" method="post">
+                <div class="comment_text">
+                    <label>Пожалуста, оставьте комментарий, чтобы автор учел ваши пожелания и исправил недочеты</label>
+                    <input class="input_comment" type="text" name="Title" required="required" placeholder="Оставьте комментарий" th:field="${mycomment.text}" />
+                </div>
+                <div>
+                    <button class="last_btn">Отправить комментарий</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

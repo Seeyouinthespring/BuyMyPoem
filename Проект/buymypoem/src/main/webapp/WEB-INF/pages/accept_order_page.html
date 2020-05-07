@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <link th:href="@{/css/add_composition.css}" rel="stylesheet">
+    <title>Добавить произведение</title>
+</head>
+<body class="main">
+
+<div class="top">
+    <div class="label">
+        BuyMyPoem
+    </div>
+</div>
+    <div>
+        Нажимая кнопку "Принять" вы,<span th:whatever="${order.customer.login}"></span> ,соглашаетесь с тем, что с вашего платежного ресурса будут списаны средства в размере <span th:whatever="${order.cost}"></span> USD.
+        Согласно договору вы получите готовое произведение, а исполнитель заказа ,<span th:whatever="${order.author.login}"></span>, сумму списанную со счета вашего платежного ресурса
+        За сим вы становитесь единоличным и полноправным автором данного произведения.
+    </div>
+<form action="#" th:action="@{/accept_order/{id} (id=${order.orderID})}" method="post">
+    <div class="basis">
+        <div class="container">
+            <div class="main_div">
+                <div class="div_dynamyc_label">Введите данные платежного ресурса</div>
+                <div class="div_dynamyc">
+                    Card Number:
+                    <input class="input_text" type="text" name="Title" required="required" th:field="${card}" />
+                </div>
+                <div class="div_dynamyc">
+                    CVV:
+                    <input class="input_text" type="text" name="Title" required="required" th:field="${cvv}" />
+                </div>
+            </div>
+            <div class="div_for_button">
+                <button class="sign-up__button">Принять</button>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

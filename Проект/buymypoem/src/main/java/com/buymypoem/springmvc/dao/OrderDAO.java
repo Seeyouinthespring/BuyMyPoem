@@ -21,9 +21,9 @@ public class OrderDAO {
         this.temp = temp;
     }
 
-    private static final String sqlCreateOrder ="insert into ordering (startdate, deadline, cost, description, compositionID, customerID, authorID, typeID, genreID) " +
-            "values (?,?,?,?,?,?,?,?,?)";
-    private static final String sqlGetOrdersForCustomer = "SELECT ordering.orderingID, ordering.startdate, ordering.deadline, ordering.cost, ordering.description,composition.text, \n" +
+    private static final String sqlCreateOrder ="insert into ordering (startdate, deadline, cost, description, compositionID, customerID, authorID, typeID, genreID, status) " +
+            "values (?,?,?,?,?,?,?,?,?,'processing')";
+    private static final String sqlGetOrdersForCustomer = "SELECT ordering.orderingID, ordering.startdate, ordering.deadline, ordering.cost, ordering.description,composition.text, ordering.status, \n" +
             "user_customer.login as cust, user_customer.photo as cust_photo,\n" +
             "user_author.login as auth, user_author.photo as auth_photo,\n" +
             "type.title as ttitle, \n" +
@@ -36,7 +36,7 @@ public class OrderDAO {
             "left join type on ordering.typeID=type.typeID \n" +
             "LEFT JOIN genre on ordering.genreID=genre.genreID where ordering.customerID=?";
     private static final String sqlGetOrdersForAuthor = "SELECT ordering.orderingID, ordering.startdate, ordering.deadline, ordering.cost, ordering.description, \n" +
-            "composition.text, \n" +
+            "composition.text, ordering.status, \n" +
             "user_customer.login as cust, user_customer.photo as cust_photo,\n" +
             "user_author.login as auth, user_author.photo as auth_photo,\n" +
             "type.title as ttitle, \n" +
@@ -50,7 +50,7 @@ public class OrderDAO {
             "LEFT JOIN genre on ordering.genreID=genre.genreID where ordering.authorID=?";
 
     private static final String sqlGetOrderById= "SELECT ordering.orderingID, ordering.startdate, ordering.deadline, ordering.cost, ordering.description, \n" +
-            "composition.text, \n" +
+            "composition.text, composition.compositionID, ordering.status,\n" +
             "user_customer.login as cust, user_customer.photo as cust_photo,\n" +
             "user_author.login as auth, user_author.photo as auth_photo,\n" +
             "type.title as ttitle, \n" +
@@ -62,7 +62,13 @@ public class OrderDAO {
             "inner JOIN user as user_author on author.userID = user_author.userID \n" +
             "left join type on ordering.typeID=type.typeID \n" +
             "LEFT JOIN genre on ordering.genreID=genre.genreID where ordering.orderingID=?";
-
+    private static final String sqlAddCompositionToOrder ="Update ordering set compositionID = ? where orderingID = ?";
+    private static final String sqlDropCompositionFromOrder ="Update ordering set compositionID = null where -100!=? and orderingID = ?";
+    private static final String sqlChangeOrderingStatusReady= "Update ordering set status = 'Ready' where orderingID = ?";
+    private static final String sqlChangeOrderingStatusProcessing= "Update ordering set status = 'Processing' where orderingID = ?";
+    private static final String sqlChangeOrderingStatusCanceledByAuthor="Update ordering set status = 'CanceledByAuthor' where orderingID = ?";
+    private static final String sqlChangeOrderingStatusCanceledByCustomer="Update ordering set status = 'CanceledByCustomer' where orderingID = ?";
+    private static final String sqlDropOrder = "delete from ordering where orderingID=?";
 
     @Autowired
     RequestDAO requestDAO;
@@ -109,6 +115,7 @@ public class OrderDAO {
                 o.setDescription(resultSet.getString("description"));
                 c.setText(resultSet.getString("text"));
                 o.setComposition(c);
+                o.setStatus(resultSet.getString("status"));
                 customer.setLogin(resultSet.getString("cust"));
                 customer.setPhoto(resultSet.getString("cust_photo"));
                 o.setCustomer(customer);
@@ -140,7 +147,9 @@ public class OrderDAO {
                 o.setCost(resultSet.getFloat("cost"));
                 o.setDescription(resultSet.getString("description"));
                 c.setText(resultSet.getString("text"));
+                c.setCompositionID(resultSet.getInt("compositionID"));
                 o.setComposition(c);
+                o.setStatus(resultSet.getString("status"));
                 customer.setLogin(resultSet.getString("cust"));
                 customer.setPhoto(resultSet.getString("cust_photo"));
                 o.setCustomer(customer);
@@ -153,5 +162,31 @@ public class OrderDAO {
                 o.setGenre(g);
                 return o;
         });
+    }
+
+    public int changeStatus(int id, String checkString){
+        Map<String, String> sqlStrings = new HashMap<String, String>();
+        sqlStrings.put("ready", sqlChangeOrderingStatusReady);
+        sqlStrings.put("processing", sqlChangeOrderingStatusProcessing);
+        sqlStrings.put("canceledA", sqlChangeOrderingStatusCanceledByAuthor);
+        sqlStrings.put("canceledC", sqlChangeOrderingStatusCanceledByCustomer);
+        Object[] params = {id};
+        int[] types = {4};
+        return temp.update(sqlStrings.get(checkString), params, types);
+    }
+
+    public int Composition_ToFrom_Order(int comp_id,int ord_id, boolean checkString){
+        Map<Boolean, String> sqlStrings = new HashMap<Boolean, String>();
+        sqlStrings.put(true, sqlAddCompositionToOrder);
+        sqlStrings.put(false, sqlDropCompositionFromOrder);
+        Object[] params = {comp_id,ord_id};
+        int[] types = {4,4};
+        return temp.update(sqlStrings.get(checkString), params, types);
+    }
+
+    public int dropOrder(int id){
+        Object[] params = {id};
+        int[] types = {4};
+        return temp.update(sqlDropOrder, params, types);
     }
 }

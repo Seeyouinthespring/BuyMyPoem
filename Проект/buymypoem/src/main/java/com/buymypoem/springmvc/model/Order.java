@@ -11,6 +11,7 @@ public class Order {
     private Composition composition;
     private Type type;
     private Genre genre;
+    private String status;
     private int customerID;
     private int authorID;
     private User customer;
@@ -110,5 +111,13 @@ public class Order {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

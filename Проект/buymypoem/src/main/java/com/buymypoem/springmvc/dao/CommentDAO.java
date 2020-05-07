@@ -41,9 +41,12 @@ public class CommentDAO {
     private final String sqlAddComment="Insert into Comment (text,sendingdate,userID) values (?,?,?)";
     private final String sqlAddCommentRequestLink="Insert into CommentRequest (commentID,requestID) values (?,?)";
     private final String sqlAddCommentCompositionLink="Insert into CommentComposition (commentID,compositionID) values (?,?)";
-    private final String sqlAddCommentOrderLink="Insert into CommentOreder (commentID,orderID) values (?,?)";
+    private final String sqlAddCommentOrderLink="Insert into CommentOrdering (commentID,orderingID) values (?,?)";
     private final String sqlDeleteAllRequestLinks="DELETE from CommentRequest where requestID=?";
+    private final String sqlDeleteAllOrderingLinks="DELETE from CommentOrdering where orderingID=?";
     private final String sqlDeleteComment = "delete from Comment where commentID=?";
+    private final String sqlGetCommentsForDropOrder = "select * from commentordering where orderingID=?";
+    private final String sqlGetCommentsForDropRequest = "select * from commentrequest where requestID=?";
 
     private final Map<String, String> sqlStringsForCommentLink = new HashMap<String, String>();
 
@@ -96,12 +99,44 @@ public class CommentDAO {
     public int dropComment(int com_id){
         Object[] params = {com_id};
         int[] types = {4};
-        return temp.update(sqlDeleteComment,com_id,4);
+        return temp.update(sqlDeleteComment,params,types);
     }
 
     public int dropAllCommentRequestLinks(int req_id){
         Object[] params = {req_id};
         int[] types = {4};
         return temp.update(sqlDeleteAllRequestLinks,params,types);
+    }
+
+    public int dropAllCommentOrderingLinks(int ord_id){
+        Object[] params = {ord_id};
+        int[] types = {4};
+        return temp.update(sqlDeleteAllOrderingLinks,params,types);
+    }
+
+    public List<CommentOrdering> GetCommentsToDeleteOrder(int id){
+        Object[] params = {id};
+        int[] types = {Types.INTEGER};
+        return temp.query(sqlGetCommentsForDropOrder, params, types, new RowMapper<CommentOrdering>() {
+            public CommentOrdering mapRow(ResultSet resultSet, int i) throws SQLException {
+                CommentOrdering co = new CommentOrdering();
+                co.setCommentID(resultSet.getInt("commentID"));
+                co.setOrderingID(resultSet.getInt("orderingID"));
+                return co;
+            }
+        });
+    }
+
+    public List<CommentRequest> GetCommentsToDeleteRequest(int id){
+        Object[] params = {id};
+        int[] types = {Types.INTEGER};
+        return temp.query(sqlGetCommentsForDropRequest, params, types, new RowMapper<CommentRequest>() {
+            public CommentRequest mapRow(ResultSet resultSet, int i) throws SQLException {
+                CommentRequest cr = new CommentRequest();
+                cr.setCommentID(resultSet.getInt("commentID"));
+                cr.setRequestID(resultSet.getInt("requestID"));
+                return cr;
+            }
+        });
     }
 }

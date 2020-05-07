@@ -155,4 +155,11 @@
     flex-direction: row;
     justify-content: space-between;
 }
-
+.right-top{
+    background: #E5F2FD;
+    width: 70%;
+    height: fit-content;
+<!--height: 40%;-->
+    border-radius: 10px;
+    margin: 40px 100px;
+}

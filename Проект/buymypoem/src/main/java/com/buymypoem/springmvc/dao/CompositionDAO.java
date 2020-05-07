@@ -20,6 +20,11 @@ public class CompositionDAO {
 
     private static final String sqlAddComposition = "insert into composition (title, description, likes, dislikes, text, authorID, genreID, typeID, status) " +
             "values(?,?,?,?,?,?,?,?,?)";
+    private static final String sqlChangeCompositionStatusDraft = "Update Composition set status='В черновике' where compositionID=?";
+    private static final String sqlChangeCompositionStatusPublished = "Update Composition set status='Опубликовано' where compositionID=?";
+    private static final String sqlChangeCompositionStatusPreviewed = "Update Composition set status='На предпросмотре' where compositionID=?";
+    private static final String sqlChangeCompositionStatusBought = "Update Composition set status='Преобретена' where compositionID=?";
+    private static final String sqlChangeAuthor = "Update Composition set authorID=null, ownerID=? where compositionID=?";
 
     public void setTemp(JdbcTemplate temp) {
         this.temp = temp;
@@ -62,6 +67,12 @@ public class CompositionDAO {
                 "join user on user.userID=author.userID " +
                 "WHERE composition.status='В черновике' and user.userID=" + id +
                 " limit ? ," + PAGE_SIZE);
+
+        sqlStrings.put("AllMyDrafts", "select compositionID, title, description, likes, dislikes, login, photo, typeID, genreID,status " +
+                "from author " +
+                "join composition on composition.authorID = author.authorID " +
+                "join user on user.userID=author.userID " +
+                "WHERE composition.status='В черновике' and 45!=? and user.userID=" + id);
 
         String sqlString = sqlStrings.get(sqlComposition);
 
@@ -289,6 +300,20 @@ public class CompositionDAO {
         return compositionList;
     }
 
+    public int changeStatus(int id, String checkString){
+        Map<String, String> sqlStrings = new HashMap<String, String>();
+        sqlStrings.put("draft", sqlChangeCompositionStatusDraft);
+        sqlStrings.put("previewed", sqlChangeCompositionStatusPreviewed);
+        sqlStrings.put("published", sqlChangeCompositionStatusPublished);
+        sqlStrings.put("bought", sqlChangeCompositionStatusBought);
+        Object[] params = {id};
+        int[] types = {4};
+        return temp.update(sqlStrings.get(checkString), params, types);
+    }
 
-
+    public int changeAuthor(int new_owner_id, int comp_id){
+        Object[] params = {new_owner_id,comp_id};
+        int[] types = {4,4};
+        return temp.update(sqlChangeAuthor, params, types);
+    }
 }
