@@ -243,3 +243,9 @@ td{
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.photo_author_2{
+    margin: 10px;
+    display: flex;
+}
+

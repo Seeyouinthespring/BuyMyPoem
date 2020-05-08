@@ -16,6 +16,7 @@ public class User {
     private String confirmPassword;
     private String role;
     private String photo;
+    private int numb_composition;
 
     public int getUserID() {
         return UserID;
@@ -95,5 +96,13 @@ public class User {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public int getNumb_composition() {
+        return numb_composition;
+    }
+
+    public void setNumb_composition(int numb_composition) {
+        this.numb_composition = numb_composition;
     }
 }

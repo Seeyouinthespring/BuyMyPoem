@@ -1,5 +1,6 @@
 package com.buymypoem.springmvc.logic;
 
+import com.buymypoem.springmvc.dao.AuthorDAO;
 import com.buymypoem.springmvc.dao.CompositionDAO;
 import com.buymypoem.springmvc.model.Composition;
 import com.buymypoem.springmvc.model.UserSession;
@@ -46,5 +47,14 @@ public class compositionBL {
         return list;
     }
 
+    @Autowired
+    AuthorDAO authorDAO;
+
+    public int countPagesAuthor(){
+        int i;
+        i = authorDAO.countPages();
+        if (i % PAGE_SIZE == 0) return i / PAGE_SIZE;
+        return i / PAGE_SIZE + 1;
+    }
 
 }
