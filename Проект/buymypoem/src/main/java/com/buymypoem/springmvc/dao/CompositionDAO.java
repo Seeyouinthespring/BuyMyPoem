@@ -132,7 +132,7 @@ public class CompositionDAO {
         return temp.update(sqlAddComposition, params, types);
     }
 
-    private int getAuthorId(int id) {
+    public int getAuthorId(int id) {
         try {
             String sql = "SELECT authorID FROM author WHERE userID=" + id;
 

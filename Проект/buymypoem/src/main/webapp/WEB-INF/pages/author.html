@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:file="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link th:href="@{/css/user.css}" rel="stylesheet">
+    <title>Страница автора</title>
+</head>
+<body class="main">
+<div class="top">
+    <div class="label">
+        BuyMyPoem
+    </div>
+    <div class="buttons">
+        <a th:href="@{/exit}" class="button">Выход</a>
+    </div>
+</div>
+<div class="basis">
+    <div class="basis_left">
+        <div class="photo">
+            <img height="300px"  width="300px" th:src="@{'data:image/png;base64,' + ${photo} }" />
+        </div>
+
+        <div class="menu">
+            <a th:href="@{/my_profile}" class="a_menu">Мой профиль</a>
+            <a th:href="@{/all_authors}" class="a_menu">Список авторов</a>
+            <a th:href="@{/all_composition}" class="a_menu">Список произведений</a>
+            <a th:href="@{/requests}" class="a_menu">Список заявок</a>
+            <a href="" class="a_menu">Рейтинг произведений</a>
+            <a href="" class="a_menu">Рейтинг авторов</a>
+        </div>
+    </div>
+
+
+    <div class="basis_right">
+        <div class="user_information">
+            <div class="text"><span th:text="${user.login}">login</span></div>
+            <div class="text"><span th:text="${user.birthdate}">Дата рождения</span></div>
+            <div class="text"><span th:text="${user.email}">email</span></div>
+            <div class="text"><span th:text="${user.about}">О себе</span></div>
+        </div>
+        <div class="div_for_table">
+            <table>
+                <tr th:each="text : ${list}"><td>
+                    <div class="info">
+                        <span th:text="${text.title}">Название</span>
+                        <span th:text="${text.user.login}">Автор</span>
+                    </div>
+
+                    <div class="description">
+                        <div class="text"><span>Тип произведения: </span><span th:text="${text.type.title}">Тип</span></div>
+                        <div class="text"><span> Жанр:  </span><span th:text="${text.genre.title}"> Жанр </span></div>
+                        <div class="text"><span>Описание:  </span><span th:text="${text.description}"> Описание </span></div>
+                    </div>
+                    <div class="like">
+                        <div class="text_like"><span th:text="${text.likes}"/></div>
+                        <div class="text_like"><span th:text="${text.dislikes}"/></div>
+                    </div>
+                </td></tr>
+            </table>
+            <div class="buttonsContaner">
+                <a th:if="${page}>1" class="buttonBackForward" th:href="@{/author/{p}/{login} (p=${page}-1, login=${user.login})}">Назад</a>
+                <a th:if="${page}<${end}" class="buttonBackForward" th:href="@{/author/{p}/{login}(p=${page}+1, login=${user.login})}">Вперед</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

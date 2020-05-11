@@ -33,12 +33,16 @@
                         <span th:text="${user.about}">О себе</span>
                         <span th:text="${user.birthdate}">Дата рождения</span>
                     </div>
+
+                    <div>
+                        <a class="buttonBackForward" th:href="@{/author/{login} (login=${user.login})}">Перейти на страницу автора</a>
+                    </div>
                 </div>
             </td></tr>
         </table>
         <div class="buttonsContaner">
-            <a th:if="${page}>1" class="buttonBackForward" th:href="@{/all_authors/{p} (p=${page}-1)}">Назад</a>
-            <a th:if="${page}<${end}" class="buttonBackForward" th:href="@{/all_authors/{p}(p=${page}+1)}">Вперед</a>
+            <a th:if="${page}>1" class="buttonBackForward" th:href="@{/all_authors/{p}/ (p=${page}-1)}">Назад</a>
+            <a th:if="${page}<${end}" class="buttonBackForward" th:href="@{/all_authors/{p} (p=${page}+1)}">Вперед</a>
         </div>
     </div>
 

@@ -1,6 +1,7 @@
 package com.buymypoem.springmvc.dao;
 
 import com.buymypoem.springmvc.model.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -38,5 +39,14 @@ public class AuthorDAO {
     public int countPages(){
         String sql = "SELECT count(*) FROM user WHERE role='Author'";
         return temp.queryForObject(sql, Integer.class);
+    }
+
+    @Autowired CompositionDAO compositionDAO;
+
+    public int countPagesAutorById(int id) {
+        String sql = "SELECT count(*) FROM composition WHERE status='Опубликовано' and authorID=?";
+        Object[] params = {compositionDAO.getAuthorId(id)};
+        int[] types = {Types.INTEGER};
+        return temp.queryForObject(sql, params, types, Integer.class);
     }
 }

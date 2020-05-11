@@ -1,6 +1,8 @@
 package com.buymypoem.springmvc.controller;
 
 import com.buymypoem.springmvc.dao.AuthorDAO;
+import com.buymypoem.springmvc.dao.CompositionDAO;
+import com.buymypoem.springmvc.dao.UserDAO;
 import com.buymypoem.springmvc.logic.ProfileBL;
 import com.buymypoem.springmvc.logic.compositionBL;
 import com.buymypoem.springmvc.model.*;
@@ -51,4 +53,32 @@ public class AuthorController {
         return "all_authors";
     }
 
+    @Autowired UserDAO userDAO;
+    @Autowired CompositionDAO compositionDAO;
+
+    @RequestMapping(value = "/author/{login}", method= RequestMethod.GET)
+    public String getAuthor(@PathVariable String login, Model m){
+        User user = userDAO.getUserByLogin(login);
+        m.addAttribute("user", user);
+        List<Composition> list=compositionDAO.getCompositions(1, "PublishedOfAuthor", user.getUserID());
+        m.addAttribute("list",list);
+        int endPage=compositionBL.countPagesAuthorById(user.getUserID());
+        m.addAttribute("end", endPage);
+        m.addAttribute("page",1);
+        m.addAttribute("photo", profileBL.getImg(user.getPhoto()));
+        return "author";
+    }
+
+    @RequestMapping(value = "/author/{page}/{login}", method= RequestMethod.GET)
+    public String getAuthor_next(@PathVariable int page, @PathVariable String login, Model m){
+        User user = userDAO.getUserByLogin(login);
+        m.addAttribute("user", user);
+        List<Composition> list=compositionDAO.getCompositions(page, "PublishedOfAuthor", user.getUserID());
+        m.addAttribute("list",list);
+        int endPage=compositionBL.countPagesAuthorById(user.getUserID());
+        m.addAttribute("end", endPage);
+        m.addAttribute("page",page);
+        m.addAttribute("photo", profileBL.getImg(user.getPhoto()));
+        return "author";
+    }
 }

@@ -57,4 +57,11 @@ public class compositionBL {
         return i / PAGE_SIZE + 1;
     }
 
+    public int countPagesAuthorById(int id){
+        int i;
+        i = authorDAO.countPagesAutorById(id);
+        if (i % PAGE_SIZE == 0) return i / PAGE_SIZE;
+        return i / PAGE_SIZE + 1;
+    }
+
 }
