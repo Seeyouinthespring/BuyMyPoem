@@ -6,32 +6,75 @@
     <title>Заявки</title>
 </head>
 <body>
-<div class="description">
-    <div class="text">Дата публикации: <span th:text="${req.publicationdate}">Статус</span></div>
-    <div class="text">Выполнить до: <span th:text="${req.deadline}">Статус</span></div>
-    <div class="text">Тип произведения: <span th:text="${req.type.title}">Тип</span></div>
-    <div class="text">Жанр:  <span th:text="${req.genre.title}"> Жанр </span></div>
-    <div class="text">Описание:  <span th:text="${req.description}"> Описание </span></div>
-</div>
-<table>
-    <tr th:each="user : ${ulist}">
-        <td>
-            <form action="#" th:action="@{/create_order/{uid} (uid=${user.userID})}" method="post">
-                <div class="info">
-                    <span th:text="${user.login}">Логин пользователя</span>
-                    <span th:text="${user.birthdate}"></span>
-                    <span th:text="${user.about}"></span>
-                </div>
-                <div>
+<div>
+    <div>
+        <div class="description">
+            <div class="text">Дата публикации: <span th:text="${req.publicationdate}">Статус</span></div>
+            <div class="text">Выполнить до: <span th:text="${req.deadline}">Статус</span></div>
+            <div class="text">Тип произведения: <span th:text="${req.type.title}">Тип</span></div>
+            <div class="text">Жанр:  <span th:text="${req.genre.title}"> Жанр </span></div>
+            <div class="text">Описание:  <span th:text="${req.description}"> Описание </span></div>
+        </div>
+        <table>
+            <tr th:each="user : ${ulist}">
+                <td>
+                    <form action="#" th:action="@{/create_order/{uid} (uid=${user.userID})}" method="post">
+                        <div class="info">
+                            <span th:text="${user.login}">Логин пользователя</span>
+                            <span th:text="${user.birthdate}"></span>
+                            <span th:text="${user.about}"></span>
+                        </div>
+                        <div>
 <!--                    <span th:text="${req.requestID}"></span>-->
-                    <input type="text" name="requestID" hidden="hidden" th:field="${req.requestID}"/>
-                </div>
-                <div class="info_button">
-                    <button class="button_for">Выбрать в качестве исполнителя</button>
-                </div>
-            </form>
-        </td>
-    </tr>
-</table>
+                            <input type="text" name="requestID" hidden="hidden" th:field="${req.requestID}"/>
+                        </div>
+                        <div class="info_button">
+                            <button class="button_for">Выбрать в качестве исполнителя</button>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <div class="table_comments">
+            <table class="for_width">
+                <tr th:each="comment : ${comments}">
+                    <td>
+                        <div class="comment">
+                            <div class="for_img">
+                                <img height="60px"  width="60px" th:src="@{'data:image/png;base64,' + ${comment.user.photo} }" />
+                            </div>
+                            <div class="not_photo">
+                                <div class="login_date">
+                                    <span th:text="${comment.user.login}"></span>
+                                    <span th:text="${comment.sendingDate}"></span>
+                                </div>
+                                <div class="comment_text">
+                                    <span th:text="${comment.text}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <form action="#" th:action="@{/add_comment_request/{id} (id=${req.requestID})}" method="post">
+                    <div class="comment">
+                        <div class="not_photo">
+                            <div class="login_date">
+                                <span th:text="${me.login}"></span>
+                            </div>
+                            <div class="comment_text">
+                                <input class="input_comment" type="text" name="Title" required="required" placeholder="Оставьте комментарий" th:field="${mycomment.text}" />
+                                <button class="last_btn">&#x2714;</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -275,6 +275,42 @@ public class CompositionController {
         return  "redirect:/all_composition";
     }
 
+    @RequestMapping(value="/publish_composition/{id}",method=RequestMethod.GET)
+    public String publishMyComposition(@PathVariable int id){
+        compositionDAO.changeStatus(id,"published");
+        return "redirect:/draft";
+    }
+
+    @RequestMapping(value ="/update_form/{id}", method=RequestMethod.GET)
+    public String getUpdateForm(@PathVariable int id, Model m){
+        Composition composition = compositionDAO.getCompositionByI(id);
+        if((composition.getUser().getUserID()==us.getUserSession().getUserID())&(composition.getStatus().equals("В черновике"))){
+            List<Genre> genreList = genreDAO.getAllGenres();
+            List<Type> typeList = typeDAO.getAllTypes();
+            m.addAttribute("genres",genreList);
+            m.addAttribute("types",typeList);
+            m.addAttribute("comp", composition);
+            m.addAttribute("user", us.getUserSession());
+            return "update_composition_form";
+        }
+        return "error";
+    }
+
+    @RequestMapping(value = "/update_composition", method= RequestMethod.POST)
+    public String updateComposition(@ModelAttribute("comp") Composition comp){
+        compositionDAO.updateComposition(comp);
+        return "redirect:/successAuthor";
+    }
+
+    @RequestMapping(value ="/delete_draft/{id}", method=RequestMethod.GET)
+    public String dropCompositionDraft(@PathVariable int id, Model m){
+        Composition composition = compositionDAO.getCompositionByI(id);
+        if((composition.getUser().getUserID()==us.getUserSession().getUserID())&(composition.getStatus().equals("В черновике"))){
+            compositionDAO.dropComposition(id);
+            return "redirect:/successAuthor";
+        }
+        return "error";
+    }
 }
 
 

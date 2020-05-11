@@ -22,7 +22,7 @@ public class OrderDAO {
     }
 
     private static final String sqlCreateOrder ="insert into ordering (startdate, deadline, cost, description, compositionID, customerID, authorID, typeID, genreID, status) " +
-            "values (?,?,?,?,?,?,?,?,?,'processing')";
+            "values (?,?,?,?,?,?,?,?,?,'Processing')";
     private static final String sqlGetOrdersForCustomer = "SELECT ordering.orderingID, ordering.startdate, ordering.deadline, ordering.cost, ordering.description,composition.text, ordering.status, \n" +
             "user_customer.login as cust, user_customer.photo as cust_photo,\n" +
             "user_author.login as auth, user_author.photo as auth_photo,\n" +

@@ -4,6 +4,28 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link th:href="@{/css/draft.css}" rel="stylesheet">
     <title>Черновики</title>
+    <style>
+        .info_row{
+            margin: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+        }
+        .info_button{
+            margin: 10px;
+            display: flex;
+            justify-content: flex-end;
+            flex: 13;
+        }
+        .button_for{
+            background: black;
+            color: white;
+            border-radius: 10px;
+            margin: 5px;
+            text-decoration: none;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body class="main">
 <div class="top">
@@ -14,15 +36,24 @@
 <div class="basis">
             <table>
                 <tr th:each="text : ${list}"><td>
-                    <div class="info">
-                        <span th:text="${text.title}">Название</span>
-                        <span th:text="${text.user.login}">Автор</span>
+                    <div class="info_row">
+                        <div class="info">
+                            <span th:text="${text.title}">Название</span>
+                            <span th:text="${text.user.login}">Автор</span>
+                        </div>
+                        <div class="info_button">
+                            <a th:href="@{/publish_composition/{id} (id=${text.compositionID})}" class="button_for">Опубликовать</a>
+                        </div>
                     </div>
-
                     <div class="description">
-                        <div class="text">Тип произведения: <span th:text="${text.type.title}">Тип</span></div>
-                        <div class="text">Жанр:  <span th:text="${text.genre.title}"> Жанр </span></div>
-                        <div class="text">Описание:  <span th:text="${text.description}"> Описание </span></div>
+                        <div>
+                            <div class="text">Тип произведения: <span th:text="${text.type.title}">Тип</span></div>
+                            <div class="text">Жанр:  <span th:text="${text.genre.title}"> Жанр </span></div>
+                            <div class="text">Описание:  <span th:text="${text.description}"> Описание </span></div>
+                        </div>
+                        <div class="info_button">
+                            <a th:href="@{/update_form/{id} (id=${text.compositionID})}" class="button_for">Изменить</a>
+                        </div>
                     </div>
                     <div class="like">
                         <div class="text_like"><span th:text="${text.likes}"/></div>

@@ -148,9 +148,19 @@ public class RequestController {
     @RequestMapping(value = "/all_responses/{id}", method = RequestMethod.GET)
     public String getAllResponses(@PathVariable int id, Model model){
         Request request = requestDAO.getRequestById(id);
+        request.getUser().setPhoto(profileBL.getImg(request.getUser().getPhoto()));
+        List<Comment> commentList = commentDAO.GetCommentsForRequest(id,"request");
+        for (Comment comment: commentList){
+            comment.getUser().setPhoto(profileBL.getImg(comment.getUser().getPhoto()));
+        }
+        User me = us.getUserSession();
         List<User> ulist = requestDAO.getAllResponses(id);
+        model.addAttribute("me", me);
         model.addAttribute("ulist",ulist);
         model.addAttribute("req",request);
+        model.addAttribute("comments",commentList);
+        model.addAttribute("mycomment",new Comment());
+
         return "all_responses";
     }
 
@@ -180,6 +190,8 @@ public class RequestController {
         comment.setUser(u);
         long newComment = commentDAO.addComment(comment);
         commentDAO.addCommentLink(newComment,id,"request");
+        Request request = requestDAO.getRequestById(id);
+        if (request.getUser().getUserID()==us.getUserSession().getUserID()){ return "redirect:/all_responses/"+id;}
         return "forward:/request/"+id;
     }
 

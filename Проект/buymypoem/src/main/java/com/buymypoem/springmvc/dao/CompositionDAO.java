@@ -25,6 +25,8 @@ public class CompositionDAO {
     private static final String sqlChangeCompositionStatusPreviewed = "Update Composition set status='На предпросмотре' where compositionID=?";
     private static final String sqlChangeCompositionStatusBought = "Update Composition set status='Преобретена' where compositionID=?";
     private static final String sqlChangeAuthor = "Update Composition set authorID=null, ownerID=? where compositionID=?";
+    private static final String sqlUpdateComposition = "Update composition set title=?, description=?, text=?, genreID=?, typeID=? where compositionID=?";
+    private static final String sqlDeleteComposition = " Delete from composition where compositionID=?";
 
     public void setTemp(JdbcTemplate temp) {
         this.temp = temp;
@@ -168,6 +170,7 @@ public class CompositionDAO {
                     comp.setStatus(resultSet.getString("status"));
                     comp.setLikes(resultSet.getInt("likes"));
                     comp.setDislikes(resultSet.getInt("dislikes"));
+                    u.setUserID(resultSet.getInt("userID"));
                     u.setLogin(resultSet.getString("login"));
                     u.setPhoto(resultSet.getString("photo"));
                     comp.setUser(u);
@@ -315,5 +318,17 @@ public class CompositionDAO {
         Object[] params = {new_owner_id,comp_id};
         int[] types = {4,4};
         return temp.update(sqlChangeAuthor, params, types);
+    }
+
+    public int updateComposition(Composition composition){
+        Object[] params = {composition.getTitle(),composition.getDescription(),composition.getText(),composition.getGenre().getGenreID(),composition.getType().getTypeID(),composition.getCompositionID()};
+        int[] types = {Types.VARCHAR,12,12,4,4,4};
+        return temp.update(sqlUpdateComposition, params, types);
+    }
+
+    public int dropComposition(int id){
+        Object[] params = {id};
+        int[] types = {4};
+        return temp.update(sqlDeleteComposition,params,types);
     }
 }

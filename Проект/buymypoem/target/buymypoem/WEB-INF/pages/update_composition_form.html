@@ -11,10 +11,10 @@
     </div>
 </div>
 
-<form action="#" th:action="@{/add_composition}" method="post">
+<form action="#" th:action="@{/update_composition}" method="post">
     <div>
-    <input type="text" name="UserID" hidden="hidden" th:field="${comp.user.userID}"/>
-</div>
+        <input type="text" name="CompID" th:hidden="hidden" th:field="${comp.compositionID}"/>
+    </div>
     <div class="basis">
         <div class="container">
             <div class="main_div">
@@ -42,13 +42,16 @@
                 </div>
             </div>
             <div class="main_div">
-                <textarea class="textarea_description" required="required" name="Description" th:field="${comp.description}" placeholder="Описание"></textarea>
+                <textarea class="textarea_description" required="required" name="Description" th:field="${comp.description}" ></textarea>
             </div>
             <div class="main_div">
-                <textarea class="textarea_comp" name="Text" required="required"  th:field="${comp.text}" placeholder="Текст произведения"></textarea>
+                <textarea class="textarea_comp" name="Text" required="required"  th:field="${comp.text}" ></textarea>
             </div>
             <div class="div_for_button">
-                <button class="sign-up__button">Добавить</button>
+                <button class="sign-up__button">Принять изменения</button>
+            </div>
+            <div class="div_for_button">
+                <a th:href="@{/delete_draft/{id} (id=${comp.compositionID})}" class="sign-up__button">Удалить черновик</a>
             </div>
         </div>
     </div>

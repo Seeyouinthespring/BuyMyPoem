@@ -47,10 +47,9 @@ td{
 }
 
 .like{
-    margin: 0 50px 10px 0;
     flex: 1;
     display: flex;
-    margin-left: auto;
+    margin: 0 50px 10px auto;
 }
 
 .label{
@@ -91,9 +90,28 @@ span{
     text-align: center;
     margin: 10px;
 }
-
 .text_like{
     display: flex;
     flex-direction: row;
     margin-left: 10px;
+}
+.info_row{
+    margin: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+.info_button{
+    margin: 10px;
+    display: flex;
+    justify-content: flex-end;
+    flex: 13;
+}
+.button_for{
+    background: black;
+    color: white;
+    border-radius: 10px;
+    margin: 5px;
+    text-decoration: none;
+    padding: 10px;
 }
