@@ -331,4 +331,68 @@ public class CompositionDAO {
         int[] types = {4};
         return temp.update(sqlDeleteComposition,params,types);
     }
+
+    public int sumLikes(){
+        String sql= "SELECT SUM(likes) FROM composition;";
+        return temp.queryForObject(sql, Integer.class);
+    }
+
+    public List<Composition> RatingOfComposition(int page, int average_likes){
+        String sql ="select compositionID, title, description, likes, dislikes, login, photo, typeID, genreID,status \n" +
+                "from author join composition on composition.authorID = author.authorID " +
+                "join user on user.userID=author.userID " +
+                "WHERE composition.status='Опубликовано' " +
+                "AND composition.likes>composition.dislikes " +
+                "AND composition.likes>? " +
+                "limit ? ," + PAGE_SIZE;
+
+
+
+        Object[] params= {average_likes, PAGE_SIZE * (page - 1)};
+        int[] types= {Types.INTEGER, Types.INTEGER};
+
+        List<Composition> compositionList = temp.query(sql, params, types, new RowMapper<Composition>() {
+            public Composition mapRow(ResultSet resultSet, int i) throws SQLException {
+                User u = new User();
+                Type t = new Type();
+                Genre g = new Genre();
+                Composition comp = new Composition();
+                comp.setCompositionID(resultSet.getInt("compositionID"));
+                comp.setTitle(resultSet.getString("title"));
+                comp.setStatus(resultSet.getString("status"));
+                comp.setLikes(resultSet.getInt("likes"));
+                comp.setDislikes(resultSet.getInt("dislikes"));
+                u.setLogin(resultSet.getString("login"));
+                u.setPhoto(resultSet.getString("photo"));
+                comp.setUser(u);
+                t.setTypeID(resultSet.getInt("typeID"));
+                comp.setType(t);
+                g.setGenreID(resultSet.getInt("genreID"));
+                comp.setGenre(g);
+                comp.setDescription(resultSet.getString("description"));
+                return comp;
+            }
+        });
+        for (Composition comp : compositionList) {
+            String sqlType = "SELECT * FROM type where typeID=?";
+            Type type = temp.queryForObject(sqlType, new Object[]{comp.getType().getTypeID()}, new BeanPropertyRowMapper<Type>(Type.class));
+            comp.setType(type);
+
+            String sqlGenre = "SELECT * FROM Genre where genreID=?";
+            Genre genre = temp.queryForObject(sqlGenre, new Object[]{comp.getGenre().getGenreID()}, new BeanPropertyRowMapper<Genre>(Genre.class));
+            comp.setGenre(genre);
+        }
+        return compositionList;
+    }
+
+    public int countPagesRatingComposition(int average_likes) {
+        String sql = "select count(*) from composition WHERE composition.status='Опубликовано' " +
+                "AND composition.likes>composition.dislikes " +
+                "AND composition.likes>?";
+
+        Object[] params= {average_likes};
+        int[] types= {Types.INTEGER};
+
+        return temp.queryForObject(sql, params, types, Integer.class);
+    }
 }

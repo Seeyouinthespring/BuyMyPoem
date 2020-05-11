@@ -23,34 +23,6 @@
 
     <div class="basis_right">
 
-        <form action="#" th:action="@{/find_composition}" method="post">
-            <div class="div_search">
-                <div class="element">
-                    <select class="input_text" th:field="*{ftype.typeID}">
-                        <option class="input_text" th:each="type : ${types}" th:value="${type.typeID}"th:text="${type.title}">Тип
-                        </option>
-                    </select>
-                </div>
-                    <div class="element">
-                        <select class="input_text" th:field="*{fgenre.genreID}">
-                            <option class="input_text" th:each="genre : ${genres}" th:value="${genre.genreID}" th:text="${genre.title}">Жанр
-                            </option>
-                        </select>
-                    </div>
-
-                    <div class="element">
-                        <input class="input_text" type="text" placeholder="введите название произведения" th:name="stitle" />
-                    </div>
-                    <div class="element">
-                        <input class="input_text" type="text" placeholder="введите имя автора"  th:name="slogin"/>
-                    </div>
-                    <div class="element">
-                        <button class="input_button">Найти</button>
-                    </div>
-                </div>
-        </form>
-
-
         <table>
             <tr th:each="text : ${list}"><td>
                 <div class="info">
@@ -79,9 +51,8 @@
             </td></tr>
         </table>
         <div class="buttonsContaner">
-            <span class="msg" th:text="${msg}">Сообщение</span>
-            <a th:if="${page}>1" class="buttonBackForward" th:href="@{/all_composition/{p} (p=${page}-1)}">Назад</a>
-            <a th:if="${page}<${end}" class="buttonBackForward" th:href="@{/all_composition/{p}(p=${page}+1)}">Вперед</a>
+            <a th:if="${page}>1" class="buttonBackForward" th:href="@{/rating_composition/{p} (p=${page}-1)}">Назад</a>
+            <a th:if="${page}<${end}" class="buttonBackForward" th:href="@{/rating_composition/{p}(p=${page}+1)}">Вперед</a>
         </div>
     </div>
 

@@ -311,6 +311,32 @@ public class CompositionController {
         }
         return "error";
     }
+
+    @RequestMapping(value = "/rating_composition", method= RequestMethod.GET)
+    public String getRatingComposition(Model m){
+        List<Composition> list=compositionBL.getRatingCompositionList(1);
+        for (Composition c: list){
+            c.getUser().setPhoto(profileBL.getImg(c.getUser().getPhoto()));
+        }
+        m.addAttribute("list",list);
+        m.addAttribute("page",1);
+        int endPage=compositionBL.countPagesRatingComposition();
+        m.addAttribute("end", endPage);
+        return "rating_composition";
+    }
+
+    @RequestMapping(value = "/rating_composition/{page}", method= RequestMethod.GET)
+    public String getRatingComposition(@PathVariable int page, Model m){
+        List<Composition> list=compositionBL.getRatingCompositionList(page);
+        for (Composition c: list){
+            c.getUser().setPhoto(profileBL.getImg(c.getUser().getPhoto()));
+        }
+        m.addAttribute("list",list);
+        int endPage=compositionBL.countPages("countDrafts");
+        m.addAttribute("end", endPage);
+        m.addAttribute("page",page);
+        return "rating_composition";
+    }
 }
 
 

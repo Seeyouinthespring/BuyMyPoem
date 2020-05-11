@@ -64,4 +64,21 @@ public class compositionBL {
         return i / PAGE_SIZE + 1;
     }
 
+    int average_likes=0;
+
+    public List<Composition> getRatingCompositionList(int page){
+        int number_of_composition=compositionDAO.countCompositions("countPublishComp", 0);
+        int sum_likes=compositionDAO.sumLikes();
+        average_likes=sum_likes/number_of_composition;
+
+        return compositionDAO.RatingOfComposition(page, average_likes);
+    }
+
+    public int countPagesRatingComposition(){
+        int i;
+        i = compositionDAO.countPagesRatingComposition(average_likes);
+        if (i % PAGE_SIZE == 0) return i / PAGE_SIZE;
+        return i / PAGE_SIZE + 1;
+    }
+
 }
