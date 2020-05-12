@@ -33,10 +33,9 @@
                         <span th:text="${user.about}">О себе</span>
                         <span th:text="${user.birthdate}">Дата рождения</span>
                     </div>
-
-                    <div>
-                        <a class="buttonBackForward" th:href="@{/author/{login} (login=${user.login})}">Перейти на страницу автора</a>
-                    </div>
+                </div>
+                <div class="div_button_author_page">
+                    <a class="button_author_page" th:href="@{/author/{login} (login=${user.login})}">Перейти на страницу автора</a>
                 </div>
             </td></tr>
         </table>
