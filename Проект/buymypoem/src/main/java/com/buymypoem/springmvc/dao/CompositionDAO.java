@@ -344,6 +344,7 @@ public class CompositionDAO {
                 "WHERE composition.status='Опубликовано' " +
                 "AND composition.likes>composition.dislikes " +
                 "AND composition.likes>? " +
+                "ORDER BY composition.likes DESC " +
                 "limit ? ," + PAGE_SIZE;
 
 
