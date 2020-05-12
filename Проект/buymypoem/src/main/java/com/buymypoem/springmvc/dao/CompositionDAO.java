@@ -396,4 +396,32 @@ public class CompositionDAO {
 
         return temp.queryForObject(sql, params, types, Integer.class);
     }
+
+    public List<Composition> RatingOfCompositionAll(int average_likes){
+        String sql ="select compositionID, title, likes, dislikes, login \n" +
+                "from author join composition on composition.authorID = author.authorID " +
+                "join user on user.userID=author.userID " +
+                "WHERE composition.status='Опубликовано' " +
+                "AND composition.likes>composition.dislikes " +
+                "AND composition.likes>? " +
+                "ORDER BY composition.likes DESC ";
+
+        Object[] params= {average_likes};
+        int[] types= {Types.INTEGER};
+
+        List<Composition> compositionList = temp.query(sql, params, types, new RowMapper<Composition>() {
+            public Composition mapRow(ResultSet resultSet, int i) throws SQLException {
+                User u = new User();
+                Composition comp = new Composition();
+                comp.setCompositionID(resultSet.getInt("compositionID"));
+                comp.setTitle(resultSet.getString("title"));
+                comp.setLikes(resultSet.getInt("likes"));
+                comp.setDislikes(resultSet.getInt("dislikes"));
+                u.setLogin(resultSet.getString("login"));
+                comp.setUser(u);
+                return comp;
+            }
+        });
+        return compositionList;
+    }
 }

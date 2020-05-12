@@ -2,14 +2,14 @@ package com.buymypoem.springmvc.logic;
 
 import com.buymypoem.springmvc.dao.AuthorDAO;
 import com.buymypoem.springmvc.dao.CompositionDAO;
+import com.buymypoem.springmvc.dao.UserDAO;
 import com.buymypoem.springmvc.model.Composition;
+import com.buymypoem.springmvc.model.User;
 import com.buymypoem.springmvc.model.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class compositionBL {
 
@@ -66,12 +66,14 @@ public class compositionBL {
 
     int average_likes=0;
 
-    public List<Composition> getRatingCompositionList(int page){
+    private int average_likes(){
         int number_of_composition=compositionDAO.countCompositions("countPublishComp", 0);
         int sum_likes=compositionDAO.sumLikes();
-        average_likes=sum_likes/number_of_composition;
+        return sum_likes/number_of_composition;
+    }
 
-        return compositionDAO.RatingOfComposition(page, average_likes);
+    public List<Composition> getRatingCompositionList(int page){
+        return compositionDAO.RatingOfComposition(page, average_likes());
     }
 
     public int countPagesRatingComposition(){
@@ -80,5 +82,43 @@ public class compositionBL {
         if (i % PAGE_SIZE == 0) return i / PAGE_SIZE;
         return i / PAGE_SIZE + 1;
     }
+
+    @Autowired UserDAO userDAO;
+    public List<User> getAuthorRating(int page){
+        List<Composition> compositionList = compositionDAO.RatingOfCompositionAll(average_likes());
+        Map<String, Integer> authors = new HashMap<String, Integer>();
+        for (Composition c: compositionList) {
+            if(authors.containsKey(c.getUser().getLogin())){
+                authors.put(c.getUser().getLogin(), authors.get(c.getUser().getLogin())+1);
+            }else {
+                authors.put(c.getUser().getLogin(), 1);
+            }
+        }
+
+        List<User> authorList = new ArrayList<>();
+        int max = Collections.max(authors.values());
+        while (max!=0){
+            String login=null;
+            for (String slogin: authors.keySet())
+                if(authors.get(slogin)==max) login = slogin;
+            User user =  userDAO.getUserByLogin(login);
+            user.setNumb_composition(max);
+            if(authors.containsValue(max)) authorList.add(user);
+            authors.remove(login);
+            if(authors.size()!=0) max = Collections.max(authors.values());
+            else max=0;
+        }
+        authorList.size();
+        return null;
+    }
+
+    public int countPagesAuthorRating(){
+        int i;
+        i = 0;
+        if (i % PAGE_SIZE == 0) return i / PAGE_SIZE;
+        return i / PAGE_SIZE + 1;
+    }
+
+
 
 }
