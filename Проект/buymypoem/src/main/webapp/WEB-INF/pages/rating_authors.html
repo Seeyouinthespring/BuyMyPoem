@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link th:href="@{/css/composition.css}" rel="stylesheet">
+    <title>Рейтинг авторов</title>
 </head>
-<body>
+<body class="main">
+<div class="top">
+    <div class="label">
+        BuyMyPoem
+    </div>
+</div>
+<div class="basis">
+    <div class="basis_left">
+        <a th:href="@{/my_profile}" class="a_menu">Мой профиль</a>
+        <a th:href="@{/all_authors}" class="a_menu">Список авторов</a>
+        <a th:href="@{/all_composition}" class="a_menu">Список произведений</a>
+        <a th:href="@{/requests}" class="a_menu">Список заявок</a>
+        <a th:href="@{/rating_composition}" class="a_menu">Рейтинг произведений</a>
+        <a th:href="@{/rating_authors}" class="a_menu">Рейтинг авторов</a>
+    </div>
 
+    <div class="basis_right">
+        <table>
+            <tr th:each="user : ${list}"><td>
+                <div class="info">
+                    <div class="photo_author_2">
+                        <img class="photo" th:src="@{'data:image/png;base64,' + ${user.photo} }" />
+                    </div>
+                    <div class="info_author">
+                        <span th:text="${user.login}">Логин</span>
+                        <span th:text="${user.about}">О себе</span>
+                        <span th:text="${user.birthdate}">Дата рождения</span>
+                        <div><span th:text="${user.numb_composition}">Кол-во рейтинговых произведений</span> ☆ </div>
+                    </div>
+                </div>
+                <div class="div_button_author_page">
+                    <a class="button_author_page" th:href="@{/author/{login} (login=${user.login})}">Перейти на страницу автора</a>
+                </div>
+            </td></tr>
+        </table>
+        <div class="buttonsContaner">
+            <a th:if="${page}>1" class="buttonBackForward" th:href="@{/rating_authors/{p}/ (p=${page}-1)}">Назад</a>
+            <a th:if="${page}<${end}" class="buttonBackForward" th:href="@{/rating_authors/{p} (p=${page}+1)}">Вперед</a>
+        </div>
+    </div>
+
+</div>
 </body>
+</html>
 </html>

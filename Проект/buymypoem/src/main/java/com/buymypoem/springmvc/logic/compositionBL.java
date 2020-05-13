@@ -84,6 +84,7 @@ public class compositionBL {
     }
 
     @Autowired UserDAO userDAO;
+    int countPagesAuthorRating;
     public List<User> getAuthorRating(int page){
         List<Composition> compositionList = compositionDAO.RatingOfCompositionAll(average_likes());
         Map<String, Integer> authors = new HashMap<String, Integer>();
@@ -94,7 +95,6 @@ public class compositionBL {
                 authors.put(c.getUser().getLogin(), 1);
             }
         }
-
         List<User> authorList = new ArrayList<>();
         int max = Collections.max(authors.values());
         while (max!=0){
@@ -108,17 +108,18 @@ public class compositionBL {
             if(authors.size()!=0) max = Collections.max(authors.values());
             else max=0;
         }
-        authorList.size();
-        return null;
+        countPagesAuthorRating=authorList.size();
+        List<User> authorListFinish = new ArrayList<>();
+        int end=page+3-1<countPagesAuthorRating ? (page-1)*3 + 2 : countPagesAuthorRating-1;
+        for(int i=(page-1)*3; i<=end; i++){
+            authorListFinish.add(authorList.get(i));
+        }
+        return authorListFinish;
     }
 
     public int countPagesAuthorRating(){
-        int i;
-        i = 0;
+        int i = countPagesAuthorRating;
         if (i % PAGE_SIZE == 0) return i / PAGE_SIZE;
         return i / PAGE_SIZE + 1;
     }
-
-
-
 }

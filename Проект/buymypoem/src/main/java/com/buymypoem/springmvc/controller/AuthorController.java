@@ -95,4 +95,17 @@ public class AuthorController {
         m.addAttribute("end", endPageRating);
         return "rating_authors";
     }
+
+    @RequestMapping(value = "/rating_authors/{page}", method= RequestMethod.GET)
+    public String getAuthorRating_next(Model m, @PathVariable int page){
+        List<User> list = compositionBL.getAuthorRating(page);
+        endPageRating = compositionBL.countPagesAuthorRating();
+        for (User user: list){
+            user.setPhoto(profileBL.getImg(user.getPhoto()));
+        }
+        m.addAttribute("list",list);
+        m.addAttribute("page",page);
+        m.addAttribute("end", endPageRating);
+        return "rating_authors";
+    }
 }
