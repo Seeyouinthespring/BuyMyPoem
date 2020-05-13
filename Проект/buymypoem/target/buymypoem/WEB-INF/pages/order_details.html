@@ -2,15 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link th:href="@{/css/output_composition.css}" rel="stylesheet">
+    <link th:href="@{/css/order_details.css}" rel="stylesheet">
     <title>Заказ</title>
-    <style>
-        .choice_buttons{
-            display: flex;
-            flex-flow: row;
-            justify-content: space-between;
-        }
-    </style>
 </head>
 <body class="main">
 <div class="top">
@@ -21,50 +14,61 @@
 
 <div>
     <div th:if="${order.status=='CanceledByAuthor' and me.role=='Author'}">
-        <h2>Вы отправили запрос на отмену заказа, ожидайте ответа Заказчика</h2>
+        <h2 class="warning_text">Вы отправили запрос на отмену заказа, ожидайте ответа Заказчика</h2>
     </div>
     <div th:if="${order.status=='CanceledByCustomer' and me.role=='Customer'}">
-        <h2>Вы отправили запрос на отмену заказа, ожидайте ответа Автора</h2>
+        <h2 class="warning_text">Вы отправили запрос на отмену заказа, ожидайте ответа Автора</h2>
     </div>
     <div th:if="${order.status=='CanceledByAuthor' and me.role=='Customer'}">
-        <h2>ВНИМАНИЕ! Исполнитель отправил запрос на отмену заказа. Обдумайте решение и дайте свой ответ</h2>
-        <form action="#" th:action="@{/canceling/{id} (id=${order.orderID})}" method="post">
-            <button>Отменить заказ</button>
-        </form>
-        <form action="#" th:action="@{/refuse_canceling/{id} (id=${order.orderID})}" method="post">
-            <button>Отказаться от отмены заказа</button>
-        </form>
+        <h2 class="warning_text">ВНИМАНИЕ! Исполнитель отправил запрос на отмену заказа. Обдумайте решение и дайте свой ответ</h2>
+        <div class="for_warn_btns">
+            <form action="#" th:action="@{/canceling/{id} (id=${order.orderID})}" method="post">
+                <button class="button" style="background-color: indianred">Отменить заказ</button>
+            </form>
+            <form action="#" th:action="@{/refuse_canceling/{id} (id=${order.orderID})}" method="post">
+                <button class="button" style="background-color: lightgreen">Отказаться от отмены заказа</button>
+            </form>
+        </div>
     </div>
     <div th:if="${order.status=='CanceledByCustomer' and me.role=='Author'}">
-        <h2>ВНИМАНИЕ! Заказчик отправил запрос на отмену заказа. Обдумайте решение и дайте свой ответ</h2>
-        <form action="#" th:action="@{/canceling/{id} (id=${order.orderID})}" method="post">
-            <button>Отменить заказ</button>
-        </form>
-        <form action="#" th:action="@{/refuse_canceling/{id} (id=${order.orderID})}" method="post">
-            <button>Отказаться от отмены заказа</button>
-        </form>
+        <h2 class="warning_text">ВНИМАНИЕ! Заказчик отправил запрос на отмену заказа. Обдумайте решение и дайте свой ответ</h2>
+        <div class="for_warn_btns">
+            <form action="#" th:action="@{/canceling/{id} (id=${order.orderID})}" method="post">
+                <button class="button" style="background-color:indianred">Отменить заказ</button>
+            </form>
+            <form action="#" th:action="@{/refuse_canceling/{id} (id=${order.orderID})}" method="post">
+                <button class="button" style="background-color: lightgreen">Отказаться от отмены заказа</button>
+            </form>
+        </div>
     </div>
 </div>
+
+
+
 <div class="basic">
     <div class="left">
         <div class="left-top">
             <div class="div_info_order">
                 <div class="auth_cust">
                     <div>Заказчик:</div>
-                    <div>
-                        <img height="30px"  width="30px" th:src="@{'data:image/png;base64,' + ${order.customer.photo} }" />
-                    </div>
-                    <div>
-                        <span th:text="${order.customer.login}"></span>
+                    <div class="photo_login">
+                        <div>
+                            <img height="30px"  width="30px" th:src="@{'data:image/png;base64,' + ${order.customer.photo} }" />
+                        </div>
+                        <div>
+                            <span th:text="${order.customer.login}"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="auth_cust">
                     <div>Исполнитель:</div>
-                    <div>
-                        <img height="30px"  width="30px" th:src="@{'data:image/png;base64,' + ${order.author.photo} }" />
-                    </div>
-                    <div>
-                        <span th:text="${order.author.login}"></span>
+                    <div class="photo_login">
+                        <div>
+                            <img height="30px"  width="30px" th:src="@{'data:image/png;base64,' + ${order.author.photo} }" />
+                        </div>
+                        <div>
+                            <span th:text="${order.author.login}"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="description">
@@ -78,9 +82,6 @@
                         <span th:if="${order.status=='Processing'}">&#9997;</span>
                         <span th:if="${order.status=='Ready'}">&#x2714;</span>
                         <span th:unless="${order.status=='Ready' or order.status=='Processing'}">&#10060;</span>
-                    </div>
-                    <div class="text">
-                        <a th:if="${order.status=='Ready' and me.role=='Customer'}" class="buttonAntiplagiat" th:href="@{/antiplagiat/{id} (id=${comp.compositionID})}">Проверить оригинальности</a>
                     </div>
                 </div>
             </div>
@@ -108,7 +109,7 @@
                         </td>
                     </tr>
                 </table>
-                <div>
+                <div class="my_comment">
                     <form action="#" th:action="@{/add_comment_order/{id} (id=${order.orderID})}" method="post">
                         <div class="comment">
                             <div class="not_photo">
@@ -119,47 +120,50 @@
                                     <input class="input_comment" type="text" name="Title" required="required" placeholder="Оставьте комментарий" th:field="${mycomment.text}" />
                                     <button class="last_btn">&#x2714;</button>
                                 </div>
-                             </div>
-                       </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
-           </div>
+            </div>
         </div>
     </div>
 
-<div class="right">
-    <div class="right-top">
-        <div th:if="${me.role=='Author'and order.status=='Processing'}">
-            <form action="#" th:action="@{/add_composition_to_order/{id} (id=${order.orderID})}" method="post">
-                <div class="div_dynamyc_label">Добавьте произведение:</div>
-                <div class="div_dynamyc">
-                    <select class="input_text" th:field="*{comp.compositionID}">
-                        <option th:each="draft : ${drafts}" th:value="${draft.compositionID}" th:text="${draft.title+' - '+draft.description+'('+draft.type.title+'/'+draft.genre.title+')'}">Жанр
-                        </option>
-                    </select>
-                </div>
-                <div>
-                    <button class="button_comment2"> Отправить произведение</button>
-                </div>
-            </form>
+    <div class="right">
+        <div class="right-top">
+            <div class="add_text" th:if="${me.role=='Author'and order.status=='Processing'}">
+                <form action="#" th:action="@{/add_composition_to_order/{id} (id=${order.orderID})}" method="post">
+                    <div class="div_dynamyc_label">Добавьте произведение:
+                    </div>
+                    <div class="add_text_list">
+                        <div class="div_dynamic">
+                            <select class="input_text" th:field="*{comp.compositionID}">
+                                <option th:each="draft : ${drafts}" th:value="${draft.compositionID}" th:text="${draft.title+' - '+draft.description+'('+draft.type.title+'/'+draft.genre.title+')'}">Жанр
+                                </option>
+                            </select>
+                        </div>
+                        <div class="div_dynamic_for_btn">
+                            <button class="button2"> &#10010;</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <textarea readonly class="text_area" placeholder="Текст заказа" th:field="${order.composition.text}">Текст произведения</textarea>
+            </div>
         </div>
-        <div>
-            <textarea readonly class="text" placeholder="Текст заказа" th:field="${order.composition.text}">Текст произведения</textarea>
-        </div>
-    </div>
-    <div class="choice_buttons" th:if="${me.role=='Customer' and order.status=='Ready'}">
-        <div>
-            <a th:href="@{/accept_order_form/{id} (id=${order.orderID})}" >Принять заказ</a>
-        </div>
-        <div>
-            <a th:href="@{/send_order_form/{id} (id=${order.orderID})}" >Отправить на редактирование</a>
+        <div class="choice_buttons" th:if="${me.role=='Customer' and order.status=='Ready'}">
+            <div class="for_warn_btns">
+                <a class="button" th:href="@{/accept_order_form/{id} (id=${order.orderID})}" >Принять заказ</a>
+            </div>
+            <div class="for_warn_btns">
+                <a class="button" th:href="@{/send_order_form/{id} (id=${order.orderID})}" >Отправить на редактирование</a>
+            </div>
         </div>
     </div>
 </div>
-</div>
-<div th:if="${order.status=='Processing'}">
+<div class="for_warn_btns" th:if="${order.status=='Processing'}">
     <form action="#" th:action="@{/cancel_order_ask/{id} (id=${order.orderID})}" method="post">
-        <button>Запросить отмену заказа</button>
+        <button class="button" style="background-color: indianred; margin-top: 30px;">Запросить отмену заказа</button>
     </form>
 </div>
 </body>
