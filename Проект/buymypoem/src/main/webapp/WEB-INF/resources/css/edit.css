@@ -56,3 +56,12 @@ div{
     align-items: flex-end;
     margin: 0 0 0 0;
 }
+
+.card{
+    width: 230px;
+    height: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 10px;
+}

@@ -77,11 +77,12 @@ public class ProfileControler {
     }
 
     @RequestMapping(value = "/edit_profile", method= RequestMethod.GET)
-    public String editProfile(Model m){
-        m.addAttribute("user", us);
-        return "edit_profile";
+    public String editProfile(Model m) {
+        User user = us.getUserSession();
+        user.setCardNumber(us.getCardNumber());
+        m.addAttribute("user", user);
+        return "/edit_profile";
     }
-
 
     @RequestMapping(value = "/edit_profile", method= RequestMethod.POST)
     public String saveEditProfile(@RequestParam("photo") MultipartFile photo, Model m){
@@ -105,10 +106,10 @@ public class ProfileControler {
 
     @RequestMapping(value = "/edit_user", method= RequestMethod.POST)
     public String saveEditUser(@ModelAttribute("user") User user, Model m){
-        user.getLogin();
-        return "redirect:successAuthor";
+        if(userDAO.updateUserInfo(user)) return "redirect:successAuthor";
+        m.addAttribute("error", "Проверьте данные");
+        return  "/edit_profile";
     }
-
 
     @RequestMapping(value = "/my_profile", method= RequestMethod.GET)
     public String my_profile(Model m){

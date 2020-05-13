@@ -130,4 +130,21 @@ public class UserDAO {
         return temp.update(sql,params,types);
     }
 
+    public boolean updateUserInfo(User user) {
+        String sql="UPDATE user SET user.login=?, user.email=?, user.about=? WHERE userID=?;";
+        Object[] params = {user.getLogin(), user.getEmail(), user.getAbout(), user.getUserID()};
+        int[] types = {Types.VARCHAR, Types.VARCHAR, Types.VARCHAR, Types.INTEGER};
+
+        if ((temp.update(sql,params,types)>0)&&(user.getRole().equals("Author")))
+            if (updateAuthorInfo(user)>0) return true;
+        return false;
+    }
+
+    public int updateAuthorInfo(User user) {
+        String sql="UPDATE author SET author.cardNumber=? WHERE userID=?;";
+        Object[] params = {user.getCardNumber(), user.getUserID()};
+        int[] types = {Types.VARCHAR, Types.INTEGER};
+        return temp.update(sql,params,types);
+    }
+
 }

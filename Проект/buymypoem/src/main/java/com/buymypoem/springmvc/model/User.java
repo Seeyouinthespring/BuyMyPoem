@@ -17,6 +17,7 @@ public class User {
     private String role;
     private String photo;
     private int numb_composition;
+    private String cardNumber;
 
     public int getUserID() {
         return UserID;
@@ -104,5 +105,13 @@ public class User {
 
     public void setNumb_composition(int numb_composition) {
         this.numb_composition = numb_composition;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
     }
 }

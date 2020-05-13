@@ -8,23 +8,25 @@
 <body class="body">
 <div class="main">
 <form method="POST" action="#" th:action="@{/edit_user}">
+    <input type="text" name="UserID" hidden="hidden" th:field="${user.userID}"/>
+    <input type="text" name="role" hidden="hidden" th:field="${user.role}"/>
     <div>login:
-        <input class="input_text" type="text" name="login" required="required" th:field="${user.userSession.login}" />
+        <input class="input_text" type="text" name="login" required="required" th:field="${user.login}" />
     </div>
 
     <div>email:
-        <input class="input_text" type="text" name="email" required="required" th:field="${user.userSession.email}" />
+        <input class="input_text" type="text" name="email" required="required" th:field="${user.email}" />
     </div>
 
     <div>about:
-        <textarea class="input_textarea" name="about" required="required" th:field="${user.userSession.about}" />
+        <textarea class="input_textarea" name="about" required="required" th:field="${user.about}" />
     </div>
 
-    <div th:if="${user.userSession.role=='Author'}">cardNumber:
-        <input class="input_text" type="text" name="about" required="required" th:field="${user.cardNumber}" />
+    <div th:if="${user.role=='Author'}">cardNumber:
+        <input class="card" type="text" name="about" required="required" th:field="${user.cardNumber}" />
     </div>
 
-    <div>
+    <div class="div_button">
         <input class="submit_edit_info" type="submit" value="Принять изменения" />
     </div>
 </form>
