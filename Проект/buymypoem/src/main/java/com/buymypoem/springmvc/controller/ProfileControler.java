@@ -4,14 +4,12 @@ import com.buymypoem.springmvc.dao.CompositionDAO;
 import com.buymypoem.springmvc.dao.UserDAO;
 import com.buymypoem.springmvc.logic.ProfileBL;
 import com.buymypoem.springmvc.model.Composition;
+import com.buymypoem.springmvc.model.User;
 import com.buymypoem.springmvc.model.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.io.*;
@@ -102,6 +100,12 @@ public class ProfileControler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return "redirect:successAuthor";
+    }
+
+    @RequestMapping(value = "/edit_user", method= RequestMethod.POST)
+    public String saveEditUser(@ModelAttribute("user") User user, Model m){
+        user.getLogin();
         return "redirect:successAuthor";
     }
 

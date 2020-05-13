@@ -187,4 +187,10 @@ public class OrderController {
         orderDAO.changeStatus(id,"processing");
         return "forward:/order_details/"+id;
     }
+
+    @RequestMapping(value = "/antiplagiat/{id}", method= RequestMethod.POST)
+    public String antiplagiat(@PathVariable int id){
+        id = id/1;
+        return "forward:/order_details/"+id;
+    }
 }

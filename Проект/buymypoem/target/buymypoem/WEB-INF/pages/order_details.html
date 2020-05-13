@@ -79,6 +79,9 @@
                         <span th:if="${order.status=='Ready'}">&#x2714;</span>
                         <span th:unless="${order.status=='Ready' or order.status=='Processing'}">&#10060;</span>
                     </div>
+                    <div class="text">
+                        <a th:if="${order.status=='Ready' and me.role=='Customer'}" class="buttonAntiplagiat" th:href="@{/antiplagiat/{id} (id=${comp.compositionID})}">Проверить оригинальности</a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -2,26 +2,42 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link th:href="@{/css/edit.css}" rel="stylesheet">
+    <title>Редактировать профиль</title>
 </head>
-<body>
-<form method="POST" action="#" th:action="@{/edit_profile}" enctype="multipart/form-data">
-    login:
-    <input class="input_text" type="text" name="login" required="required" th:field="${user.userSession.login}" />
+<body class="body">
+<div class="main">
+<form method="POST" action="#" th:action="@{/edit_user}">
+    <div>login:
+        <input class="input_text" type="text" name="login" required="required" th:field="${user.userSession.login}" />
+    </div>
 
-    email:
-    <input class="input_text" type="text" name="email" required="required" th:field="${user.userSession.email}" />
+    <div>email:
+        <input class="input_text" type="text" name="email" required="required" th:field="${user.userSession.email}" />
+    </div>
 
-    about:
-    <input class="input_text" type="text" name="about" required="required" th:field="${user.userSession.about}" />
+    <div>about:
+        <textarea class="input_textarea" name="about" required="required" th:field="${user.userSession.about}" />
+    </div>
 
-    cardNumber:
-    <input class="input_text" type="text" name="about" required="required" th:field="${user.cardNumber}" />
+    <div th:if="${user.userSession.role=='Author'}">cardNumber:
+        <input class="input_text" type="text" name="about" required="required" th:field="${user.cardNumber}" />
+    </div>
 
-    <input type="file" name="photo" multiple="multiple"/>
-    <input type="submit" value="Принять изменения" />
-    <p class="sign-up__error" th:text="${error}"></p>
-
+    <div class="div_button">
+        <input class="submit_edit_info" type="submit" value="Принять изменения" />
+    </div>
 </form>
+
+<form method="POST" action="#" th:action="@{/edit_profile}" enctype="multipart/form-data">
+    <div>
+        <input type="file" name="photo" multiple="multiple"/>
+        <input type="submit" class="submit_edit_photo" value="Загрузить фото" />
+    </div>
+    <div>
+        <p class="sign-up__error" th:text="${error}"></p>
+    </div>
+</form>
+</div>
 </body>
 </html>
