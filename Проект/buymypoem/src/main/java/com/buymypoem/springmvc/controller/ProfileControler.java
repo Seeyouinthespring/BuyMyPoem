@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.io.*;
 import java.util.HashMap;
 import java.util.List;
@@ -106,7 +107,15 @@ public class ProfileControler {
 
     @RequestMapping(value = "/edit_user", method= RequestMethod.POST)
     public String saveEditUser(@ModelAttribute("user") User user, Model m){
-        if(userDAO.updateUserInfo(user)) return "redirect:successAuthor";
+        if (user.getCardNumber().length()!=16){
+            m.addAttribute("error", "Длина номера карты должна составлять 16 символов");
+            return  "/edit_profile";
+        }
+        if(userDAO.updateUserInfo(user)){
+            us.setUserSession(userDAO.getUserByLogin(user.getLogin()));
+            us.setCardNumber(user.getCardNumber());
+            return "redirect:successAuthor";
+        }
         m.addAttribute("error", "Проверьте данные");
         return  "/edit_profile";
     }

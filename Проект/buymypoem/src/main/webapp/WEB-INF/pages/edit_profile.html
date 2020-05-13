@@ -10,31 +10,35 @@
 <form method="POST" action="#" th:action="@{/edit_user}">
     <input type="text" name="UserID" hidden="hidden" th:field="${user.userID}"/>
     <input type="text" name="role" hidden="hidden" th:field="${user.role}"/>
-    <div>login:
-        <input class="input_text" type="text" name="login" required="required" th:field="${user.login}" />
+    <div>
+        <div>login:</div>
+        <div><input class="input_text" type="text" name="login" required="required" th:field="${user.login}" /></div>
     </div>
 
-    <div>email:
-        <input class="input_text" type="text" name="email" required="required" th:field="${user.email}" />
-    </div>
+        <div>
+            <div>email:</div>
+            <div><input class="input_text" type="text" name="email" required="required" th:field="${user.email}" /></div>
+        </div>
 
-    <div>about:
-        <textarea class="input_textarea" name="about" required="required" th:field="${user.about}" />
-    </div>
+                <div>
+                <div>Расскажите о себе:</div>
+                <div><textarea class="input_textarea" name="about" required="required" th:field="${user.about}" /></div>
+            </div>
 
-    <div th:if="${user.role=='Author'}">cardNumber:
-        <input class="card" type="text" name="about" required="required" th:field="${user.cardNumber}" />
-    </div>
+            <div th:if="${user.role=='Author'}">
+                <div>Номер карты:</div>
+                <div><input class="input_text" type="text" name="about" required="required" th:field="${user.cardNumber}" /></div>
+            </div>s
 
-    <div class="div_button">
-        <input class="submit_edit_info" type="submit" value="Принять изменения" />
-    </div>
+            <div class="div_button">
+                <input class="submit_edit_info" type="submit" value="Принять изменения" />
+            </div>
 </form>
 
 <form method="POST" action="#" th:action="@{/edit_profile}" enctype="multipart/form-data">
     <div>
-        <input type="file" name="photo" multiple="multiple"/>
-        <input type="submit" class="submit_edit_photo" value="Загрузить фото" />
+        <div><input type="file" name="photo" multiple="multiple"/></div>
+        <div><input type="submit" class="submit_edit_photo" value="Загрузить фото" /></div>
     </div>
 </form>
     <div>
