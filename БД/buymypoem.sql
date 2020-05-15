@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Май 07 2020 г., 03:01
+-- Время создания: Май 15 2020 г., 16:59
 -- Версия сервера: 8.0.19
 -- Версия PHP: 7.4.2
 
@@ -65,9 +65,8 @@ CREATE TABLE `authorrequest` (
 --
 
 INSERT INTO `authorrequest` (`authorrequest`, `authorID`, `requestID`) VALUES
-(1, 8, 4),
-(2, 7, 4),
-(9, 8, 1);
+(9, 8, 1),
+(12, 8, 2);
 
 -- --------------------------------------------------------
 
@@ -87,7 +86,12 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`commentID`, `text`, `sendingdate`, `userID`) VALUES
-(1, 'Остроумно', '2020-04-21', 23);
+(1, 'Остроумно', '2020-04-21', 23),
+(11, 'Все не так', '2020-05-08', 27),
+(12, 'Откликнитесь уродыыы', '2020-05-11', 27),
+(13, 'эгегей', '2020-05-11', 27),
+(14, 'Ща исправлю', '2020-05-13', 25),
+(15, 'Дерьмо, переделывай!', '2020-05-13', 27);
 
 -- --------------------------------------------------------
 
@@ -113,6 +117,15 @@ CREATE TABLE `commentordering` (
   `orderingID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Дамп данных таблицы `commentordering`
+--
+
+INSERT INTO `commentordering` (`commentorderingID`, `commentID`, `orderingID`) VALUES
+(8, 11, 4),
+(9, 14, 4),
+(10, 15, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -124,6 +137,14 @@ CREATE TABLE `commentrequest` (
   `commentID` int NOT NULL,
   `requestID` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `commentrequest`
+--
+
+INSERT INTO `commentrequest` (`commentrequestID`, `commentID`, `requestID`) VALUES
+(2, 12, 2),
+(3, 13, 2);
 
 -- --------------------------------------------------------
 
@@ -158,8 +179,10 @@ INSERT INTO `composition` (`compositionID`, `title`, `description`, `likes`, `di
 (17, 'На изгибы мёртвых', 'Просто стих', 4354, 34545, 'На изгибы мёртвых улиц ляжет томный нежный взгляд.\r\nСтан серьёзный, шаг неспешный, 40 месяцев подряд.\r\nДень за днём и год за годом, в перемены веры нет.\r\nКрыши, ветки и заборы, под стабильный серый свет.\r\n\r\nЗнает всех людей района, кто противней, кто быстрей.\r\nСидя, с крыши пар пускает из потрёпанных ноздрей.\r\nГрациозные движенья: шаг, трусца, бегом, прыжок.\r\nИ уже в ларьке с едою. К повару. За ним должок.\r\n\r\nПодкрепившись тем, что дали. Неспеша по всем делам:\r\nПоздороваться с подругой, птиц подергать тут и там,\r\nПрочесать дорожки парка на потеху малышей,\r\nС высоты поникшей ивы потаращить на лещей.\r\n\r\nПод ногами километры за спиною только хвост.\r\nНастроенье переменно, то на крышу, то под мост.\r\nЯзыка шершавость бесит. Шерсть бы не стереть до дыр.\r\nВот у мамы был приятней. Ключевое слово был...\r\n\r\nНо не время капать слезы. Собираются коты\r\nВновь побиться до психоза за принцессу нищеты.\r\nЖаль сегодня без мужчинок, жизнь пустеет с каждым днём.\r\nГордо, не подав и виду уплывет играть с огнём.\r\n\r\nУрны жечь - не брать бумажки. Здесь не знают слова враг.\r\nНет желаний силы мерить, что касается и благ.\r\nСистематика не ставит рамок для понятия бомж.\r\nНет деления на бедных и господ или вельмож.\r\n\r\nОтражаясь в жёлтых глазках, догорит обычный день.\r\nС цветом стен почти сольётся в миг ушастенькая тень.\r\nХоть во мраке страх не встанет, взгляд кошачий режет тьму.\r\nНо усталость не позволит удивляться ничему.\r\n\r\nЖизнь проста но неизменна, завтра снова как-то так:\r\nКрыши, люди, перекрёстки, мост, огни, закат, чердак.\r\nСон придёт сквозь лай далёкий, одинокий, без угроз.\r\nВедь судьба одна и та же — не для строк стихов и проз.', 7, 3, 3, 'Опубликовано', NULL),
 (18, 'Дюжина пар назойливых глаз', 'Держу в курсе', 232, 1232, 'Дюжина пар назойливых глаз, простые движенья, пустые стаканы.\r\nОни все позабудут про кто, что сказал, расставляя друг другу под ноги капканы.\r\nЧто же я тут забыл? Бит взорвётся сильней и оставит вопрос без ответа.\r\nЗапах пьяных волос, голос детской мечты в середине двадцатого лета.\r\n\r\nВроде даже привык, как снижает свой темп беспорядочный пляс силуэтов,\r\nКак вселяет цикличность в статический фон россыпь красно-безумных портретов.\r\nВзгляд мой точку одну изучает давно сантиметром ни выше, ни ниже.\r\nЯ смотрю по прямой, но все то, что вокруг, наизусть знаю, хоть и не вижу.\r\n\r\nПусты мысли, идеи, слова, споры, звуки в молчании разум сильнее.\r\nСреди кучи чужих, бестолковых людей одиночество лупит больнее.\r\nПередоз или сон? Адекватен, влюблён? Я не тот за кого меня держат!\r\nЯ для них и не бог, но и точно не раб, наблюдая за всем где-то между.\r\n\r\nОн же мог не блевать где-то там в уголке, а узнать что то важное вместо.\r\nА она могла мирно в кровати сопеть, а не грудью трясти возле шеста.\r\nХотя что я ворчу? Мне не все ли равно? Убирать за ним точно не буду.\r\nА на годную грудь почему б не взглянуть, рот разинув, роняя посуду.\r\n\r\n\"Эй, братан! Ты чего приуныл? Хватит тухнуть! Возьми ка бутылочку пива!\"\r\nНу и нахер ты дал мне вот это дерьмо? Не дождавшись ответа ушёл некрасиво?\r\nХоть на пару минут надо выйти во двор, отпустить колдовство психодела.\r\nСвежий ветер ночной, Россыпь звёзд в небесах, вобщем все не для пьяного тела\r\n\r\nЧто ж, наверное, мне никогда не понять, почему им все это так сильно по нраву.\r\nВеселиться, курить, друг на друге скакать, запивая отравой отраву.\r\nИм же легче проблемы и мысли свои утопить и забыть в алкоголе.\r\nСоздать собственный мир, где не надо вникать, существуя как будто в приколе.\r\n\r\nНу а я что? Я тоже хотел. Но так просто свой мозг отключить не по силам.\r\nЭто сложно порой — слушать шум в голове и пульсацию крови по жилам\r\nЯ здесь самый чужой, мне не нужно здесь быть, будто взрослому в школьном буфете.\r\nСкоро выдвинусь в собственный мир а пока... А пока на меня дует ветер.\r\n\r\nСнова в мыслях повеет пейзажем до боли знакомым но очень далёким.\r\nЯ вовсе не знал, кем я был все то время, пока я не был одиноким.\r\nВ мечтах растворяясь, забыв про реальность я падал и падал и падал.\r\nИ понял, что где-то свернул не туда, лишь добравшись, куда мне не надо.', 7, 3, 2, 'Опубликовано', NULL),
 (21, 'Новое произведение', 'просто новое произведение', 0, 0, 'дада, новое', 7, 3, 3, 'В черновике', NULL),
-(31, 'Заказ1', 'Для тестового заказа', 0, 0, 'Отражаясь в жёлтых глазках, догорит обычный день.\r\nС цветом стен почти сольётся в миг ушастенькая тень.\r\nХоть во мраке страх не встанет, взгляд кошачий режет тьму.\r\nНо усталость не позволит удивляться ничему.\r\n\r\nЖизнь проста но неизменна, завтра снова как-то так:\r\nКрыши, люди, перекрёстки, мост, огни, закат, чердак.\r\nСон придёт сквозь лай далёкий, одинокий, без угроз.\r\nВедь судьба одна и та же — не для строк стихов и проз.', 8, 3, 2, 'На предпросмотре', NULL),
-(32, 'Заказ2', 'Тестовый рассказ', 0, 0, 'Я поел пельмени', NULL, 2, 3, 'Преобретена', 3);
+(31, 'Заказ1', 'Для тестового заказа', 0, 0, 'Отражаясь в жёлтых глазках, догорит обычный день.\r\nС цветом стен почти сольётся в миг ушастенькая тень.\r\nХоть во мраке страх не встанет, взгляд кошачий режет тьму.\r\nНо усталость не позволит удивляться ничему.\r\n\r\nЖизнь проста но неизменна, завтра снова как-то так:\r\nКрыши, люди, перекрёстки, мост, огни, закат, чердак.\r\nСон придёт сквозь лай далёкий, одинокий, без угроз.\r\nВедь судьба одна и та же — не для строк стихов и проз.', NULL, 3, 2, 'Преобретена', 3),
+(32, 'Заказ2', 'Тестовый рассказ', 0, 0, 'Я поел пельмени', NULL, 2, 3, 'Преобретена', 3),
+(34, 'Супермен', 'Рассказ про супермена', 0, 0, 'Супермен умрет в конце БПС', 8, 2, 2, 'Опубликовано', NULL),
+(35, 'Test', 'English', 0, 0, 'or im crazy fool\r\nsuspicious selfish guy\r\nbut benifit will rule\r\nfor endlessness of time\r\n\r\nmotivation\'s carrying\r\nout of stratosphere\r\ni know what im searching\r\ni just don\'t know where', 8, 3, 3, 'На предпросмотре', NULL);
 
 -- --------------------------------------------------------
 
@@ -208,6 +231,26 @@ INSERT INTO `genre` (`genreID`, `title`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `mark`
+--
+
+CREATE TABLE `mark` (
+  `markID` int NOT NULL,
+  `compositionID` int NOT NULL,
+  `userID` int NOT NULL,
+  `mark` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `mark`
+--
+
+INSERT INTO `mark` (`markID`, `compositionID`, `userID`, `mark`) VALUES
+(1, 1, 24, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `ordering`
 --
 
@@ -231,7 +274,8 @@ CREATE TABLE `ordering` (
 
 INSERT INTO `ordering` (`orderingID`, `startdate`, `deadline`, `cost`, `description`, `compositionID`, `customerID`, `authorID`, `typeID`, `genreID`, `status`) VALUES
 (2, '2020-05-04', '2020-05-22', 100, 'тупа для примера', 1, 1, 8, 3, 2, 'Ready'),
-(3, '2020-05-03', '2020-05-22', 150, 'Че нибудь душевное ', 31, 3, 8, 3, 3, 'Ready');
+(4, '2020-05-08', '2020-06-26', 1234, 'рофлостих про коронавирус', 35, 3, 8, 3, 3, 'Ready'),
+(5, '2020-05-11', '2020-03-27', 88, 'лалалалалалалалал', NULL, 3, 8, 1, 1, 'processing');
 
 -- --------------------------------------------------------
 
@@ -270,23 +314,10 @@ CREATE TABLE `request` (
 INSERT INTO `request` (`requestID`, `description`, `customerID`, `publicationdate`, `deadline`, `cost`, `genreID`, `typeID`) VALUES
 (1, 'Стих про зиму', 2, '2020-03-23', '2020-03-30', 100, 1, 2),
 (2, 'Очень смешной рассказ про Путина', 3, '2020-03-23', '2020-04-23', 10000, 2, 1),
-(4, 'рофлостих про коронавирус', 3, '2020-03-23', '2020-06-26', 1234, 1, 1),
-(5, 'лалалалалалалалал', 3, '2020-03-24', '2020-03-27', 88, 1, 1),
 (6, 'Не поверишь, это описание)', 1, '2020-03-24', '2020-03-24', 1000, 1, 1),
 (7, 'ÑÑÐ¸Ñ Ð¾ Ð½ÐµÐ½Ð°Ð²Ð¸ÑÑÐ¸ Ðº ÑÑÑÑ', 2, '2020-04-21', '2020-04-24', 1000, 1, 1),
 (8, 'бла бла бла проверяю русский\r\n', 2, '2020-04-21', '2020-04-30', 0, 1, 1),
 (9, 'пам пам пам, идите все к хуям', 2, '2020-04-21', '2020-04-30', 0, 1, 1);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `role`
---
-
-CREATE TABLE `role` (
-  `roleID` int NOT NULL,
-  `rolename` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -368,18 +399,6 @@ INSERT INTO `user` (`userID`, `login`, `password`, `email`, `birthdate`, `about`
 (38, '111', '$2a$10$A4Z6Xh0ZsWQgvSYANmRr0.NAmNcei5IHtdxrKMGx8pm0gRtVLuAkO', '1', '2020-04-20', NULL, '2020-04-20', 'Customer', 'D:/repository/default.jpg'),
 (39, 'arranay-------', '$2a$10$ps7TmGvJ8Puy93RkNPP6Z.7xtlxFx.K.A1QYmkg8qoGhXUe3CkX2m', '+79209180027', '2020-04-20', NULL, '2020-04-20', 'Customer', 'D:/repository/default.jpg');
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `userrole`
---
-
-CREATE TABLE `userrole` (
-  `userroleID` int NOT NULL,
-  `userID` int NOT NULL,
-  `roleID` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
 --
 -- Индексы сохранённых таблиц
 --
@@ -454,6 +473,14 @@ ALTER TABLE `genre`
   ADD PRIMARY KEY (`genreID`);
 
 --
+-- Индексы таблицы `mark`
+--
+ALTER TABLE `mark`
+  ADD PRIMARY KEY (`markID`),
+  ADD KEY `compositionID` (`compositionID`,`userID`),
+  ADD KEY `userID` (`userID`);
+
+--
 -- Индексы таблицы `ordering`
 --
 ALTER TABLE `ordering`
@@ -478,12 +505,6 @@ ALTER TABLE `request`
   ADD PRIMARY KEY (`requestID`),
   ADD KEY `genreID` (`genreID`),
   ADD KEY `typeID` (`typeID`);
-
---
--- Индексы таблицы `role`
---
-ALTER TABLE `role`
-  ADD PRIMARY KEY (`roleID`);
 
 --
 -- Индексы таблицы `tag`
@@ -512,12 +533,6 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`userID`);
 
 --
--- Индексы таблицы `userrole`
---
-ALTER TABLE `userrole`
-  ADD PRIMARY KEY (`userroleID`);
-
---
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -531,13 +546,13 @@ ALTER TABLE `author`
 -- AUTO_INCREMENT для таблицы `authorrequest`
 --
 ALTER TABLE `authorrequest`
-  MODIFY `authorrequest` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `authorrequest` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `commentID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `commentID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT для таблицы `commentcomposition`
@@ -549,19 +564,19 @@ ALTER TABLE `commentcomposition`
 -- AUTO_INCREMENT для таблицы `commentordering`
 --
 ALTER TABLE `commentordering`
-  MODIFY `commentorderingID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `commentorderingID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `commentrequest`
 --
 ALTER TABLE `commentrequest`
-  MODIFY `commentrequestID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `commentrequestID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `composition`
 --
 ALTER TABLE `composition`
-  MODIFY `compositionID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `compositionID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT для таблицы `customer`
@@ -576,10 +591,16 @@ ALTER TABLE `genre`
   MODIFY `genreID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT для таблицы `mark`
+--
+ALTER TABLE `mark`
+  MODIFY `markID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
 -- AUTO_INCREMENT для таблицы `ordering`
 --
 ALTER TABLE `ordering`
-  MODIFY `orderingID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `orderingID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `paymentresourse`
@@ -592,12 +613,6 @@ ALTER TABLE `paymentresourse`
 --
 ALTER TABLE `request`
   MODIFY `requestID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT для таблицы `role`
---
-ALTER TABLE `role`
-  MODIFY `roleID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `tag`
@@ -622,12 +637,6 @@ ALTER TABLE `type`
 --
 ALTER TABLE `user`
   MODIFY `userID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
-
---
--- AUTO_INCREMENT для таблицы `userrole`
---
-ALTER TABLE `userrole`
-  MODIFY `userroleID` int NOT NULL AUTO_INCREMENT;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -687,6 +696,13 @@ ALTER TABLE `composition`
 --
 ALTER TABLE `customer`
   ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`);
+
+--
+-- Ограничения внешнего ключа таблицы `mark`
+--
+ALTER TABLE `mark`
+  ADD CONSTRAINT `compositionID` FOREIGN KEY (`compositionID`) REFERENCES `composition` (`compositionID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `userID` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Ограничения внешнего ключа таблицы `ordering`
