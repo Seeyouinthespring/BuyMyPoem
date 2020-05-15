@@ -4,6 +4,20 @@
     <title>Произведение</title>
     <style>
         table{width: 100%}
+        .button{
+            color: black;
+            width: 200px;
+            height: 60px;
+            font-size: 23px;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 2px solid black;
+            text-align: center;
+        }
+        .aaa{
+            height: 40px;
+            width: 70px;
+        }
     </style>
 </head>
 <body class="main">
@@ -17,11 +31,17 @@
 <div class="basic">
 
     <div class="right">
-<textarea readonly class="text" th:field="${text.text}">Текст произведения</textarea>
+        <textarea readonly class="text" th:field="${text.text}">Текст произведения</textarea>
         <div class="likes_and_dislikes">
-            <div>
-                ▲<span th:text="${text.likes}"/>&nbsp;
-                ▼<span th:text="${text.dislikes}"/>
+            <div class="aaa">
+                <a class="button" style="background-color: white" th:if="${mark==null or mark.mark!=true}" th:href="@{/like/{id} (id=${text.compositionID})}">&#128077;</a>
+                <a class="button" style="background-color: green" th:if="${mark!=null and mark.mark==true}" th:href="@{/like/{id} (id=${text.compositionID})}">&#128077;</a>
+                <span th:text="${text.likes}"></span>
+            </div>
+            <div class="aaa">
+                <a class="button" style="background-color: white" th:if="${mark==null or mark.mark!=false}" th:href="@{/dislike/{id} (id=${text.compositionID})}"> &#128078;</a>
+                <a class="button" style="background-color: red" th:if="${mark!=null and mark.mark==false}" th:href="@{/dislike/{id} (id=${text.compositionID})}"> &#128078;</a>
+                <span th:text="${text.dislikes}"></span>
             </div>
         </div>
     </div>

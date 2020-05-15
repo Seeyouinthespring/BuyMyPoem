@@ -27,6 +27,10 @@ public class CompositionDAO {
     private static final String sqlChangeAuthor = "Update Composition set authorID=null, ownerID=? where compositionID=?";
     private static final String sqlUpdateComposition = "Update composition set title=?, description=?, text=?, genreID=?, typeID=? where compositionID=?";
     private static final String sqlDeleteComposition = " Delete from composition where compositionID=?";
+    private static final String sqlIncrementLikes = "update composition set likes=likes+1 where compositionID=?";
+    private static final String sqlIncrementDisLikes = "update composition set dislikes=dislikes+1 where compositionID=?";
+    private static final String sqlDecrementLikes = "update composition set likes=likes-1 where compositionID=?";
+    private static final String sqlDecrementDisLikes = "update composition set dislikes=dislikes-1 where compositionID=?";
 
     public void setTemp(JdbcTemplate temp) {
         this.temp = temp;
@@ -423,5 +427,16 @@ public class CompositionDAO {
             }
         });
         return compositionList;
+    }
+
+    public int changeLikeOrDislikeNumber(int compositionID, String checkString){
+        Map<String, String> sqlStringsForCommentLink = new HashMap<String, String>();
+        sqlStringsForCommentLink.put("like+",sqlIncrementLikes);
+        sqlStringsForCommentLink.put("like-", sqlDecrementLikes);
+        sqlStringsForCommentLink.put("dislike+",sqlIncrementDisLikes);
+        sqlStringsForCommentLink.put("dislike-",sqlDecrementDisLikes);
+        Object[] params = {compositionID};
+        int[] types ={4};
+        return temp.update(sqlStringsForCommentLink.get(checkString),params,types);
     }
 }

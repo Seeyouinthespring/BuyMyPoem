@@ -61,6 +61,10 @@
 		<property name="temp" ref="jdbcTemp"/>
 	</bean>
 
+	<bean id="MarkDAO" class="com.buymypoem.springmvc.dao.MarkDAO">
+		<property name="temp" ref="jdbcTemp"/>
+	</bean>
+
 	<bean id="compositionBL" class="com.buymypoem.springmvc.logic.compositionBL">
 	</bean>
 

@@ -33,6 +33,9 @@ public class CompositionController {
     @Autowired
     GenreDAO genreDAO;
 
+    @Autowired
+    MarkDAO markDAO;
+
     private int find_a_composition_by_type=1;
     private int find_a_composition_by_genre=1;
     private String find_a_composition_by_title="";
@@ -235,6 +238,8 @@ public class CompositionController {
         }
         User me = us.getUserSession();
         me.setPhoto(profileBL.getImg(me.getPhoto()));
+        Mark mark = markDAO.getMark(id,me.getUserID());
+        m.addAttribute("mark",mark);
         m.addAttribute("me", me);
         m.addAttribute("comments", commentList);
         m.addAttribute("mycomment",new Comment());
@@ -336,6 +341,54 @@ public class CompositionController {
         m.addAttribute("end", endPage);
         m.addAttribute("page",page);
         return "rating_composition";
+    }
+
+    @RequestMapping(value = "/like/{id}", method= RequestMethod.GET)
+    public String likePressed(@PathVariable int id, Model m){
+        Composition c = compositionDAO.getCompositionByI(id);
+        int my_id = us.getUserSession().getUserID();
+
+        if (c.getStatus().equals("Опубликовано")){
+            Mark mark = markDAO.getMark(id, my_id);
+            if (mark==null){
+                markDAO.addMark(id,my_id,true);
+                compositionDAO.changeLikeOrDislikeNumber(id,"like+");
+            }else {
+                if (mark.isMark()){
+                    markDAO.dropMark(id,my_id);
+                    compositionDAO.changeLikeOrDislikeNumber(id,"like-");
+                }else if(!mark.isMark()){
+                    markDAO.changeMark(id,my_id,true);
+                    compositionDAO.changeLikeOrDislikeNumber(id,"dislike-");
+                    compositionDAO.changeLikeOrDislikeNumber(id,"like+");
+                }
+            }
+            return "redirect:/composition_info/"+id;
+        }else return "error";
+    }
+
+    @RequestMapping(value = "/dislike/{id}", method= RequestMethod.GET)
+    public String dislikePressed(@PathVariable int id, Model m){
+        Composition c = compositionDAO.getCompositionByI(id);
+        int my_id = us.getUserSession().getUserID();
+
+        if (c.getStatus().equals("Опубликовано")){
+            Mark mark = markDAO.getMark(id, my_id);
+            if (mark==null){
+                markDAO.addMark(id,my_id,false);
+                compositionDAO.changeLikeOrDislikeNumber(id,"dislike+");
+            }else {
+                if (mark.isMark()){
+                    markDAO.changeMark(id,my_id,false);
+                    compositionDAO.changeLikeOrDislikeNumber(id,"like-");
+                    compositionDAO.changeLikeOrDislikeNumber(id,"dislike+");
+                }else if(!mark.isMark()){
+                    markDAO.dropMark(id,my_id);
+                    compositionDAO.changeLikeOrDislikeNumber(id,"dislike-");
+                }
+            }
+            return "redirect:/composition_info/"+id;
+        }else return "error";
     }
 }
 
