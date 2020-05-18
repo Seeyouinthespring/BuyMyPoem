@@ -84,6 +84,9 @@
                         <span th:unless="${order.status=='Ready' or order.status=='Processing'}">&#10060;</span>
                     </div>
                 </div>
+                <form action="#" th:action="@{/antiplagiat/{id_composition}/{id_order} (id_composition=${order.composition.compositionID}, id_order=${order.orderID})}" method="post">
+                    <button class="button" style="background-color: indianred">Проверить на уникальность</button>
+                </form>
             </div>
         </div>
 

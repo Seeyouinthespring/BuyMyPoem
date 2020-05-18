@@ -1,6 +1,7 @@
 package com.buymypoem.springmvc.controller;
 
 import com.buymypoem.springmvc.dao.*;
+import com.buymypoem.springmvc.logic.OrderBL;
 import com.buymypoem.springmvc.logic.ProfileBL;
 import com.buymypoem.springmvc.logic.RequestBL;
 import com.buymypoem.springmvc.model.*;
@@ -188,9 +189,12 @@ public class OrderController {
         return "forward:/order_details/"+id;
     }
 
-    @RequestMapping(value = "/antiplagiat/{id}", method= RequestMethod.POST)
-    public String antiplagiat(@PathVariable int id){
-        id = id/1;
-        return "forward:/order_details/"+id;
+    @Autowired
+    OrderBL orderBL;
+
+    @RequestMapping(value = "/antiplagiat/{id_composition}/{id_order}", method = RequestMethod.POST)
+    public String antiplagiat(@PathVariable int id_composition, @PathVariable int id_order){
+        float originality = orderBL.antiPlagiarism(id_composition);
+        return "forward:/order_details/"+id_order;
     }
 }

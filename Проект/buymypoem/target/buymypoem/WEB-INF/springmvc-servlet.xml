@@ -68,6 +68,9 @@
 	<bean id="compositionBL" class="com.buymypoem.springmvc.logic.compositionBL">
 	</bean>
 
+	<bean id="orderBL" class="com.buymypoem.springmvc.logic.OrderBL">
+	</bean>
+
 	<bean id="requestBL" class="com.buymypoem.springmvc.logic.RequestBL">
 	</bean>
 
