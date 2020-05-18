@@ -87,6 +87,7 @@ public class compositionBL {
     int countPagesAuthorRating;
     public List<User> getAuthorRating(int page){
         List<Composition> compositionList = compositionDAO.RatingOfCompositionAll(average_likes());
+        if (compositionList.size()==0) return null;
         Map<String, Integer> authors = new HashMap<String, Integer>();
         for (Composition c: compositionList) {
             if(authors.containsKey(c.getUser().getLogin())){

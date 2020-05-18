@@ -1,6 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
-    <link th:href="@{/css/add_composition.css}" rel="stylesheet">
+    <link th:href="@{/css/accept_order_page.css}" rel="stylesheet">
     <title>Добавить произведение</title>
 </head>
 <body class="main">
@@ -10,47 +10,53 @@
         BuyMyPoem
     </div>
 </div>
-<div>
-    <h2>Детали заказа:</h2>
+
+
+<div class="basis">
+    <div class="basis">
+        <h2>Детали заказа:</h2>
+    </div>
+
     <div class="auth_cust">
-        <div>Заказчик:</div>
-        <div>
+        <div class="name">Заказчик:</div>
+        <div class="content">
             <span th:text="${order.customer.login}"></span>
         </div>
     </div>
+
     <div class="auth_cust">
-        <div>Исполнитель:</div>
-        <div>
+        <div class="name">Исполнитель:</div>
+        <div class="content">
             <span th:text="${order.author.login}"></span>
         </div>
     </div>
-    <div class="text">Стоимость:
-        <span th:text="${order.cost}"></span>
+
+    <div class="auth_cust">
+        <div class="name">Стоимость:</div>
+        <div class="content">
+            <span th:text="${order.cost}"></span>
+        </div>
     </div>
-    <div>
+
+    <div class="auth_cust">
         Нажимая кнопку "Принять" вы соглашаетесь с тем, что с вашего платежного ресурса будут списаны средства.
         Согласно договору вы получите готовое произведение, а исполнитель заказа, сумму списанную со счета вашего платежного ресурса.
         После оплаты заказа вы становитесь единоличным и полноправным автором данного произведения.
     </div>
-    <div>
+
+    <div class="payment">
         <form action="#" th:action="@{/accept_order/{id} (id=${order.orderID})}" method="post">
-            <div class="basis">
-                <div class="container">
-                    <div class="main_div">
-                        <div class="div_dynamyc_label">Введите данные платежного ресурса</div>
-                        <div class="div_dynamyc">
-                            Card Number:
-                            <input class="input_text" type="text" name="Title" required="required" th:field="${card}" />
-                        </div>
-                        <div class="div_dynamyc">
-                            CVV:
-                            <input class="input_text" type="text" name="Title" required="required" th:field="${cvv}" />
-                        </div>
-                    </div>
-                    <div class="div_for_button">
-                        <button class="sign-up__button">Принять</button>
-                    </div>
-                </div>
+            <div class="div_dynamyc_label">Введите данные платежного ресурса</div>
+            <div class="div_dynamyc">
+                Card Number:
+                <input class="input_text" type="text" name="Title" required="required" th:field="${card}" />
+            </div>
+            <div class="div_dynamyc">
+                CVV:
+                <input class="input_text" type="text" name="Title" required="required" th:field="${cvv}" />
+            </div>
+            <div class="div_for_button">
+                <button class="sign-up__button">Принять</button>
             </div>
         </form>
     </div>

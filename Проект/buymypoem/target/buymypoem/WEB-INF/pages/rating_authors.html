@@ -22,6 +22,7 @@
     </div>
 
     <div class="basis_right">
+
         <table>
             <tr th:each="user : ${list}"><td>
                 <div class="info">
@@ -41,6 +42,7 @@
             </td></tr>
         </table>
         <div class="buttonsContaner">
+            <span class="msg" th:text="${msg}">Сообщение</span>
             <a th:if="${page}>1" class="buttonBackForward" th:href="@{/rating_authors/{p}/ (p=${page}-1)}">Назад</a>
             <a th:if="${page}<${end}" class="buttonBackForward" th:href="@{/rating_authors/{p} (p=${page}+1)}">Вперед</a>
         </div>

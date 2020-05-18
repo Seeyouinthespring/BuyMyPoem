@@ -320,6 +320,8 @@ public class CompositionController {
     @RequestMapping(value = "/rating_composition", method= RequestMethod.GET)
     public String getRatingComposition(Model m){
         List<Composition> list=compositionBL.getRatingCompositionList(1);
+        if (list.size()==0) m.addAttribute("msg", "Рейтинговых копозиций не обнаружено. " +
+                "Навестите эту cтраницу позднее");
         for (Composition c: list){
             c.getUser().setPhoto(profileBL.getImg(c.getUser().getPhoto()));
         }

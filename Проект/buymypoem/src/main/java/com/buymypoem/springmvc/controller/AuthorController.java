@@ -86,10 +86,15 @@ public class AuthorController {
     @RequestMapping(value = "/rating_authors", method= RequestMethod.GET)
     public String getAuthorRating_start(Model m){
         List<User> list = compositionBL.getAuthorRating(1);
-        endPageRating = compositionBL.countPagesAuthorRating();
-        for (User user: list){
-            user.setPhoto(profileBL.getImg(user.getPhoto()));
+        if (list==null)
+            m.addAttribute("msg", "Рейтинговых авторов не обнаружено. " +
+                                         "Навестите эту cтраницу позднее");
+        else {
+            for (User user: list){
+                user.setPhoto(profileBL.getImg(user.getPhoto()));
+            }
         }
+        endPageRating = compositionBL.countPagesAuthorRating();
         m.addAttribute("list",list);
         m.addAttribute("page",1);
         m.addAttribute("end", endPageRating);
