@@ -444,7 +444,7 @@ public class CompositionDAO {
 
     public List<Composition> foundCompositionsForAntiplagiarism(int typeId, int genreId) {
 
-        String sqlString = "select compositionID, title, description, likes, dislikes, login, photo, typeID, genreID,status " +
+        String sqlString = "select compositionID, title, text, description, likes, dislikes, login, photo, typeID, genreID,status " +
                 "from author join composition on composition.authorID = author.authorID " +
                 "join user on user.userID=author.userID WHERE composition.status='Опубликовано' " +
                 "AND (composition.typeID=? OR composition.genreID=?);";
@@ -460,6 +460,7 @@ public class CompositionDAO {
                 Composition comp = new Composition();
                 comp.setCompositionID(resultSet.getInt("compositionID"));
                 comp.setTitle(resultSet.getString("title"));
+                comp.setText(resultSet.getString("text"));
                 comp.setStatus(resultSet.getString("status"));
                 comp.setLikes(resultSet.getInt("likes"));
                 comp.setDislikes(resultSet.getInt("dislikes"));
