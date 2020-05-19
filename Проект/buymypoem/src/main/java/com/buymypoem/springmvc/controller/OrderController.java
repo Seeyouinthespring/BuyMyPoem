@@ -193,8 +193,8 @@ public class OrderController {
     OrderBL orderBL;
 
     @RequestMapping(value = "/antiplagiat/{id_composition}/{id_order}", method = RequestMethod.POST)
-    public String antiplagiat(@PathVariable int id_composition, @PathVariable int id_order){
-        float originality = orderBL.antiPlagiarism(id_composition);
+    public String antiplagiat(@PathVariable int id_composition, @PathVariable int id_order, Model m){
+        double noOriginality = orderBL.antiPlagiarism(id_composition);
         return "forward:/order_details/"+id_order;
     }
 }

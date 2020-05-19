@@ -2,6 +2,7 @@ package com.buymypoem.springmvc.logic;
 
 import com.buymypoem.springmvc.dao.CompositionDAO;
 import com.buymypoem.springmvc.model.Composition;
+import org.decimal4j.util.DoubleRounder;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +12,7 @@ public class OrderBL {
     @Autowired
     CompositionDAO compositionDAO;
 
-    public float antiPlagiarism(int composition_id){
+    public double antiPlagiarism(int composition_id){
         Composition composition = compositionDAO.getCompositionByI(composition_id);
         List<Composition> compositionList = compositionDAO.foundCompositionsForAntiplagiarism
                 (composition.getType().getTypeID(), composition.getGenre().getGenreID());
@@ -21,14 +22,14 @@ public class OrderBL {
         for (Composition c: compositionList) {
             String[] verifiableText = editText(c.getText());
             int quantity = sourceText.length<verifiableText.length ? matchingLetters(sourceText, verifiableText) :
-                                                                     matchingLetters(sourceText, verifiableText);
+                                                                     matchingLetters(verifiableText, sourceText);
             if (quantity>0){
-                int i=0;
-                while (i<sourceText.length){
-                    int j = Arrays.asList(verifiableText).indexOf(sourceText[i]);
-                    if (j>0){
-                        int k = 1;
-                        while (true){
+                int i=0; int j=0;
+                while ((i<sourceText.length)&&(j<verifiableText.length)) {
+                    j = Arrays.asList(verifiableText).indexOf(sourceText[i]);
+                    if (j>=0){
+                        int k = 0;
+                        while ((i<sourceText.length)&&(j<verifiableText.length)){
                             if (sourceText[i++].equals(verifiableText[j++])) k++;
                             else break;
                         }
@@ -37,7 +38,9 @@ public class OrderBL {
                 }
             }
         }
-        float f = sourceText.length/numberOfStolenWords;
+
+        double f = (numberOfStolenWords*100)/(float)sourceText.length;
+        f = DoubleRounder.round(f,1);
         return f;
     }
 
@@ -56,9 +59,12 @@ public class OrderBL {
         int quantity = 0;
         for (String s: arrayTextOne) {
             int j = 0;
-             j = Arrays.asList(pretext).indexOf(s);
-            if(j>0) j = Arrays.asList(arrayTextTwo).indexOf(s);
-            if (j>0) quantity+=j;
+            j = Arrays.asList(pretext).indexOf(s);
+            if(j==-1){
+                j = Arrays.asList(arrayTextTwo).indexOf(s);
+                if (j>0)
+                    quantity+=1;
+            }
         }
         return quantity;
     }
