@@ -70,6 +70,10 @@ public class OrderController {
         return "personal_order";
     }
 
+    String rating = "";
+    String ratingCat = "";
+    String color = "";
+
     @RequestMapping(value = "/order_details/{id}", method = RequestMethod.POST)
     public String showOrder(@PathVariable int id, Model m){
         Order order = orderDAO.getOrderById(id);
@@ -92,6 +96,9 @@ public class OrderController {
         m.addAttribute("comments",commentList);
         m.addAttribute("mycomment",new Comment());
         m.addAttribute("comp",new Composition());
+        m.addAttribute("rating", rating);
+        m.addAttribute("ratingCat", ratingCat);
+        m.addAttribute("color", color);
         return "order_details";
     }
 
@@ -195,6 +202,37 @@ public class OrderController {
     @RequestMapping(value = "/antiplagiat/{id_composition}/{id_order}", method = RequestMethod.POST)
     public String antiplagiat(@PathVariable int id_composition, @PathVariable int id_order, Model m){
         double noOriginality = orderBL.antiPlagiarism(id_composition);
+
+        if (noOriginality==0) {
+            rating = "0% заимствования. ";
+            ratingCat="Котики в восторге.";
+            color="green";
+        }
+
+        if ((noOriginality>0)&&(noOriginality<=20)) {
+            rating = noOriginality + "% заимствования.";
+            ratingCat =  "Котики считают, что это хорошо.";
+            color="green";
+        }
+
+        if ((noOriginality>20)&&(noOriginality<=50)) {
+            rating = noOriginality + "% заимствования.";
+            ratingCat = "Котики считают, что это приемлимо.";
+            color="orange";
+        }
+
+        if ((noOriginality>50)&&(noOriginality<=70)) {
+            rating = noOriginality + "% заимствования.";
+            ratingCat = "Котики не осуждают, но и не одобряют.";
+            color="orange";
+        }
+
+        if ((noOriginality>70)&&(noOriginality<=100)) {
+            rating = noOriginality + "% заимствования.";
+            ratingCat = "Котики очень сильно осуждают.";
+            color="red";
+        }
+
         return "forward:/order_details/"+id_order;
     }
 }

@@ -80,13 +80,28 @@
                     <div class="text">Описание:  <span th:text="${order.description}"></span></div>
                     <div class="text">
                         <span th:if="${order.status=='Processing'}">&#9997;</span>
-                        <span th:if="${order.status=='Ready'}">&#x2714;</span>
+                        <span th:if="${order.status=='Ready'}" class="text_antiplagiat">
+                            &#x2714;
+                        <form action="#" th:action="@{/antiplagiat/{id_composition}/{id_order} (id_composition=${order.composition.compositionID}, id_order=${order.orderID})}" method="post">
+                            <button class="button_antiplagiat">Проверить на уникальность</button>
+                        </form>
+                            <div class="rating" th:if="${color}=='red'" style="color:red">
+                                <span th:text="${rating}" ></span>
+                                <span th:text="${ratingCat}"></span>
+                            </div>
+                            <div class="rating" th:if="${color}=='yellow'" style="color:yellow">
+                                <span th:text="${rating}" ></span>
+                                <span th:text="${ratingCat}"></span>
+                            </div>
+                            <div class="rating" th:if="${color}=='green'" style="color:green">
+                                <span th:text="${rating}" ></span>
+                                <span th:text="${ratingCat}"></span>
+                            </div>
+                        </span>
                         <span th:unless="${order.status=='Ready' or order.status=='Processing'}">&#10060;</span>
                     </div>
                 </div>
-                <form action="#" th:action="@{/antiplagiat/{id_composition}/{id_order} (id_composition=${order.composition.compositionID}, id_order=${order.orderID})}" method="post">
-                    <button class="button" style="background-color: indianred">Проверить на уникальность</button>
-                </form>
+
             </div>
         </div>
 

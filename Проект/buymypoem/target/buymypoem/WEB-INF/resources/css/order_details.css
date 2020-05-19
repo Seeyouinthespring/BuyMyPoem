@@ -220,3 +220,21 @@
     border: none;
     margin: 1% 2% 1% 2%;
 }
+
+.button_antiplagiat{
+    margin: 0 20px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    height: 30px;
+}
+
+.text_antiplagiat{
+    display: flex;
+}
+
+.rating{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
