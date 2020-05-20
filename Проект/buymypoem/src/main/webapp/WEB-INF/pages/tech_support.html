@@ -36,14 +36,18 @@
             <div class="PS"><div>С уважением, Техподдержка BuyMyPoem</div></div>
         </div>
 
-        <form>
-        <div class="div_msg">
-            <textarea name="Text" required="required" class="msg"></textarea>
-        </div>
+        <form action="#" th:action="@{/tech_support}" method="post">
+            <div class="div_msg">
+                <textarea name="msg_err" required="required" class="msg"></textarea>
+            </div>
 
-        <div class="div_msg">
-            <button class="msg_btn">Добавить</button>
-        </div>
+            <div class="div_msg">
+                <button class="msg_btn">Добавить</button>
+            </div>
+
+            <div>
+                <span th:text="${response}" class="response"></span>
+            </div>
         </form>
     </div>
 </div>

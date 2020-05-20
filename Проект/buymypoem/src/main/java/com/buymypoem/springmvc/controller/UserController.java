@@ -116,7 +116,14 @@ public class UserController {
     }
 
     @RequestMapping(value = "/tech_support")
-    public String support() {
+    public String support(Model m) {
+        return "tech_support";
+    }
+
+    @RequestMapping(value = "/tech_support", method = RequestMethod.POST)
+    public String support_go(@ModelAttribute("msg_err") String msg, Model model) {
+        int in = userDAO.techSupport(userSession.getUserSession().getUserID(), msg);
+        if (in>0) model.addAttribute("response", "Cообщение отправлено. О решении проблемы мы напишем вам на почту.");
         return "tech_support";
     }
 }

@@ -147,4 +147,11 @@ public class UserDAO {
         return temp.update(sql,params,types);
     }
 
+    public int techSupport(int idUser, String msg){
+        String sql = "INSERT INTO `support` (`userID`, `msg`) VALUES (?, ?)";
+        Object[] params = {idUser, msg};
+        int[] types = {Types.INTEGER, Types.VARCHAR};
+        return temp.update(sql,params,types);
+    }
+
 }
