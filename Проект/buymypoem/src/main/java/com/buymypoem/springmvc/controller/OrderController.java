@@ -232,7 +232,6 @@ public class OrderController {
             ratingCat = "Котики очень сильно осуждают.";
             color="red";
         }
-
         return "forward:/order_details/"+id_order;
     }
 }

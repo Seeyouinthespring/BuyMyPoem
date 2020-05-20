@@ -114,5 +114,10 @@ public class UserController {
     public String error() {
         return "error";
     }
+
+    @RequestMapping(value = "/tech_support")
+    public String support() {
+        return "tech_support";
+    }
 }
 

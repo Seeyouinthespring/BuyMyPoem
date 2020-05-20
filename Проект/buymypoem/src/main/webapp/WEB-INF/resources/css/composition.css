@@ -269,3 +269,21 @@ td{
     text-align: center;
 }
 
+.msg{
+    width: 95%;
+    border-radius: 10px;
+    height: 50px;
+}
+
+.msg_btn{
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #E5F2FD;
+    font-size: 20px;
+}
+
+.div_msg{
+    display: flex;
+    justify-content: center;
+}

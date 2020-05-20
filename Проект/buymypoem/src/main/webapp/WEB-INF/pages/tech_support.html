@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link th:href="@{/css/tsupport.css}" rel="stylesheet">
+    <title>Техподдержка</title>
+</head>
+<body class="main">
+<div class="top">
+    <div class="label">
+        BuyMyPoem
+    </div>
+</div>
+<div class="basis">
+    <div class="basis_left">
+        <a th:href="@{/my_profile}" class="a_menu">Мой профиль</a>
+        <a th:href="@{/all_authors}" class="a_menu">Список авторов</a>
+        <a th:href="@{/all_composition}" class="a_menu">Список произведений</a>
+        <a th:href="@{/requests}" class="a_menu">Список заявок</a>
+        <a th:href="@{/rating_composition}" class="a_menu">Рейтинг произведений</a>
+        <a th:href="@{/rating_authors}" class="a_menu">Рейтинг авторов</a>
+        <a th:href="@{/tech_support}" class="a_menu">Техподдержка</a>
+    </div>
+
+    <div class="basis_right">
+        <div class="main_text">
+            <div class="start">Привет, прежде чем заполнить сообщение о проблеме ознакомтесь с правилами :3</div>
+            <div>1. Если вы хотите пожаловаться на пользователя, ОБЯЗАТЕЛЬНО укажите его логин и подробно опишите проблему.</div>
+            <div>2. Если у вас возникла проблема на какой-то странице, ОБЯЗАТЕЛЬНО укажите название страницы и подобно опишите проблему.</div>
+            <div>3. Если на нашем сайте вы обнаружили плагиат известного (или не очень) произведения, ОБЯЗАТЕЛЬНО укажите логин автора,
+            который нарушает авторские права, а так же ОБЯЗАТЕЛЬНО укажите название его произведения. Желательно прикрепить ссылку на
+                сплагиаченное произведение.</div>
+            <div>4. Если вам оставили необоснованно плохой комментарий ОБЯЗАТЕЛЬНО укажите ваш логин и название произведения.
+            А так же напишите почему вы считаете этот комментарий необоснованным.</div>
+            <div>5.  Если у вас возникла другая проблема постарайтесь описать её как можно подробнее.</div>
+            <div class="PS"><div>С уважением, Техподдержка BuyMyPoem</div></div>
+        </div>
+
+        <form>
+        <div class="div_msg">
+            <textarea name="Text" required="required" class="msg"></textarea>
+        </div>
+
+        <div class="div_msg">
+            <button class="msg_btn">Добавить</button>
+        </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+</html>

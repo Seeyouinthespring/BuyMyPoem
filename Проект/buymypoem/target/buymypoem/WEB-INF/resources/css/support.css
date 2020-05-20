@@ -1,0 +1,89 @@
+html{
+    height: 100vh;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    height: 100vh;
+}
+
+.top {
+    width: 100%;
+    height: 80px;
+    background: black;
+    display: flex;
+    flex-direction: row;
+}
+
+.basis {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.basis2 {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 200px 0 200px;
+    height: 100vh;
+}
+
+.basis_left{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border-right: 3px solid black;
+}
+
+.basis_right{
+    width: 100%;
+}
+
+.label{
+    color: white;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    font-family: Arial;
+    margin: 0 0 0 50px;
+}
+
+.a_menu{
+    padding: 10px;
+    font-size: 23px;
+    color: black;
+    text-decoration: none;
+}
+
+.a_menu:hover{
+    background: #E5F2FD;
+    padding: 10px;
+    margin: 0;
+}
+
+
+.main_text{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    margin: 20px;
+    background-color: #E5F2FD;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.start{
+    margin-bottom: 10px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.PS{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}

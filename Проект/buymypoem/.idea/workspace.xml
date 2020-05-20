@@ -9,8 +9,13 @@
     <list default="true" id="a9f9398e-32bd-4065-8480-6c208bdf3c80" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/order_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/order_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/order_details.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/order_details.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/buymypoem/springmvc/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/all_authors.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/all_authors.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/all_composition.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/all_composition.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/rating_authors.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/rating_authors.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/rating_composition.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/rating_composition.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/request.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/request.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/composition.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/composition.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/buymypoem/WEB-INF/classes/com/buymypoem/springmvc/controller/OrderController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/buymypoem/springmvc/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/buymypoem/springmvc/controller/OrderController.class" afterDir="false" />
     </list>
@@ -60,14 +65,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Class" />
         <option value="HTML File" />
         <option value="CSS File" />
-        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -354,7 +360,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
@@ -420,6 +426,7 @@
       <workItem from="1589809318778" duration="7832000" />
       <workItem from="1589868242157" duration="21440000" />
       <workItem from="1589909480953" duration="8993000" />
+      <workItem from="1589969241594" duration="6239000" />
     </task>
     <servers />
   </component>
@@ -498,45 +505,45 @@
     </state>
     <state x="526" y="183" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587379766842" />
     <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583587082063" />
-    <state width="1092" height="188" key="GridCell.Tab.0.bottom" timestamp="1589918569125">
+    <state width="1092" height="313" key="GridCell.Tab.0.bottom" timestamp="1589975601101">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="188" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1589918569125" />
+    <state width="1092" height="313" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1589975601101" />
     <state width="1560" height="242" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589561791448" />
-    <state width="1092" height="188" key="GridCell.Tab.0.center" timestamp="1589918569125">
+    <state width="1092" height="313" key="GridCell.Tab.0.center" timestamp="1589975601101">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="188" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1589918569125" />
+    <state width="1092" height="313" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1589975601101" />
     <state width="1560" height="242" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589561791447" />
-    <state width="1092" height="188" key="GridCell.Tab.0.left" timestamp="1589918569125">
+    <state width="1092" height="313" key="GridCell.Tab.0.left" timestamp="1589975601101">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="188" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1589918569125" />
+    <state width="1092" height="313" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1589975601101" />
     <state width="1560" height="242" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589561791447" />
-    <state width="1092" height="188" key="GridCell.Tab.0.right" timestamp="1589918569125">
+    <state width="1092" height="313" key="GridCell.Tab.0.right" timestamp="1589975601101">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="188" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1589918569125" />
+    <state width="1092" height="313" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1589975601101" />
     <state width="1560" height="242" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589561791447" />
-    <state width="1092" height="336" key="GridCell.Tab.1.bottom" timestamp="1589913759972">
+    <state width="1092" height="45" key="GridCell.Tab.1.bottom" timestamp="1589972859403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="336" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1589913759972" />
+    <state width="1092" height="45" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1589972859403" />
     <state width="1560" height="242" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589561791448" />
-    <state width="1092" height="336" key="GridCell.Tab.1.center" timestamp="1589913759972">
+    <state width="1092" height="45" key="GridCell.Tab.1.center" timestamp="1589972859403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="336" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1589913759972" />
+    <state width="1092" height="45" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1589972859403" />
     <state width="1560" height="242" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589561791448" />
-    <state width="1092" height="336" key="GridCell.Tab.1.left" timestamp="1589913759972">
+    <state width="1092" height="45" key="GridCell.Tab.1.left" timestamp="1589972859403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="336" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1589913759972" />
+    <state width="1092" height="45" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1589972859403" />
     <state width="1560" height="242" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589561791448" />
-    <state width="1092" height="336" key="GridCell.Tab.1.right" timestamp="1589913759972">
+    <state width="1092" height="45" key="GridCell.Tab.1.right" timestamp="1589972859403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1092" height="336" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1589913759972" />
+    <state width="1092" height="45" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1589972859403" />
     <state width="1560" height="242" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589561791448" />
     <state width="1560" height="242" key="GridCell.Tab.2.bottom" timestamp="1589561791449">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -636,6 +643,10 @@
     </state>
     <state x="467" y="241" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585288991159" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589538819522" />
+    <state x="494" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589969387202">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="494" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1589969387202" />
     <state x="0" y="0" key="new project wizard" timestamp="1585290129676">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
