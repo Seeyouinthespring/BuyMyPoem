@@ -138,11 +138,16 @@ public class RequestController {
     @Secured("ROLE_USER_AUTHOR")
     @RequestMapping(value = "/add_response/{id}", method = RequestMethod.POST)
     public String addResponse(@PathVariable int id){
+        boolean check = requestDAO.checkResponse(us.getAuthorID(),id);
+        if (!check){
         AuthorRequest ar = new AuthorRequest();
         ar.setRequestID(id);
         ar.setAuthorID(us.getUserSession().getUserID());
         requestDAO.addResponse(ar);
-        return "forward:/request/"+id;
+        return "forward:/request/"+id;}
+        else {
+            return "error";
+        }
     }
 
     @RequestMapping(value = "/all_responses/{id}", method = RequestMethod.GET)

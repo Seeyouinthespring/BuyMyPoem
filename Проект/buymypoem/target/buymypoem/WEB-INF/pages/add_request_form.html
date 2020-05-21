@@ -21,7 +21,8 @@
             <div class="main_div">
                 <div class="div_dynamyc_label">Стоимость:</div>
                 <div class="div_dynamyc">
-                    <input class="input_text" type="text" name="Title" required="required" th:field="${req.cost}" />
+                    <input class="input_text" type="text" name="Title" required="required" th:field="*{req.cost}" />
+                    <label th:if="${#fields.hasErrors('req.cost')}" th:errors="*{req.cost}">Age Error</label>
                 </div>
             </div>
             <div class="main_div">

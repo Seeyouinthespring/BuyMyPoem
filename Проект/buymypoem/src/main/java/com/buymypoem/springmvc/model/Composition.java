@@ -11,6 +11,7 @@ public class Composition {
     private Type type;
     private String Status;
     private String description;
+    private int ownerID;
 
     public int getCompositionID() {
         return CompositionID;
@@ -90,5 +91,13 @@ public class Composition {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getOwnerID() {
+        return ownerID;
+    }
+
+    public void setOwnerID(int ownerID) {
+        this.ownerID = ownerID;
     }
 }

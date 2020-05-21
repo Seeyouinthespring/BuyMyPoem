@@ -1,0 +1,114 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.top {
+    height: 80px;
+    background: black;
+    display: flex;
+    flex-direction: row;
+}
+
+.basis {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-self: center;
+    margin-top: 20px;
+}
+
+tr:nth-child(odd){
+    background: #E5F2FD;
+}
+
+table{
+    width: 100%;
+    border-spacing:0;
+}
+
+td{
+    display: flex;
+    flex-direction: column;
+    font-size: 23px;
+}
+
+.info{
+    margin: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.description{
+    margin: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+}
+
+.like{
+    flex: 1;
+    display: flex;
+    margin: 0 50px 10px auto;
+}
+
+.label{
+    color: white;
+    font-size: 40px;
+    display: flex;
+    margin: 0 20px 0 70px;
+    align-items: center;
+    font-family: Arial;
+}
+.text{
+    display: flex;
+    flex-direction: row;
+}
+span{
+    font-size: 24px;
+    max-width: 1025px;
+    margin-left: 10px;
+}
+.buttonsContaner{
+    display: flex;
+    justify-content: center;
+}
+.buttonBackForward{
+    color: black;
+    width: 200px;
+    height: 30px;
+    font-size: 23px;
+    text-decoration: none;
+    border-radius: 10px;
+    background: #E5F2FD;
+    border: 2px solid #E5F2FD;
+    text-align: center;
+    margin: 10px;
+}
+.info_button{
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+    min-width: 300px;
+}
+.button_for{
+    background: white;
+    color: black;
+    border-radius: 10px;
+    border: black solid 1px;
+    width: 165px;
+    height: fit-content;
+    align-self: center;
+    font-size: 20px;
+    font-family: Arial;
+}
+.imsotired{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}

@@ -21,6 +21,7 @@
                 </div>
                 <div class="other_content">
                     <div class="dates">
+                        <div class="text2">Этот пользователь оплатил  <span th:text="${req.user.numb_composition}"></span> заказов!</div>
                         <div class="text2">Дата публикации: <span th:text="${req.publicationdate}"></span></div>
                         <div class="text2">Выполнить до: <span th:text="${req.deadline}"></span></div>
                         <div class="text2">Тип произведения: <span th:text="${req.type.title}"></span></div>

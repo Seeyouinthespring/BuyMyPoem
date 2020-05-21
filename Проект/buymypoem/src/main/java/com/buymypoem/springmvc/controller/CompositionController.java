@@ -81,6 +81,35 @@ public class CompositionController {
         return "draft";
     }
 
+    @RequestMapping(value = "/purchases", method= RequestMethod.GET)
+    public String getPurchasesStart(Model m){
+        List<Composition> list=compositionDAO.getCompositions(1,"MyPurchases", us.getUserSession().getUserID());
+        m.addAttribute("list",list);
+        m.addAttribute("page",1);
+        int endPage=compositionBL.countPages("countPurchases");
+        m.addAttribute("end", endPage);
+        return "purchases";
+    }
+
+    @RequestMapping(value = "/purchases/{page}", method= RequestMethod.GET)
+    public String getPurchases(@PathVariable int page, Model m){
+        List<Composition> list=compositionDAO.getCompositions(page,"MyPurchases", us.getUserSession().getUserID());
+        m.addAttribute("list",list);
+        int endPage=compositionBL.countPages("countPurchases");
+        m.addAttribute("end", endPage);
+        m.addAttribute("page",page);
+        return "purchases";
+    }
+
+    @RequestMapping(value = "/my_purchase/{id}", method= RequestMethod.GET)
+    public String getPurchaseInfo(@PathVariable int id, Model m){
+        Composition c = compositionDAO.getPurchaseById(id);
+        User me = us.getUserSession();
+        m.addAttribute("user", me);
+        m.addAttribute("text", c);
+        return "purchase_info";
+    }
+
     @RequestMapping(value = "/all_composition", method= RequestMethod.GET)
     public String getComposition_start(Model m){
         m.addAttribute("genres", genreDAO.getAllGenres());

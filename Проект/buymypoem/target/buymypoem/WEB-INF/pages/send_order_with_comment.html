@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link th:href="@{/css/comment_request.css}" rel="stylesheet">
-    <title>Заявка</title>
+    <link th:href="@{/css/send_order_with_comment.css}" rel="stylesheet">
+    <title>Отправка на редактирование</title>
 </head>
 <body class="main">
 <div class="top">
@@ -12,14 +12,16 @@
     </div>
 </div>
 <div class="basis">
-    <div class="basis_right">
+    <div class="content">
         <div class="table_comments">
             <form action="#" th:action="@{/send_order/{id} (id=${order.orderID})}" method="post">
                 <div class="comment_text">
-                    <label>Пожалуста, оставьте комментарий, чтобы автор учел ваши пожелания и исправил недочеты</label>
+                    <label class="for_label">Пожалуста, оставьте комментарий, чтобы автор учел ваши пожелания и исправил недочеты</label>
+                </div>
+                <div class="comment_text">
                     <input class="input_comment" type="text" name="Title" required="required" placeholder="Оставьте комментарий" th:field="${mycomment.text}" />
                 </div>
-                <div>
+                <div class="comment_text">
                     <button class="last_btn">Отправить комментарий</button>
                 </div>
             </form>
