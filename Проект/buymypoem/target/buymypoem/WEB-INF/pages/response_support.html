@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Список жалоб</title>
+</head>
+<body>
+<table>
+    <tr th:each="report : ${list}">
+        <td>
+            <span th:text="${report.login}">Логин</span>
+        </td>
+        <td>
+            <span th:text="${report.email}">Емейл</span>
+        </td>
+        <td>
+            <span th:text="${report.msg}">Проблема</span>
+        </td>
+        <td>
+            <span th:text="${report.msg}">Проблема</span>
+        </td>
+        <td>
+            <a th:href="@{/successAuthor/{p} (p=${page}-1)}">Решено</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

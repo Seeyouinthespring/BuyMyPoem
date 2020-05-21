@@ -1,10 +1,7 @@
 package com.buymypoem.springmvc.controller;
 
 import com.buymypoem.springmvc.dao.UserDAO;
-import com.buymypoem.springmvc.model.Author;
-import com.buymypoem.springmvc.model.Customer;
-import com.buymypoem.springmvc.model.User;
-import com.buymypoem.springmvc.model.UserSession;
+import com.buymypoem.springmvc.model.*;
 import com.buymypoem.springmvc.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -125,6 +123,13 @@ public class UserController {
         int in = userDAO.techSupport(userSession.getUserSession().getUserID(), msg);
         if (in>0) model.addAttribute("response", "Cообщение отправлено. О решении проблемы мы напишем вам на почту.");
         return "tech_support";
+    }
+
+    @RequestMapping(value = "/response_support", method = RequestMethod.GET)
+    public String support_response(Model model) {
+        List<MsgSupport> msgSupportList= userDAO.techSupportAll();
+        model.addAttribute("list", msgSupportList);
+        return "response_support";
     }
 }
 

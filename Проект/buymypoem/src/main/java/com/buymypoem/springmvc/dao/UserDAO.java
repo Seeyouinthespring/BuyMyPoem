@@ -2,6 +2,7 @@ package com.buymypoem.springmvc.dao;
 
 import com.buymypoem.springmvc.model.Author;
 import com.buymypoem.springmvc.model.Customer;
+import com.buymypoem.springmvc.model.MsgSupport;
 import com.buymypoem.springmvc.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -154,4 +155,22 @@ public class UserDAO {
         return temp.update(sql,params,types);
     }
 
+    public List<MsgSupport> techSupportAll(){
+        String sql = "SELECT * FROM support JOIN user where support.userID=user.userID";
+        try {
+             List<MsgSupport> uList = temp.query(sql, new RowMapper<MsgSupport>() {
+                public MsgSupport mapRow(ResultSet resultSet, int i) throws SQLException {
+                    MsgSupport a = new MsgSupport();
+                    a.setMsg(resultSet.getString("msg"));
+                    a.setEmail(resultSet.getString("email"));
+                    a.setLogin(resultSet.getString("login"));
+                    return a;
+                }
+            });
+            return uList;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
