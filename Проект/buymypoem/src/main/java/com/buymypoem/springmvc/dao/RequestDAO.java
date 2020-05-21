@@ -24,7 +24,14 @@ public class RequestDAO {
 
     private static final String sqlAllRequests="SELECT request.requestID, request.description, user.login, user.photo, request.publicationdate, request.deadline, request.cost, genre.title as gtitle, type.title as ttitle from request left JOIN genre on request.genreID=genre.genreID left JOIN type on request.typeID=type.typeID left join customer on request.customerID=customer.customerID left JOIN user on customer.userID=user.userID where ?>0 limit ?," + PAGE_SIZE;
 
-    private static final String sqlRequestById="Select request.requestID, request.description, user.userID, user.login, user.photo, request.publicationdate, request.deadline, request.cost, genre.genreID, genre.title as gtitle, type.typeID, type.title as ttitle from request left JOIN genre on request.genreID=genre.genreID left JOIN type on request.typeID=type.typeID left join customer on request.customerID=customer.customerID left JOIN user on customer.userID=user.userID where request.requestID=?";
+    private static final String sqlRequestById="Select request.requestID, request.description, " +
+            "user.userID, user.login, user.photo, request.publicationdate, request.deadline, request.cost, " +
+            "genre.genreID, genre.title as gtitle, type.typeID, type.title as ttitle, customer.paidcompositionnumber " +
+            "from request " +
+            "left JOIN genre on request.genreID=genre.genreID " +
+            "left JOIN type on request.typeID=type.typeID " +
+            "left join customer on request.customerID=customer.customerID " +
+            "left JOIN user on customer.userID=user.userID where request.requestID=?";
     private static final String sqlAllPersonalRequests="SELECT request.requestID, request.description, user.login, user.photo, request.publicationdate, request.deadline, request.cost," +
             " genre.title as gtitle, type.title as ttitle from request " +
             "left JOIN genre on request.genreID=genre.genreID " +
@@ -37,7 +44,7 @@ public class RequestDAO {
     private static final String sqlAddRequest="insert into request (description, customerID, publicationdate, deadline, cost, genreID, typeID) values " +
             "(?,?,?,?,?,?,?)";
     private static final String sqlAddResponse="insert into authorrequest (authorID, requestID) values (?,?) ";
-    private static final String sqlGetAllResponsesForRequest="SELECT user.userID,login,birthdate,about FROM authorrequest " +
+    private static final String sqlGetAllResponsesForRequest="SELECT user.userID,login,birthdate,about, author.finisedcompositions FROM authorrequest " +
             "left join author on author.authorID=authorrequest.authorID " +
             "left join user on author.userID=user.userID where requestID=?";
     private static final String sqlForCheckResponse="SELECT * FROM authorrequest WHERE authorID=? && requestID=?";
@@ -110,6 +117,7 @@ public class RequestDAO {
             u.setUserID(resultSet.getInt("userID"));
             u.setLogin(resultSet.getString("login"));
             u.setPhoto(resultSet.getString("photo"));
+            u.setNumb_composition(resultSet.getInt("paidcompositionnumber"));
             r.setUser(u);
             r.setPublicationdate(resultSet.getDate("publicationdate"));
             r.setDeadline(resultSet.getDate("deadline"));
@@ -181,6 +189,7 @@ public class RequestDAO {
                 u.setLogin(resultSet.getString("login"));
                 u.setBirthdate(resultSet.getDate("birthdate"));
                 u.setAbout(resultSet.getString("about"));
+                u.setNumb_composition(resultSet.getInt("finisedcompositions"));
                 return u;
             }
         });

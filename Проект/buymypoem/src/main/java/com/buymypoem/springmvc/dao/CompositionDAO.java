@@ -1,6 +1,7 @@
 package com.buymypoem.springmvc.dao;
 
 import com.buymypoem.springmvc.model.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -14,6 +15,9 @@ import java.util.Map;
 
 
 public class CompositionDAO {
+
+    @Autowired
+    RequestDAO requestDAO;
 
     public static final int PAGE_SIZE = 3;
     JdbcTemplate temp;
@@ -45,6 +49,8 @@ public class CompositionDAO {
                 "WHERE status='Опубликовано' and authorID=" + getAuthorId(id));
         sqlStrings.put("countDrafts", "select count(*) from composition " +
                 "WHERE status='В черновике' and authorID=" + getAuthorId(id));
+        sqlStrings.put("countPurchases", "select count(*) from composition " +
+                "WHERE status='Преобретена' and ownerID=" + requestDAO.getCustomerId(id));
         String sql = sqlStrings.get(choice);
         return temp.queryForObject(sql, Integer.class);
     }
@@ -78,7 +84,13 @@ public class CompositionDAO {
                 "from author " +
                 "join composition on composition.authorID = author.authorID " +
                 "join user on user.userID=author.userID " +
-                "WHERE composition.status='В черновике' and 45!=? and user.userID=" + id);
+                "WHERE composition.status='В черновике' and -45!=? and user.userID=" + id);
+
+        sqlStrings.put("MyPurchases", "select compositionID, title, description, likes, dislikes, login, photo, typeID, genreID, status " +
+                "from customer " +
+                "join composition on composition.ownerID = customer.customerID " +
+                "join user on user.userID=customer.userID " +
+                "WHERE composition.status='Преобретена' and customer.customerID=" + requestDAO.getCustomerId(id) + " limit ? ," + PAGE_SIZE);
 
         String sqlString = sqlStrings.get(sqlComposition);
 
@@ -486,5 +498,34 @@ public class CompositionDAO {
         }
 
         return compositionList;
+    }
+
+    public Composition getPurchaseById(int id){
+        String sql ="select compositionID, composition.title as ctitle, composition.description, text, ownerID, genre.title as gtitle, type.title as ttitle from composition " +
+                "JOIN genre on genre.genreID=composition.genreID " +
+                "JOIN type on type.typeID=composition.typeID " +
+                "WHERE compositionID=?";
+        try {
+            List<Composition> compositionList = temp.query(sql, new Object[]{id}, new RowMapper<Composition>() {
+                public Composition mapRow(ResultSet resultSet, int i) throws SQLException {
+                    Type t = new Type();
+                    Genre g = new Genre();
+                    Composition comp = new Composition();
+                    comp.setCompositionID(resultSet.getInt("compositionID"));
+                    comp.setTitle(resultSet.getString("ctitle"));
+                    comp.setText(resultSet.getString("text"));
+                    t.setTitle(resultSet.getString("ttitle"));
+                    comp.setType(t);
+                    g.setTitle(resultSet.getString("gtitle"));
+                    comp.setGenre(g);
+                    comp.setDescription(resultSet.getString("description"));
+                    return comp;
+                }
+            });
+            return compositionList.get(0);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }

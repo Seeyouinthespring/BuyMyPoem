@@ -1,0 +1,158 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.top {
+    height: 80px;
+    background: black;
+    display: flex;
+    flex-direction: row;
+}
+.basis {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 200px 0 200px;
+}
+tr:nth-child(odd){
+    background: #E5F2FD;
+}
+table{
+    width: 100%;
+    border-spacing:0;
+}
+td{
+    display: flex;
+    flex-direction: column;
+    font-size: 23px;
+}
+.info{
+    margin: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+.description{
+    margin: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.label{
+    color: white;
+    font-size: 40px;
+    display: flex;
+    margin: 0 20px 0 70px;
+    align-items: center;
+    font-family: Arial;
+}
+.text{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-size: 24px;
+    min-width: 495px;
+}
+span{
+    font-size: 24px;
+    max-width: 785px;
+    margin-left: 10px;
+}
+.info_button{
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+}
+.button_for{
+    background: white;
+    color: black;
+    border-radius: 10px;
+    border: black solid 1px;
+    width: 100px;
+    height: fit-content;
+    align-self: center;
+}
+.left_block{
+    width: 50%;
+    min-width: 500px;
+}
+.right_block{
+    width: 50%;
+    min-width: 500px;
+    display: flex;
+    flex-flow: column;
+    margin: 10px 0px 10px 0px;
+}
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.auth_cust{
+    display: flex;
+    flex-flow: column;
+    margin: 10px 10px;
+    font-size: 20px;
+}
+.login_date{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.for_img{
+    display: flex;
+    flex-flow: row;
+}
+.for_width{
+    width: 100%;
+    border-collapse: inherit;
+    border-spacing: 10px;
+}
+.not_photo{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+}
+.comment_text{
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+}
+.input_comment{
+    width: 90%;
+    border-radius: 10px;
+    margin-left: 10px;
+    height: 20px;
+}
+.last_btn{
+    height: 25px;
+    margin-right: 13px;
+}
+.table_border{
+    border: black solid 1px;
+    width: 97%;
+    margin: 10px;
+}
+.response{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.authors{
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+    align-self: center;
+}
+.for_comments{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.row_border{
+    border-bottom: 1px solid black; /* Линия снизу */
+}

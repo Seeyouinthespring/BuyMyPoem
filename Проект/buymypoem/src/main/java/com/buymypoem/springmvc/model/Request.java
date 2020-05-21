@@ -2,6 +2,7 @@ package com.buymypoem.springmvc.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Min;
 import java.util.Date;
 
 public class Request {
@@ -12,6 +13,8 @@ public class Request {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date deadline;
+
+    @Min(1)
     private float cost;
     private Genre genre;
     private Type type;

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link th:href="@{/css/draft.css}" rel="stylesheet">
+    <title>Черновики</title>
+    <style>
+        .info_row{
+            margin: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+        }
+        .info_button{
+            margin: 10px;
+            display: flex;
+            justify-content: flex-end;
+            flex: 13;
+        }
+        .button_for{
+            background: black;
+            color: white;
+            border-radius: 10px;
+            margin: 5px;
+            text-decoration: none;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body class="main">
+<div class="top">
+    <div class="label">
+        BuyMyPoem
+    </div>
+</div>
+<div class="basis">
+    <table>
+        <tr th:each="text : ${list}">
+            <td>
+                <div class="info_row">
+                    <div class="info">
+                        <span th:text="${text.title}">Название</span>
+                        <span th:text="${text.user.login}">Автор</span>
+                    </div>
+                </div>
+                <div class="description">
+                    <div>
+                        <div class="text">Тип произведения: <span th:text="${text.type.title}">Тип</span></div>
+                        <div class="text">Жанр:  <span th:text="${text.genre.title}"> Жанр </span></div>
+                        <div class="text">Описание:  <span th:text="${text.description}"> Описание </span></div>
+                    </div>
+                    <div class="info_button">
+                        <a th:href="@{/my_purchase/{id} (id=${text.compositionID})}" class="button_for" >Просмотреть</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="buttonsContaner">
+        <a th:if="${page}>1" class="buttonBackForward" th:href="@{/purchases/{p} (p=${page}-1)}">Назад</a>
+        <a th:if="${page}<${end}" class="buttonBackForward" th:href="@{/purchases/{p}(p=${page}+1)}">Вперед</a>
+    </div>
+</div>
+</div>
+</body>
+</html>

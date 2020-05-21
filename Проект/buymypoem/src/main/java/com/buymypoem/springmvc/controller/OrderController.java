@@ -135,6 +135,8 @@ public class OrderController {
     @RequestMapping(value = "/accept_order/{id}", method= RequestMethod.POST)
     public String payForOrder(@PathVariable int id, Model m){
         Order order = orderDAO.getOrderById(id);
+        orderDAO.updateStatisticsAuthor(order.getAuthorID());
+        orderDAO.updateStatisticsCustomer(order.getCustomerID());
         compositionDAO.changeAuthor(us.getCustomerID(),order.getComposition().getCompositionID());
         compositionDAO.changeStatus(order.getComposition().getCompositionID(),"bought");
         List<CommentOrdering> commentOrderings = commentDAO.GetCommentsToDeleteOrder(id);
