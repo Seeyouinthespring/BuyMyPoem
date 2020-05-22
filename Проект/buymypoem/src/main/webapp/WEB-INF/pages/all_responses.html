@@ -84,6 +84,11 @@
                 </td>
             </tr>
         </table>
+        <div class="info_button">
+            <form action="#" th:action="@{/delete_request/{id} (id=${req.requestID})}" method="post">
+                <button class="button_for">Удалить заявку</button>
+            </form>
+        </div>
     </div>
 </div>
 </body>
