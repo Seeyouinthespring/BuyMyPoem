@@ -1,6 +1,9 @@
 package com.buymypoem.springmvc.dao;
 
 import com.buymypoem.springmvc.model.*;
+import org.apache.log4j.PropertyConfigurator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,7 +15,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 public class CompositionDAO {
 
@@ -443,15 +445,22 @@ public class CompositionDAO {
         return compositionList;
     }
 
+    private static Logger LOGGER = LoggerFactory.getLogger(CompositionDAO.class);
+
     public int changeLikeOrDislikeNumber(int compositionID, String checkString){
         Map<String, String> sqlStringsForCommentLink = new HashMap<String, String>();
         sqlStringsForCommentLink.put("like+",sqlIncrementLikes);
         sqlStringsForCommentLink.put("like-", sqlDecrementLikes);
         sqlStringsForCommentLink.put("dislike+",sqlIncrementDisLikes);
         sqlStringsForCommentLink.put("dislike-",sqlDecrementDisLikes);
-        Object[] params = {compositionID};
-        int[] types ={4};
-        return temp.update(sqlStringsForCommentLink.get(checkString),params,types);
+        try{
+            Object[] params = {compositionID};
+            int[] types ={4};
+            return temp.update(sqlStringsForCommentLink.get(checkString),params,types);
+        }catch (Exception ex){
+            LOGGER.error("error: ",ex);
+        }
+        return 0;
     }
 
     public List<Composition> foundCompositionsForAntiplagiarism(int typeId, int genreId) {
