@@ -218,4 +218,23 @@ public class RequestController {
         return  "redirect:/requests";
     }
 
+    @Secured("ROLE_USER_CUSTOMER")
+    @RequestMapping(value = "/delete_request/{id}", method = RequestMethod.POST)
+    public String dropRequest(@PathVariable int id){
+        Request request = requestDAO.getRequestById(id);
+        if(request.getUser().getUserID()==us.getUserSession().getUserID()){
+        requestDAO.dropAllResponses(id);
+        List<CommentRequest> commentRequests = commentDAO.GetCommentsToDeleteRequest(id);
+        commentDAO.dropAllCommentRequestLinks(id);
+        for (CommentRequest cr:commentRequests) {
+            commentDAO.dropComment(cr.getCommentID());
+        }
+        requestDAO.dropRequest(id);
+        return "redirect:/successCustomer";
+        }
+        else{
+            return "error";
+        }
+    }
+
 }
