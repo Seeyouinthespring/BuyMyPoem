@@ -17,6 +17,7 @@
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/security.xml</file>
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/springmvc-servlet.xml</file>
           <file>file://$MODULE_DIR$/src/main/java/com/buymypoem/springmvc/config/MvcWebConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/springWebMultipartContext.xml</file>
         </fileset>
       </configuration>
     </facet>
