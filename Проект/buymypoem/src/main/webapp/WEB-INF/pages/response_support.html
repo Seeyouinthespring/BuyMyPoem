@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link th:href="@{/css/support.css}" rel="stylesheet">
     <title>Список жалоб</title>
 </head>
 <body>
@@ -17,10 +18,7 @@
             <span th:text="${report.msg}">Проблема</span>
         </td>
         <td>
-            <span th:text="${report.msg}">Проблема</span>
-        </td>
-        <td>
-            <a th:href="@{/successAuthor/{p} (p=${page}-1)}">Решено</a>
+            <a th:href="@{/decided/{id} (id=${report.id})}">Решено</a>
         </td>
     </tr>
 </table>

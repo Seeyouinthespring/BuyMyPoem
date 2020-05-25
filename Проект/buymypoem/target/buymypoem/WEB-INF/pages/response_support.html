@@ -17,10 +17,7 @@
             <span th:text="${report.msg}">Проблема</span>
         </td>
         <td>
-            <span th:text="${report.msg}">Проблема</span>
-        </td>
-        <td>
-            <a th:href="@{/successAuthor/{p} (p=${page}-1)}">Решено</a>
+            <a th:href="@{/decided/{id} (id=${report.id})}">Решено</a>
         </td>
     </tr>
 </table>

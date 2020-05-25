@@ -1,7 +1,6 @@
 package com.buymypoem.springmvc.dao;
 
 import com.buymypoem.springmvc.model.*;
-import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

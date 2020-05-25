@@ -4,6 +4,8 @@ import com.buymypoem.springmvc.model.Author;
 import com.buymypoem.springmvc.model.Customer;
 import com.buymypoem.springmvc.model.MsgSupport;
 import com.buymypoem.springmvc.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,6 +23,8 @@ public class UserDAO {
     public void setTemp(JdbcTemplate temp) {
         this.temp = temp;
     }
+
+    private static Logger LOGGER = LoggerFactory.getLogger(CompositionDAO.class);
 
     public User getUserByLogin(String login){
         String sql ="Select * from user where login=?";
@@ -161,6 +165,7 @@ public class UserDAO {
              List<MsgSupport> uList = temp.query(sql, new RowMapper<MsgSupport>() {
                 public MsgSupport mapRow(ResultSet resultSet, int i) throws SQLException {
                     MsgSupport a = new MsgSupport();
+                    a.setId(resultSet.getInt("id"));
                     a.setMsg(resultSet.getString("msg"));
                     a.setEmail(resultSet.getString("email"));
                     a.setLogin(resultSet.getString("login"));
@@ -171,6 +176,18 @@ public class UserDAO {
         }catch (Exception e){
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public int delete(int id){
+        String sql = "Delete from support where id=?";
+        try {
+            Object[] params = {id};
+            int[] types = {4};
+            return temp.update(sql,params,types);
+        }catch (Exception e){
+            LOGGER.error("error: ",e);
+            return 0;
         }
     }
 }

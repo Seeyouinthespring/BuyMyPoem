@@ -2,6 +2,7 @@ package com.buymypoem.springmvc.model;
 
 public class MsgSupport {
 
+    private int id;
     private String login;
     private String email;
     private String msg;
@@ -28,5 +29,13 @@ public class MsgSupport {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.HashMap;
@@ -130,6 +131,12 @@ public class UserController {
         List<MsgSupport> msgSupportList= userDAO.techSupportAll();
         model.addAttribute("list", msgSupportList);
         return "response_support";
+    }
+
+    @RequestMapping(value = "/decided/{id}", method = RequestMethod.GET)
+    public String decided(@PathVariable int id, Model model) {
+        userDAO.delete(id);
+        return "redirect:/response_support";
     }
 }
 
