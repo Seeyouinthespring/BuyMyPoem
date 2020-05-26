@@ -238,3 +238,8 @@
     flex-direction: column;
     width: 300px;
 }
+
+.my_profile{
+    text-decoration: none;
+    color: white;
+}

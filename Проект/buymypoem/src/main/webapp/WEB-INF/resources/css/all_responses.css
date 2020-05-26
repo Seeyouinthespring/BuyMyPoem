@@ -156,3 +156,9 @@ span{
 .row_border{
     border-bottom: 1px solid black; /* Линия снизу */
 }
+
+.my_profile{
+    text-decoration: none;
+    color: white;
+}
+

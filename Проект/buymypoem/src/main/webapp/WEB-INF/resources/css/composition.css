@@ -287,3 +287,8 @@ td{
     display: flex;
     justify-content: center;
 }
+
+.my_profile{
+    text-decoration: none;
+    color: white;
+}

@@ -112,3 +112,8 @@ span{
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.my_profile{
+    text-decoration: none;
+    color: white;
+}

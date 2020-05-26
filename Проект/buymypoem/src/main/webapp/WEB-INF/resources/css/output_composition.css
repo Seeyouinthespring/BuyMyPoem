@@ -171,3 +171,8 @@
     padding: 5px;
     border-radius: 10px;
 }
+
+.my_profile{
+    text-decoration: none;
+    color: white;
+}

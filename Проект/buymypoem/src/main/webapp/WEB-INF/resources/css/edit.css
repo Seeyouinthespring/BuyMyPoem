@@ -4,12 +4,14 @@
     justify-content: center;
     align-items: center;
     font-size: 25px;
+    flex: 10;
 }
 
 .body{
-    height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    height: 100vh;
 }
 
 .input_text{
@@ -73,3 +75,27 @@ div{
     color: red;
     font-size: 15px;
 }
+
+.top {
+    width: 100%;
+    height: 80px;
+    background: black;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    flex: 1;
+}
+
+.label{
+    color: white;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    font-family: Arial;
+    margin: 0 0 0 50px;
+}
+
+.my_profile{
+      text-decoration: none;
+      color: white;
+  }
