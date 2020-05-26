@@ -95,8 +95,7 @@ public class UserController {
         }
 
         userDAO.insertUser(user);
-        user.setPhoto("D:/repository/default.jpg");
-        userSession.setUserSession(user);
+        userSession.setUserSession(userDAO.getUserByLogin(user.getLogin()));
         securityService.autoLogin(user.getLogin(), user.getPassword());
         if (user.getRole().equals("Author")) return "redirect:successAuthor";
         else return "redirect:successCustomer";
