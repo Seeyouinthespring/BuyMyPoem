@@ -116,3 +116,8 @@ html{
     justify-content: center;
     margin-top: 5px;
 }
+
+.my_profile{
+    text-decoration: none;
+    color: white;
+}

@@ -730,3 +730,8 @@ table{
 	font-family:Arial;
 	background: #000000;
 }
+
+.my_profile{
+	text-decoration: none;
+	color: white;
+}

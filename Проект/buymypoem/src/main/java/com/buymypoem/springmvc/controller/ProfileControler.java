@@ -48,7 +48,9 @@ public class ProfileControler {
         m.addAttribute("page",1);
         int endPage=compositionBL.countPages("countCompOfAuthor");
         m.addAttribute("end", endPage);
-        m.addAttribute("photo", profileBL.getImg(us.getUserSession().getPhoto()));
+        if(us.getUserSession().getPhoto().contains("D:/repository"))
+            m.addAttribute("photo", profileBL.getImg(us.getUserSession().getPhoto()));
+        else m.addAttribute("photo", us.getUserSession().getPhoto());
         return "successAuthor";
     }
 
@@ -60,7 +62,9 @@ public class ProfileControler {
         int endPage=compositionBL.countPages("countCompOfAuthor");
         m.addAttribute("end", endPage);
         m.addAttribute("page",page);
-        m.addAttribute("photo", profileBL.getImg(us.getUserSession().getPhoto()));
+        if(us.getUserSession().getPhoto().contains("D:/repository"))
+            m.addAttribute("photo", profileBL.getImg(us.getUserSession().getPhoto()));
+        else m.addAttribute("photo", us.getUserSession().getPhoto());
         return "successAuthor";
     }
 
