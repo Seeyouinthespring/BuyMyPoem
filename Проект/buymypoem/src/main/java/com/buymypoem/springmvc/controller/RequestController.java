@@ -214,6 +214,7 @@ public class RequestController {
             User u=userDAO.getUserByLogin(slogin);
             find_a_composition_by_customer=userDAO.getCustomerById(u.getUserID()).getCustomerID();
         }
+        else find_a_composition_by_customer=0;
 
         return  "redirect:/requests";
     }

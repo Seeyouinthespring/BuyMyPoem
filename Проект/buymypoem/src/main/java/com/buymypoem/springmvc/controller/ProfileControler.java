@@ -71,7 +71,10 @@ public class ProfileControler {
     @RequestMapping(value = "/successCustomer")
     public String successCustomer(Model m) {
         m.addAttribute("user", us.getUserSession());
-        m.addAttribute("photo", profileBL.getImg(us.getUserSession().getPhoto()));
+        String help = us.getUserSession().getPhoto();
+        if(us.getUserSession().getPhoto().contains("D:/repository"))
+            m.addAttribute("photo", profileBL.getImg(us.getUserSession().getPhoto()));
+        else m.addAttribute("photo", us.getUserSession().getPhoto());
         return "successCustomer";
     }
 

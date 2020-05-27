@@ -302,6 +302,7 @@ public class CompositionController {
             User u=userDAO.getUserByLogin(slogin);
             find_a_composition_by_author=userDAO.getAuthorById(u.getUserID()).getAuthorID();
         }
+        else find_a_composition_by_author=0;
 
         if (us.getUserSession().getUserID()==0){
             return "redirect:/index";
